@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -45,6 +46,39 @@ public class Driver {
 		//webpage is ready at this point
 
 		System.out.println("Page is ready");
+		
+		return driver;
+	}
+	
+	public WebDriver initChromeDriver() {
+		
+		String URL = "https://www.advantageonlineshopping.com/#/";
+		
+		
+		System.out.println("Setting chrome driver path...");
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe"); driver = new ChromeDriver();
+		System.out.println("Creating driver...");
+		driver.navigate().to(URL);
+		driver.manage().window().maximize();
+		
+
+		System.out.println("Waiting for page to be ready...");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(15))
+				.pollingEvery(Duration.ofSeconds(2))
+				.ignoring(ElementNotInteractableException.class);
+		
+		//wait for invisibility of loading message
+		wait.until(ExpectedConditions.attributeToBe(By.xpath("(//div[@class='loader'])[1]"), "style", "display: none; opacity: 0;"));
+
+		//wait for visibility of contact us button
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@translate='CONTACT_US']")));
+		
+		//webpage is ready at this point
+
+		System.out.println("Page is loaded and ready to use!");
 		
 		return driver;
 	}

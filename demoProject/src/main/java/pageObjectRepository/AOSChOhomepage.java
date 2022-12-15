@@ -114,4 +114,15 @@ public AOSChOhomepage(WebDriver driver) {
 			System.out.println("DONE");
 		}
 		
+		@FindBy (id="tabletsImg") WebElement tabletsButton;
+		
+		private WebElement getTablesButton() {
+			return tabletsButton;
+		}
+		
+		public void clickTabletsButton() {
+			System.out.println("Clicking in tablets button Home Page...");
+			getTablesButton().click();
+		}
+		
 }
