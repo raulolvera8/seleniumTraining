@@ -1,4 +1,4 @@
-package pageObjectRepository;
+package pageObjectRepositor;
 
 import java.time.Duration;
 
@@ -24,20 +24,14 @@ WebDriver driver;
 public WebElement getLabel() {
 	return msgValidation;
 }
-public void msgValidation() {//*[@id='orderPaymentSuccess']//h2//span"
+public void msgValidation() {
 	Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver)
 			.withTimeout(Duration.ofSeconds(60))
 			.pollingEvery(Duration.ofSeconds(3))
 			.ignoring(ElementNotInteractableException.class);
 	
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='ORDER PAYMENT']")));
-	
-	Wait<WebDriver> waits = new FluentWait<WebDriver>(this.driver)
-			.withTimeout(Duration.ofSeconds(90))
-			.pollingEvery(Duration.ofSeconds(2))
-			.ignoring(ElementNotInteractableException.class);
-	waits.until(ExpectedConditions.attributeToBe(By.xpath("//div[@class='loader']"), "style", "display: none; opacity: 0;"));
-	
+	wait.until(ExpectedConditions.attributeToBeNotEmpty(numberLabel, "innerHTML"));
+
 	 if  (getLabel().getAttribute("innerHTML").contentEquals("Thank you for buying with Advantage")) {
 		 
 		 System.out.println("--" + getLabel().getAttribute("innerHTML"));
@@ -47,57 +41,30 @@ public void msgValidation() {//*[@id='orderPaymentSuccess']//h2//span"
 	        }	
 }
 
-//-----------------------order number
+//-----------------------order number//label[contains(text(),'9866')]
 
-@FindBy(xpath ="//p[@class='roboto-regular ng-binding']") WebElement numberLabel;
-
+@FindBy(id ="orderNumberLabel") WebElement numberLabel;
+@FindBy(id ="trackingNumberLabel") WebElement trackingLabel;
 
 public WebElement getNumLabel() {
 	return numberLabel;
 }
-@FindBy(id="trackingNumberLabel") WebElement trackingNumberLabel;
-
-public WebElement getTrackingNumberLabel() {
-	return trackingNumberLabel;
+public WebElement getTrackingLabel() {
+	return trackingLabel;
 }
-
-@FindBy(id= "orderNumberLabel") WebElement orderNumberLabel;
-public WebElement getOrderNumberLabel() {
-	return orderNumberLabel;
-}
-
-public void orderNumber() {
-//	WebElement num= driver.findElement(By.xpath("//label[contains(text(),'9866')]"));
-//	 System.out.println("--number label: " + getNumLabel().getAttribute("innerText"));
-//	 System.out.println("--number label: " + getNumLabel().getText());
-//	 System.out.println("--number label: " + num.getText());
-
-//	 if  (getNumLabel().getText().contains("9866")) {
-//		 System.out.println("--TRACKING NUMBER AND ORDER NUMBER: ");
-//
-//		 System.out.println(getNumLabel().getText());
-//		
-//	        } else {
-//	              Assert.fail( "FAILED" );
-//	        }	
-
-	Wait<WebDriver> waits = new FluentWait<WebDriver>(this.driver)
-			.withTimeout(Duration.ofSeconds(40))
-			.pollingEvery(Duration.ofSeconds(5))
-			.ignoring(ElementNotInteractableException.class);
-	waits.until(ExpectedConditions.attributeToBeNotEmpty(orderNumberLabel,"innerHTML"));
+public void orderTrackinfNumbers() {								
 	
-	System.out.println("Tracking:" + getTrackingNumberLabel().getAttribute("innerHTML"));
-	
-	System.out.println("Order:" + getOrderNumberLabel().getAttribute("innerHTML"));
-	
-	if (Integer.parseInt(getTrackingNumberLabel().getAttribute("innerHTML"))>0) {
-		System.out.println("Valid tracking number");
-	}
-	
-	else {
-		 Assert.fail("Invalid tracking number");
-	}
+	 if  (getNumLabel().getText().contains("9866") && getTrackingLabel().getText().contains("9866") ) {
+		 System.out.println("--TRACKING NUMBER AND ORDER NUMBER: ");
+		// WebElement num= driver.findElement(By.xpath("//p[@class='roboto-regular ng-binding']"));
+		 //System.out.println("--number label: " + num.getText());
+
+		 System.out.println("Order number: " +  getNumLabel().getText());
+		 System.out.println("Tracking number: " +  getTrackingLabel().getText());
+
+	        } else {
+	              Assert.fail( "FAILED" );
+	        }	
 }
 	 
 }

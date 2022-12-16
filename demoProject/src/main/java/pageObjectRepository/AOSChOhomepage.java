@@ -1,4 +1,4 @@
-package pageObjectRepository;
+package pageObjectRepositor;
 
 import java.time.Duration;
 
@@ -112,17 +112,6 @@ public AOSChOhomepage(WebDriver driver) {
 			waits.until(ExpectedConditions.attributeToBe(By.xpath("//div[@class='loader']"), "style", "display: none; opacity: 0;"));
 			
 			System.out.println("DONE");
-		}
-		
-		@FindBy (id="tabletsImg") WebElement tabletsButton;
-		
-		private WebElement getTablesButton() {
-			return tabletsButton;
-		}
-		
-		public void clickTabletsButton() {
-			System.out.println("Clicking in tablets button Home Page...");
-			getTablesButton().click();
 		}
 		
 }
