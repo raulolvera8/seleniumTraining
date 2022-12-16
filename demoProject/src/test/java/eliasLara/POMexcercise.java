@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import library.Driver;
 import pageObjectRepository.AOSChOpayment;
 import pageObjectRepository.AOSChOproductsCategory;
+import pageObjectRepository.ADInfoOrderPage;
 import pageObjectRepository.AOSChAddToCart;
 import pageObjectRepository.AOSChOCheckOut;
 import pageObjectRepository.AOSChOValidationPayment;
@@ -29,13 +30,12 @@ public class POMexcercise extends Driver {
 	public void POMExcerciseAOS() throws InterruptedException{
 		
 		AOSChOhomepage homePage = new AOSChOhomepage(driver);
-		//AOSMyAccountPage editPage = new AOSMyAccountPage (driver);
+		ADInfoOrderPage validation = new ADInfoOrderPage(driver);
 		AOSChOproductsCategory productPage = new AOSChOproductsCategory (driver);
 		AOSChAddToCart productSpecsPage = new AOSChAddToCart (driver);
 		AOSChOCheckOut shoppingCartPage = new AOSChOCheckOut (driver);
 		AOSChOpayment orderPaymentPage = new AOSChOpayment (driver);
-		AOSChOValidationPayment validation = new AOSChOValidationPayment(driver);
-		
+				
 		//click user button
 		homePage.clickUserButton();
 		
@@ -47,8 +47,7 @@ public class POMexcercise extends Driver {
 		
 		//click sign in button
 		homePage.clickSignInButton();
-		
-				
+						
 		//Click in tablets button (Home Page, Load tablets page wait).
 		
 		homePage.clickTabletsButton();
@@ -78,7 +77,8 @@ public class POMexcercise extends Driver {
 		orderPaymentPage.clickPayNowButton();
 		
 		//Extract order and tracking numbers.
-		validation.orderNumber();
+		validation.LabelOrderNumber();
+		validation.LabelTrackingNumber();
 		
 	}
 	
