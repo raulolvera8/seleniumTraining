@@ -7,6 +7,7 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -17,37 +18,32 @@ public class Driver {
 	
 	public WebDriver initFirefoxDriver() {
 		
-		String URL = "https://www.advantageonlineshopping.com/#/";
-		
-		
+	    String URL = "https://super.walmart.com.mx/";		
 		System.out.println("Setting gecko driver path...");
 		System.setProperty("webdriver.gecko.driver", "C:\\Selenium Training\\geckodriver-v0.31.0-win64\\geckodriver.exe");
 
 		System.out.println("Creating driver...");
-		driver = new FirefoxDriver();
-		driver.navigate().to(URL);
-		driver.manage().window().maximize();
-		
+		 // driver = new FirefoxDriver();
+	    FirefoxOptions options = new FirefoxOptions();
+	    options.setCapability("marionette", false);
+	    options.addArguments("--disable-extensions");
+	    driver = new FirefoxDriver(options);
 
-		System.out.println("Waiting for page to be ready...");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(15))
-				.pollingEvery(Duration.ofSeconds(2))
-				.ignoring(ElementNotInteractableException.class);
-		
-		//wait for invisibility of loading message
-		wait.until(ExpectedConditions.attributeToBe(By.xpath("(//div[@class='loader'])[1]"), "style", "display: none; opacity: 0;"));
-
-		//wait for visibility of contact us button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@translate='CONTACT_US']")));
-		
-		//webpage is ready at this point
-
-		System.out.println("Page is ready");
-		
+	    driver.navigate().to(URL);
+	    
+	    driver.manage().window().maximize();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+	            .withTimeout(Duration.ofSeconds(60))
+	            .pollingEvery(Duration.ofSeconds(2))
+	            .ignoring(ElementNotInteractableException.class);
+	    //wait for invisibility of loading message
+	    wait.until(ExpectedConditions.attributeToBe(By.xpath("//img[@class='db']"), "alt", "Walmart"));
+	    //Wait visibility of button
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='new-atf-wrapper']")));//    
 		return driver;
+
 	}
 	
 	public WebDriver initChromeDriver() {
