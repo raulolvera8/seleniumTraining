@@ -1,4 +1,4 @@
-package pageObjectRepository;
+package walmartPageObject;
 
 import java.time.Duration;
 

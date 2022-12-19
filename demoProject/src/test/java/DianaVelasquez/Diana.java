@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
-import pageObjectRepository.SWhomePage;
+import walmartPageObject.SWhomePage;
 
 
 public class Diana extends Driver {
