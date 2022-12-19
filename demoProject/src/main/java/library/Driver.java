@@ -48,7 +48,7 @@ public class Driver {
 	
 	public WebDriver initChromeDriver() {
 		
-		String URL = "https://www.advantageonlineshopping.com/#/";
+		String URL = "https://super.walmart.com.mx/";
 		
 		
 		System.out.println("Setting chrome driver path...");
@@ -67,10 +67,10 @@ public class Driver {
 				.ignoring(ElementNotInteractableException.class);
 		
 		//wait for invisibility of loading message
-		wait.until(ExpectedConditions.attributeToBe(By.xpath("(//div[@class='loader'])[1]"), "style", "display: none; opacity: 0;"));
+		wait.until(ExpectedConditions.attributeToBe(By.xpath("//img[@class='db']"), "alt", "Walmart"));
 
 		//wait for visibility of contact us button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@translate='CONTACT_US']")));
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='new-atf-wrapper']")));
 		
 		//webpage is ready at this point
 
