@@ -18,10 +18,10 @@ public class Diana extends Driver {
 	}
 	@Test
 	public void walmartProject() {
-		System.out.println("----Welcome to Walmart----");
+		System.out.println("----Sign In Walmart----");
 		SWhomePage mainWebsite = new SWhomePage(driver);
-		mainWebsite.clickCuentaBtn();
-		mainWebsite.clickIniciarSesionBtn();
+		//mainWebsite.clickCuentaBtn();
+		//mainWebsite.clickIniciarSesionBtn();
 		//avoiding detection
 	    
 		
