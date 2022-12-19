@@ -43,7 +43,7 @@ public class Driver {
 	
 	public WebDriver initChromeDriver() {
 		
-		String URL = "https://www.advantageonlineshopping.com/#/";
+		String URL = "https://super.walmart.com.mx/";
 		
 		
 		System.out.println("Setting chrome driver path...");
@@ -54,6 +54,7 @@ public class Driver {
 		
 
 		System.out.println("Waiting for page to be ready...");
+<<<<<<< HEAD
 		   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
@@ -64,6 +65,20 @@ public class Driver {
 		    wait.until(ExpectedConditions.attributeToBe(By.className("image_image__mGFxl"), "src", "https://super.walmart.com.mx/static/media/logo-od.db4eec40.svg"));
 		    //Wait visibility of form
 		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_form__9MEAJ")));//    
+=======
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(15))
+				.pollingEvery(Duration.ofSeconds(2))
+				.ignoring(ElementNotInteractableException.class);
+		
+		//wait for invisibility of loading message
+		wait.until(ExpectedConditions.attributeToBe(By.xpath("//img[@class='db']"), "alt", "Walmart"));
+
+		//wait for visibility of contact us button
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='new-atf-wrapper']")));
+>>>>>>> c15394ab663e719460e0fbdada730f831c3c4dc2
 		
 		//webpage is ready at this point
 
