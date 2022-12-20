@@ -93,4 +93,20 @@ public class SWhomePage {
 	public void closePoppup() {
 
 	}
+	
+	//CLICK ¿QUE QUIERES COMPRAR HOY? BUTTON
+	@FindBy(xpath = "//button[@class='flex items-center no-underline ph3 white desktop-header-trigger lh-title lh-solid pointer ba b--transparent bg-transparent sans-serif']")
+	WebElement comprarhoyButton;
+
+	private WebElement getcomprarhoyButton() {
+		return comprarhoyButton;
+	}
+
+	public void clickcomprarhoyButton() {
+		System.out.println("Clicking ¿Qué quieres comprar hoy? button");
+		getcomprarhoyButton().click();
+		
+	}
+
+
 }
