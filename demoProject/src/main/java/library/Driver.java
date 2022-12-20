@@ -18,59 +18,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-<<<<<<< HEAD
 @SuppressWarnings("unused")
-public class Driver {
-	WebDriver driver;
-
-	public WebDriver initFirefoxDriver() {
-		String URL = "https://super.walmart.com.mx/tu-cuenta/iniciar-sesion";
-=======
-
 public class Driver {
 	WebDriver driver;
 
 
 	public WebDriver initFirefoxDriver() {
 		String URL = "https://super.walmart.com.mx/tu-cuenta/iniciar-sesion?vid=oaoh&tid=0&returnUrl=%2F";
->>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Selenium Training\\geckodriver-v0.31.0-win64\\geckodriver.exe");
 		// driver = new FirefoxDriver();
-<<<<<<< HEAD
-		driver = new FirefoxDriver();
-		driver.navigate().to(URL);
-		driver.manage().window().maximize();
-		System.out.println("Waiting for page to be ready...");
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(2)).ignoring(ElementNotInteractableException.class);
-		// wait for invisibility of loading message
-		wait.until(ExpectedConditions.attributeToBe(By.className("image_image__mGFxl"), "src",
-				"https://super.walmart.com.mx/static/media/logo-od.db4eec40.svg"));
-		// Wait visibility of form
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_form__9MEAJ")));//
-		System.out.println("Page is loaded and ready to use!");
-
-		return driver;
-
-	}
-
-	public WebDriver initChromeDriver() {
-
-		String URL = "https://super.walmart.com.mx/";
-
-		System.out.println("Setting chrome driver path...");
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
-		System.out.println("Creating driver...");
-		driver.navigate().to(URL);
-		driver.manage().window().maximize();
-=======
-		
 		driver = new FirefoxDriver();
 		driver.navigate().to(URL);
 		driver.manage().window().maximize();
@@ -132,36 +90,31 @@ public class Driver {
 		//open the url
 		driver.navigate().to(URL);
 		driver.manage().window().maximize();
->>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 
 		System.out.println("Waiting for page to be ready...");
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-<<<<<<< HEAD
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(ElementNotInteractableException.class);
 		// wait for invisibility of loading message
 		wait.until(ExpectedConditions.attributeToBe(By.className("image_image__mGFxl"), "src",
 				"https://super.walmart.com.mx/static/media/logo-od.db4eec40.svg"));
-=======
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+		Wait<WebDriver> wait1 = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(5))
 				.ignoring(ElementNotInteractableException.class);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()= 'Inicia sesión']" )));
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()= 'Inicia sesión']" )));
 		
 		//loader object <-----------
-		wait.until(ExpectedConditions.attributeToBe(By.xpath("//img[@alt='PxPixel']/.."), "style", "position: fixed; top: 0px; left: 0px; display: none;"));
+		wait1.until(ExpectedConditions.attributeToBe(By.xpath("//img[@alt='PxPixel']/.."), "style", "position: fixed; top: 0px; left: 0px; display: none;"));
 		// wait for invisibility of loading message
 		//wait.until(ExpectedConditions.attributeToBe(By.className("image_image__mGFxl"), "src",
 		//		"https://super.walmart.com.mx/static/media/logo-od.db4eec40.svg"));
->>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 		// Wait visibility of form
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_form__9MEAJ")));//
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_form__9MEAJ")));//
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-<<<<<<< HEAD
 		/*
 		 * Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 		 * .withTimeout(Duration.ofSeconds(15)) .pollingEvery(Duration.ofSeconds(2))
@@ -176,8 +129,6 @@ public class Driver {
 		 * "//*[@class='new-atf-wrapper']")));
 		 */
 
-=======
->>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 		// webpage is ready at this point
 
 		System.out.println("Page is loaded and ready to use!");
@@ -186,10 +137,6 @@ public class Driver {
 	}
 
 	public void teardownDriver() {
-<<<<<<< HEAD
-=======
-
->>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 		driver.close();
 		driver = null;
 	}

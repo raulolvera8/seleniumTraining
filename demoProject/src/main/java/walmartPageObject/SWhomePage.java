@@ -96,7 +96,6 @@ public class SWhomePage {
 
 	}
 	
-<<<<<<< HEAD
 	//CLICK ¿QUE QUIERES COMPRAR HOY? BUTTON
 	@FindBy(xpath = "//button[@class='flex items-center no-underline ph3 white desktop-header-trigger lh-title lh-solid pointer ba b--transparent bg-transparent sans-serif']")
 	WebElement comprarhoyButton;
@@ -112,7 +111,6 @@ public class SWhomePage {
 	}
 
 
-=======
 	//--------- Buscar en Walmart Search Text Box -----
 	
 	@FindBy (name = "q") WebElement BuscarEnWalmartTextBox;
@@ -141,5 +139,4 @@ public class SWhomePage {
 		
 	}
 	
->>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 }
