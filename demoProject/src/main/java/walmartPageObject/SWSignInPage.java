@@ -3,11 +3,14 @@ package walmartPageObject;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SWSignInPage {
@@ -42,7 +45,7 @@ public class SWSignInPage {
 	}
 
 	public void insertPasswordTextBox(String password) {
-		getTextBoxEmail().sendKeys(password);
+		getTextBoxPassword().sendKeys(password);
 	}
 
 	// ------Iniciar sesión button-----
@@ -55,6 +58,14 @@ public class SWSignInPage {
 	}
 
 	public void clickSignInButton() {
+		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(ElementNotInteractableException.class);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()= 'Iniciar sesión' and not(@disable)]" )));
+		
+		
 		getSignInButton().click();
 		System.out.println("Click Sign In button...");
 
