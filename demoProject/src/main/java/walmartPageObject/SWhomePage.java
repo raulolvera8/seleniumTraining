@@ -1,9 +1,11 @@
 package walmartPageObject;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebElement;
@@ -94,6 +96,7 @@ public class SWhomePage {
 
 	}
 	
+<<<<<<< HEAD
 	//CLICK ¿QUE QUIERES COMPRAR HOY? BUTTON
 	@FindBy(xpath = "//button[@class='flex items-center no-underline ph3 white desktop-header-trigger lh-title lh-solid pointer ba b--transparent bg-transparent sans-serif']")
 	WebElement comprarhoyButton;
@@ -109,4 +112,34 @@ public class SWhomePage {
 	}
 
 
+=======
+	//--------- Buscar en Walmart Search Text Box -----
+	
+	@FindBy (name = "q") WebElement BuscarEnWalmartTextBox;
+	
+	public WebElement getBuscarEnWalmartTextbox() {
+		return BuscarEnWalmartTextBox;
+	}
+		
+	// Inserta el producto a buscar y valida que al menos un resultado sea mostrado.
+	public void txtBoxSearch(String busqueda) {
+		
+		getBuscarEnWalmartTextbox().sendKeys(busqueda);
+		getBuscarEnWalmartTextbox().sendKeys(Keys.ENTER);
+		
+				
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+	            .withTimeout(Duration.ofSeconds(60))
+	            .pollingEvery(Duration.ofSeconds(2))
+	            .ignoring(NoSuchElementException.class);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//div[contains(@class,'w-25')][1]")));
+		
+		System.out.println("Product inserted and searched...");
+		
+		
+	}
+	
+>>>>>>> bc497b20d448b537b839e1baa3af510d2b223662
 }
