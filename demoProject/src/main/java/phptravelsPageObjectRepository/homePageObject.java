@@ -1,9 +1,16 @@
 package phptravelsPageObjectRepository;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
 public class homePageObject {
 	WebDriver driver;
@@ -48,6 +55,29 @@ public class homePageObject {
 	public void clickAgentLoginbtn() {
 		getAgentLogBtn().click();
 		System.out.println("Login Agent Account...");
+	}
+	
+	/// -----Supplier login----- Elías Lara.
+	
+	@FindBy(xpath = "//a[text()='Supplier Login']")
+	WebElement SupplierLoginBtn;
+	
+	public WebElement getSupplierLoginBtn() {
+		return SupplierLoginBtn;
+	}
+	
+	public void clickSupplierLoginBtn() {
+		
+		getSupplierLoginBtn().click();
+		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(NoSuchElementException.class);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
+		
+		System.out.println("Supplier Login button has been clicked. The user is in the proper Login page...");
 	}
 
 	// ELEMENTS FROM LOGIN FORM ------ Iris
