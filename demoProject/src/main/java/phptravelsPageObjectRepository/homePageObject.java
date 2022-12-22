@@ -12,11 +12,19 @@ public class homePageObject {
 		PageFactory.initElements(driver, this);	
 	}
 	///----Account Button-----
-	@FindBy (className="btn btn-primary dropdown-toggle waves-effect") WebElement btnAccount;
+	@FindBy (id="ACCOUNT") WebElement btnAccount;
 	public WebElement getBtnAccount() {
 		return btnAccount;
 	}
 	public void clickBtnAccount() {
 		getBtnAccount().click();
+	}
+	///-----Customer login-----
+	@FindBy (xpath="//a[ contains (text(), 'Customer Login' ) ]") WebElement customerLoginBtn;
+	public WebElement getCustomerLogBtn() {
+		return customerLoginBtn;
+	}
+	public void clickCustomerLoginbtn() {
+		getCustomerLogBtn().click();
 	}
 }
