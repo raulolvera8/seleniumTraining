@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import library.phptravelsDriver;
 import phptravelsPageObjectRepository.homePageObject;
 
-public class Diana extends phptravelsDriver {
+public class Diana extends Driver {
 	
 WebDriver driver;
 @BeforeClass
