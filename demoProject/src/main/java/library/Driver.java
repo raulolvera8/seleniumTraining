@@ -24,7 +24,7 @@ public class Driver {
 
 
 	public WebDriver initFirefoxDriver() {
-		String URL = "https://super.walmart.com.mx/tu-cuenta/iniciar-sesion?vid=oaoh&tid=0&returnUrl=%2F";
+		String URL = "https://phptravels.net/";
 
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Selenium Training\\geckodriver-v0.31.0-win64\\geckodriver.exe");
@@ -33,7 +33,7 @@ public class Driver {
 		driver = new FirefoxDriver();
 		driver.navigate().to(URL);
 		driver.manage().window().maximize();
-		System.out.println("Waiting for page to be ready...");
+		/*System.out.println("Waiting for page to be ready...");
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -45,7 +45,7 @@ public class Driver {
 		// Wait visibility of form
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_form__9MEAJ")));//
 		System.out.println("Page is loaded and ready to use!");
-
+*/
 		return driver;
 
 	}
