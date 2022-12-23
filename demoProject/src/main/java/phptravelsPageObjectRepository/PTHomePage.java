@@ -1,6 +1,16 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+<<<<<<< HEAD
+=======
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+
+>>>>>>> 4e88ae24c1d3ef444b9d5bc8723d128fffd79ae4
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -11,6 +21,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PTHomePage {
@@ -30,21 +44,23 @@ public class PTHomePage {
 	}
 
 	public void clickBtnAccount() {
-		getBtnAccount().click();
-
+		
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("ACCOUNT")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
-				"display: none; opacity: 0;"));
+				"display: none;"));
+		
+		getBtnAccount().click();
+
 
 		System.out.println("Clicking account button...");
 
 	}
 
-	/// -----Customer login-----
+	/// -----Customer login----- Diana
 	@FindBy(xpath = "//a[ contains (text(), 'Customer Login' ) ]")
 	WebElement customerLoginBtn;
 
@@ -57,7 +73,7 @@ public class PTHomePage {
 	}
 
 	// ------Agent login -------- Iris
-	@FindBy(xpath = "//a[ contains (text(), 'Agent Login' ) ]")
+	@FindBy(xpath = "//a[ contains (text(), 'Agents Login' ) ]")
 	WebElement agentLoginBtn;
 
 	public WebElement getAgentLogBtn() {
@@ -65,6 +81,9 @@ public class PTHomePage {
 	}
 
 	public void clickAgentLoginbtn() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
+		
 		getAgentLogBtn().click();
 		System.out.println("Login Agent Account...");
 	}
@@ -98,7 +117,7 @@ public void clickSupplierLoginbtn() {
 	}
 
 	// ELEMENTS FROM LOGIN FORM ------ Iris
-	@FindBy(xpath = "(//input[@name='email'])[1]")
+	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
 	WebElement emailInput;
 
 	private WebElement getEmailInput() {
@@ -107,6 +126,14 @@ public void clickSupplierLoginbtn() {
 
 	public void enterUsernameInput(String email) {
 		System.out.println("Entering email...");
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(NoSuchElementException.class);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
+		
 		getEmailInput().sendKeys(email);
 	}
 
