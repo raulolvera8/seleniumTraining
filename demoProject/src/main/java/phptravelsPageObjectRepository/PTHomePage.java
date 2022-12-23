@@ -1,16 +1,6 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-<<<<<<< HEAD
-=======
-import java.util.NoSuchElementException;
-
-import org.openqa.selenium.By;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
-
->>>>>>> 4e88ae24c1d3ef444b9d5bc8723d128fffd79ae4
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -21,10 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PTHomePage {
