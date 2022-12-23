@@ -7,6 +7,15 @@ import org.openqa.selenium.By;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,10 +27,12 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class homePageObject {
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class PTHomePage {
 	WebDriver driver;
 
-	public homePageObject(WebDriver driver) {
+	public PTHomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

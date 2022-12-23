@@ -6,8 +6,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
-import phptravelsPageObjectRepository.homePageObject;
-import phptravelsPageObjectRepository.logInPageObject;
+import phptravelsPageObjectRepository.PTHomePage;
+import phptravelsPageObjectRepository.PTloginPage;
 
 public class scriptCustomer extends Driver {
 	WebDriver driver;
@@ -20,8 +20,8 @@ public class scriptCustomer extends Driver {
 	@Test
 	public void travel() {
 		System.out.println("----Welcome to travels----");
-		homePageObject home=new homePageObject(driver);
-		logInPageObject login = new logInPageObject(driver);
+		PTHomePage home=new PTHomePage(driver);
+		PTloginPage login = new PTloginPage(driver);
 		home.clickBtnAccount();
 		home.clickCustomerLoginbtn();
 		login.fillEmail("user@phptravels.com");

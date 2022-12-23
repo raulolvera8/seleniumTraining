@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
-import phptravelsPageObjectRepository.homePageObject;
+import phptravelsPageObjectRepository.PTHomePage;
 
 public class scrip1 extends Driver {
 
@@ -23,7 +23,7 @@ public class scrip1 extends Driver {
 
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
 		// SIGN IN PAGE
-		homePageObject signInPage = new homePageObject(driver);
+		PTHomePage signInPage = new PTHomePage(driver);
 		
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
