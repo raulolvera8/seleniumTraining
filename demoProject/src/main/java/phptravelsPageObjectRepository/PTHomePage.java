@@ -1,6 +1,12 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 
 import java.util.NoSuchElementException;
 
@@ -17,6 +23,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PTHomePage {
@@ -52,7 +62,7 @@ public class PTHomePage {
 
 	}
 
-	/// -----Customer login-----
+	/// -----Customer login----- Diana
 	@FindBy(xpath = "//a[ contains (text(), 'Customer Login' ) ]")
 	WebElement customerLoginBtn;
 
