@@ -76,4 +76,30 @@ public class logInPageObject {
 	
 	//############# END OF SUPPLIER SECTION #######################################
 
+	
+	///-------------Customer Account-------Diana----/////
+	@FindBy (xpath="//*[@class='form-group']//input") WebElement emailTb;
+	@FindBy (xpath="//*[@class='form-group mb-2']//input") WebElement passwordTb;
+	@FindBy (xpath="//button[@class='btn btn-default btn-lg btn-block effect ladda-button waves-effect']") WebElement logInBtn;
+	public WebElement getEmailTb() {
+		return emailTb;
+	}
+	public WebElement getPasswordTb() {
+		return passwordTb;
+	}
+	public WebElement getLogInBtn() {
+		return logInBtn;
+	}
+	public void fillEmail(String email) {
+		getEmailTb().sendKeys(email);
+	}
+	public void fillPassword(String password) {
+		getPasswordTb().sendKeys(password);
+	}
+	public void clickLogin() {
+		getLogInBtn().click();
+	}
+	//############# END OF CUSTOMER SECTION #######################################
+
+
 }
