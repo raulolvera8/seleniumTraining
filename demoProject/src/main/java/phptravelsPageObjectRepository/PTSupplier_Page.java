@@ -14,11 +14,11 @@ import org.openqa.selenium.support.ui.Wait;
 
 //##################### CLASS AND CODE CREATED BY ELIAS LARA.
 
-public class Supplier_PageObject {
+public class PTSupplier_Page {
 	
 	WebDriver driver;
 
-	public Supplier_PageObject(WebDriver driver) {
+	public PTSupplier_Page(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

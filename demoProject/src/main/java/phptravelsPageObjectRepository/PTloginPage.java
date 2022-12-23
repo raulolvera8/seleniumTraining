@@ -14,11 +14,11 @@ import org.openqa.selenium.support.ui.Wait;
 
 //########### CLASS AND CODE ADDED BY ELIAS LARA. #########################
 
-public class logInPageObject {
+public class PTloginPage {
 
 	WebDriver driver;
 
-	public logInPageObject(WebDriver driver) {
+	public PTloginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

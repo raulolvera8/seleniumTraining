@@ -1,15 +1,15 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-<<<<<<< HEAD
+
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
-=======
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
->>>>>>> b7680ff254da4cbc59384a24eccfc9a5205b460b
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,15 +17,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-<<<<<<< HEAD
-=======
 import org.openqa.selenium.support.ui.WebDriverWait;
->>>>>>> b7680ff254da4cbc59384a24eccfc9a5205b460b
 
-public class homePageObject {
+public class PTHomePage {
 	WebDriver driver;
 
-	public homePageObject(WebDriver driver) {
+	public PTHomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
