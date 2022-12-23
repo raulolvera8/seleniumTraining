@@ -36,15 +36,17 @@ public class PTHomePage {
 	}
 
 	public void clickBtnAccount() {
-		getBtnAccount().click();
-
+		
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("ACCOUNT")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
-				"display: none; opacity: 0;"));
+				"display: none;"));
+		
+		getBtnAccount().click();
+
 
 		System.out.println("Clicking account button...");
 
@@ -63,7 +65,7 @@ public class PTHomePage {
 	}
 
 	// ------Agent login -------- Iris
-	@FindBy(xpath = "//a[ contains (text(), 'Agent Login' ) ]")
+	@FindBy(xpath = "//a[ contains (text(), 'Agents Login' ) ]")
 	WebElement agentLoginBtn;
 
 	public WebElement getAgentLogBtn() {
@@ -71,6 +73,9 @@ public class PTHomePage {
 	}
 
 	public void clickAgentLoginbtn() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
+		
 		getAgentLogBtn().click();
 		System.out.println("Login Agent Account...");
 	}
@@ -99,7 +104,7 @@ public class PTHomePage {
 	}
 
 	// ELEMENTS FROM LOGIN FORM ------ Iris
-	@FindBy(xpath = "(//input[@name='email'])[1]")
+	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
 	WebElement emailInput;
 
 	private WebElement getEmailInput() {
@@ -108,6 +113,14 @@ public class PTHomePage {
 
 	public void enterUsernameInput(String email) {
 		System.out.println("Entering email...");
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(NoSuchElementException.class);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
+		
 		getEmailInput().sendKeys(email);
 	}
 
