@@ -77,6 +77,26 @@ public class PTSupplier_Page {
 		
 		
 		//################# SUPPLIER TOURS MANAGEMENT PAGE SECTION #################################
+		@FindBy(xpath = "//button[@type='submit']") 
+		WebElement AddTourBtn;
+		
+		public WebElement getAddTourBtn() {
+			return AddTourBtn;
+		}
+		
+		public void clickAddTourBtn() {
+			getAddTourBtn().click();
+			
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+					.withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(5))
+					.ignoring(NoSuchElementException.class);
+			
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='tourname']")));
+			
+			System.out.println("Add Tour button clicked. The user is in Add Tour page...");
+			
+		}
 		
 		//################# END OF SUPPLIER TOURS MANAGEMENT PAGE SECTION #################################
 		

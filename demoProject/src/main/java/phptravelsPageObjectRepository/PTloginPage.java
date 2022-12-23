@@ -26,7 +26,7 @@ public class PTloginPage {
 	
 	// ----- SUPPLIER Email text box -----------
 
-	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
+	@FindBy(xpath = "//form//input[@name='email' and @type='text']")
 	WebElement EmailTxtbox;
 
 	public WebElement getEmailTxtbox() {
@@ -48,7 +48,7 @@ public class PTloginPage {
 	}
 
 	public void setPasswordtxtbox(String password) {
-		getEmailTxtbox().sendKeys(password);
+		getPasswordTxtbox().sendKeys(password);
 		System.out.println("Supplier email been inserted. Value is: " + password);
 	}
 	

@@ -1,15 +1,9 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-
 import java.util.NoSuchElementException;
-
-import org.openqa.selenium.By;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -84,18 +78,23 @@ public class PTHomePage {
 		return SupplierLoginBtn;
 	}
 	
-	public void clickSupplierLoginBtn() {
+public void clickSupplierLoginbtn() {
 		
 		getSupplierLoginBtn().click();
+				
+		for(String winHandle : driver.getWindowHandles()){
+		    driver.switchTo().window(winHandle);
+		}
 		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5))
-				.ignoring(NoSuchElementException.class);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
-		
-		System.out.println("Supplier Login button has been clicked. The user is in the proper Login page...");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//form//input[@name='email' and @type='text']")));
+
+		System.out.println("Supplier buttton role has been clicked...");
+
 	}
 
 	// ELEMENTS FROM LOGIN FORM ------ Iris
