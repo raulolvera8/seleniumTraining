@@ -55,6 +55,9 @@ public class PTHomePage {
 	}
 
 	public void clickCustomerLoginbtn() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Customer Login' ) ]")));
+		
 		getCustomerLogBtn().click();
 	}
 
