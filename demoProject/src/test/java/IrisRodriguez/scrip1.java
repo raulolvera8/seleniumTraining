@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import library.Driver;
 import phptravelsPageObjectRepository.PTHomePage;
-import phptravelsPageObjectRepository.PTloginPage;
+import phptravelsPageObjectRepository.PTLoginPage;
 
 public class scrip1 extends Driver {
 
@@ -25,7 +25,7 @@ public class scrip1 extends Driver {
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
 		// SIGN IN PAGE
 		PTHomePage signInPage = new PTHomePage(driver);
-		PTloginPage loginPage = new PTloginPage(driver);
+		PTLoginPage loginPage = new PTLoginPage(driver);
 		
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
@@ -38,10 +38,10 @@ public class scrip1 extends Driver {
 		signInPage.clickAgentLoginbtn();
 
 		// ENTER EMAIL
-	    loginPage.enterEmailInput("agent@phptravels.com");
+	    //loginPage.enterEmailInput("agent@phptravels.com");
 
 		// ENTER PASSWORD
-		loginPage.enterPasswordInput("demoagent");
+		//loginPage.enterPasswordInput("demoagent");
 
 	}
 
