@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import library.Driver;
 import phptravelsPageObjectRepository.PTHomePage;
-import phptravelsPageObjectRepository.PTloginPage;
+import phptravelsPageObjectRepository.PTLoginPage;
 
 public class scriptCustomer extends Driver {
 	WebDriver driver;
@@ -21,7 +21,7 @@ public class scriptCustomer extends Driver {
 	public void travel() {
 		System.out.println("----Welcome to travels----");
 		PTHomePage home=new PTHomePage(driver);
-		PTloginPage login = new PTloginPage(driver);
+		PTLoginPage login = new PTLoginPage(driver);
 		home.clickBtnAccount();
 		home.clickCustomerLoginbtn();
 		login.fillEmail("user@phptravels.com");

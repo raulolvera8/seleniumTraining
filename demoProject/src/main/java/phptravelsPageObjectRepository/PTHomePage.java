@@ -30,17 +30,15 @@ public class PTHomePage {
 	}
 
 	public void clickBtnAccount() {
-		
+
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("ACCOUNT")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
-				"display: none;"));
-		
-		getBtnAccount().click();
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
+		getBtnAccount().click();
 
 		System.out.println("Clicking account button...");
 
@@ -56,8 +54,9 @@ public class PTHomePage {
 
 	public void clickCustomerLoginbtn() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Customer Login' ) ]")));
-		
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Customer Login' ) ]")));
+
 		getCustomerLogBtn().click();
 	}
 
@@ -71,35 +70,37 @@ public class PTHomePage {
 
 	public void clickAgentLoginbtn() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
-		
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
+
 		getAgentLogBtn().click();
 		System.out.println("Login Agent Account...");
 	}
-	
+
 	/// -----Supplier login----- Elías Lara.
-	
+
 	@FindBy(xpath = "//a[text()='Supplier Login']")
 	WebElement SupplierLoginBtn;
-	
+
 	public WebElement getSupplierLoginBtn() {
 		return SupplierLoginBtn;
 	}
-	
-public void clickSupplierLoginbtn() {
-		
+
+	public void clickSupplierLoginbtn() {
+
 		getSupplierLoginBtn().click();
-				
-		for(String winHandle : driver.getWindowHandles()){
-		    driver.switchTo().window(winHandle);
+
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
 		}
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//form//input[@name='email' and @type='text']")));
+		wait.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//form//input[@name='email' and @type='text']")));
 
 		System.out.println("Supplier buttton role has been clicked...");
 
@@ -116,13 +117,12 @@ public void clickSupplierLoginbtn() {
 	public void enterUsernameInput(String email) {
 		System.out.println("Entering email...");
 
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5))
-				.ignoring(NoSuchElementException.class);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
-		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
+
 		getEmailInput().sendKeys(email);
 	}
 
