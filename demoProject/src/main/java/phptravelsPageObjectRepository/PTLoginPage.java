@@ -14,19 +14,19 @@ import org.openqa.selenium.support.ui.Wait;
 
 //########### CLASS AND CODE ADDED BY ELIAS LARA. #########################
 
-public class PTloginPage {
+public class PTLoginPage {
 
 	WebDriver driver;
 
-	public PTloginPage(WebDriver driver) {
+	public PTLoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	//############# SUPPLIER SECTION #######################################
-	
+	// ############# SUPPLIER SECTION #######################################
+
 	// ----- SUPPLIER Email text box -----------
 
-	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
+	@FindBy(xpath = "//form//input[@name='email' and @type='text']")
 	WebElement EmailTxtbox;
 
 	public WebElement getEmailTxtbox() {
@@ -48,82 +48,63 @@ public class PTloginPage {
 	}
 
 	public void setPasswordtxtbox(String password) {
-		getEmailTxtbox().sendKeys(password);
+		getPasswordTxtbox().sendKeys(password);
 		System.out.println("Supplier email been inserted. Value is: " + password);
 	}
-	
+
 	// ----- SUPPLIER login button -----------
-	
-	@FindBy(xpath ="//button[@type='submit']")
+
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElement loginBtn;
-	
+
 	public WebElement getLoginButton() {
 		return loginBtn;
 	}
-	
+
 	public void clickLoginBtn() {
 		getLoginButton().click();
-		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5))
-				.ignoring(NoSuchElementException.class);
-		
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()='Dashboard']")));
-		
+
 		System.out.println("Supplier Login button has been clicked. The user is in dashboard page...");
 	}
-	
-	//############# END OF SUPPLIER SECTION #######################################
 
-	
-	///-------------Customer Account-------Diana----/////
-	@FindBy (xpath="//*[@class='form-group']//input") WebElement emailTb;
-	@FindBy (xpath="//*[@class='form-group mb-2']//input") WebElement passwordTb;
-	@FindBy (xpath="//button[@class='btn btn-default btn-lg btn-block effect ladda-button waves-effect']") WebElement logInBtn;
+	// ############# END OF SUPPLIER SECTION #######################################
+
+	/// -------------Customer Account-------Diana----/////
+	@FindBy(xpath = "//*[@class='form-group']//input")
+	WebElement emailTb;
+	@FindBy(xpath = "//*[@class='form-group mb-2']//input")
+	WebElement passwordTb;
+	@FindBy(xpath = "//button[@class='btn btn-default btn-lg btn-block effect ladda-button waves-effect']")
+	WebElement logInBtn;
+
 	public WebElement getEmailTb() {
 		return emailTb;
 	}
+
 	public WebElement getPasswordTb() {
 		return passwordTb;
 	}
+
 	public WebElement getLogInBtn() {
 		return logInBtn;
 	}
+
 	public void fillEmail(String email) {
 		getEmailTb().sendKeys(email);
 	}
+
 	public void fillPassword(String password) {
 		getPasswordTb().sendKeys(password);
 	}
+
 	public void clickLogin() {
 		getLogInBtn().click();
 	}
-	//############# END OF CUSTOMER SECTION #######################################
-
-	// ELEMENTS FROM LOGIN FORM AGENT ------ Iris
-		@FindBy(xpath = "//div[@class='form-group']//input")
-		WebElement emailInput;
-
-		private WebElement getEmailInput() {
-			return emailInput;
-		}
-
-		public void enterEmailInput(String email) {
-			getEmailInput().sendKeys(email);
-			System.out.println("Entering email...");
-		}
-
-		@FindBy(xpath = "//*[@class='form-group mb-2']//input")
-		WebElement passwordInput;
-
-		private WebElement getPasswordInput() {
-			return passwordInput;
-		}
-
-		public void enterPasswordInput(String password) {
-			System.out.println("Entering password...");
-			getPasswordInput().sendKeys(password);
-		}
+	// ############# END OF CUSTOMER SECTION #######################################
 
 }
