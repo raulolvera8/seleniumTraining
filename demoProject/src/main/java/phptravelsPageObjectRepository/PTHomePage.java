@@ -56,8 +56,6 @@ public class PTHomePage {
 				"display: none;"));
 		
 		getBtnAccount().click();
-
-
 		System.out.println("Clicking account button...");
 
 	}
@@ -88,6 +86,7 @@ public class PTHomePage {
 		
 		getAgentLogBtn().click();
 		System.out.println("Login Agent Account...");
+
 	}
 	
 	/// -----Supplier login----- Elías Lara.
@@ -113,36 +112,5 @@ public class PTHomePage {
 		System.out.println("Supplier Login button has been clicked. The user is in the proper Login page...");
 	}
 
-	// ELEMENTS FROM LOGIN FORM ------ Iris
-	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
-	WebElement emailInput;
-
-	private WebElement getEmailInput() {
-		return emailInput;
-	}
-
-	public void enterUsernameInput(String email) {
-		System.out.println("Entering email...");
-
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5))
-				.ignoring(NoSuchElementException.class);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
-		
-		getEmailInput().sendKeys(email);
-	}
-
-	@FindBy(name = "password")
-	WebElement passwordInput;
-
-	private WebElement getPasswordInput() {
-		return passwordInput;
-	}
-
-	public void enterPasswordInput(String password) {
-		System.out.println("Entering password...");
-		getPasswordInput().sendKeys(password);
-	}
+	
 }

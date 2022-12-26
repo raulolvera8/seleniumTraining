@@ -101,5 +101,29 @@ public class PTloginPage {
 	}
 	//############# END OF CUSTOMER SECTION #######################################
 
+	// ELEMENTS FROM LOGIN FORM AGENT ------ Iris
+		@FindBy(xpath = "//div[@class='form-group']//input")
+		WebElement emailInput;
+
+		private WebElement getEmailInput() {
+			return emailInput;
+		}
+
+		public void enterEmailInput(String email) {
+			getEmailInput().sendKeys(email);
+			System.out.println("Entering email...");
+		}
+
+		@FindBy(xpath = "//*[@class='form-group mb-2']//input")
+		WebElement passwordInput;
+
+		private WebElement getPasswordInput() {
+			return passwordInput;
+		}
+
+		public void enterPasswordInput(String password) {
+			System.out.println("Entering password...");
+			getPasswordInput().sendKeys(password);
+		}
 
 }
