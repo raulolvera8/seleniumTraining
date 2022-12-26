@@ -74,6 +74,18 @@ public class PTHomePage {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
 
 		getAgentLogBtn().click();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+		wait.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//form//input[@name='email' and @type='text']")));
+
 		System.out.println("Login Agent Account...");
 	}
 
@@ -106,35 +118,4 @@ public class PTHomePage {
 
 	}
 
-	// ELEMENTS FROM LOGIN FORM ------ Iris
-	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
-	WebElement emailInput;
-
-	private WebElement getEmailInput() {
-		return emailInput;
-	}
-
-	public void enterUsernameInput(String email) {
-		System.out.println("Entering email...");
-
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
-
-		getEmailInput().sendKeys(email);
-	}
-
-	@FindBy(name = "password")
-	WebElement passwordInput;
-
-	private WebElement getPasswordInput() {
-		return passwordInput;
-	}
-
-	public void enterPasswordInput(String password) {
-		System.out.println("Entering password...");
-		getPasswordInput().sendKeys(password);
-	}
 }

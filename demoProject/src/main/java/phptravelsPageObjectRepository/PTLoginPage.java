@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -107,4 +108,52 @@ public class PTLoginPage {
 	}
 	// ############# END OF CUSTOMER SECTION #######################################
 
+	// ELEMENTS FROM LOGIN AGENT  ------ Iris
+	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
+	WebElement emailInput;
+
+	private WebElement getEmailInput() {
+		return emailInput;
+	}
+
+	public void enterEmailInput(String email) {
+		System.out.println("Entering email...");
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
+
+		getEmailInput().sendKeys(email);
+	}
+
+	@FindBy(name = "password")
+	WebElement passwordInput;
+
+	private WebElement getPasswordInput() {
+		return passwordInput;
+	}
+
+	public void enterPasswordInput(String password) {
+		System.out.println("Entering password...");
+		getPasswordInput().sendKeys(password);
+	}
+	
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement LoginButton;
+	
+	private WebElement getLoginButtonAgent() {
+		return LoginButton;
+	}
+	
+	public void clickLoginButtonAgent() {
+		
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getLoginButtonAgent().click();
+	}
+	
 }
