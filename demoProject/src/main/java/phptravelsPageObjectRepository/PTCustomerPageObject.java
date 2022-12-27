@@ -75,7 +75,25 @@ public class PTCustomerPageObject {
 	
 	
 	//-----------------------------------END VISA -------- Diana
-
+	
+	//-----------------TOURS--------JUAN-------
 	
 	
-}
+	@FindBy(xpath="//*[@href='https://phptravels.net/tours']") WebElement toursBtn;
+	
+	public WebElement getToursBtn() {
+		return toursBtn;
+		
+	}
+	
+	public void clickToursBtn() {
+		
+	
+		getToursBtn().click();
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[@name='checkin']")));
+	
+}}
