@@ -22,11 +22,11 @@ public class PTAgentPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	/// ----ADD FUNDS BUTTON-----
+	/// -------- ADD FUNDS BUTTON --------
 	@FindBy(xpath = "//a[ contains (text(), 'Add Funds') and @class=' waves-effect']")
 	WebElement btnAddFunds;
 
-	public WebElement getbtnAddFunds() {
+	private WebElement getbtnAddFunds() {
 		return btnAddFunds;
 	}
 
@@ -44,11 +44,11 @@ public class PTAgentPage {
 		System.out.println("Clicking Add Funds button...");
 	}
 
-	/// ----SELECT STRIPE RADIOBUTTON-----
+	/// -------- SELECT STRIPE RADIOBUTTON --------
 	@FindBy(xpath = "//input[@name='payment_gateway' and @value='stripe']")
 	WebElement rbtnStripePayment;
 
-	public WebElement getStripePayment() {
+	private WebElement getStripePayment() {
 		return rbtnStripePayment;
 	}
 
@@ -66,11 +66,11 @@ public class PTAgentPage {
 		System.out.println("Clicking radiobutton Stripe payment method ...");
 	}
 
-	/// ----CLEAR AMOUNT INPUT-----
+	/// -------- CLEAR AMOUNT INPUT --------
 	@FindBy(name = "price")
 	WebElement inputPriceClear;
 
-	public WebElement getPriceInputClean() {
+	private WebElement getPriceInputClean() {
 		return inputPriceClear;
 	}
 
@@ -78,11 +78,11 @@ public class PTAgentPage {
 		getPriceInputClean().clear();
 	}
 
-	/// ----ENTER AMOUNT INPUT-----
+	/// -------- ENTER AMOUNT INPUT --------
 	@FindBy(name = "price")
 	WebElement inputPrice;
 
-	public WebElement getPriceInput() {
+	private WebElement getPriceInput() {
 		return inputPrice;
 	}
 
@@ -91,11 +91,11 @@ public class PTAgentPage {
 		getPriceInput().sendKeys(Price);
 	}
 
-	/// ----CLICK PAY NOW BUTTON-----
+	/// -------- CLICK PAY NOW BUTTON --------
 	@FindBy(xpath = "//button[contains (text(), 'Pay Now') and @type='submit']")
 	WebElement PayNowButton;
 
-	public WebElement getPayNowButton() {
+	private WebElement getPayNowButton() {
 		return PayNowButton;
 	}
 
@@ -107,8 +107,7 @@ public class PTAgentPage {
 		System.out.println("Clicking Pay Now button ...");
 	}
 
-	// ------ VERIFY PAY WITH STRIPE USD XX.XX ------
-
+	/// -------- VERIFY PAY WITH STRIPE USD XX.XX --------
 	@FindBy(xpath = "//strong")
 	WebElement labelAmount;
 
@@ -130,11 +129,11 @@ public class PTAgentPage {
 		System.out.println("Pay With " + getLabelAmount().getText());
 	}
 
-	// ---- PAY NOW WITH AMOUNT XX.XX BUTTON ----
+	/// -------- PAY NOW WITH AMOUNT XX.XX BUTTON --------
 	@FindBy(xpath = "//a[contains (text(), 'Pay Now') and @type='button']")
 	WebElement PayNowWithAmount;
 
-	public WebElement getPayNowAmount() {
+	private WebElement getPayNowAmount() {
 		return PayNowWithAmount;
 	}
 
@@ -147,11 +146,11 @@ public class PTAgentPage {
 		getPayNowAmount().click();
 	}
 
-	// ----- ENTER NUMBER CARD ----
+	/// -------- ENTER NUMBER CARD --------
 	@FindBy(id = "cardNumber")
 	WebElement cardNumber;
 
-	public WebElement getCardNumber() {
+	private WebElement getCardNumber() {
 		return cardNumber;
 	}
 
@@ -166,11 +165,11 @@ public class PTAgentPage {
 		getCardNumber().sendKeys(CardNumber);
 	}
 
-	// ---- ENTER CARD EXPIRE ----
+	/// -------- ENTER CARD EXPIRE --------
 	@FindBy(id = "cardExpiry")
 	WebElement cardExpiry;
 
-	public WebElement getCardExpiry() {
+	private WebElement getCardExpiry() {
 		return cardExpiry;
 	}
 
@@ -185,11 +184,11 @@ public class PTAgentPage {
 		getCardExpiry().sendKeys(CardExpiry);
 	}
 
-	// ---- ENTER CVC CARD ----
+	/// -------- ENTER CVC CARD --------
 	@FindBy(id = "cardCvc")
 	WebElement cardCVC;
 
-	public WebElement getCardCVC() {
+	private WebElement getCardCVC() {
 		return cardCVC;
 	}
 
@@ -204,11 +203,11 @@ public class PTAgentPage {
 		getCardCVC().sendKeys(CardCVC);
 	}
 
-	// ---- ENTER NAME CARD ----
+	/// -------- ENTER NAME CARD --------
 	@FindBy(id = "billingName")
 	WebElement nameCard;
 
-	public WebElement getCardName() {
+	private WebElement getCardName() {
 		return nameCard;
 	}
 
@@ -223,11 +222,11 @@ public class PTAgentPage {
 		getCardName().sendKeys(NameCard);
 	}
 
-	// ---- CLICK PAGAR BUTTON ----
+	/// -------- CLICK PAGAR BUTTON FROM VIEW AFTER PAYMENT METHOD --------
 	@FindBy(xpath = "//button[@type = 'submit']")
 	WebElement PagarButton;
 
-	public WebElement getPagarButtonWithCardInfo() {
+	private WebElement getPagarButtonWithCardInfo() {
 		return PagarButton;
 	}
 
@@ -239,7 +238,7 @@ public class PTAgentPage {
 		System.out.println("Clicking Pagar button ...");
 	}
 
-	// ------ VERIFY PAYMENT SUCCESSFULL ----
+	/// -------- VERIFY PAYMENT SUCCESSFULL --------
 
 	@FindBy(xpath = "//strong[contains (text(), 'Payment successfull')]")
 	WebElement labelSuccessfull;
@@ -263,12 +262,11 @@ public class PTAgentPage {
 		System.out.println("Hi, Agent.. " + getLabelSuccessfull().getText());
 	}
 
-
-	// --- LOGOUT BUTTON FROM USER VIEW ----
+	/// -------- LOGOUT BUTTON FROM USER VIEW --------
 	@FindBy(xpath = "(//a[ contains (text(), 'Logout')])[2]")
 	WebElement LogOut;
 
-	public WebElement getLogouttButton() {
+	private WebElement getLogouttButton() {
 		return LogOut;
 	}
 
@@ -285,11 +283,11 @@ public class PTAgentPage {
 		System.out.println("Clicking LOGOUT button ...");
 	}
 
-	// ---- HOME PAGE FROM LOGO IMAGE ----
+	/// -------- HOME PAGE FROM LOGO IMAGE --------
 	@FindBy(xpath = "(//a[@href='https://phptravels.net/'])[1]")
 	WebElement logopage;
 
-	public WebElement getLogoPage() {
+	private WebElement getLogoPage() {
 		return logopage;
 	}
 
@@ -306,7 +304,7 @@ public class PTAgentPage {
 		System.out.println("Welcome to Home Page phptravels ...");
 	}
 
-	//----  WALLET BALANCE 
+	/// -------- WALLET BALANCE --------
 
 	@FindBy(xpath = "//p[contains (text(), 'Wallet Balance') and @class='info__desc']")
 	WebElement walletbalance;
@@ -319,13 +317,13 @@ public class PTAgentPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//p[contains (text(), 'Wallet Balance') and @class='info__desc']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//p[contains (text(), 'Wallet Balance') and @class='info__desc']")));
 
 		System.out.println("Hi, Your " + getWalletBalance().getText());
 	}
-	
-	// ---- VERIFY AMOUNT BLANCE
+
+	/// -------- VERIFY AMOUNT BLANCE --------
 	@FindBy(xpath = "//h4[contains (text(), 'USD ') and @class='info__title']")
 	WebElement walletbalanceAmount;
 
@@ -342,5 +340,316 @@ public class PTAgentPage {
 
 		System.out.println("Is now " + getWalletBalanceAmount().getText());
 	}
+
+	/// -------- ADD FLIGHTS BUTTON --------
+	@FindBy(xpath = "//a[ contains (text(), 'flights') and @class='active_flights waves-effect']")
+	WebElement btnFlights;
+
+	private WebElement getbtnFlights() {
+		return btnFlights;
+	}
+
+	public void clickbtnFlights() {
+
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//a[ contains (text(), 'flights') and @class='active_flights waves-effect']")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getbtnFlights().click();
+
+		System.out.println("Clicking Flights button...");
+	}
+
+	/// -------- FLYING FROM INPUT --------
+	@FindBy(xpath = "//input[@id='autocomplete']")
+	WebElement FlyingFromInput;
+
+	private WebElement getFlyingFromInput() {
+		return FlyingFromInput;
+	}
+
+	public void flyingFromInput(String city) {
+		System.out.println("Entering city ...");
+		getFlyingFromInput().sendKeys(city);
+	}
+
+	/// -------- FLYING FROM AUTOCOMPLETE LOCATION --------
+	@FindBy(xpath = "(//div[@class='autocomplete-result'])[1]")
+	WebElement FlyingFromAutocomplete;
+
+	private WebElement getFlyingFromAutocomplete() {
+		return FlyingFromAutocomplete;
+	}
+
+	public void flyingFromAutocomplete() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='autocomplete-result'])[1]")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getFlyingFromAutocomplete().click();
+
+		System.out.println("Clicking autocomplete first option button...");
+	}
+
+	/// -------- TO DESTINATION INPUT --------
+	@FindBy(id = "autocomplete2")
+	WebElement toDestinationInput;
+
+	private WebElement getToDestinationInput() {
+		return toDestinationInput;
+	}
+
+	public void toDestinationInput(String city) {
+		System.out.println("Entering city destination ...");
+		getToDestinationInput().sendKeys(city);
+	}
+
+	/// -------- TO DESTINATION AUTOCOMPLETE LOCATION SELECT FIRST RESULT --------
+	@FindBy(xpath = "(//div[@class='autocomplete-result'])[1]")
+	WebElement toDestinationAutocomplete;
+
+	private WebElement getToDestinationAutocomplete() {
+		return toDestinationAutocomplete;
+	}
+
+	public void ToDestinationAutocomplete() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='autocomplete-result'])[2]")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getToDestinationAutocomplete().click();
+
+		System.out.println("Clicking autocomplete second option button...");
+	}
+
+	/// -------- DATE INPUT FOR TO SEE THE CALENDAR OPTION --------
+	@FindBy(xpath = "//input[@id='departure' and @class='depart form-control']")
+	WebElement dateFly;
+	
+	private WebElement getDateInput() {
+		return dateFly;
+	}
+	
+	public void DateInput() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='departure' and @class='depart form-control']")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getDateInput().click();
+
+		System.out.println("Clicking autocomplete date option button...");
+	}
+	
+	/// ------------ SELECT DAY FROM CALENDAR PICKER (OPTION 6 DAY ) ------------
+	@FindBy(xpath = "(//td[@class='day  new'])[6]")
+	WebElement datepicker;
+	
+	private WebElement getDatepickerOption() {
+		return datepicker;
+	}
+	
+	public void SelectDateFromCalendar() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[@class='day  new'])[6]")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getDatepickerOption().click();
+
+		System.out.println("Selecting day...");
+	}
+	
+	
+	/// ------------ SELECT INPUT TRAVELERS -------------
+	@FindBy (xpath = "//a[@class='dropdown-toggle dropdown-btn travellers waves-effect' and @role='button']")
+	WebElement travelersInput;
+	
+	private WebElement getTravelersInput() {
+		return travelersInput;
+	}
+	
+	public void clickTravelersInput() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='dropdown-toggle dropdown-btn travellers waves-effect' and @role='button']")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getTravelersInput().click();
+
+		System.out.println("Clicking travelers button...");
+	}
+	
+	/// --------------- SELECT 2 ADULTS TRAVELLERS OPTION -----------------
+	@FindBy (xpath = "//div[@class='dropdown-item adult_qty']//i[@class='la la-plus']")
+	WebElement adultsOptionPlus;
+	
+	private WebElement getAdultsOptionPlus()
+	{
+		return adultsOptionPlus;
+		
+	}
+	
+	public void clickAdultsOptionPlus() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='dropdown-item adult_qty']//i[@class='la la-plus']")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getAdultsOptionPlus().click();
+
+		System.out.println("Adding 1 Adult ...");
+	}
+	
+	/// ----- PRINT NUMBER OF PASSENGERS ------
+	@FindBy(xpath = "//span[@class='guest_flights']")
+	WebElement NumberPassengers;
+	
+	private WebElement getNumberPassengers() {
+		return NumberPassengers;
+	}
+	
+	public void PrintNumberPassangers() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//span[@class='guest_flights']")));
+
+		System.out.println("Number of Passengers " + getNumberPassengers().getText());
+	}
+	
+	/// ------- SEARCH FLIGHTS BUTTON ------
+	@FindBy (id = "flights-search")
+	WebElement searchFlightButton;
+	
+	private WebElement getsearchFlightButton() {
+		return searchFlightButton;
+	}
+	
+	public void clickSearchFlightButton() {
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.id("flights-search")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getsearchFlightButton().click();
+
+		System.out.println("Clicking search flights button  ...");
+	}
+	
+	/// ----- SELECT FIRST TRAVEL ON VIEW FLIGHTS ------
+	@FindBy (xpath = "(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")
+	WebElement firstflight;
+	
+	private WebElement getFirstFlight()
+	{
+		return firstflight;
+	}
+	
+	public void clickFirstFlight() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getFirstFlight().click();
+
+		System.out.println("Clicking first flight option  ...");
+	}
+	
+	/// ========== DEMO INFORMATION FROM BOOK FLIGHT VIEW ============
+	
+	/// ------- FIRST NAME -------
+	@FindBy (xpath = "(//div[@class='row'])[3]")
+	WebElement firstnameLabel;
+	
+	private WebElement getfirstnamelabel()
+	{
+		return firstnameLabel;
+	}
+	
+	public void PrintFirstName() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[3]")));
+
+		System.out.println(getfirstnamelabel().getText());
+	}
+	
+	
+	
+	/// ------- LAST NAME -------
+	@FindBy (xpath = "(//div[@class='row'])[4]")
+	WebElement lastnameLabel;
+	
+	private WebElement getlastnamelabel()
+	{
+		return lastnameLabel;
+	}
+	
+	public void PrintLastNameLabel() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[4]")));
+
+		System.out.println(getlastnamelabel().getText());
+	}
+	
+	/// ------- EMAIL -------
+	@FindBy (xpath = "(//div[@class='row'])[5]")
+	WebElement emailLabel;
+	
+	private WebElement getEmailLabel()
+	{
+		return emailLabel;
+	}
+	
+	public void PrintEmailLabel() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[5]")));
+
+		System.out.println(getEmailLabel().getText());
+	}
+	
+	
 	
 }

@@ -1,4 +1,5 @@
 package IrisRodriguez;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,14 +23,14 @@ public class script2 extends Driver {
 	@Test
 	public void ShoppingHome() {
 
-		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
+		// ===================== DECLARAR LAS PAGINAS DE OBJETOS =====================
 		// SIGN IN PAGE
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
-		// =========================SIGN IN PAGE====================================
+		// ========================= SIGN IN PAGE ====================================
 
 		// CLICK BUTTON SELECT TYPE ACCOUNT
 		signInPage.clickBtnAccount();
@@ -38,21 +39,72 @@ public class script2 extends Driver {
 		signInPage.clickAgentLoginbtn();
 
 		// ENTER EMAIL
-		loginPage.enterEmailInput("agent.phptravels@gmail.com");
+		// loginPage.enterEmailInput("agent.phptravels@gmail.com");
+		loginPage.enterEmailInput("agent@phptravels.com");
 
 		// ENTER PASSWORD
-		loginPage.enterPasswordInput("26dediciembre");
+		// loginPage.enterPasswordInput("26dediciembre");
+		loginPage.enterPasswordInput("demoagent");
 
 		// CLICK LOGIN BUTTON
 		loginPage.clickLoginButtonAgent();
+
+		// ======================== FLIGHTS SEARCH WINDOW ========================
+
+		// ENTER SECTION FLIGHTS
+		agentPage.clickbtnFlights();
+
+		// ENTER CITY FLYING FROM
+		agentPage.flyingFromInput("Canadian Rockies Intl");
+
+		// CLICK FIRST OPTION
+		agentPage.flyingFromAutocomplete();
+
+		// ENTER CITY TO DESTINATION
+		agentPage.toDestinationInput("John F Kennedy Intl");
+
+		// CLICK SECOND OPTION
+		agentPage.ToDestinationAutocomplete();
+
+		// CLICK DATE FLY INPUT FOR TO SEE OPTIONS
+		agentPage.DateInput();
+
+		// SELECT 6 DAY FROM CALENDAR PICKER
+		agentPage.SelectDateFromCalendar();
+
+		// CLICK TO SEE OPTIONS FROM PASSANGERS
+		agentPage.clickTravelersInput();
+
+		// CLICK QUANTITY ADULT
+		agentPage.clickAdultsOptionPlus();
+
+		// PRINT NUMBER OF PASSENGERS
+		agentPage.PrintNumberPassangers();
+
+		// SEARCH FLIGHTS BUTTON
+		agentPage.clickSearchFlightButton();
+
+		// ========== TOTAL FLIGHTS WINDOW ==========
+
+		// SELECT FIRST TRAVEL OPTION BOOK NOW
+		agentPage.clickFirstFlight();
+
+		// =========== FLIGHTS BOOKING WINDOW ==========
 		
+		// PRINT PERSONAL INFORMATION FROM ACCOUNT
+		System.out.println("Your Personal Information");
+		agentPage.PrintFirstName();
+		agentPage.PrintLastNameLabel();
+		agentPage.PrintEmailLabel();
 		
+		// ENTER TRAVELLERS INFORMATION
+
+
 	}
-		
+
 	@AfterClass
 	public void teardown() {
 		// teardownDriver();
 	}
-	
-	
+
 }

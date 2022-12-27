@@ -49,6 +49,8 @@ public class scrip1 extends Driver {
 		// CLICK LOGIN BUTTON
 		loginPage.clickLoginButtonAgent();
 
+		// =========================ADD FUNDS WINDOW====================================
+
 		// CLICK ADD FUNDS BUTTON
 		agentPage.clickBtnAddFunds();
 
