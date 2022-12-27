@@ -105,6 +105,7 @@ public class PTLoginPage {
 
 	public void clickLogin() {
 		getLogInBtn().click();
+	
 	}
 	// ############# END OF CUSTOMER SECTION #######################################
 
