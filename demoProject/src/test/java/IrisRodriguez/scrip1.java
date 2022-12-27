@@ -39,16 +39,22 @@ public class scrip1 extends Driver {
 		signInPage.clickAgentLoginbtn();
 
 		// ENTER EMAIL
-		loginPage.enterEmailInput("agent.phptravels@gmail.com");
+		// loginPage.enterEmailInput("agent.phptravels@gmail.com");
+		loginPage.enterEmailInput("agent@phptravels.com");
 
 		// ENTER PASSWORD
-		loginPage.enterPasswordInput("26dediciembre");
+		// loginPage.enterPasswordInput("26dediciembre");
+		loginPage.enterPasswordInput("demoagent");
 
 		// CLICK LOGIN BUTTON
 		loginPage.clickLoginButtonAgent();
 
 		// CLICK ADD FUNDS BUTTON
 		agentPage.clickBtnAddFunds();
+
+		// PRINT WALLET BEFORE THE PAYMENT
+		agentPage.VerifyWalletBalance();
+		agentPage.VerifyWalletBalanceAmount();
 
 		// SELECT STRIPE PAYMENT METHOD
 		agentPage.clickrbtnStripePayment();
@@ -62,7 +68,7 @@ public class scrip1 extends Driver {
 		// CLICK PAY NOW BUTTON
 		agentPage.clickPayNowButton();
 
-		// VERIFY PAYMNT
+		// VERIFY PAYMENT
 		agentPage.VerifylabelAmount();
 
 		// CLICK PAY NOW WITH AMOUNT
@@ -86,8 +92,9 @@ public class scrip1 extends Driver {
 		// VERIFY PAYMENT SUCCESSFULL
 		agentPage.Verifylabel();
 
-		// CLICK ACCOUNT BUTTON
-		// agentPage.ClickAccountButton();
+		// PRINT WALLET AFTER THE PAYMENT
+		agentPage.VerifyWalletBalance();
+		agentPage.VerifyWalletBalanceAmount();
 
 		// CLICK SIGN OUT
 		agentPage.ClickLogoutButton();

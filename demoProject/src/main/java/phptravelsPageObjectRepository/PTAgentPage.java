@@ -263,21 +263,6 @@ public class PTAgentPage {
 		System.out.println("Hi, Agent.. " + getLabelSuccessfull().getText());
 	}
 
-	// ---- CLICK ACCOUNT BUTTON FROM USER VIEW (WE CAN USE THIS METHOD LATER)----
-//	@FindBy(xpath = "//button[@id='currency' and @class='btn btn-primary dropdown-toggle waves-effect show']")
-//	WebElement AccountButton;
-//	
-//	public WebElement getAccountButton() {
-//		return AccountButton;
-//	}
-//	
-//	public void ClickAccountButton() {
-//		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-//		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='currency' and @class='btn btn-primary dropdown-toggle waves-effect show']")));
-//
-//		getAccountButton().click();
-//		System.out.println("Clicking ACCOUNT button ...");
-//	}
 
 	// --- LOGOUT BUTTON FROM USER VIEW ----
 	@FindBy(xpath = "(//a[ contains (text(), 'Logout')])[2]")
@@ -321,4 +306,41 @@ public class PTAgentPage {
 		System.out.println("Welcome to Home Page phptravels ...");
 	}
 
+	//----  WALLET BALANCE 
+
+	@FindBy(xpath = "//p[contains (text(), 'Wallet Balance') and @class='info__desc']")
+	WebElement walletbalance;
+
+	private WebElement getWalletBalance() {
+		return walletbalance;
+	}
+
+	public void VerifyWalletBalance() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//p[contains (text(), 'Wallet Balance') and @class='info__desc']")));
+
+		System.out.println("Hi, Your " + getWalletBalance().getText());
+	}
+	
+	// ---- VERIFY AMOUNT BLANCE
+	@FindBy(xpath = "//h4[contains (text(), 'USD ') and @class='info__title']")
+	WebElement walletbalanceAmount;
+
+	private WebElement getWalletBalanceAmount() {
+		return walletbalanceAmount;
+	}
+
+	public void VerifyWalletBalanceAmount() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//h4[contains (text(), 'USD ') and @class='info__title']")));
+
+		System.out.println("Is now " + getWalletBalanceAmount().getText());
+	}
+	
 }
