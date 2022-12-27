@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -431,21 +432,21 @@ public class PTAgentPage {
 
 		getToDestinationAutocomplete().click();
 
-		System.out.println("Clicking autocomplete second option button...");
+		System.out.println("Clicking autocomplete first option button...");
 	}
 
 	/// -------- DATE INPUT FOR TO SEE THE CALENDAR OPTION --------
 	@FindBy(xpath = "//input[@id='departure' and @class='depart form-control']")
 	WebElement dateFly;
-	
+
 	private WebElement getDateInput() {
 		return dateFly;
 	}
-	
+
 	public void DateInput() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='departure' and @class='depart form-control']")));
+		waitElement.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//input[@id='departure' and @class='depart form-control']")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -455,19 +456,18 @@ public class PTAgentPage {
 
 		System.out.println("Clicking autocomplete date option button...");
 	}
-	
+
 	/// ------------ SELECT DAY FROM CALENDAR PICKER (OPTION 6 DAY ) ------------
 	@FindBy(xpath = "(//td[@class='day  new'])[6]")
 	WebElement datepicker;
-	
+
 	private WebElement getDatepickerOption() {
 		return datepicker;
 	}
-	
+
 	public void SelectDateFromCalendar() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[@class='day  new'])[6]")));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[@class='day  new'])[6]")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -477,20 +477,19 @@ public class PTAgentPage {
 
 		System.out.println("Selecting day...");
 	}
-	
-	
+
 	/// ------------ SELECT INPUT TRAVELERS -------------
-	@FindBy (xpath = "//a[@class='dropdown-toggle dropdown-btn travellers waves-effect' and @role='button']")
+	@FindBy(xpath = "//a[@class='dropdown-toggle dropdown-btn travellers waves-effect' and @role='button']")
 	WebElement travelersInput;
-	
+
 	private WebElement getTravelersInput() {
 		return travelersInput;
 	}
-	
+
 	public void clickTravelersInput() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='dropdown-toggle dropdown-btn travellers waves-effect' and @role='button']")));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//a[@class='dropdown-toggle dropdown-btn travellers waves-effect' and @role='button']")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -500,21 +499,20 @@ public class PTAgentPage {
 
 		System.out.println("Clicking travelers button...");
 	}
-	
+
 	/// --------------- SELECT 2 ADULTS TRAVELLERS OPTION -----------------
-	@FindBy (xpath = "//div[@class='dropdown-item adult_qty']//i[@class='la la-plus']")
+	@FindBy(xpath = "//div[@class='dropdown-item adult_qty']//i[@class='la la-plus']")
 	WebElement adultsOptionPlus;
-	
-	private WebElement getAdultsOptionPlus()
-	{
+
+	private WebElement getAdultsOptionPlus() {
 		return adultsOptionPlus;
-		
+
 	}
-	
+
 	public void clickAdultsOptionPlus() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='dropdown-item adult_qty']//i[@class='la la-plus']")));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[@class='dropdown-item adult_qty']//i[@class='la la-plus']")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -524,38 +522,36 @@ public class PTAgentPage {
 
 		System.out.println("Adding 1 Adult ...");
 	}
-	
+
 	/// ----- PRINT NUMBER OF PASSENGERS ------
 	@FindBy(xpath = "//span[@class='guest_flights']")
 	WebElement NumberPassengers;
-	
+
 	private WebElement getNumberPassengers() {
 		return NumberPassengers;
 	}
-	
+
 	public void PrintNumberPassangers() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//span[@class='guest_flights']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='guest_flights']")));
 
 		System.out.println("Number of Passengers " + getNumberPassengers().getText());
 	}
-	
+
 	/// ------- SEARCH FLIGHTS BUTTON ------
-	@FindBy (id = "flights-search")
+	@FindBy(id = "flights-search")
 	WebElement searchFlightButton;
-	
+
 	private WebElement getsearchFlightButton() {
 		return searchFlightButton;
 	}
-	
+
 	public void clickSearchFlightButton() {
-		
+
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.id("flights-search")));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("flights-search")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -565,20 +561,19 @@ public class PTAgentPage {
 
 		System.out.println("Clicking search flights button  ...");
 	}
-	
+
 	/// ----- SELECT FIRST TRAVEL ON VIEW FLIGHTS ------
-	@FindBy (xpath = "(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")
+	@FindBy(xpath = "(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")
 	WebElement firstflight;
-	
-	private WebElement getFirstFlight()
-	{
+
+	private WebElement getFirstFlight() {
 		return firstflight;
 	}
-	
+
 	public void clickFirstFlight() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+				"(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -588,68 +583,108 @@ public class PTAgentPage {
 
 		System.out.println("Clicking first flight option  ...");
 	}
-	
+
 	/// ========== DEMO INFORMATION FROM BOOK FLIGHT VIEW ============
-	
+
 	/// ------- FIRST NAME -------
-	@FindBy (xpath = "(//div[@class='row'])[3]")
+	@FindBy(xpath = "(//div[@class='row'])[3]")
 	WebElement firstnameLabel;
-	
-	private WebElement getfirstnamelabel()
-	{
+
+	private WebElement getfirstnamelabel() {
 		return firstnameLabel;
 	}
-	
+
 	public void PrintFirstName() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[3]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[3]")));
 
 		System.out.println(getfirstnamelabel().getText());
 	}
-	
-	
-	
+
 	/// ------- LAST NAME -------
-	@FindBy (xpath = "(//div[@class='row'])[4]")
+	@FindBy(xpath = "(//div[@class='row'])[4]")
 	WebElement lastnameLabel;
-	
-	private WebElement getlastnamelabel()
-	{
+
+	private WebElement getlastnamelabel() {
 		return lastnameLabel;
 	}
-	
+
 	public void PrintLastNameLabel() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[4]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[4]")));
 
 		System.out.println(getlastnamelabel().getText());
 	}
-	
+
 	/// ------- EMAIL -------
-	@FindBy (xpath = "(//div[@class='row'])[5]")
+	@FindBy(xpath = "(//div[@class='row'])[5]")
 	WebElement emailLabel;
-	
-	private WebElement getEmailLabel()
-	{
+
+	private WebElement getEmailLabel() {
 		return emailLabel;
 	}
-	
+
 	public void PrintEmailLabel() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[5]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='row'])[5]")));
 
 		System.out.println(getEmailLabel().getText());
 	}
+
+	/// ========== TRAVELLER INFORMATION ============
+
+	/// ------ FIRST NAME ---------
+	@FindBy(name = "firstname_1")
+	WebElement firstnameTraveller1;
+
+	private WebElement getfirstnameTraveller1() {
+		return firstnameTraveller1;
+	}
+
+	public void firstnameTraveler1Input(String firstnameTraveller1) {
+		System.out.println("Entering first name Traveller 1 ...");
+		getfirstnameTraveller1().sendKeys(firstnameTraveller1);
+	}
+
+	/// ------ LAST NAME --------
+	@FindBy(name = "lastname_1")
+	WebElement lastnameTraveller1;
+
+	private WebElement getlastnameTraveller1() {
+		return lastnameTraveller1;
+	}
+
+	public void lastnameTraveler1Input(String lastnameTraveller1) {
+		System.out.println("Entering last name Traveller 1 ...");
+		getlastnameTraveller1().sendKeys(lastnameTraveller1);
+	}
+
+	/// -------- CLICK SELECT NATIONALITY -----------
+	@FindBy(xpath = "//select[@name='nationality_1']")
+	WebElement nationalityTraveller1;
 	
 	
-	
+	private WebElement getNationalityTraveller1() {
+		return nationalityTraveller1;
+	}
+
+	public void nationalityTraveller1Select() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='nationality_1']")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getNationalityTraveller1().click();
+
+		System.out.println("Searching option from nationality  ...");
+	}
+
 }

@@ -76,7 +76,7 @@ public class script2 extends Driver {
 		agentPage.clickTravelersInput();
 
 		// CLICK QUANTITY ADULT
-		agentPage.clickAdultsOptionPlus();
+		//agentPage.clickAdultsOptionPlus();
 
 		// PRINT NUMBER OF PASSENGERS
 		agentPage.PrintNumberPassangers();
@@ -99,7 +99,46 @@ public class script2 extends Driver {
 		
 		// ENTER TRAVELLERS INFORMATION
 
+		// FIRST NAME
+		agentPage.firstnameTraveler1Input("Barry");
+		
+		// LAST NAME
+		agentPage.lastnameTraveler1Input("Allen");
 
+		// NATIONALITY
+		agentPage.nationalityTraveller1Select();
+		// SEARCH OPTION
+		//agentPage.SelectnationalityTraveller1();
+		
+		// DATE OF BIRTH
+		// MONTH
+		//agentPage.SelectDateOfBirth();
+		
+		// DAY
+		//agentPage.SelectDayOfBirth();
+		
+		// YEAR
+		//agentPage.SelectYearOfBirth();
+		
+		// ================ PASSPORT INFORMATION ==================
+		// PASSPORT ID
+		//agentPage.EnterPassportID("C03005988");
+		
+		// PASSPORT ISSUANCE MONTH
+		//agentPage.SelectMonthPassport();
+		
+		// PASSPORT ISSUANCE DAY
+		//agentPage.SelectDayPassport();
+		
+		// PASSPORT ISSUANCE YEAR
+		//agentPage.SelectYearPassport();
+		
+		// PASSPORT EXPIRE DATE MONTH
+		//agentPage.SelectMonthExpirePassport();
+		
+		// PASSPORT EXPIRE DAY
+		//agentPage.SelectDayExpirePassport();
+		
 	}
 
 	@AfterClass
