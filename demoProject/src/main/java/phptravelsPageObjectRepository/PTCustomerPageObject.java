@@ -48,9 +48,9 @@ public class PTCustomerPageObject {
 		getFromCountryBtn().click();
 	}
 	
-	public void selectFromCountry() {
+	public void selectItemFromCountry() {
 		List <WebElement> ListFromCountry =driver.findElements(By.xpath("//*[@id='select2-from_country-results']//li")); ;
-		ListFromCountry.get(5).click();
+		ListFromCountry.get(9).click();
 	}
 	//------SELECT TO COUNTRY
 	public WebElement getToCountryBtn() {
@@ -60,7 +60,7 @@ public class PTCustomerPageObject {
 	public void clickToCountryBtn() {
 		getToCountryBtn().click();
 	}
-	public void selectToCountry() {
+	public void selectItemToCountry() {
 		List <WebElement> ListToCountry =driver.findElements(By.xpath("//*[@id='select2-to_country-results']/li")); ;	
 		ListToCountry.get(5).click();
 	}
