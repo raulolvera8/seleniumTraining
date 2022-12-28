@@ -41,10 +41,10 @@ public class scriptCustomer extends Driver {
 		visa.selectItemToCountry();
 		//Select DateBox
 		visa.selectDateBox();
-		
-		
-
-
+		//Select Day Calendar
+		visa.clickDayCalendar();
+		//Click Search Icon
+		visa.clickSearchIcon();
 		
 	}
 	@AfterClass

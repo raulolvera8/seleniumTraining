@@ -26,6 +26,8 @@ public class PTCustomerPageObject {
 	@FindBy(id="select2-from_country-container") WebElement fromCountryBtn;
 	@FindBy(id="select2-to_country-container") WebElement toCountryBtn;
 	@FindBy (id="date") WebElement selectDateBox;
+	@FindBy (xpath="//td[@class='day '][contains(text(),'26')]") WebElement selectDayCalendar;
+	@FindBy (id="submit") WebElement searchIcon;
 	public WebElement getVisaBtn() {
 		return visaBtn;
 	} 
@@ -71,6 +73,21 @@ public class PTCustomerPageObject {
 	public void selectDateBox() {
 		getDateBox().click();
 	}
+	//-------SELECT DAY-----------------//
+	public WebElement getDayCalendar() {
+		return selectDayCalendar;
+	}
+	public void clickDayCalendar() {
+		getDayCalendar().click();
+	}
+	//-----SEARCHING ICON -----///
+	public WebElement getSearchIcon() {
+		return searchIcon;
+	}
+	public void clickSearchIcon() {
+		getSearchIcon().click();
+	}
+	
 	
 	
 	
