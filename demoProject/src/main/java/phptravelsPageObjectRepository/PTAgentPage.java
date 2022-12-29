@@ -713,7 +713,7 @@ public class PTAgentPage {
 		System.out.println("Clicking My Bookings button ...");
 	}
 
-	/// --------  VIEW VOUCHER BUTTON --------
+	/// -------- VIEW VOUCHER BUTTON --------
 	@FindBy(xpath = "//a[ contains (text(), 'View Voucher')]")
 	WebElement ViewVoucher;
 
@@ -733,8 +733,9 @@ public class PTAgentPage {
 		getViewVoucher().click();
 		System.out.println("Clicking View Voucher button ...");
 	}
-	
-	/// -------- VERIFY DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME, EMAIL, PHONE, ADDRESS) --------
+
+	/// --- VERIFY DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME, EMAIL,
+	/// PHONE, ADDRESS) --------
 	@FindBy(xpath = "(//ul[@class='customer'])[1]")
 	WebElement firstData;
 
@@ -755,8 +756,9 @@ public class PTAgentPage {
 
 		System.out.println("BOOKING INVOICE " + getFirstData().getText());
 	}
-	
-	/// -------- VERIFY DATA ON BOOKING VIEW (COMPANY DATA, NAME, EMAIL, PHONE, ADDRESS) --------
+
+	/// ---- VERIFY DATA ON BOOKING VIEW (COMPANY DATA, NAME, EMAIL, PHONE, ADDRESS)
+	/// --------
 
 	@FindBy(xpath = "(//ul[@class='customer'])[2]")
 	WebElement secondData;
@@ -778,5 +780,5 @@ public class PTAgentPage {
 
 		System.out.println(getSecondData().getText());
 	}
-	
+
 }
