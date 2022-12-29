@@ -184,21 +184,26 @@ public class PTCustomerPageObject {
 		@FindBy (id="autocomplete") WebElement FlyingFrom;
 		@FindBy (id="autocomplete2") WebElement ToDestination;
 		@FindBy (id="departure") WebElement departureDateBox;
-		@FindBy (xpath="//td[@class='day '][contains (text(),'15')]") WebElement dayDeparture;
+		@FindBy (xpath="//td[@class='day '][contains (text(),'28')]") WebElement dayDeparture;
 		@FindBy (xpath="//*[@class='dropdown dropdown-contain']") WebElement passengersBox;
 		@FindBy (xpath="//*[@class='dropdown-item adult_qty']//*[@class='qtyInc']") WebElement iconPlus;
 		@FindBy (xpath="//*[@class='guest_flights']") WebElement numberPassengers;
+		@FindBy (id="flights-search") WebElement flightsSearchBtn;
 		//---- WRITE FLYING FROM
 		public WebElement getFlyingFrom() {
 			return FlyingFrom;
 		}
-		public void writeFlyingFrom() {
-			getFlyingFrom().sendKeys("Mexico");
+		public void writeFlyingFrom(String fromCountry) {
+			getFlyingFrom().sendKeys(fromCountry);
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
 		}
 		
 		public void selectItemFlyingFrom() {
 			List <WebElement> listFlyingFrom = driver.findElements(By.xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"));
-			listFlyingFrom.get(4).click();
+			listFlyingFrom.get(0).click();
 		}
 		
 		//---- WRITE  TO DESTINATION
@@ -206,13 +211,17 @@ public class PTCustomerPageObject {
 		public WebElement getToDestination() {
 			return ToDestination;
 		}
-		public void writeToDestination() {
-			getToDestination().sendKeys("mar");
+		public void writeToDestination(String toCountry) {
+			getToDestination().sendKeys(toCountry);
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
 		}
 		
 		public void selectItemToDestination() {
 			List <WebElement> listToDestination = driver.findElements(By.xpath("//*[@class='autocomplete-wrapper _1 row_2']//div[@class='autocomplete-result']"));
-			listToDestination.get(1).click();
+			listToDestination.get(0).click();
 		}
 		
 		//---- SELECT DEPARTURE DATE
@@ -236,6 +245,12 @@ public class PTCustomerPageObject {
 		}
 		public void clickPassengersBox() {
 			getPassengersBox().click();
+			Wait <WebDriver> wait = new FluentWait <WebDriver> (this.driver)
+					.withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(2))
+					.ignoring(ElementNotInteractableException.class);
+			wait.until(ExpectedConditions.attributeToBe(By.xpath("//*[@class='dropdown-menu dropdown-menu-wrap']"),"style" , "display: block;"));
+		
 			
 		}
 		//---- SELECT PASSENGERS 
@@ -244,26 +259,42 @@ public class PTCustomerPageObject {
 			return iconPlus;
 		}
 		
-		public void clickconPlus() {
-			Wait <WebDriver> wait = new FluentWait <WebDriver> (this.driver)
-					.withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(2))
-					.ignoring(ElementNotInteractableException.class);
-			wait.until(ExpectedConditions.attributeToBe(By.xpath("//*[@class='dropdown-menu dropdown-menu-wrap']"),"style" , "display: block;"));
-		
-			geticonPlus().click();
-		}
-		public void numberOfPassengers() {
-			for (int i=0; i <= 2; i++) {
-				clickconPlus();
-			}
-			clickPassengersBox();
-			
-		}
-		
-		
-		
+		public void clickIconPlus() throws InterruptedException {
+			Thread.sleep(6000);
 
+			geticonPlus().click();
+			Thread.sleep(6000);
+
+		}
+		/*public void numberOfPassengers() throws InterruptedException {
+			int i;
+			for ( i=0; i <=1; i++) {
+				clickIconPlus();
+				Thread.sleep(3000);
+			}						
+		}*/
+		 
+		public WebElement getflightsSearchBtn() {
+			return flightsSearchBtn;
+		}
+		public void selectflightsSearchBtn() {
+			getflightsSearchBtn().click();
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
+		}
+		
+		/// ---- BOOK NOW WINDOW
+		@FindBy (xpath="//*[@class='btn btn-primary']") WebElement bookNowBtn;
+		public WebElement getBookNowBtn() {
+			return bookNowBtn;
+		}
+		public void clickBookNowBtn() {			
+			getBookNowBtn().click();
+		}
+		
+		/// ----  FLIGHTS BOOKING WINDOW
 		
 		
 		

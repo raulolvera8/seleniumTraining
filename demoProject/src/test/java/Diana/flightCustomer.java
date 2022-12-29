@@ -17,19 +17,31 @@ public void setup() {
 		this.Driver=initFirefoxDriver();
  }
 @Test
-public void travels() {
+public void travels() throws InterruptedException {
 	PTHomePage home=new PTHomePage(Driver);
 	PTLoginPage login = new PTLoginPage(Driver);
-	
+	PTCustomerPageObject flights = new PTCustomerPageObject(Driver);
+
+	//Login
 	home.clickBtnAccount();
 	home.clickCustomerLoginbtn();
 	login.fillEmail("user@phptravels.com");
 	login.fillPassword("demouser");
 	login.clickLogin();
-	PTCustomerPageObject flights = new PTCustomerPageObject(Driver);
+	// Click Flights Tab
 	flights.clickFlightsTab();
-	
-	
+	// Filling trip form to search
+	flights.writeFlyingFrom("Mag");
+	flights.selectItemFlyingFrom();
+	flights.writeToDestination("yaz");
+	flights.selectItemToDestination();
+	flights.selectDepartureDateBox();
+	flights.clickDayDeparture();
+	flights.clickPassengersBox();
+	//flights.clickIconPlus();	
+	flights.selectflightsSearchBtn();
+	//Book now flight
+	flights.clickBookNowBtn();
 }
 
 @AfterClass
