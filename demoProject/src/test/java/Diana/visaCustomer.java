@@ -10,7 +10,7 @@ import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 
-public class scriptCustomer extends Driver {
+public class visaCustomer extends Driver {
 	WebDriver driver;
 	@BeforeClass
 	public void setup() {
