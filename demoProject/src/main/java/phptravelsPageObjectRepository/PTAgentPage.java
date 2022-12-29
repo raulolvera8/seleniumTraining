@@ -17,10 +17,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PTAgentPage {
 
 	WebDriver driver;
+	JavascriptExecutor js;
 
 	public PTAgentPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	public void jsScrollToElement(WebElement element) {
+		js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
 	/// -------- ADD FUNDS BUTTON --------
@@ -458,7 +464,7 @@ public class PTAgentPage {
 	}
 
 	/// ------------ SELECT DAY FROM CALENDAR PICKER (OPTION 6 DAY ) ------------
-	@FindBy(xpath = "(//td[@class='day  new'])[6]")
+	@FindBy(xpath = "(//td[@class='day  new'])[1]")
 	WebElement datepicker;
 
 	private WebElement getDatepickerOption() {
@@ -467,7 +473,7 @@ public class PTAgentPage {
 
 	public void SelectDateFromCalendar() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[@class='day  new'])[6]")));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[@class='day  new'])[1]")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -665,18 +671,17 @@ public class PTAgentPage {
 		getlastnameTraveller1().sendKeys(lastnameTraveller1);
 	}
 
-	/// -------- CLICK SELECT NATIONALITY -----------
-	@FindBy(xpath = "//select[@name='nationality_1']")
+	/// -------- SELECT NATIONALITY -----------
+	@FindBy(xpath = "//select[@name='nationality_1']//option[@value='US']")
 	WebElement nationalityTraveller1;
-	
-	
+
 	private WebElement getNationalityTraveller1() {
 		return nationalityTraveller1;
 	}
 
 	public void nationalityTraveller1Select() {
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='nationality_1']")));
+//		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+//		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='nationality_1']")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -684,7 +689,96 @@ public class PTAgentPage {
 
 		getNationalityTraveller1().click();
 
-		System.out.println("Searching option from nationality  ...");
+		System.out.println("Selecting option from nationality  ...");
+	}
+
+	/// -------- MY BOOKINGS BUTTON FROM USER VIEW --------
+	@FindBy(xpath = "(//a[ contains (text(), 'My Bookings')])[2]")
+	WebElement MyBookingsButton;
+
+	private WebElement getMyBookingsButton() {
+		return MyBookingsButton;
+	}
+
+	public void ClickMyBookingsButton() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("(//a[ contains (text(), 'My Bookings')])[2]")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getMyBookingsButton().click();
+		System.out.println("Clicking My Bookings button ...");
+	}
+
+	/// -------- VIEW VOUCHER BUTTON --------
+	@FindBy(xpath = "//a[ contains (text(), 'View Voucher')]")
+	WebElement ViewVoucher;
+
+	private WebElement getViewVoucher() {
+		return ViewVoucher;
+	}
+
+	public void ClickViewVoucherButton() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'View Voucher')]")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getViewVoucher().click();
+		System.out.println("Clicking View Voucher button ...");
+	}
+
+	/// --- VERIFY DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME, EMAIL,
+	/// PHONE, ADDRESS) --------
+	@FindBy(xpath = "(//ul[@class='customer'])[1]")
+	WebElement firstData;
+
+	private WebElement getFirstData() {
+		return firstData;
+	}
+
+	public void VerifyFirstDataBooking() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getLabelAmount().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[1]")));
+
+		System.out.println("BOOKING INVOICE " + getFirstData().getText());
+	}
+
+	/// ---- VERIFY DATA ON BOOKING VIEW (COMPANY DATA, NAME, EMAIL, PHONE, ADDRESS)
+	/// --------
+
+	@FindBy(xpath = "(//ul[@class='customer'])[2]")
+	WebElement secondData;
+
+	private WebElement getSecondData() {
+		return secondData;
+	}
+
+	public void VerifySecondDataBooking() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getLabelAmount().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[2]")));
+
+		System.out.println(getSecondData().getText());
 	}
 
 }
