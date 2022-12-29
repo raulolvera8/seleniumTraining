@@ -42,6 +42,13 @@ public class Supplier_CreateTour extends Driver {
 		supplierPage.insertAdultQtyTxt("2");
 		supplierPage.insertAdultPriceTxt("250.00");
 		supplierPage.insertLocationTourTxt("Huatulco");
+		supplierPage.clickInclusionsBtn();
+		supplierPage.clickSelectAllCheckbox();
+		supplierPage.clickCabFacilitiesChkbox();
+		supplierPage.clickLocalTaxChkbox();
+		supplierPage.clickPlaygrndNrbyChkbox();
+		supplierPage.clickExclusionsBtn();
+		supplierPage.clickVisaChargeChkbox();
 		
 	}
 	
