@@ -292,11 +292,26 @@ public class PTCustomerPageObject {
 		}
 		public void clickBookNowBtn() {			
 			getBookNowBtn().click();
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
 		}
 		
 		/// ----  FLIGHTS BOOKING WINDOW
+		@FindBy (xpath="//*[@class='form-select form-select-sm nationality']") WebElement dropdownNationality;
+		public WebElement getdropdownNationality() {
+			return dropdownNationality;
+		}
+		public void clickDropdownNationality() {			
+			getdropdownNationality().click();
+		}
 		
-		
+	
+		public void selectValueNationality() {	
+			List <WebElement> listNationality = driver.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
+			listNationality.get(5).click();
+		}
 		
 		
 		//######################## END FLIGHTS ########################## Diana

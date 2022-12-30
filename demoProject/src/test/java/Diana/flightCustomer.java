@@ -42,6 +42,8 @@ public void travels() throws InterruptedException {
 	flights.selectflightsSearchBtn();
 	//Book now flight
 	flights.clickBookNowBtn();
+	flights.clickDropdownNationality();
+	flights.selectValueNationality();
 }
 
 @AfterClass
