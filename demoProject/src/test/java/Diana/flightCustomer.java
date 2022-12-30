@@ -44,6 +44,13 @@ public void travels() throws InterruptedException {
 	flights.clickBookNowBtn();
 	flights.clickDropdownNationality();
 	flights.selectValueNationality();
+	flights.selectValueTitle();
+	flights.writefirstNametb("Diana");
+	flights.writelastNametb("Velasquez");
+	flights.selectValueNationality_1();
+	flights.selectDateOfBirth();
+	flights.selectDay();
+	flights.selectYear();
 }
 
 @AfterClass

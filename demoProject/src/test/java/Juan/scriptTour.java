@@ -35,3 +35,4 @@ public class scriptTour extends Driver {
 		loginPage.clickLogin();
 		tourPage.clickToursBtn();
 }
+}
