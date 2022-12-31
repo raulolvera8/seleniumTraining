@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
-import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
@@ -34,4 +33,5 @@ public class scriptTour extends Driver {
 		loginPage.fillPassword("demouser");
 		loginPage.clickLogin();
 		tourPage.clickToursBtn();
-}}
+	}
+}

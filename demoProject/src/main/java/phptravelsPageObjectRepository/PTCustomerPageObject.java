@@ -292,13 +292,62 @@ public class PTCustomerPageObject {
 		}
 		public void clickBookNowBtn() {			
 			getBookNowBtn().click();
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
 		}
 		
-		/// ----  FLIGHTS BOOKING WINDOW
+		/// ----  FLIGHTS BOOKING INFORMATION WINDOW
+		@FindBy (xpath="//*[@class='form-select form-select-sm nationality']") WebElement dropdownNationality;
+		@FindBy (name="firstname_1") WebElement firstNametb;
+		@FindBy (name="lastname_1") WebElement lastNametb;
+		@FindBy (name="passport_1") WebElement passportTb;
+
+		public WebElement getdropdownNationality() {
+			return dropdownNationality;
+		}
+		public void clickDropdownNationality() {			
+			getdropdownNationality().click();
+		}
+		public WebElement getFirstNametb() {
+			return firstNametb;
+		}
+		public void writefirstNametb(String firstName) {			
+			getFirstNametb().sendKeys(firstName);
+		}
+		public WebElement getlastNametb() {
+			return lastNametb;
+		}
+		public void writelastNametb(String lastName) {			
+			getlastNametb().sendKeys(lastName);
+		}
+	
+		public void selectValueNationality() {	
+			List <WebElement> listNationality = driver.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
+			listNationality.get(5).click();
+		}
+		public void selectValueTitle() {	
+			List <WebElement> listTitle = driver.findElements(By.xpath("//*[@class='title_1']//option"));
+			listTitle.get(1).click();
+		}
+		public void selectValueNationality_1() {	
+			List <WebElement> listNationality_1 = driver.findElements(By.name("//*[@name='nationality_1']//option"));
+			listNationality_1.get(5).click();
+		}
 		
-		
-		
-		
+		public void selectDateOfBirth() {	
+			List <WebElement> listMonth = driver.findElements(By.name("//*[@name='dob_month_1']//option"));
+			listMonth.get(5).click();
+		}
+		public void selectDay() {	
+			List <WebElement> listDay = driver.findElements(By.name("//*[@name='dob_day_1']//option"));
+			listDay.get(5).click();
+		}
+		public void selectYear() {	
+			List <WebElement> listYear = driver.findElements(By.name("//*[@name='dob_year_1']//option"));
+			listYear.get(5).click();
+		}
 		//######################## END FLIGHTS ########################## Diana
 
 
