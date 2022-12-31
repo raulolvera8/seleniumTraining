@@ -34,4 +34,4 @@ public class scriptTour extends Driver {
 		loginPage.fillPassword("demouser");
 		loginPage.clickLogin();
 		tourPage.clickToursBtn();
-}
+}}
