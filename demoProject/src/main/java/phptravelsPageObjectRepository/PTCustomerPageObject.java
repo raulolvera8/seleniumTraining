@@ -581,4 +581,101 @@ public void clickDetails() {
 
 
 
+//-----------------FLIGHTS--------JUAN-------
+
+@FindBy(xpath="//*[@title='flights']") WebElement flightsBtn;
+
+public WebElement getFlightsBtn() {
+	return flightsBtn;
+}
+
+public void clickFlightsbtn() {
+	
+
+	getFlightsBtn().click();
+	
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[text()='Welcome Back']")));
+	
+	}
+
+@FindBy(xpath="//*[@id='autocomplete']") WebElement flyingFrom;
+
+public WebElement getFlyingfrom() {
+	return flyingFrom;
+}
+
+
+public void writeFrom(String fromCity) {			
+	getFlyingFrom().sendKeys(fromCity);
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+	
+	}
+
+@FindBy(xpath="//*[@id='autocomplete']") WebElement flyingDestination;
+
+public WebElement getFlyingDestination() {
+	return flyingDestination;
+}
+
+
+public void writeDestination(String fromDestination) {			
+	getFlyingDestination().sendKeys(fromDestination);
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+	
+	}
+@FindBy(xpath="//*[@value='05-01-2023']") WebElement date;
+
+public WebElement getDate() {
+	return date;
+}
+
+
+public void clickDate() {
+	
+
+	getDate().click();
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+	
+	}
+
+@FindBy(xpath="//*[@role='img']") WebElement search;
+
+public WebElement getSearch() {
+	return search;
+}
+
+
+public void clickSearch() {
+	
+
+	getSearch().click();
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+	
+	}
+
+
+
+
+
+
+
+
 }
