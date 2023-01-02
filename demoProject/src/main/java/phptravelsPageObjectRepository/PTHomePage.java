@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -20,7 +21,19 @@ public class PTHomePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
+	// ------------- SELECT LANGUAGE  ---------------------------------------
+	@FindBy (id="languages") WebElement languagesDropDownList;
+	public WebElement getlanguagesDropDownList() {
+		return languagesDropDownList;
+	}
+	public void clickLanguageDropDownlist() {
+		getlanguagesDropDownList().click();
+	}
+	public void clickLanguage() {
+		List <WebElement> listLanguage = driver.findElements(By.xpath("//*[@class='dropdown-menu show']/li"));
+		listLanguage.get(8).click();
+		
+	}
 	/// ----Account Button-----
 	@FindBy(id = "ACCOUNT")
 	WebElement btnAccount;
