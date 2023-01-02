@@ -374,4 +374,76 @@ public class PTCustomerPageObject {
 		("//*[@name='checkin']")));
 	
 }
+@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement destinationCity;
+	
+	public WebElement getDestination() {
+		return destinationCity;
+		
 	}
+	
+	public void clickDestination() {
+		
+	
+		getDestination().click();
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[@id='select2-tours_city-container']")));
+	
+	}
+	
+@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement searchCity;
+	
+public WebElement getCity() {
+	return searchCity;
+}
+
+
+public void writeCity(String fromCity) {			
+	getCity().sendKeys(fromCity);
+		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[@id='submit']")));
+	
+	}
+
+@FindBy(xpath="//*[@id='submit']") WebElement submit;
+
+public WebElement getSubmit() {
+	return submit;
+}
+
+public void clickSubmit() {
+	
+
+	getSubmit().click();
+	
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[@id='select2-tours_city-container']")));
+	
+	}
+
+@FindBy(xpath="//*[@src='https://phptravels.net/api/uploads/images/tours/slider/thumbs/9.jpg']") WebElement details;
+
+public WebElement getDetails() {
+	return details;
+}
+
+public void clickDetails() {
+	
+
+	getDetails().click();
+	
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+		("//*[@id='currency']")));
+	
+	}
+
+
+
+}
