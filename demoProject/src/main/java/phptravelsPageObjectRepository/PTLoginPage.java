@@ -112,7 +112,7 @@ public class PTLoginPage {
 	// ############# END OF CUSTOMER SECTION #######################################
 
 	// ELEMENTS FROM LOGIN AGENT  ------ Iris
-	@FindBy(xpath = "//input[@name='email' and not(@id='resetemail')]")
+	@FindBy(xpath = "//input[@name='email' and (@type='email')]")
 	WebElement emailInput;
 
 	private WebElement getEmailInput() {
@@ -122,11 +122,11 @@ public class PTLoginPage {
 	public void enterEmailInput(String email) {
 		System.out.println("Entering email...");
 
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(80))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
 		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//input[@name='email' and not(@id='resetemail')]")));
+				.visibilityOfElementLocated(By.xpath("//input[@name='email' and (@type='email')]")));
 
 		getEmailInput().sendKeys(email);
 	}
@@ -152,6 +152,12 @@ public class PTLoginPage {
 	
 	public void clickLoginButtonAgent() {
 		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(80))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//button[@type='submit']")));
+
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
