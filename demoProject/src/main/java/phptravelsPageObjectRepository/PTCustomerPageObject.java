@@ -2,9 +2,11 @@ package phptravelsPageObjectRepository;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +23,15 @@ public class PTCustomerPageObject {
 	public PTCustomerPageObject(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+	/// ############ COOKIES 
+	@FindBy (id="cookie_stop") WebElement gotitBtn;
+
+	public WebElement getGotItBtn() {
+		return gotitBtn;
+	}
+	public void clickGotItBtn() {			
+		getGotItBtn().click();;
 	}
 	//######################## VISA ########################## Diana
 	@FindBy(xpath="//*[@href='https://phptravels.net/visa']") WebElement visaBtn;
@@ -177,6 +188,10 @@ public class PTCustomerPageObject {
 		}
 		public void clickFlightsTab() {
 			getFlightsTab().click();
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(120))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
 		}
 		
 		//SEARCH FOR BEST FLIGHTS WINDOW
@@ -279,8 +294,8 @@ public class PTCustomerPageObject {
 		}
 		public void selectflightsSearchBtn() {
 			getflightsSearchBtn().click();
-			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(320))
+					.pollingEvery(Duration.ofSeconds(2)).ignoring(ElementNotInteractableException.class);
 			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
 					"display: none;"));
 		}
@@ -300,16 +315,23 @@ public class PTCustomerPageObject {
 		
 		/// ----  FLIGHTS BOOKING INFORMATION WINDOW
 		@FindBy (xpath="//*[@class='form-select form-select-sm nationality']") WebElement dropdownNationality;
+		@FindBy(name="title_1") WebElement DropDowntitle;
+		@FindBy(name="nationality_1") WebElement DropDownNationality_1;
+		@FindBy(name="dob_month_1") WebElement DropDownMonth;
+		@FindBy(name="dob_day_1") WebElement DropDownDay;
+		@FindBy(name="dob_year_1") WebElement DropDownYear;
 		@FindBy (name="firstname_1") WebElement firstNametb;
 		@FindBy (name="lastname_1") WebElement lastNametb;
 		@FindBy (name="passport_1") WebElement passportTb;
+		@FindBy (xpath="//*[@class='col-md-12 mb-1 gateway_pay-later']") WebElement payLaterRadioBtn;
+		@FindBy (xpath="//*[@class='custom-checkbox']") WebElement termsAndConditionsCheckBox;
+		@FindBy (id="booking") WebElement bookingBtn;
+		
+		
 
-		public WebElement getdropdownNationality() {
-			return dropdownNationality;
-		}
-		public void clickDropdownNationality() {			
-			getdropdownNationality().click();
-		}
+
+		
+		
 		public WebElement getFirstNametb() {
 			return firstNametb;
 		}
@@ -322,36 +344,149 @@ public class PTCustomerPageObject {
 		public void writelastNametb(String lastName) {			
 			getlastNametb().sendKeys(lastName);
 		}
-	
+		// ---- DROPDOWN LIST -------
+		
+		// ----- NATIONALITY
+		public WebElement getdropdownNationality() {
+			return dropdownNationality;
+		}
+		public void clickDropdownNationality() {			
+			getdropdownNationality().click();
+		}
 		public void selectValueNationality() {	
 			List <WebElement> listNationality = driver.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
 			listNationality.get(5).click();
 		}
+		// ----- TITLE
+
+		public WebElement getDropDowntitle() {
+			return DropDowntitle;
+		}
+		public void selectDropDowntitle() {
+			getDropDowntitle().click();
+		}
 		public void selectValueTitle() {	
-			List <WebElement> listTitle = driver.findElements(By.xpath("//*[@class='title_1']//option"));
+			List <WebElement> listTitle = driver.findElements(By.xpath("//*[@name='title_1']//option"));
 			listTitle.get(1).click();
 		}
+		// ----- NATIONALITY_01
+
+		public WebElement getDropDownNationality_1() {
+			return DropDownNationality_1;
+		}
+		public void selectDropDownNationality_1() {
+			getDropDownNationality_1().click();
+		}
 		public void selectValueNationality_1() {	
-			List <WebElement> listNationality_1 = driver.findElements(By.name("//*[@name='nationality_1']//option"));
+			List <WebElement> listNationality_1 = driver.findElements(By.xpath("//*[@name='nationality_1']//option"));
 			listNationality_1.get(5).click();
+		}
+		// ----- DATE OF BIRTH
+
+		public WebElement getDropDownMonth() {
+			return DropDownMonth;
+		}
+		public void selectDropDownMonth() {
+			getDropDownMonth().click();
 		}
 		
 		public void selectDateOfBirth() {	
-			List <WebElement> listMonth = driver.findElements(By.name("//*[@name='dob_month_1']//option"));
+			List <WebElement> listMonth = driver.findElements(By.xpath("//*[@name='dob_month_1']//option"));
 			listMonth.get(5).click();
 		}
+		
+		// ----- DAY
+
+		public WebElement getDropDownDay() {
+			return DropDownDay;
+		}
+		public void selectDropDownDay() {
+			getDropDownDay().click();
+		}
+		
 		public void selectDay() {	
-			List <WebElement> listDay = driver.findElements(By.name("//*[@name='dob_day_1']//option"));
-			listDay.get(5).click();
+			List <WebElement> listDay = driver.findElements(By.xpath("//*[@name='dob_day_1']//option"));
+			listDay.get(10).click();
+		}
+		
+		// ----- YEAR
+
+		public WebElement getDropDownYear() {
+			return DropDownYear;
+		}
+		public void selectDropDownYear() {
+			getDropDownYear().click();
 		}
 		public void selectYear() {	
-			List <WebElement> listYear = driver.findElements(By.name("//*[@name='dob_year_1']//option"));
+			List <WebElement> listYear = driver.findElements(By.xpath("//*[@name='dob_year_1']//option"));
 			listYear.get(5).click();
 		}
-		//######################## END FLIGHTS ########################## Diana
-
-
+		// ---- END DROPDOWN LIST -------
+		// PAY LATER  
+		public WebElement getPayLaterRadioBtn() {
+			return payLaterRadioBtn;
+		}
+		public void selectPayLaterRadioBtn() {
+			getPayLaterRadioBtn().click();
+		}
+		// ACCEPT TERMS AND CONDITIONS  termsAndConditionsCheckBoxbookingBtn
+		public WebElement getCheckboxTerms() {
+			return termsAndConditionsCheckBox;
+		}
+		public void selectCheckBoxTerms() {
+			getCheckboxTerms().click();
+		}
+		// CONFIRM BOOKING BTN
+		public WebElement getBookingBtn() {
+			return bookingBtn;
+		}
+		public void clickBookingBtn() {
+			getBookingBtn().click();
+		}
 		
+		//------ VALIDATION WINDOW ------
+
+		//######################## END FLIGHTS ########################## Diana
+		
+		//########################  HOTELS WINDOW ########################## Diana
+
+		@FindBy(xpath="//*[@href='https://phptravels.net/hotels']") WebElement hotelsBtn;
+		@FindBy (xpath="//*[@class='owl-item cloned'][1]") WebElement hotelDiv;
+
+		// ---- HOTELS TAB
+
+		public WebElement gethotelsBtn() {
+			return hotelsBtn;
+		} 
+		public void clickHotelsBtn() {
+			gethotelsBtn().click();
+		
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='logo']")));
+			
+		}
+		
+		public WebElement gethotelDiv() {
+			return hotelDiv;
+		} 
+		public void clickhotelDiv() {
+			gethotelDiv().click();
+		
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
+		
+			
+		}
+		//########################  END HOTELS WINDOW ########################## Diana
+
 	
 	//-----------------TOURS--------JUAN-------
 	

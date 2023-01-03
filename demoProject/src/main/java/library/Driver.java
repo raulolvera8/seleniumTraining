@@ -21,8 +21,11 @@ import org.openqa.selenium.support.ui.Wait;
 
 public class Driver {
 	WebDriver driver;
-
-
+	public void  jsScrollDown() {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+	       js.executeScript("window.scroll(0,600)");
+	   }
+	
 	public WebDriver initFirefoxDriver() {
 		String URL = "https://phptravels.net/";
 
@@ -45,7 +48,10 @@ public class Driver {
 		// Wait visibility of form
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_form__9MEAJ")));//
 		System.out.println("Page is loaded and ready to use!");
+		
+		
 */
+		
 		return driver;
 
 	}
