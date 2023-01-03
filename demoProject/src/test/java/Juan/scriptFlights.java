@@ -21,20 +21,37 @@ public class scriptFlights extends Driver {
 	@Test
 	public void CustomerPage() {
 
-
+        // Enter on Home Page
 		PTHomePage homePage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTCustomerPageObject flightPage = new PTCustomerPageObject(driver);
 		homePage.clickBtnAccount();
 		homePage.clickCustomerLoginbtn();
+		
+		//Write the Email and Password
 		loginPage.fillEmail("user@phptravels.com");
 		loginPage.fillPassword("demouser");
 		loginPage.clickLogin();
+		
+		//Click on Flights Button
 		flightPage.clickFlightsbtn();
-		flightPage.writeFrom("monterrey");
-		flightPage.writeDestination("italy");
+		
+		//Select Country
+		flightPage.writeFlyingFromOneWay("Mex");
+		flightPage.selectItemFlyingFromOneWay();
+		
+		//Select Destination
+		flightPage.writeFlyingDestinationOneWay("Fra");
+		flightPage.selectItemFlyingDestinationOneWay();
+		
+        // Select Date
 		flightPage.clickDate();
+		
+		//Click On Search Button
 		flightPage.clickSearch();
+		
+		//Click On Modify Search
+		flightPage.clickModifySearch();
 		
 	}
 

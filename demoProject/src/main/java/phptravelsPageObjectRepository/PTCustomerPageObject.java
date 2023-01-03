@@ -1128,45 +1128,58 @@ public void clickFlightsbtn() {
 
 	getFlightsBtn().click();
 	
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 		("//*[text()='Welcome Back']")));
 	
 	}
 
-@FindBy(xpath="//*[@id='autocomplete']") WebElement flyingFrom;
+@FindBy(xpath="//*[@id='autocomplete']") WebElement flyingFromOneWay;
 
-public WebElement getFlyingfrom() {
-	return flyingFrom;
+public WebElement getFlyingFromOneWay() {
+	return flyingFromOneWay;
 }
 
-
-public void writeFrom(String fromCity) {			
-	getFlyingFrom().sendKeys(fromCity);
-		
-		
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+public void writeFlyingFromOneWay(String fromCountry) {
+	getFlyingFromOneWay().sendKeys(fromCountry);
 	
-	}
+	Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+			.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+	wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+			"display: none;"));
+}
 
-@FindBy(xpath="//*[@id='autocomplete']") WebElement flyingDestination;
+public void selectItemFlyingFromOneWay() {
+	List <WebElement> listFlyingFromOneWay = driver.findElements(By.xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"));
+	listFlyingFromOneWay.get(0).click();
+}
 
-public WebElement getFlyingDestination() {
+	
+
+@FindBy(xpath="//*[@id='autocomplete2']") WebElement flyingDestination;
+
+public WebElement getFlyingDestinationOneWay() {
 	return flyingDestination;
 }
 
-
-public void writeDestination(String fromDestination) {			
-	getFlyingDestination().sendKeys(fromDestination);
-		
-		
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+public void writeFlyingDestinationOneWay(String destinationCountry) {
+	getFlyingDestinationOneWay().sendKeys(destinationCountry);
 	
-	}
+	Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+			.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+	wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+			"display: none;"));
+}
+
+public void selectItemFlyingDestinationOneWay() {
+	List <WebElement> listFlyingDestinationOneWay = driver.findElements(By.xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"));
+	listFlyingDestinationOneWay.get(0).click();
+}
+
+
+
+
+
 @FindBy(xpath="//*[@value='05-01-2023']") WebElement date;
 
 public WebElement getDate() {
@@ -1186,7 +1199,7 @@ public void clickDate() {
 	
 	}
 
-@FindBy(xpath="//*[@role='img']") WebElement search;
+@FindBy(xpath="//*[@id='flights-search']") WebElement search;
 
 public WebElement getSearch() {
 	return search;
@@ -1202,6 +1215,26 @@ public void clickSearch() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+	
+	}
+//MODIFY SEARCH
+
+@FindBy(xpath="//*[@id='direct']") WebElement modifySearch;
+
+public WebElement getModifySearch() {
+	return modifySearch;
+}
+
+
+public void clickModifySearch() {
+	
+
+	getSearch().click();
+		
+	WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+	waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	("//button[text()='Modify Search']")));
+		
 	
 	}
 }
