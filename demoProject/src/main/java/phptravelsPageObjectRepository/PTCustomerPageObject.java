@@ -294,14 +294,22 @@ public class PTCustomerPageObject {
 		}
 		public void selectflightsSearchBtn() {
 			getflightsSearchBtn().click();
-			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(320))
+		
+			
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 					.pollingEvery(Duration.ofSeconds(2)).ignoring(ElementNotInteractableException.class);
-			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+			wait2.until(ExpectedConditions.attributeToBe(By.id("preloader"), "style",
 					"display: none;"));
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='theme-search-results-item-book row']")));
+			System.out.println("FLIGHTS BOOKING WINDOW");
+			
 		}
 		
 		/// ---- BOOK NOW WINDOW
-		@FindBy (xpath="//*[@class='btn btn-primary']") WebElement bookNowBtn;
+		@FindBy (xpath="//*[@class='theme-search-results-item-book row']") WebElement bookNowBtn;
 		public WebElement getBookNowBtn() {
 			return bookNowBtn;
 		}
@@ -323,6 +331,13 @@ public class PTCustomerPageObject {
 		@FindBy (name="firstname_1") WebElement firstNametb;
 		@FindBy (name="lastname_1") WebElement lastNametb;
 		@FindBy (name="passport_1") WebElement passportTb;
+		@FindBy(name="passport_issuance_month_1") WebElement dropDown_passport_issuance_month;
+		@FindBy(name="passport_issuance_day_1") WebElement dropDown_passport_issuance_day;
+		@FindBy(name="passport_issuance_year_1") WebElement DropDown_passport_issuance_year_1;
+		@FindBy(name="passport_month_1") WebElement dropDown_passport_month_1;
+		@FindBy(name="passport_day_1") WebElement dropDown_passport_day_1;
+		@FindBy(name="passport_year_1") WebElement DropDown_passport_year_1;
+		
 		@FindBy (xpath="//*[@class='col-md-12 mb-1 gateway_pay-later']") WebElement payLaterRadioBtn;
 		@FindBy (xpath="//*[@class='custom-checkbox']") WebElement termsAndConditionsCheckBox;
 		@FindBy (id="booking") WebElement bookingBtn;
@@ -330,7 +345,7 @@ public class PTCustomerPageObject {
 		
 
 
-		
+		// --- TRAVELLER INFORMATION
 		
 		public WebElement getFirstNametb() {
 			return firstNametb;
@@ -422,6 +437,84 @@ public class PTCustomerPageObject {
 			listYear.get(5).click();
 		}
 		// ---- END DROPDOWN LIST -------
+		
+		//----- PASSPORT DATA ------
+		//   Passport Issuance Date 
+		public WebElement getPassport() {
+			return passportTb;
+		}
+		public void writePassport(String passport) {
+			getPassport().sendKeys(passport);
+		}
+		// --select Passport Month
+		public WebElement getPassportMonth() {
+			return dropDown_passport_issuance_month;
+		}
+		public void selectPassportMonth() {
+			getPassportMonth().click();
+		}
+		public void itemPassportMonth() {
+			List <WebElement> listPassportMonth = driver.findElements(By.xpath("//*[@name='passport_issuance_month_1']//option"));
+			listPassportMonth.get(5).click();
+		}
+		 // -- Select Passport Day
+		public WebElement getPassportDay() {
+			return dropDown_passport_issuance_day;
+		}
+		public void selectPassportDay() {
+			getPassportDay().click();
+		}
+		public void itemPassportDay() {
+			List <WebElement> ListPassportDay = driver.findElements(By.xpath("//*[@name='passport_issuance_day_1']//option"));
+			ListPassportDay.get(5).click();
+		}
+		// --- Select Passport Year
+		public WebElement getPassportYear() {
+			return DropDown_passport_issuance_year_1;
+		}
+		public void selectPassportYear() {
+			getPassportYear().click();
+		}
+		public void itemPassportYear() {
+			List <WebElement> ListPassportYear = driver.findElements(By.xpath("//*[@name='passport_issuance_year_1']//option"));
+			ListPassportYear.get(5).click();
+		}
+		/// Passport Expiry Date 
+		// --- Expiry Month
+		public WebElement getExpiryMonth() {
+			return dropDown_passport_month_1;
+		}
+		public void selectExpiryMonth() {
+			getExpiryMonth().click();
+		}
+		public void itemExpiryMonth() {
+			List <WebElement> listExpiryMonth = driver.findElements(By.xpath("//*[@name='passport_month_1']//option"));
+			listExpiryMonth.get(5).click();
+		}
+		// --- Expiry Day
+		public WebElement getExpiryDay() {
+			return dropDown_passport_day_1;
+		}
+		public void selectExpiryDay() {
+			getExpiryDay().click();
+		}
+		public void itemExpiryDay() {
+			List <WebElement> listExpiryDay = driver.findElements(By.xpath("//*[@name='passport_day_1']//option"));
+			listExpiryDay.get(5).click();
+		}
+		// --- Expiry Year
+		public WebElement getExpiryYear() {
+			return DropDown_passport_year_1;
+		}
+		public void selectExpiryYear() {
+			getExpiryYear().click();
+		}
+		public void itemExpiryYear() {
+			List <WebElement> listExpiryYear = driver.findElements(By.xpath("//*[@name='passport_year_1']//option"));
+			listExpiryYear.get(5).click();
+		}
+
+		
 		// PAY LATER  
 		public WebElement getPayLaterRadioBtn() {
 			return payLaterRadioBtn;

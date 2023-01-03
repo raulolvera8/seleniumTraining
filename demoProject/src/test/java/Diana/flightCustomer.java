@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import library.Driver;
+import library.utilities;
 public class flightCustomer extends Driver {
 WebDriver Driver;
 @BeforeClass 
@@ -18,7 +19,6 @@ public void setup() {
 		this.Driver=initFirefoxDriver();
 	
  }
-
 @Test
 public void travels() throws InterruptedException {
 	
@@ -27,7 +27,7 @@ public void travels() throws InterruptedException {
 	PTHomePage home=new PTHomePage(Driver);
 	PTLoginPage login = new PTLoginPage(Driver);
 	PTCustomerPageObject flights = new PTCustomerPageObject(Driver);
-
+	utilities utils= new utilities (Driver);
 	//Login
 	/*home.clickLanguageDropDownlist();
 	home.clickLanguage();*/
@@ -51,17 +51,14 @@ public void travels() throws InterruptedException {
 	flights.selectflightsSearchBtn();
 	//Book now flight
 	flights.clickBookNowBtn();
-	/// SCROLL DOWN JAVASCRIPT PDTE//
-	//flights.clickGotItBtn();
-	
+	// ------- FLIGHTS BOOKING WINDOW
+	// ----Fill form  -----
 	flights.clickDropdownNationality();
 	flights.selectValueNationality();
 	flights.selectDropDowntitle();
 	flights.selectValueTitle();
 	flights.writefirstNametb("Diana");
 	flights.writelastNametb("Velasquez");
-	jsScrollDown();
-
 	// dropdown list
 	flights.selectDropDownNationality_1();
 	flights.selectValueNationality_1();
@@ -71,11 +68,32 @@ public void travels() throws InterruptedException {
 	flights.selectDay();
 	flights.selectDropDownYear();
 	flights.selectYear();
-	jsScrollDown();
+	//Passport ID
+	// Passport Issuance Date
+	utils.ScrollDown(Driver,"0","900");
+
+	flights.writePassport("5555sdfdsd25");
+
+	//jsScrollDown();
+	flights.selectPassportMonth();
+	flights.itemPassportMonth();
+	//flights.selectPassportDay();
+	//flights.itemPassportDay();
+	/*flights.selectPassportYear();
+	flights.itemPassportYear();
+	// Passport Expiry Date
+	flights.selectExpiryMonth();
+	flights.itemExpiryMonth();
+	flights.selectExpiryDay();
+	flights.itemExpiryDay();
+	flights.selectExpiryYear();
+	flights.itemExpiryYear();
+	ScrollDown(Driver);
+
 	flights.selectPayLaterRadioBtn();
 	flights.selectCheckBoxTerms();
 	flights.clickBookingBtn();
-
+*/
 }
 
 @AfterClass
