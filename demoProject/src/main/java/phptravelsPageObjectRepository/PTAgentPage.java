@@ -17,16 +17,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PTAgentPage {
 
 	WebDriver driver;
-	JavascriptExecutor js;
+	private JavascriptExecutor js;
 
 	public PTAgentPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
-
-	public void jsScrollToElement(WebElement element) {
 		js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", element);
+		PageFactory.initElements(driver, this);
 	}
 
 	/// -------- ADD FUNDS BUTTON --------
@@ -39,7 +35,7 @@ public class PTAgentPage {
 
 	public void clickBtnAddFunds() {
 
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
@@ -687,6 +683,7 @@ public class PTAgentPage {
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
+		js.executeScript("arguments[0].scrollIntoView(true);", nationalityTraveller1);
 		getNationalityTraveller1().click();
 
 		System.out.println("Selecting option from nationality  ...");
