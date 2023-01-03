@@ -17,11 +17,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PTAgentPage {
 
 	WebDriver driver;
-	private JavascriptExecutor js;
 
 	public PTAgentPage(WebDriver driver) {
 		this.driver = driver;
-		js = (JavascriptExecutor) driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -683,7 +681,6 @@ public class PTAgentPage {
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
-		js.executeScript("arguments[0].scrollIntoView(true);", nationalityTraveller1);
 		getNationalityTraveller1().click();
 
 		System.out.println("Selecting option from nationality  ...");
