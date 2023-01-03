@@ -304,7 +304,7 @@ public class PTCustomerPageObject {
 					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='theme-search-results-item-book row']")));
-			System.out.println("FLIGHTS BOOKING WINDOW");
+			System.out.println("FLIGHTS WINDOW");
 			
 		}
 		
@@ -313,12 +313,17 @@ public class PTCustomerPageObject {
 		public WebElement getBookNowBtn() {
 			return bookNowBtn;
 		}
-		public void clickBookNowBtn() {			
+		public void clickBookNowBtn() {		
 			getBookNowBtn().click();
 			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
 					"display: none;"));
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[@class='title'][contains(text(), 'Your Personal Information')]")));
+			System.out.println("FLIGHTS BOOKING WINDOW");
 		}
 		
 		/// ----  FLIGHTS BOOKING INFORMATION WINDOW
@@ -533,11 +538,41 @@ public class PTCustomerPageObject {
 		public WebElement getBookingBtn() {
 			return bookingBtn;
 		}
+
 		public void clickBookingBtn() {
 			getBookingBtn().click();
+			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+					"display: none;"));
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title']//span")));			
 		}
 		
 		//------ VALIDATION WINDOW ------
+		// ---- Booking status
+		@FindBy (xpath="//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]") WebElement bookingStatus;
+		@FindBy (xpath = "//*[@class='card-body'][contains(.,'Miss Diana Velasquez ')]") WebElement travellerDetails;
+		@FindBy (xpath="//li[contains(.,'user@phptravels.com')]") WebElement reservationNumber;
+		public void validationStatus() {
+			System.out.println("BOOKING INVOICE WINDOW");
+
+
+			if  (reservationNumber.getText().contentEquals("Email: user@phptravels.com")) {
+				 System.out.println(bookingStatus.getText());
+				 System.out.println(travellerDetails.getText());
+				 System.out.println(reservationNumber.getText());
+
+
+			        } else {
+			              Assert.fail( "FAILED" );
+			        }	
+		}
+		
+		//
+					// ---- 
 
 		//######################## END FLIGHTS ########################## Diana
 		

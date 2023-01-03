@@ -21,9 +21,6 @@ public void setup() {
  }
 @Test
 public void travels() throws InterruptedException {
-	
-	
-
 	PTHomePage home=new PTHomePage(Driver);
 	PTLoginPage login = new PTLoginPage(Driver);
 	PTCustomerPageObject flights = new PTCustomerPageObject(Driver);
@@ -40,46 +37,52 @@ public void travels() throws InterruptedException {
 	// Click Flights Tab
 	flights.clickFlightsTab();
 	// Filling trip form to search
-	flights.writeFlyingFrom("Mag");
+	flights.writeFlyingFrom("LHE");
 	flights.selectItemFlyingFrom();
-	flights.writeToDestination("yaz");
+	flights.writeToDestination("DXB");
 	flights.selectItemToDestination();
 	flights.selectDepartureDateBox();
 	flights.clickDayDeparture();
 	flights.clickPassengersBox();
-	//flights.clickIconPlus();	
+	// Searching flight
 	flights.selectflightsSearchBtn();
-	//Book now flight
+	// --List of flights window
+	//Book now flight 
 	flights.clickBookNowBtn();
-	// ------- FLIGHTS BOOKING WINDOW
-	// ----Fill form  -----
+	// ------- INFORMATION FLIGHTS BOOKING WINDOW
+	// ----FILLING INFORMATION FORM   -----
+	// Nationality
 	flights.clickDropdownNationality();
 	flights.selectValueNationality();
+	// Title
 	flights.selectDropDowntitle();
 	flights.selectValueTitle();
+	// Frist Name and Last Name 
 	flights.writefirstNametb("Diana");
 	flights.writelastNametb("Velasquez");
 	// dropdown list
+	// Nationality
 	flights.selectDropDownNationality_1();
 	flights.selectValueNationality_1();
+	// Date of Birth
 	flights.selectDropDownMonth();
 	flights.selectDateOfBirth();
+	// Day
 	flights.selectDropDownDay();
 	flights.selectDay();
+	// Year
 	flights.selectDropDownYear();
 	flights.selectYear();
 	//Passport ID
 	// Passport Issuance Date
-	utils.ScrollDown(Driver,"0","900");
-
 	flights.writePassport("5555sdfdsd25");
-
-	//jsScrollDown();
+	// Scroll Down
+	utils.ScrollDown(Driver,"0","700");
 	flights.selectPassportMonth();
 	flights.itemPassportMonth();
-	//flights.selectPassportDay();
-	//flights.itemPassportDay();
-	/*flights.selectPassportYear();
+	flights.selectPassportDay();
+	flights.itemPassportDay();
+	flights.selectPassportYear();
 	flights.itemPassportYear();
 	// Passport Expiry Date
 	flights.selectExpiryMonth();
@@ -88,14 +91,16 @@ public void travels() throws InterruptedException {
 	flights.itemExpiryDay();
 	flights.selectExpiryYear();
 	flights.itemExpiryYear();
-	ScrollDown(Driver);
-
 	flights.selectPayLaterRadioBtn();
+	//ScrollDwon
+	utils.ScrollDown(Driver,"0","1000");
+	// Accept Terms and conditions
 	flights.selectCheckBoxTerms();
+	// Book now button
 	flights.clickBookingBtn();
-*/
+	// Print Validation status Booking invoice window
+	flights.validationStatus();
 }
-
 @AfterClass
 public void teardown() {
 	
