@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -20,7 +21,19 @@ public class PTHomePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
+	// ------------- SELECT LANGUAGE  ---------------------------------------
+	@FindBy (id="languages") WebElement languagesDropDownList;
+	public WebElement getlanguagesDropDownList() {
+		return languagesDropDownList;
+	}
+	public void clickLanguageDropDownlist() {
+		getlanguagesDropDownList().click();
+	}
+	public void clickLanguage() {
+		List <WebElement> listLanguage = driver.findElements(By.xpath("//*[@class='dropdown-menu show']/li"));
+		listLanguage.get(8).click();
+		
+	}
 	/// ----Account Button-----
 	@FindBy(id = "ACCOUNT")
 	WebElement btnAccount;
@@ -31,7 +44,7 @@ public class PTHomePage {
 
 	public void clickBtnAccount() {
 
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(60), Duration.ofSeconds(2));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("ACCOUNT")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
@@ -53,14 +66,11 @@ public class PTHomePage {
 	}
 
 	public void clickCustomerLoginbtn() {
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Customer Login' ) ]")));
-
+	
 		getCustomerLogBtn().click();
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+		wait2.until(ExpectedConditions.attributeToBe(By.id("preloader"), "style", "display: none;"));
 
 	}
 

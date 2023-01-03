@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
@@ -23,6 +24,7 @@ public class PTLoginPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
 	// ############# SUPPLIER SECTION #######################################
 
 	// ----- SUPPLIER Email text box -----------
