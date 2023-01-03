@@ -1,10 +1,10 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -666,24 +666,200 @@ public class PTAgentPage {
 	}
 
 	/// -------- SELECT NATIONALITY -----------
-	@FindBy(xpath = "//select[@name='nationality_1']//option[@value='US']")
+	@FindBy(xpath = "//select[@name='nationality_1']")
 	WebElement nationalityTraveller1;
 
-	private WebElement getNationalityTraveller1() {
+	public WebElement getDropDownNationality() {
 		return nationalityTraveller1;
 	}
 
-	public void nationalityTraveller1Select() {
-//		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-//		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='nationality_1']")));
+	public void selectDropDownNationality() {
+		getDropDownNationality().click();
+	}
 
-		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+	public void selectValueNationality() {
+		System.out.println("Selecting Nationality ...");
+		List<WebElement> listNationality = driver.findElements(By.xpath("//*[@name='nationality_1']//option"));
+		listNationality.get(5).click();
+	}
 
-		getNationalityTraveller1().click();
+	/// -------- SELECT DATE OF BIRTH MONTH -----------
+	@FindBy(xpath = "//*[@name='dob_month_1']")
+	WebElement MonthTraveller1;
 
-		System.out.println("Selecting option from nationality  ...");
+	public WebElement getDropDownMonth() {
+		return MonthTraveller1;
+	}
+
+	public void selectDropDownMonth() {
+		getDropDownMonth().click();
+	}
+
+	public void selectValueMonth() {
+		System.out.println("Selecting month of birth ...");
+		List<WebElement> listMonth = driver.findElements(By.xpath("//*[@name='dob_month_1']//option"));
+		listMonth.get(3).click();
+	}
+
+	/// -------- SELECT DAY -----------
+	@FindBy(xpath = "//*[@name='dob_day_1']")
+	WebElement DayTraveller1;
+
+	public WebElement getDropDownDay() {
+		return MonthTraveller1;
+	}
+
+	public void selectDropDownDay() {
+		getDropDownDay().click();
+	}
+
+	public void selectValueDay() {
+		System.out.println("Selecting day of birth ...");
+		List<WebElement> listDay = driver.findElements(By.xpath("//*[@name='dob_day_1']//option"));
+		listDay.get(14).click();
+	}
+
+	/// -------- SELECT YEAR -----------
+	@FindBy(xpath = "//*[@name='dob_year_1']")
+	WebElement YearTraveller1;
+
+	public WebElement getDropDownYear() {
+		return YearTraveller1;
+	}
+
+	public void selectDropDownYear() {
+		getDropDownYear().click();
+	}
+
+	public void selectValueYear() {
+		System.out.println("Selecting year of birth ...");
+		List<WebElement> listYear = driver.findElements(By.xpath("//*[@name='dob_year_1']//option"));
+		listYear.get(39).click();
+	}
+
+	/// =============== PASSPORT INFORMATION ====================
+
+	/// ------ PASSPORT ID -----------
+	@FindBy(xpath = "//input[@name='passport_1']")
+	WebElement passportID;
+
+	private WebElement getpassportID() {
+		return passportID;
+	}
+
+	public void EnterPassportID(String passportId) {
+		System.out.println("Entering Passport ID ...");
+		getpassportID().sendKeys(passportId);
+	}
+
+	/// ============== PASSPORT ISSUANCE INFORMATION ============
+	/// -------- SELECT PASSPORT ISSUANCE MONTH -----------
+	@FindBy(xpath = "//*[@name='passport_issuance_month_1']")
+	WebElement PassportIssuanceMonth;
+
+	public WebElement getDropDownPassportIssuanceMonth() {
+		return PassportIssuanceMonth;
+	}
+
+	public void selectDropDownPassportIssuanceMonth() {
+		getDropDownPassportIssuanceMonth().click();
+	}
+
+	public void selectValuePassportIssuanceMonth() {
+		System.out.println("Selecting month of passport issuance ...");
+		List<WebElement> listMonth = driver.findElements(By.xpath("//*[@name='passport_issuance_month_1']//option"));
+		listMonth.get(2).click();
+	}
+
+	/// -------- SELECT PASSPORT ISSUANCE DAY -----------
+	@FindBy(xpath = "//*[@name='passport_issuance_day_1']")
+	WebElement PassportIssuanceDay;
+
+	public WebElement getDropDownPassportIssuanceDay() {
+		return PassportIssuanceDay;
+	}
+
+	public void selectDropDownPassportIssuanceDay() {
+		getDropDownPassportIssuanceDay().click();
+	}
+
+	public void selectValuePassportIssuanceDay() {
+		System.out.println("Selecting day of passport issuance ...");
+		List<WebElement> listDay = driver.findElements(By.xpath("//*[@name='passport_issuance_day_1']//option"));
+		listDay.get(2).click();
+	}
+
+	/// -------- SELECT PASSPORT ISSUANCE YEAR -----------
+	@FindBy(xpath = "//*[@name='passport_issuance_year_1']")
+	WebElement PassportIssuanceYear;
+
+	public WebElement getDropDownPassportIssuanceYear() {
+		return PassportIssuanceYear;
+	}
+
+	public void selectDropDownPassportIssuanceYear() {
+		getDropDownPassportIssuanceYear().click();
+	}
+
+	public void selectValuePassportIssuanceYear() {
+		System.out.println("Selecting year of passport issuance ...");
+		List<WebElement> listYear = driver.findElements(By.xpath("//*[@name='passport_issuance_year_1']//option"));
+		listYear.get(2).click();
+	}
+
+	/// ============== PASSPORT EXPIRY INFORMATION ============
+	/// -------- SELECT PASSPORT EXPIRY MONTH -----------
+	@FindBy(xpath = "//*[@name='passport_month_1']")
+	WebElement PassportExpiryMonth;
+
+	public WebElement getDropDownPassportExpiryMonth() {
+		return PassportExpiryMonth;
+	}
+
+	public void selectDropDownPassportExpiryMonth() {
+		getDropDownPassportExpiryMonth().click();
+	}
+
+	public void selectValuePassportExpiryMonth() {
+		System.out.println("Selecting month of passport expiry ...");
+		List<WebElement> listMonth = driver.findElements(By.xpath("//*[@name='passport_month_1']//option"));
+		listMonth.get(2).click();
+	}
+
+	/// -------- SELECT PASSPORT EXPIRY DAY -----------
+	@FindBy(xpath = "//*[@name='passport_day_1']")
+	WebElement PassportExpiryDay;
+
+	public WebElement getDropDownPassportExpiryDay() {
+		return PassportExpiryDay;
+	}
+
+	public void selectDropDownPassportExpiryDay() {
+		getDropDownPassportExpiryDay().click();
+	}
+
+	public void selectValuePassportExpiryDay() {
+		System.out.println("Selecting day of passport expiry ...");
+		List<WebElement> listDay = driver.findElements(By.xpath("//*[@name='passport_day_1']//option"));
+		listDay.get(3).click();
+	}
+
+	/// -------- SELECT PASSPORT ISSUANCE YEAR -----------
+	@FindBy(xpath = "//*[@name='passport_year_1']")
+	WebElement PassportExpiryYear;
+
+	public WebElement getDropDownPassportExpiryYear() {
+		return PassportExpiryYear;
+	}
+
+	public void selectDropDownPassportExpiryYear() {
+		getDropDownPassportExpiryYear().click();
+	}
+
+	public void selectValuePassportExpiryYear() {
+		System.out.println("Selecting year of passport expiry ...");
+		List<WebElement> listYear = driver.findElements(By.xpath("//*[@name='passport_year_1']//option"));
+		listYear.get(1).click();
 	}
 
 	/// -------- MY BOOKINGS BUTTON FROM USER VIEW --------

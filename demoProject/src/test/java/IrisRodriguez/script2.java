@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
+import library.utilities;
 import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
@@ -21,13 +22,14 @@ public class script2 extends Driver {
 	}
 
 	@Test
-	public void ShoppingHome() {
+	public void ShoppingHome() throws InterruptedException {
 
 		// ===================== DECLARAR LAS PAGINAS DE OBJETOS =====================
 		// SIGN IN PAGE
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
+		utilities utils = new utilities(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
 		// ========================= SIGN IN PAGE ====================================
@@ -55,13 +57,13 @@ public class script2 extends Driver {
 		agentPage.clickbtnFlights();
 
 		// ENTER CITY FLYING FROM
-		agentPage.flyingFromInput("Canadian Rockies Intl");
+		agentPage.flyingFromInput("LHE");
 
 		// CLICK FIRST OPTION
 		agentPage.flyingFromAutocomplete();
 
 		// ENTER CITY TO DESTINATION
-		agentPage.toDestinationInput("John F Kennedy Intl");
+		agentPage.toDestinationInput("DXB");
 
 		// CLICK SECOND OPTION
 		agentPage.ToDestinationAutocomplete();
@@ -76,7 +78,7 @@ public class script2 extends Driver {
 		agentPage.clickTravelersInput();
 
 		// CLICK QUANTITY ADULT
-		//agentPage.clickAdultsOptionPlus();
+		// agentPage.clickAdultsOptionPlus();
 
 		// PRINT NUMBER OF PASSENGERS
 		agentPage.PrintNumberPassangers();
@@ -90,55 +92,77 @@ public class script2 extends Driver {
 		agentPage.clickFirstFlight();
 
 		// =========== FLIGHTS BOOKING WINDOW ==========
-		
+
 		// PRINT PERSONAL INFORMATION FROM ACCOUNT
 		System.out.println("Your Personal Information");
 		agentPage.PrintFirstName();
 		agentPage.PrintLastNameLabel();
 		agentPage.PrintEmailLabel();
-		
-		// ENTER TRAVELLERS INFORMATION
+
+		// ======== ENTER TRAVELLERS INFORMATION =======
 
 		// FIRST NAME
 		agentPage.firstnameTraveler1Input("Barry");
-		
+
 		// LAST NAME
 		agentPage.lastnameTraveler1Input("Allen");
 
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "200");
+
 		// NATIONALITY
-		agentPage.nationalityTraveller1Select();
-		// SEARCH OPTION
-		//agentPage.SelectnationalityTraveller1();
-		
+		agentPage.selectDropDownNationality();
+		agentPage.selectValueNationality();
+
 		// DATE OF BIRTH
 		// MONTH
-		//agentPage.SelectDateOfBirth();
-		
+		agentPage.selectDropDownMonth();
+		agentPage.selectValueMonth();
+
 		// DAY
-		//agentPage.SelectDayOfBirth();
-		
+		agentPage.selectDropDownDay();
+		agentPage.selectValueDay();
+
 		// YEAR
-		//agentPage.SelectYearOfBirth();
-		
+		agentPage.selectDropDownYear();
+		agentPage.selectValueYear();
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "700");
+
 		// ================ PASSPORT INFORMATION ==================
 		// PASSPORT ID
-		//agentPage.EnterPassportID("C03005988");
-		
+		agentPage.EnterPassportID("C03005988");
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "400");
+
+		// ================ PASSPORT ISSUANCE INFORMATION ==================
 		// PASSPORT ISSUANCE MONTH
-		//agentPage.SelectMonthPassport();
-		
+		agentPage.selectDropDownPassportIssuanceMonth();
+		agentPage.selectValuePassportIssuanceMonth();
+
 		// PASSPORT ISSUANCE DAY
-		//agentPage.SelectDayPassport();
-		
+		agentPage.selectDropDownPassportIssuanceDay();
+		agentPage.selectValuePassportIssuanceDay();
+
 		// PASSPORT ISSUANCE YEAR
-		//agentPage.SelectYearPassport();
-		
-		// PASSPORT EXPIRE DATE MONTH
-		//agentPage.SelectMonthExpirePassport();
-		
-		// PASSPORT EXPIRE DAY
-		//agentPage.SelectDayExpirePassport();
-		
+		agentPage.selectDropDownPassportIssuanceYear();
+		agentPage.selectValuePassportIssuanceYear();
+
+		// ================ PASSPORT EXPIRY INFORMATION ==================
+		// PASSPORT EXPIRY MONTH
+		agentPage.selectDropDownPassportExpiryMonth();
+		agentPage.selectValuePassportExpiryMonth();
+
+		// PASSPORT EXPIRY DAY
+		agentPage.selectDropDownPassportExpiryDay();
+		agentPage.selectValuePassportExpiryDay();
+
+		// PASSPORT EXPIRY YEAR
+		agentPage.selectDropDownPassportExpiryYear();
+		agentPage.selectValuePassportExpiryYear();
+
 	}
 
 	@AfterClass
