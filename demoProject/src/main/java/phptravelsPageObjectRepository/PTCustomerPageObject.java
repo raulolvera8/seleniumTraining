@@ -357,7 +357,7 @@ public class PTCustomerPageObject {
 	
 	
 	@FindBy(xpath="//*[@href='https://phptravels.net/tours']") WebElement toursBtn;
-	
+
 	public WebElement getToursBtn() {
 		return toursBtn;
 		
@@ -374,8 +374,9 @@ public class PTCustomerPageObject {
 		("//*[@name='checkin']")));
 	
 }
-@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement destinationCity;
-	
+	@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement destinationCity;
+	@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement writeCity;
+
 	public WebElement getDestination() {
 		return destinationCity;
 		
@@ -393,10 +394,11 @@ public class PTCustomerPageObject {
 	
 	}
 	
-@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement searchCity;
+	
+	
 	
 public WebElement getCity() {
-	return searchCity;
+	return writeCity;
 }
 
 
@@ -444,7 +446,539 @@ public void clickDetails() {
 	
 	}
 
+@FindBy(xpath="//*[@name='date']") WebElement dateTour;
+@FindBy(xpath="//*[text()='18']") WebElement dateSelect;
 
+public WebElement getDateTour() {
+	return dateTour;
+	
+	
+}
+
+public void clickDateTour() {
+	
+
+	getDetails().click();
+	
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+		("//*[@id='currency']")));
+		
+		
+	
+	}
+
+public WebElement getDateSelect() {
+	return dateSelect;
+}
+
+public void clickDateSelect() {
+	
+
+	getDateSelect().click();
+	
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+		("//*[@id='currency']")));
+		
+		
+	
+	}
+
+	//PEOPLE OF TOUR
+
+	 @FindBy(xpath="//*[@id='adults']") WebElement adults;
+	 @FindBy(xpath="//*[@id='adults']//option[@value='1']") WebElement adultsNumber;
+
+
+
+  public WebElement getAdults() {
+	  return adults;
+  
+  
+  }
+  
+  public void clickAdults() {
+  
+  
+  getAdults().click();
+  
+  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+  Duration.ofSeconds(5));
+  waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+  ("//*[@id='currency']")));
+ 
+		
+
+  }
+ 
+
+
+public WebElement getAdultsNumber() { 
+		  return adultsNumber; 
+	  
+	  }
+
+public void clickAdultsNumber() {
+	  
+	  
+	  getAdultsNumber().click();
+	  
+	  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	  Duration.ofSeconds(5));
+	  waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	  ("//*[@id='currency']")));
+	 
+			
+
+	  }
+	 
+@FindBy(xpath="//*[@id='childs']") WebElement childs;
+@FindBy(xpath="//*[@id='childs']//option[@value='1']") WebElement childsNumber;
+
+
+
+public WebElement getChilds() {
+ return childs;
+
+
+}
+
+public void clickChilds() {
+
+
+getChilds().click();
+
+WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+Duration.ofSeconds(5));
+waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+("//*[@id='currency']")));
+
+	
+
+}
+
+public WebElement getChildsNumber() { 
+	  return childsNumber; 
+ 
+ }
+
+public void clickChildsNumber() {
+ 
+ 
+ getAdultsNumber().click();
+ 
+ WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+ Duration.ofSeconds(5));
+ waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+ ("//*[@id='currency']")));
+
+		
+
+ }
+
+@FindBy(xpath="//*[@id='infants']") WebElement infants;
+@FindBy(xpath="//*[@id='infants']//option[@value='1']") WebElement infantsNumber;
+
+
+
+public WebElement getInfants() {
+ return infants;
+
+
+}
+
+public void clickInfants() {
+
+
+getInfants().click();
+
+WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+Duration.ofSeconds(5));
+waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+("//*[@id='currency']")));
+
+	
+
+}
+
+
+
+public WebElement getInfantsNumber() { 
+	  return infantsNumber; 
+ 
+ }
+
+public void clickInfantsNumber() {
+ 
+ 
+getInfantsNumber().click();
+ 
+ WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+ Duration.ofSeconds(5));
+ waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+ ("//*[@id='currency']")));
+
+		
+
+ }
+
+@FindBy(xpath="//*[@type='submit']") WebElement bookNowDate;
+
+public WebElement getBookNowDate() {
+	 return bookNowDate;
+
+
+	}
+
+	public void clickBookNowDate() {
+
+
+		getBookNowDate().click();
+
+	WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	Duration.ofSeconds(5));
+	waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	("//*[@id='currency']")));
+
+		
+
+	}
+
+	
+	//------------TRAVELLERS INFORMATION----------
+	
+	
+	//TRAVELLER 1
+	@FindBy(xpath="//*[@name='title_1']//option[@value='Mrs']") WebElement traveller1;
+	@FindBy(xpath="//*[@name='firstname_1']") WebElement firstName1;
+	@FindBy(xpath="//*[@name='lastname_1']") WebElement lastName1;
+
+
+	public WebElement getTraveller1() {
+		 return traveller1;
+
+
+		}
+
+		public void clickTraveller1() {
+
+
+		getTraveller1().click();
+
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+		Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+		("//*[text()='Tour Booking']")));
+
+			
+
+		}
+		public WebElement getFirstName1() {
+			return firstName1;
+		}
+
+
+		public void writeFirstName1(String firstName) {			
+			getFirstName1().sendKeys(firstName);
+				
+				
+			WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+					Duration.ofSeconds(5));
+					waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+					("//*[text()='Tour Booking']")));
+			
+			}
+		public WebElement getLastName1() {
+			return lastName1;
+		}
+
+
+		public void writeLastName1(String lastName) {			
+			getLastName1().sendKeys(lastName);
+				
+				
+			WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+					Duration.ofSeconds(5));
+					waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+					("//*[text()='Tour Booking']")));
+			
+			}
+		
+		
+		//TRAVELLER 2
+		@FindBy(xpath="//*[@name='title_2']//option[@value='Miss']") WebElement traveller2;
+		@FindBy(xpath="//*[@name='firstname_2']") WebElement firstName2;
+		@FindBy(xpath="//*[@name='lastname_2']") WebElement lastName2;
+
+
+		public WebElement getTraveller2() {
+			 return traveller2;
+
+
+			}
+
+			public void clickTraveller2() {
+
+
+			getTraveller2().click();
+
+			WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+			Duration.ofSeconds(5));
+			waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+			("//*[text()='Tour Booking']")));
+
+				
+
+			}
+			public WebElement getFirstName2() {
+				return firstName2;
+			}
+
+
+			public void writeFirstName2(String firstName) {			
+				getFirstName2().sendKeys(firstName);
+					
+					
+				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+						Duration.ofSeconds(5));
+						waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+						("//*[text()='Tour Booking']")));
+				
+				}
+			public WebElement getLastName2() {
+				return lastName2;
+			}
+
+
+			public void writeLastName2(String lastName) {			
+				getFirstName2().sendKeys(lastName);
+					
+					
+				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+						Duration.ofSeconds(5));
+						waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+						("//*[text()='Tour Booking']")));
+				
+				}
+			
+			//TRAVELLER 3
+			
+			@FindBy(xpath="//*[@name='title_3']//option[@value='Mr']") WebElement traveller3;
+			@FindBy(xpath="//*[@name='firstname_3']") WebElement firstName3;
+			@FindBy(xpath="//*[@name='lastname_3']") WebElement lastName3;
+
+
+			public WebElement getTraveller3() {
+				 return traveller3;
+
+
+				}
+
+				public void clickTraveller3() {
+
+
+				getTraveller3().click();
+
+				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+				Duration.ofSeconds(5));
+				waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+				("//*[text()='Tour Booking']")));
+
+					
+
+				}
+				public WebElement getFirstName3() {
+					return firstName3;
+				}
+
+
+				public void writeFirstName3(String firstName) {			
+					getFirstName3().sendKeys(firstName);
+						
+						
+					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+							Duration.ofSeconds(5));
+							waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+							("//*[text()='Tour Booking']")));
+					
+					}
+				public WebElement getLastName3() {
+					return lastName3;
+				}
+
+
+				public void writeLastName3(String lastName) {			
+					getFirstName3().sendKeys(lastName);
+						
+						
+					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+							Duration.ofSeconds(5));
+							waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+							("//*[text()='Tour Booking']")));
+					
+					}
+				
+				@FindBy(xpath="//*[@id='gateway_stripe']") WebElement paymentMethod;
+				
+				public WebElement getPaymentMethod() {
+					 return paymentMethod;
+
+
+					}
+
+					public void clickPaymentMethod() {
+
+
+					getPaymentMethod().click();
+
+					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+					Duration.ofSeconds(5));
+					waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+					("//*[text()='Tour Booking']")));
+					
+					}
+					
+					
+					@FindBy(xpath="//*[@id='agreechb']") WebElement checkboxContinuing;
+					
+					public WebElement getContinuing() {
+						 return checkboxContinuing;
+
+
+						}
+
+						public void clickContinuing() {
+
+
+						getContinuing().click();
+
+						WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+						Duration.ofSeconds(5));
+						waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+						("//*[text()='Tour Booking']")));
+						
+						}
+						
+						
+						@FindBy(xpath="//*[@id='booking']") WebElement confirmBooking;
+						
+						public WebElement getconfirm() {
+							 return confirmBooking;
+
+
+							}
+
+							public void clickConfirmBooking() {
+
+
+							getconfirm().click();
+
+							WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+							Duration.ofSeconds(5));
+							waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+							("//*[text()='Tour Booking']")));
+							
+							}
+							
+							
+							
+							//VALIDATION
+							
+						//VALIDATION STATUS
+							@FindBy(xpath="//*[@class='infobox infobox-danger']") WebElement validationStatus;
+							public WebElement getValidationStatus(){
+								return validationStatus;
+							}
+							
+							public void printValidationStatus() {
+								if (getValidationStatus().getText().contains("Your booking status is ( Pending ) and payment status is stripe ( Unpaid )")) {
+									System.out.println(getValidationStatus().getText());
+								}else {
+									Assert.fail();
+								}
+							}
+							
+							
+					    //VALIDATION DETAILS
+							@FindBy(xpath="//*[@class='card-title px-3 pt-2 stgron']") WebElement validationDetails;
+							public WebElement getValidationDetails(){
+								return validationStatus;
+							}
+							
+							public void printValidationDetails() {
+								if (getValidationDetails().getText().contains("Booking Details")) {
+									System.out.println(getValidationDetails().getText());
+								}else {
+									Assert.fail();
+								}
+							}
+							
+						// VALIDATION INFORMATION	
+							@FindBy(xpath="//*[@class='card-title px-3 pt-2 strong']") WebElement validationInformation;
+							public WebElement getValidationInfo(){
+								return validationInformation;
+							}
+							
+							public void printValidationInfo() {
+								if (getValidationInfo().getText().contains("Booking Details")) {
+									System.out.println(getValidationInfo().getText());
+								}else {
+									Assert.fail();
+								}
+							}
+							
+						// PROCEED
+							@FindBy(xpath="//*[@id='form']") WebElement proceed;
+					
+							public WebElement getProceed() {
+								 return proceed;
+
+
+								}
+
+								public void clickProceed() {
+
+
+								getProceed().click();
+
+							
+								
+								}
+								
+								@FindBy(xpath="//*[@class='card-header']") WebElement validationPay;
+								public WebElement getValidationPay(){
+									return validationPay;
+								}
+								
+								public void printValidationPay() {
+									if (getValidationPay().getText().contains("  Pay With stripe USD 385.00  ")) {
+										System.out.println(getValidationPay().getText());
+									}else {
+										Assert.fail();
+									}
+								}
+								
+								@FindBy(xpath="//*[@type='button']") WebElement payNowBtn;
+								
+								public WebElement getPayNowBtn() {
+									 return payNowBtn;
+
+
+									}
+
+									public void clickPayNowBtn() {
+
+
+										getPayNowBtn().click();
+
+								
+									
+									}
+									
+								
+								
+						
 
 //-----------------FLIGHTS--------JUAN-------
 
@@ -535,12 +1069,4 @@ public void clickSearch() {
 		("//*[text()='SEARCH FOR BEST FLIGHTS']")));
 	
 	}
-
-
-
-
-
-
-
-
 }
