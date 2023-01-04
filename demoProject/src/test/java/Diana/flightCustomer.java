@@ -32,7 +32,7 @@ public void travels() throws InterruptedException {
 	home.clickCustomerLoginbtn();
 	login.fillEmail("user@phptravels.com");
 	login.fillPassword("demouser");
-	flights.clickGotItBtn();
+	login.clickGotItBtn();
 	login.clickLogin();
 	// Click Flights Tab
 	flights.clickFlightsTab();

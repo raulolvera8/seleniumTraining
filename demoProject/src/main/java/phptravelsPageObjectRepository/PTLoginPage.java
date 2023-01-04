@@ -24,7 +24,15 @@ public class PTLoginPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+    // ######### ACCEPT COOKIES ########
+	@FindBy (id="cookie_stop") WebElement gotitBtn;
 
+	public WebElement getGotItBtn() {
+		return gotitBtn;
+	}
+	public void clickGotItBtn() {			
+		getGotItBtn().click();;
+	}
 	// ############# SUPPLIER SECTION #######################################
 
 	// ----- SUPPLIER Email text box -----------
