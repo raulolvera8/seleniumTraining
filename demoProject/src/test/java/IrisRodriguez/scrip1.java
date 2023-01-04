@@ -9,6 +9,8 @@ import library.Driver;
 import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTPayWithCardPage;
+import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
 public class scrip1 extends Driver {
 
@@ -28,6 +30,8 @@ public class scrip1 extends Driver {
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
+		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
+		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
 		// =========================SIGN IN PAGE====================================
@@ -70,26 +74,28 @@ public class scrip1 extends Driver {
 		// CLICK PAY NOW BUTTON
 		agentPage.clickPayNowButton();
 
+		// ======================== WINDOW PAYMENT WITH STRIPE ==================
 		// VERIFY PAYMENT
-		agentPage.VerifylabelAmount();
+		stripePage.VerifylabelAmount();
 
 		// CLICK PAY NOW WITH AMOUNT
-		agentPage.PayNowWithAmount();
+		stripePage.PayNowWithAmount();
 
+		// ======================== WINDOW PAY WITH CARD FORM ==================
 		// ENTER NUMBER CARD
-		agentPage.CardNumberInput("4242 4242 4242 4242");
+		cardPage.CardNumberInput("4242 4242 4242 4242");
 
 		// ENTER CARD EXPIRY
-		agentPage.CardExpiryInput("0630");
+		cardPage.CardExpiryInput("0630");
 
 		// ENTER CARD CVC
-		agentPage.CardCVCInput("123");
+		cardPage.CardCVCInput("123");
 
 		// ENTER NAME
-		agentPage.NameCardInput("Agent Selenium");
+		cardPage.NameCardInput("Agent Selenium");
 
 		// CLICK PAGAR BUTTON
-		agentPage.clickPagarButtonWithInfoCard();
+		cardPage.clickPagarButtonWithInfoCard();
 
 		// VERIFY PAYMENT SUCCESSFULL
 		agentPage.Verifylabel();
