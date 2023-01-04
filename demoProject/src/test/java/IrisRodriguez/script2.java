@@ -163,6 +163,41 @@ public class script2 extends Driver {
 		agentPage.selectDropDownPassportExpiryYear();
 		agentPage.selectValuePassportExpiryYear();
 
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "900");
+
+		// ================ PAYMENT METHOD INFORMATION ==================
+		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
+		agentPage.clickrbtnPayWithStripe();
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "1600");
+		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
+		agentPage.clickCheckAgreeTerms();
+
+		// CONFIRM BOOKING
+		agentPage.ClickConfirmBooking();
+
+		// ================= VERIFY DATA =========================
+		// PRINT BOOKING STATUS
+		agentPage.VerifyBookingStatus();
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "300");
+		
+		// ACCOUNT DATA
+		agentPage.VerifyFirstDataBooking(); //FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		agentPage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		
+		// TRAVELLER DATA
+		agentPage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
+		agentPage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		
+		// VERIFY AMOUNT 
+		
+		
+		
+
 	}
 
 	@AfterClass

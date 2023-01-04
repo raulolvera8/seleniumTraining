@@ -862,6 +862,77 @@ public class PTAgentPage {
 		listYear.get(1).click();
 	}
 
+	/// ------- SELECT PAY WITH STRIPE FORM TRAVELLER
+	@FindBy(xpath = "//input[@id='gateway_stripe']")
+	WebElement rbtnPayWithStripe;
+
+	private WebElement getPaymentwithStripe() {
+		return rbtnPayWithStripe;
+	}
+
+	public void clickrbtnPayWithStripe() {
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getPaymentwithStripe().click();
+		System.out.println("Clicking radiobutton Stripe payment method ...");
+	}
+
+	/// ------- SELECT AGREE THE TERMS AND CONDITIONS
+	@FindBy(xpath = "//*[@class='custom-checkbox']")
+	WebElement chckAgreeTerms;
+
+	private WebElement getCheckAgreeTerms() {
+		return chckAgreeTerms;
+	}
+
+	public void clickCheckAgreeTerms() {
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getCheckAgreeTerms().click();
+		System.out.println("Clicking checkbutton agree the terms and conditions ...");
+	}
+
+	/// -------- CONFIRM BOOKING BUTTON ON VIEW TRAVELLER INFORMATION ------------
+	@FindBy(xpath = "//button[@id='booking']")
+	WebElement btnConfirmBooking;
+
+	private WebElement getbtnConfirmBooking() {
+		return btnConfirmBooking;
+	}
+
+	public void ClickConfirmBooking() {
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getbtnConfirmBooking().click();
+		System.out.println("Clicking Confirm Booking button ...");
+	}
+
+	/// -------- VERIFY BOOKING STATUS
+	@FindBy(xpath = "//div[@class='infobox infobox-danger']")
+	WebElement bookingStatus;
+
+	private WebElement getBookingStatus() {
+		return bookingStatus;
+	}
+
+	public void VerifyBookingStatus() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getLabelAmount().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-danger']")));
+		System.out.println(getBookingStatus().getText());
+	}
+
 	/// -------- MY BOOKINGS BUTTON FROM USER VIEW --------
 	@FindBy(xpath = "(//a[ contains (text(), 'My Bookings')])[2]")
 	WebElement MyBookingsButton;
@@ -928,7 +999,6 @@ public class PTAgentPage {
 	}
 
 	/// ---- VERIFY DATA ON BOOKING VIEW (COMPANY DATA, NAME, EMAIL, PHONE, ADDRESS)
-	/// --------
 
 	@FindBy(xpath = "(//ul[@class='customer'])[2]")
 	WebElement secondData;
@@ -945,10 +1015,48 @@ public class PTAgentPage {
 		for (String winHandle : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandle);
 		}
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[2]")));
-
 		System.out.println(getSecondData().getText());
+	}
+
+	/// ---- VERIFY TRAVELLER DATA 1 (NAME, NATIONALITY, DATE OF BIRTH)
+	@FindBy(xpath = "(//ul[@class='customer'])[3]")
+	WebElement thirdData;
+
+	private WebElement getFirstDataTraveller() {
+		return thirdData;
+	}
+
+	public void VerifyFirstDataTraveller() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getLabelAmount().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[3]")));
+		System.out.println(getFirstDataTraveller().getText());
+	}
+	
+	/// ---- VERIFY TRAVELLER DATA 2 (PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE)
+	@FindBy(xpath = "(//ul[@class='customer'])[4]")
+	WebElement fourthData;
+
+	private WebElement getSecondtDataTraveller() {
+		return fourthData;
+	}
+
+	public void VerifySecondDataTraveller() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getLabelAmount().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
+		System.out.println(getSecondtDataTraveller().getText());
 	}
 
 }
