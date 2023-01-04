@@ -1,7 +1,17 @@
 package phptravelsPageObjectRepository;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PTFlightSearchResultsPage {
 	WebDriver driver;
@@ -10,8 +20,31 @@ public class PTFlightSearchResultsPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
+	/// ----- SELECT FIRST TRAVEL ON VIEW FLIGHTS ------ IRIS
+	@FindBy(xpath = "(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")
+	WebElement firstflight;
+
+	private WebElement getFirstFlight() {
+		return firstflight;
+	}
+
+	public void clickFirstFlight() {
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+				"(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getFirstFlight().click();
+
+		System.out.println("Clicking first flight option  ...");
+	}
 	
 	
-	//book now button
+	// filtro de Direct de juan
 	
+
 }

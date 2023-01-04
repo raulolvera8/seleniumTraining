@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import library.Driver;
 import library.utilities;
 import phptravelsPageObjectRepository.PTAgentPage;
+import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 
@@ -29,6 +30,7 @@ public class script2 extends Driver {
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
+		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
 		utilities utils = new utilities(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
@@ -87,9 +89,8 @@ public class script2 extends Driver {
 		agentPage.clickSearchFlightButton();
 
 		// ========== TOTAL FLIGHTS WINDOW ==========
-
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
-		agentPage.clickFirstFlight();
+		flightsPage.clickFirstFlight();
 
 		// =========== FLIGHTS BOOKING WINDOW ==========
 

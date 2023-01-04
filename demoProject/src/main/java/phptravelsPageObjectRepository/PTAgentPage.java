@@ -433,27 +433,7 @@ public class PTAgentPage {
 		System.out.println("Clicking search flights button  ...");
 	}
 
-	/// ----- SELECT FIRST TRAVEL ON VIEW FLIGHTS ------
-	@FindBy(xpath = "(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")
-	WebElement firstflight;
-
-	private WebElement getFirstFlight() {
-		return firstflight;
-	}
-
-	public void clickFirstFlight() {
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-				"(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
-
-		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
-
-		getFirstFlight().click();
-
-		System.out.println("Clicking first flight option  ...");
-	}
+	
 
 	/// ========== DEMO INFORMATION FROM BOOK FLIGHT VIEW ============
 
