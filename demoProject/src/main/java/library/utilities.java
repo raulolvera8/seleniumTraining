@@ -12,16 +12,26 @@ public class utilities{
 		PageFactory.initElements(driver, this);
 	}
 	public void  ScrollDown(WebDriver driver, String X, String Y) throws InterruptedException     {
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-	      js.executeScript("window.scroll("+X+","+Y+")");
-	  	Thread.sleep(1000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			  js.executeScript("window.scroll("+X+","+Y+")");
+			Thread.sleep(1000);
 
 	  }
-	public void elementScrollDown(WebElement element) throws InterruptedException {
-		JavascriptExecutor js;
-		js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", element);
-	  	Thread.sleep(1000);
+	public void elementScrollDown(WebElement element) {
+		try {
+			JavascriptExecutor js;
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+		  	Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			System.out.println("Error when trying to locate the element " );
+			e.printStackTrace();
+		}
 
 	}
+	
+	//wait loader
+	
+	
+	//
 }
