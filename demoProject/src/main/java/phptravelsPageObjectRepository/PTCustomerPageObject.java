@@ -24,15 +24,7 @@ public class PTCustomerPageObject {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	/// ############ COOKIES 
-	@FindBy (id="cookie_stop") WebElement gotitBtn;
-
-	public WebElement getGotItBtn() {
-		return gotitBtn;
-	}
-	public void clickGotItBtn() {			
-		getGotItBtn().click();;
-	}
+	
 	//######################## VISA ########################## Diana
 	@FindBy(xpath="//*[@href='https://phptravels.net/visa']") WebElement visaBtn;
 	@FindBy(id="select2-from_country-container") WebElement fromCountryBtn;
@@ -558,28 +550,20 @@ public class PTCustomerPageObject {
 		@FindBy (xpath="//li[contains(.,'user@phptravels.com')]") WebElement reservationNumber;
 		public void validationStatus() {
 			System.out.println("BOOKING INVOICE WINDOW");
-
-
 			if  (reservationNumber.getText().contentEquals("Email: user@phptravels.com")) {
 				 System.out.println(bookingStatus.getText());
 				 System.out.println(travellerDetails.getText());
 				 System.out.println(reservationNumber.getText());
-
-
 			        } else {
 			              Assert.fail( "FAILED" );
 			        }	
 		}
-		
-		//
-					// ---- 
 
 		//######################## END FLIGHTS ########################## Diana
 		
 		//########################  HOTELS WINDOW ########################## Diana
 
 		@FindBy(xpath="//*[@href='https://phptravels.net/hotels']") WebElement hotelsBtn;
-		@FindBy (xpath="//*[@class='owl-item cloned'][1]") WebElement hotelDiv;
 
 		// ---- HOTELS TAB
 
@@ -595,26 +579,13 @@ public class PTCustomerPageObject {
 					"display: none;"));
 			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='logo']")));
-			
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='container']/h2")));			
 		}
 		
-		public WebElement gethotelDiv() {
-			return hotelDiv;
-		} 
-		public void clickhotelDiv() {
-			gethotelDiv().click();
 		
-			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
-					"display: none;"));
+	
+		@FindBy (xpath="//*[@class='col-md-7']") WebElement nameHotel;
 		
-			
-		}
-		//########################  END HOTELS WINDOW ########################## Diana
-
 	
 	//-----------------TOURS--------JUAN-------
 	

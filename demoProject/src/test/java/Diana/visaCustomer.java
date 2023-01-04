@@ -24,6 +24,7 @@ public class visaCustomer extends Driver {
 		PTHomePage home=new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
 		PTCustomerPageObject visa= new PTCustomerPageObject(driver);
+		/// steps to login
 		home.clickBtnAccount();
 		home.clickCustomerLoginbtn();
 		login.fillEmail("user@phptravels.com");
