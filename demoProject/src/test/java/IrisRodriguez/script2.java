@@ -93,91 +93,85 @@ public class script2 extends Driver {
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
 		flightsPage.clickFirstFlight();
 
-		// =========== FLIGHTS BOOKING WINDOW ==========
-
-		// PRINT PERSONAL INFORMATION FROM ACCOUNT
-		System.out.println("Your Personal Information");
-		agentPage.PrintFirstName();
-		agentPage.PrintLastNameLabel();
-		agentPage.PrintEmailLabel();
 
 		// ======== ENTER TRAVELLERS INFORMATION =======
 		// FIRST NAME
 		travellerFormPage.writefirstNametb("Barry");
 
 		// LAST NAME
-		agentPage.lastnameTraveler1Input("Allen");
+		travellerFormPage.writelastNametb("Allen");
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "200");
 
 		// NATIONALITY
-		agentPage.selectDropDownNationality();
-		agentPage.selectValueNationality();
+		travellerFormPage.clickDropdownNationality();
+		travellerFormPage.selectValueNationality();
 
 		// DATE OF BIRTH
 		// MONTH
-		agentPage.selectDropDownMonth();
-		agentPage.selectValueMonth();
+		travellerFormPage.selectDropDownMonth();
+		travellerFormPage.selectDateOfBirth();
 
 		// DAY
-		agentPage.selectDropDownDay();
-		agentPage.selectValueDay();
+		travellerFormPage.selectDropDownDay();
+		travellerFormPage.selectDay();
 
 		// YEAR
-		agentPage.selectDropDownYear();
-		agentPage.selectValueYear();
+		travellerFormPage.selectDropDownYear();
+		travellerFormPage.selectYear();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "700");
 
 		// ================ PASSPORT INFORMATION ==================
 		// PASSPORT ID
-		agentPage.EnterPassportID("C03005988");
+		travellerFormPage.writePassport("C03005988");
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "400");
 
 		// ================ PASSPORT ISSUANCE INFORMATION ==================
 		// PASSPORT ISSUANCE MONTH
-		agentPage.selectDropDownPassportIssuanceMonth();
-		agentPage.selectValuePassportIssuanceMonth();
+		travellerFormPage.selectPassportMonth();
+		travellerFormPage.itemPassportMonth();
 
 		// PASSPORT ISSUANCE DAY
-		agentPage.selectDropDownPassportIssuanceDay();
-		agentPage.selectValuePassportIssuanceDay();
+		travellerFormPage.selectPassportDay();
+		travellerFormPage.itemPassportDay();
 
 		// PASSPORT ISSUANCE YEAR
-		agentPage.selectDropDownPassportIssuanceYear();
-		agentPage.selectValuePassportIssuanceYear();
+		travellerFormPage.selectPassportYear();
+		travellerFormPage.itemPassportYear();
 
 		// ================ PASSPORT EXPIRY INFORMATION ==================
 		// PASSPORT EXPIRY MONTH
-		agentPage.selectDropDownPassportExpiryMonth();
-		agentPage.selectValuePassportExpiryMonth();
+		travellerFormPage.selectExpiryMonth();
+		travellerFormPage.itemExpiryMonth();
 
 		// PASSPORT EXPIRY DAY
-		agentPage.selectDropDownPassportExpiryDay();
-		agentPage.selectValuePassportExpiryDay();
+		travellerFormPage.selectExpiryDay();
+		travellerFormPage.itemExpiryDay();
 
 		// PASSPORT EXPIRY YEAR
-		agentPage.selectDropDownPassportExpiryYear();
-		agentPage.selectValuePassportExpiryYear();
+		travellerFormPage.selectExpiryYear();
+		travellerFormPage.itemExpiryYear();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "900");
 
 		// ================ PAYMENT METHOD INFORMATION ==================
 		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
-		agentPage.clickrbtnPayWithStripe();
+		travellerFormPage.selectPayStripeRadioBtn();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "1600");
+		
 		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
-		agentPage.clickCheckAgreeTerms();
+		travellerFormPage.selectCheckBoxTerms();
 
 		// CONFIRM BOOKING
-		agentPage.ClickConfirmBooking();
+		travellerFormPage.clickBookingBtn();
 
 		// ================= VERIFY DATA =========================
 		// PRINT BOOKING STATUS
