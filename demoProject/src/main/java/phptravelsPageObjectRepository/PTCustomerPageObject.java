@@ -233,33 +233,25 @@ public class PTCustomerPageObject {
 		
 		//---- SELECT DEPARTURE DATE
 		
-		public WebElement getDepartureDateBox() {
-			return departureDateBox;
-		}
-		public void selectDepartureDateBox() {
-			getDepartureDateBox().click();
-		}
-		public WebElement getDayDeparture() {
-			return dayDeparture;
-		}
-		public void clickDayDeparture() {
-			getDayDeparture().click();
-			}
-		//---- OPEN PASSENGERS BOX
 		
-		public WebElement getPassengersBox() {
-			return passengersBox;
-		}
-		public void clickPassengersBox() {
-			getPassengersBox().click();
-			Wait <WebDriver> wait = new FluentWait <WebDriver> (this.driver)
-					.withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(2))
-					.ignoring(ElementNotInteractableException.class);
-			wait.until(ExpectedConditions.attributeToBe(By.xpath("//*[@class='dropdown-menu dropdown-menu-wrap']"),"style" , "display: block;"));
-		
-			
-		}
+		  public WebElement getDepartureDateBox() { return departureDateBox; } 
+		  public void selectDepartureDateBox() { getDepartureDateBox().click(); } public
+		  WebElement getDayDeparture() { return dayDeparture; } public void
+		  clickDayDeparture() { getDayDeparture().click(); } //---- OPEN PASSENGERS BOX
+		  
+		  public WebElement getPassengersBox() { 
+			  return passengersBox; } 
+		  public void
+		  clickPassengersBox() { getPassengersBox().click(); Wait <WebDriver> wait =
+		  new FluentWait <WebDriver> (this.driver) .withTimeout(Duration.ofSeconds(60))
+		  .pollingEvery(Duration.ofSeconds(2))
+		  .ignoring(ElementNotInteractableException.class);
+		  wait.until(ExpectedConditions.attributeToBe(By.
+		  xpath("//*[@class='dropdown-menu dropdown-menu-wrap']"),"style" ,
+		  "display: block;"));
+		  
+		 
+		 } 
 		//---- SELECT PASSENGERS 
 
 		public WebElement geticonPlus() {

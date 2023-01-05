@@ -51,7 +51,8 @@ public class PTFlightsPage extends Driver {
 		
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+				"display: none;"));
 	}
 	
 	public void selectItemFlyingFromOneWay() {
@@ -72,10 +73,11 @@ public void writeFlyingDestinationOneWay(String destinationCountry) {
 	
 	Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 			.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-	wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+	wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+			"display: none;"));
 }
 public void selectItemFlyingDestinationOneWay() {
-	List <WebElement> listFlyingDestinationOneWay = driver.findElements(By.xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"));
+	List <WebElement> listFlyingDestinationOneWay = driver.findElements(By.xpath("//*[@class='autocomplete-wrapper _1 row_2']//div[@class='autocomplete-result']"));
 	listFlyingDestinationOneWay.get(0).click();
 }
 

@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import library.Driver;
 
+
+////--------MENUPAGE-------JUAN--------------////
 public class PTMenuPage extends Driver  {
 	WebDriver driver;
 

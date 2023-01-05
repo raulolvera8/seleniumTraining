@@ -6,8 +6,10 @@ import org.testng.annotations.Test;
 
 import library.Driver;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
+import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
 
 public class scriptFlights extends Driver {
 	
@@ -24,7 +26,10 @@ public class scriptFlights extends Driver {
         // Enter on Home Page
 		PTHomePage homePage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
-		PTCustomerPageObject flightPage = new PTCustomerPageObject(driver);
+		PTMenuPage selectFlight = new PTMenuPage(driver);
+		PTFlightsPage flightPage = new PTFlightsPage(driver);
+		
+		
 		homePage.clickBtnAccount();
 		homePage.clickCustomerLoginbtn();
 		
@@ -34,7 +39,7 @@ public class scriptFlights extends Driver {
 		loginPage.clickLogin();
 		
 		//Click on Flights Button
-		flightPage.clickFlightsbtn();
+		selectFlight.clickFlightsbtn();
 		
 		//Select Country
 		flightPage.writeFlyingFromOneWay("Mex");
@@ -45,13 +50,15 @@ public class scriptFlights extends Driver {
 		flightPage.selectItemFlyingDestinationOneWay();
 		
         // Select Date
-		flightPage.clickDate();
+		flightPage.selectDepartureDateBox();
+		flightPage.clickDayDeparture();
+		flightPage.clickPassengersBox();
 		
 		//Click On Search Button
-		flightPage.clickSearch();
+		flightPage.clickSearchFlights();
 		
 		//Click On Modify Search
-		flightPage.clickModifySearch();
+		//flightPage.clickModifySearch();
 		
 	}
 
