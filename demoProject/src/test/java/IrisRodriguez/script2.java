@@ -9,8 +9,10 @@ import library.Driver;
 import library.utilities;
 import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
+import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
 
 public class script2 extends Driver {
 
@@ -29,7 +31,9 @@ public class script2 extends Driver {
 		// SIGN IN PAGE
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
+		PTMenuPage menuPage = new PTMenuPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
+		PTFlightsPage searchFlightPage = new PTFlightsPage(driver);
 		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
 		utilities utils = new utilities(driver);
 
@@ -56,37 +60,32 @@ public class script2 extends Driver {
 		// ======================== FLIGHTS SEARCH WINDOW ========================
 
 		// ENTER SECTION FLIGHTS
-		agentPage.clickbtnFlights();
+		menuPage.clickbtnFlights();
 
 		// ENTER CITY FLYING FROM
-		agentPage.flyingFromInput("LHE");
+		searchFlightPage.writeFlyingFromOneWay("LHE");
 
 		// CLICK FIRST OPTION
-		agentPage.flyingFromAutocomplete();
+		searchFlightPage.selectItemFlyingFromOneWay();
 
 		// ENTER CITY TO DESTINATION
-		agentPage.toDestinationInput("DXB");
+		searchFlightPage.writeFlyingDestinationOneWay("DXB");
 
 		// CLICK SECOND OPTION
-		agentPage.ToDestinationAutocomplete();
+		searchFlightPage.selectItemFlyingDestinationOneWay();
 
 		// CLICK DATE FLY INPUT FOR TO SEE OPTIONS
-		agentPage.DateInput();
-
-		// SELECT 6 DAY FROM CALENDAR PICKER
-		agentPage.SelectDateFromCalendar();
+		searchFlightPage.selectDepartureDateBox();
+		searchFlightPage.clickDayDeparture();
 
 		// CLICK TO SEE OPTIONS FROM PASSANGERS
-		agentPage.clickTravelersInput();
-
-		// CLICK QUANTITY ADULT
-		// agentPage.clickAdultsOptionPlus();
+		searchFlightPage.clickPassengersBox();
 
 		// PRINT NUMBER OF PASSENGERS
-		agentPage.PrintNumberPassangers();
+		searchFlightPage.PrintNumberPassangers();
 
 		// SEARCH FLIGHTS BUTTON
-		agentPage.clickSearchFlightButton();
+		searchFlightPage.clickSearchFlights();
 
 		// ========== TOTAL FLIGHTS WINDOW ==========
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
