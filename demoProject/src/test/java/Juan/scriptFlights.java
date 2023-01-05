@@ -28,6 +28,7 @@ public class scriptFlights extends Driver {
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTMenuPage selectFlight = new PTMenuPage(driver);
 		PTFlightsPage flightPage = new PTFlightsPage(driver);
+		PTCustomerPageObject flightModify = new PTCustomerPageObject(driver);
 		
 		
 		homePage.clickBtnAccount();
@@ -58,7 +59,14 @@ public class scriptFlights extends Driver {
 		flightPage.clickSearchFlights();
 		
 		//Click On Modify Search
-		//flightPage.clickModifySearch();
+		flightModify.clickModifySearch();
+		
+		flightModify.printValidationStops();
+		
+		
+		flightModify.clickAirlines();
+		
+		flightModify.clickFirstOption();
 		
 	}
 
