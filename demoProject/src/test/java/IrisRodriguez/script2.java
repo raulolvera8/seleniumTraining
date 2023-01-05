@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import library.Driver;
 import library.utilities;
 import phptravelsPageObjectRepository.PTAgentPage;
+import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
 import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
@@ -35,6 +36,7 @@ public class script2 extends Driver {
 		PTAgentPage agentPage = new PTAgentPage(driver);
 		PTFlightsPage searchFlightPage = new PTFlightsPage(driver);
 		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
+		PTBookingFormPage travellerFormPage = new PTBookingFormPage(driver);
 		utilities utils = new utilities(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
@@ -100,9 +102,8 @@ public class script2 extends Driver {
 		agentPage.PrintEmailLabel();
 
 		// ======== ENTER TRAVELLERS INFORMATION =======
-
 		// FIRST NAME
-		agentPage.firstnameTraveler1Input("Barry");
+		travellerFormPage.writefirstNametb("Barry");
 
 		// LAST NAME
 		agentPage.lastnameTraveler1Input("Allen");
@@ -184,19 +185,16 @@ public class script2 extends Driver {
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "300");
-		
+
 		// ACCOUNT DATA
-		agentPage.VerifyFirstDataBooking(); //FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		agentPage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
 		agentPage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
-		
+
 		// TRAVELLER DATA
 		agentPage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
 		agentPage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
-		
-		// VERIFY AMOUNT 
-		
-		
-		
+
+		// VERIFY AMOUNT
 
 	}
 
