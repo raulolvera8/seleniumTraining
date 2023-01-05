@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import library.Driver;
 import library.utilities;
 import phptravelsPageObjectRepository.PTAgentPage;
+import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 
@@ -29,6 +30,7 @@ public class script2 extends Driver {
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
+		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
 		utilities utils = new utilities(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
@@ -87,9 +89,8 @@ public class script2 extends Driver {
 		agentPage.clickSearchFlightButton();
 
 		// ========== TOTAL FLIGHTS WINDOW ==========
-
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
-		agentPage.clickFirstFlight();
+		flightsPage.clickFirstFlight();
 
 		// =========== FLIGHTS BOOKING WINDOW ==========
 
@@ -162,6 +163,41 @@ public class script2 extends Driver {
 		// PASSPORT EXPIRY YEAR
 		agentPage.selectDropDownPassportExpiryYear();
 		agentPage.selectValuePassportExpiryYear();
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "900");
+
+		// ================ PAYMENT METHOD INFORMATION ==================
+		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
+		agentPage.clickrbtnPayWithStripe();
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "1600");
+		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
+		agentPage.clickCheckAgreeTerms();
+
+		// CONFIRM BOOKING
+		agentPage.ClickConfirmBooking();
+
+		// ================= VERIFY DATA =========================
+		// PRINT BOOKING STATUS
+		agentPage.VerifyBookingStatus();
+
+		//// SCROLL DOWN
+		utils.ScrollDown(driver, "0", "300");
+		
+		// ACCOUNT DATA
+		agentPage.VerifyFirstDataBooking(); //FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		agentPage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		
+		// TRAVELLER DATA
+		agentPage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
+		agentPage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		
+		// VERIFY AMOUNT 
+		
+		
+		
 
 	}
 

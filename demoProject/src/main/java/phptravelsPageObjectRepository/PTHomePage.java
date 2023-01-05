@@ -14,13 +14,19 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.opentelemetry.api.internal.Utils;
+import library.utilities;
+
 public class PTHomePage {
 	WebDriver driver;
-
+	utilities utility;
+	
 	public PTHomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		 utility = new utilities(driver);
 	}
+	
 	// ------------- SELECT LANGUAGE  ---------------------------------------
 	@FindBy (id="languages") WebElement languagesDropDownList;
 	public WebElement getlanguagesDropDownList() {
@@ -131,5 +137,16 @@ public class PTHomePage {
 		System.out.println("Supplier buttton role has been clicked...");
 
 	}
+	
+	@FindBy (xpath = "//input[@type= 'email']") WebElement emailInput;
+	public WebElement getEmailInput() {
+		return emailInput;
+	}
+	
+	
+	public void scrollToEmail() {
+		utility.elementScrollDown(this.getEmailInput());
+	}
+	
 
 }
