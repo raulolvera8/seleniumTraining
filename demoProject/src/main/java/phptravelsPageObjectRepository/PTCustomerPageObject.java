@@ -318,7 +318,7 @@ public class PTCustomerPageObject {
 			System.out.println("FLIGHTS BOOKING WINDOW");
 		}
 		
-		/// ----  FLIGHTS BOOKING INFORMATION WINDOW
+		/*/// ----  FLIGHTS BOOKING INFORMATION WINDOW
 		@FindBy (xpath="//*[@class='form-select form-select-sm nationality']") WebElement dropdownNationality;
 		@FindBy(name="title_1") WebElement DropDowntitle;
 		@FindBy(name="nationality_1") WebElement DropDownNationality_1;
@@ -541,23 +541,35 @@ public class PTCustomerPageObject {
 					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title']//span")));			
-		}
+		}*/
 		
-		//------ VALIDATION WINDOW ------
+	/*	//------ VALIDATION WINDOW ------
 		// ---- Booking status
-		@FindBy (xpath="//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]") WebElement bookingStatus;
+		@FindBy (xpath="//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]") WebElement paymentStatusStripe;
+		@FindBy (xpath="//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]") WebElement paymentStatusPLater;		
 		@FindBy (xpath = "//*[@class='card-body'][contains(.,'Miss Diana Velasquez ')]") WebElement travellerDetails;
 		@FindBy (xpath="//li[contains(.,'user@phptravels.com')]") WebElement reservationNumber;
-		public void validationStatus() {
+		public void validationStatusStripe() {
 			System.out.println("BOOKING INVOICE WINDOW");
 			if  (reservationNumber.getText().contentEquals("Email: user@phptravels.com")) {
-				 System.out.println(bookingStatus.getText());
+				 System.out.println(paymentStatusStripe.getText());
 				 System.out.println(travellerDetails.getText());
 				 System.out.println(reservationNumber.getText());
 			        } else {
 			              Assert.fail( "FAILED" );
 			        }	
 		}
+		
+		public void validationStatusLater() {
+			System.out.println("BOOKING INVOICE WINDOW");
+			if  (reservationNumber.getText().contentEquals("Email: user@phptravels.com")) {
+				 System.out.println(paymentStatusPLater.getText());
+				 System.out.println(travellerDetails.getText());
+				 System.out.println(reservationNumber.getText());
+			        } else {
+			              Assert.fail( "FAILED" );
+			        }	
+		}*/
 
 		//######################## END FLIGHTS ########################## Diana
 		
