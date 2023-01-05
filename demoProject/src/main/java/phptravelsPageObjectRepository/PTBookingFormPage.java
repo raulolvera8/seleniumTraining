@@ -21,21 +21,21 @@ public class PTBookingFormPage {
 		PageFactory.initElements(driver, this);
 	}
 	/// ----  FLIGHTS BOOKING INFORMATION WINDOW
-			@FindBy (xpath="//*[@class='form-select form-select-sm nationality']") WebElement dropdownNationality;
-			@FindBy(name="title_1") WebElement DropDowntitle;
-			@FindBy(name="nationality_1") WebElement DropDownNationality_1;
-			@FindBy(name="dob_month_1") WebElement DropDownMonth;
-			@FindBy(name="dob_day_1") WebElement DropDownDay;
-			@FindBy(name="dob_year_1") WebElement DropDownYear;
+			@FindBy (xpath="//*[@class='form-select form-select-sm nationality']") WebElement NationalityDropDown;
+			@FindBy(name="title_1") WebElement titleDropDown;
+			@FindBy(name="nationality_1") WebElement Nationality_1DropDown;
+			@FindBy(name="dob_month_1") WebElement MonthDropDown;
+			@FindBy(name="dob_day_1") WebElement DayDropDown;
+			@FindBy(name="dob_year_1") WebElement YearDropDown;
 			@FindBy (name="firstname_1") WebElement firstNametb;
 			@FindBy (name="lastname_1") WebElement lastNametb;
 			@FindBy (name="passport_1") WebElement passportTb;
-			@FindBy(name="passport_issuance_month_1") WebElement dropDown_passport_issuance_month;
-			@FindBy(name="passport_issuance_day_1") WebElement dropDown_passport_issuance_day;
-			@FindBy(name="passport_issuance_year_1") WebElement DropDown_passport_issuance_year_1;
-			@FindBy(name="passport_month_1") WebElement dropDown_passport_month_1;
-			@FindBy(name="passport_day_1") WebElement dropDown_passport_day_1;
-			@FindBy(name="passport_year_1") WebElement DropDown_passport_year_1;			
+			@FindBy(name="passport_issuance_month_1") WebElement passport_issuance_monthDropDown;
+			@FindBy(name="passport_issuance_day_1") WebElement passport_issuance_dayDropDown;
+			@FindBy(name="passport_issuance_year_1") WebElement passport_issuance_year_DropDown;
+			@FindBy(name="passport_month_1") WebElement passport_month_DropDown;
+			@FindBy(name="passport_day_1") WebElement passport_day_DropDown;
+			@FindBy(name="passport_year_1") WebElement passport_year_DropDown;			
 			@FindBy (xpath="//*[@class='col-md-12 mb-1 gateway_pay-later']") WebElement payLaterRadioBtn;
 			@FindBy(id="gateway_stripe") WebElement payWithStripeRadioBtn;
 			@FindBy (xpath="//*[@class='custom-checkbox']") WebElement termsAndConditionsCheckBox;
@@ -60,7 +60,7 @@ public class PTBookingFormPage {
 			
 			// ----- NATIONALITY
 			public WebElement getdropdownNationality() {
-				return dropdownNationality;
+				return NationalityDropDown;
 			}
 			public void clickDropdownNationality() {			
 				getdropdownNationality().click();
@@ -72,7 +72,7 @@ public class PTBookingFormPage {
 			// ----- TITLE
 
 			public WebElement getDropDowntitle() {
-				return DropDowntitle;
+				return titleDropDown;
 			}
 			public void selectDropDowntitle() {
 				getDropDowntitle().click();
@@ -84,7 +84,7 @@ public class PTBookingFormPage {
 			// ----- NATIONALITY_01
 
 			public WebElement getDropDownNationality_1() {
-				return DropDownNationality_1;
+				return Nationality_1DropDown;
 			}
 			public void selectDropDownNationality_1() {
 				getDropDownNationality_1().click();
@@ -96,7 +96,7 @@ public class PTBookingFormPage {
 			// ----- DATE OF BIRTH
 
 			public WebElement getDropDownMonth() {
-				return DropDownMonth;
+				return MonthDropDown;
 			}
 			public void selectDropDownMonth() {
 				getDropDownMonth().click();
@@ -110,7 +110,7 @@ public class PTBookingFormPage {
 			// ----- DAY
 
 			public WebElement getDropDownDay() {
-				return DropDownDay;
+				return DayDropDown;
 			}
 			public void selectDropDownDay() {
 				getDropDownDay().click();
@@ -124,7 +124,7 @@ public class PTBookingFormPage {
 			// ----- YEAR
 
 			public WebElement getDropDownYear() {
-				return DropDownYear;
+				return YearDropDown;
 			}
 			public void selectDropDownYear() {
 				getDropDownYear().click();
@@ -145,7 +145,7 @@ public class PTBookingFormPage {
 			}
 			// --select Passport Month
 			public WebElement getPassportMonth() {
-				return dropDown_passport_issuance_month;
+				return passport_issuance_monthDropDown;
 			}
 			public void selectPassportMonth() {
 				getPassportMonth().click();
@@ -156,7 +156,7 @@ public class PTBookingFormPage {
 			}
 			 // -- Select Passport Day
 			public WebElement getPassportDay() {
-				return dropDown_passport_issuance_day;
+				return passport_issuance_dayDropDown;
 			}
 			public void selectPassportDay() {
 				getPassportDay().click();
@@ -167,7 +167,7 @@ public class PTBookingFormPage {
 			}
 			// --- Select Passport Year
 			public WebElement getPassportYear() {
-				return DropDown_passport_issuance_year_1;
+				return passport_issuance_year_DropDown;
 			}
 			public void selectPassportYear() {
 				getPassportYear().click();
@@ -179,7 +179,7 @@ public class PTBookingFormPage {
 			/// Passport Expiry Date 
 			// --- Expiry Month
 			public WebElement getExpiryMonth() {
-				return dropDown_passport_month_1;
+				return passport_month_DropDown;
 			}
 			public void selectExpiryMonth() {
 				getExpiryMonth().click();
@@ -190,7 +190,7 @@ public class PTBookingFormPage {
 			}
 			// --- Expiry Day
 			public WebElement getExpiryDay() {
-				return dropDown_passport_day_1;
+				return passport_day_DropDown;
 			}
 			public void selectExpiryDay() {
 				getExpiryDay().click();
@@ -201,7 +201,7 @@ public class PTBookingFormPage {
 			}
 			// --- Expiry Year
 			public WebElement getExpiryYear() {
-				return DropDown_passport_year_1;
+				return passport_year_DropDown;
 			}
 			public void selectExpiryYear() {
 				getExpiryYear().click();
@@ -244,10 +244,5 @@ public class PTBookingFormPage {
 						.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 				wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
 						"display: none;"));
-				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-						.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title']//span")));
-				
 			}
 }

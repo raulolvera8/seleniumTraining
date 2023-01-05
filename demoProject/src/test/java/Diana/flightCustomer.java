@@ -1,4 +1,6 @@
 package Diana;
+import phptravelsPageObjectRepository.PTBookingFormPage;
+import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
@@ -24,6 +26,8 @@ public void travels() throws InterruptedException {
 	PTHomePage home=new PTHomePage(Driver);
 	PTLoginPage login = new PTLoginPage(Driver);
 	PTCustomerPageObject flights = new PTCustomerPageObject(Driver);
+	PTBookingFormPage form = new PTBookingFormPage(Driver);
+	PTBookingInvoicePage validationInvoice = new PTBookingInvoicePage(Driver);
 	utilities utils= new utilities (Driver);
 	//Login
 	/*home.clickLanguageDropDownlist();
@@ -52,54 +56,54 @@ public void travels() throws InterruptedException {
 	// ------- INFORMATION FLIGHTS BOOKING WINDOW
 	// ----FILLING INFORMATION FORM   -----
 	// Nationality
-	flights.clickDropdownNationality();
-	flights.selectValueNationality();
+	form.clickDropdownNationality();
+	form.selectValueNationality();
 	// Title
-	flights.selectDropDowntitle();
-	flights.selectValueTitle();
+	form.selectDropDowntitle();
+	form.selectValueTitle();
 	// Frist Name and Last Name 
-	flights.writefirstNametb("Diana");
-	flights.writelastNametb("Velasquez");
+	form.writefirstNametb("Diana");
+	form.writelastNametb("Velasquez");
 	// dropdown list
 	// Nationality
-	flights.selectDropDownNationality_1();
-	flights.selectValueNationality_1();
+	form.selectDropDownNationality_1();
+	form.selectValueNationality_1();
 	// Date of Birth
-	flights.selectDropDownMonth();
-	flights.selectDateOfBirth();
+	form.selectDropDownMonth();
+	form.selectDateOfBirth();
 	// Day
-	flights.selectDropDownDay();
-	flights.selectDay();
+	form.selectDropDownDay();
+	form.selectDay();
 	// Year
-	flights.selectDropDownYear();
-	flights.selectYear();
+	form.selectDropDownYear();
+	form.selectYear();
 	//Passport ID
 	// Passport Issuance Date
-	flights.writePassport("5555sdfdsd25");
+	form.writePassport("5555sdfdsd25");
 	// Scroll Down
 	utils.ScrollDown(Driver,"0","700");
-	flights.selectPassportMonth();
-	flights.itemPassportMonth();
-	flights.selectPassportDay();
-	flights.itemPassportDay();
-	flights.selectPassportYear();
-	flights.itemPassportYear();
+	form.selectPassportMonth();
+	form.itemPassportMonth();
+	form.selectPassportDay();
+	form.itemPassportDay();
+	form.selectPassportYear();
+	form.itemPassportYear();
 	// Passport Expiry Date
-	flights.selectExpiryMonth();
-	flights.itemExpiryMonth();
-	flights.selectExpiryDay();
-	flights.itemExpiryDay();
-	flights.selectExpiryYear();
-	flights.itemExpiryYear();
-	flights.selectPayLaterRadioBtn();
+	form.selectExpiryMonth();
+	form.itemExpiryMonth();
+	form.selectExpiryDay();
+	form.itemExpiryDay();
+	form.selectExpiryYear();
+	form.itemExpiryYear();
+	form.selectPayLaterRadioBtn();
 	//ScrollDwon
 	utils.ScrollDown(Driver,"0","1000");
 	// Accept Terms and conditions
-	flights.selectCheckBoxTerms();
+	form.selectCheckBoxTerms();
 	// Book now button
-	flights.clickBookingBtn();
+	form.clickBookingBtn();
 	// Print Validation status Booking invoice window
-	flights.validationStatus();
+	validationInvoice.validationStatusLater();
 }
 @AfterClass
 public void teardown() {

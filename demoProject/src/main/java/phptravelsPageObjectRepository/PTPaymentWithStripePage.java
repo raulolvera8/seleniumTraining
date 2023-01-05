@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import library.utilities;
+
 public class PTPaymentWithStripePage {
 
 	WebDriver driver;
@@ -20,6 +22,7 @@ public class PTPaymentWithStripePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	utilities utils = new utilities(driver);
 
 	/// -------- VERIFY PAY WITH STRIPE USD XX.XX (LABEL) -------- IRIS
 	@FindBy(xpath = "//strong")
@@ -58,6 +61,7 @@ public class PTPaymentWithStripePage {
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//a[contains (text(), 'Pay Now') and @type='button']")));
 		getPayNowAmount().click();
+
 	}
 
 }

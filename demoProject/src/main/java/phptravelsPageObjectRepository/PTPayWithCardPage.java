@@ -21,7 +21,21 @@ public class PTPayWithCardPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	/// -------- CLICK CANCELAR BOTON POP UP SEGURIDAD METHOD -------- IRIS
+		@FindBy(xpath="//*[@class='mt5 flex-container justify-content-center']//button") WebElement cancelPopUpBtn;
+		public WebElement getCancelPopUpBtn() {
+			return cancelPopUpBtn;
+		}
+		public void clickCancelPopUpBtn() {
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='ModalContent VerificationModal-modal ModalContent--afterOpen']")));
+			
+			getCancelPopUpBtn().click();
+			System.out.println("Pop up was closed");
+		}
+		
 	/// -------- ENTER NUMBER CARD -------- IRIS
 	@FindBy(id = "cardNumber")
 	WebElement cardNumber;
@@ -113,5 +127,7 @@ public class PTPayWithCardPage {
 		getPagarButtonWithCardInfo().click();
 		System.out.println("Clicking Pagar button ...");
 	}
+	
+	
 
 }

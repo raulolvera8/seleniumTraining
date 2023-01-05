@@ -20,8 +20,8 @@ public class PTHotelDetailsPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Adults 20')]//select") WebElement numRoomsBox;
-	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Adults 20')]//button") WebElement bookNowBtn;
+	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Adults 3')]//select") WebElement numRoomsBox;
+	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Adults 3')]//button") WebElement bookNowBtn;
 	// Available rooms
 	// Select number of rooms
 	public WebElement getNumberRooms() {
@@ -31,7 +31,7 @@ public class PTHotelDetailsPage {
 		getNumberRooms().click();
 	}
 	public void selectNumOfRooms() {
-		List <WebElement> listNumOfRooms=driver.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Adults 20')]//select/option"));
+		List <WebElement> listNumOfRooms=driver.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Adults 3')]//select/option"));
 		listNumOfRooms.get(1).click();
 	}
 	// Click Book Now Button 
