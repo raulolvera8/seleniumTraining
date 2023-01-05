@@ -7,13 +7,15 @@ import org.testng.annotations.Test;
 
 import library.Driver;
 import library.utilities;
-import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTBookingFormPage;
+import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
 import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTMenuPage;
+import phptravelsPageObjectRepository.PTPayWithCardPage;
+import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
 public class script2 extends Driver {
 
@@ -33,10 +35,12 @@ public class script2 extends Driver {
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTMenuPage menuPage = new PTMenuPage(driver);
-		PTAgentPage agentPage = new PTAgentPage(driver);
 		PTFlightsPage searchFlightPage = new PTFlightsPage(driver);
 		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
 		PTBookingFormPage travellerFormPage = new PTBookingFormPage(driver);
+		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
+		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
+		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
 		utilities utils = new utilities(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
@@ -95,6 +99,10 @@ public class script2 extends Driver {
 
 
 		// ======== ENTER TRAVELLERS INFORMATION =======
+		// NATIONALITY FROM ACCOUNT DETAILS
+		//travellerFormPage.clickDropdownNationality();
+		//travellerFormPage.selectValueNationality();
+
 		// FIRST NAME
 		travellerFormPage.writefirstNametb("Barry");
 
@@ -104,9 +112,9 @@ public class script2 extends Driver {
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "200");
 
-		// NATIONALITY
-		travellerFormPage.clickDropdownNationality();
-		travellerFormPage.selectValueNationality();
+		// NATIONALITY FROM TRAVELLER DETAILS
+		travellerFormPage.selectDropDownNationality_1();
+		travellerFormPage.selectValueNationality_1();
 
 		// DATE OF BIRTH
 		// MONTH
@@ -174,21 +182,45 @@ public class script2 extends Driver {
 		travellerFormPage.clickBookingBtn();
 
 		// ================= VERIFY DATA =========================
-		// PRINT BOOKING STATUS
-		agentPage.VerifyBookingStatus();
+		// VALIDATE BOOKING STATUS
+		bookingInvoicePage.validationStatusBooking();
+		
+		// PRINT STATUS
+		//bookingInvocePage.PrintBookingStatus();
 
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "300");
+		// PRINT ACCOUNT DATA
+		//bookingInvocePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		//bookingInvocePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
 
-		// ACCOUNT DATA
-		agentPage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
-		agentPage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		// PRINT TRAVELLER DATA
+		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
+		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		
+		// PROCEED TO CHECK
+		bookingInvoicePage.clickProceedPayBtn();
+		
+		// ======================== WINDOW PAYMENT WITH STRIPE ==================
+		// VERIFY PAYMENT
+		stripePage.VerifylabelAmount();
 
-		// TRAVELLER DATA
-		agentPage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
-		agentPage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		// CLICK PAY NOW WITH AMOUNT
+		stripePage.PayNowWithAmount();
 
-		// VERIFY AMOUNT
+		// ======================== WINDOW PAY WITH CARD FORM ==================
+		// ENTER NUMBER CARD
+		cardPage.CardNumberInput("4242 4242 4242 4242");
+
+		// ENTER CARD EXPIRY
+		cardPage.CardExpiryInput("0630");
+
+		// ENTER CARD CVC
+		cardPage.CardCVCInput("123");
+
+		// ENTER NAME
+		cardPage.NameCardInput("Agent Selenium");
+
+		// CLICK PAGAR BUTTON
+		cardPage.clickPagarButtonWithInfoCard();
 
 	}
 

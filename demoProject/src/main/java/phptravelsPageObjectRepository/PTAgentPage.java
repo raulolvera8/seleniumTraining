@@ -1,7 +1,6 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -190,28 +189,6 @@ public class PTAgentPage {
 		System.out.println("Is now " + getWalletBalanceAmount().getText());
 	}
 
-
-
-	/// -------- VERIFY BOOKING STATUS
-	@FindBy(xpath = "//div[@class='infobox infobox-danger']")
-	WebElement bookingStatus;
-
-	private WebElement getBookingStatus() {
-		return bookingStatus;
-	}
-
-	public void VerifyBookingStatus() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		getBookingStatus().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-danger']")));
-		System.out.println(getBookingStatus().getText());
-	}
-
 	/// -------- MY BOOKINGS BUTTON FROM USER VIEW --------
 	@FindBy(xpath = "(//a[ contains (text(), 'My Bookings')])[2]")
 	WebElement MyBookingsButton;
@@ -254,88 +231,5 @@ public class PTAgentPage {
 		System.out.println("Clicking View Voucher button ...");
 	}
 
-	/// --- VERIFY DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME, EMAIL,
-	/// PHONE, ADDRESS) --------
-	@FindBy(xpath = "(//ul[@class='customer'])[1]")
-	WebElement firstData;
-
-	private WebElement getFirstData() {
-		return firstData;
-	}
-
-	public void VerifyFirstDataBooking() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		getFirstData().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[1]")));
-
-		System.out.println("BOOKING INVOICE " + getFirstData().getText());
-	}
-
-	/// ---- VERIFY DATA ON BOOKING VIEW (COMPANY DATA, NAME, EMAIL, PHONE, ADDRESS)
-
-	@FindBy(xpath = "(//ul[@class='customer'])[2]")
-	WebElement secondData;
-
-	private WebElement getSecondData() {
-		return secondData;
-	}
-
-	public void VerifySecondDataBooking() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		getSecondData().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[2]")));
-		System.out.println(getSecondData().getText());
-	}
-
-	/// ---- VERIFY TRAVELLER DATA 1 (NAME, NATIONALITY, DATE OF BIRTH)
-	@FindBy(xpath = "(//ul[@class='customer'])[3]")
-	WebElement thirdData;
-
-	private WebElement getFirstDataTraveller() {
-		return thirdData;
-	}
-
-	public void VerifyFirstDataTraveller() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		getFirstDataTraveller().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[3]")));
-		System.out.println(getFirstDataTraveller().getText());
-	}
-	
-	/// ---- VERIFY TRAVELLER DATA 2 (PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE)
-	@FindBy(xpath = "(//ul[@class='customer'])[4]")
-	WebElement fourthData;
-
-	private WebElement getSecondDataTraveller() {
-		return fourthData;
-	}
-
-	public void VerifySecondDataTraveller() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		getSecondDataTraveller().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
-		System.out.println(getSecondDataTraveller().getText());
-	}
 
 }

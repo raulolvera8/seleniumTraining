@@ -82,7 +82,7 @@ public class PTBookingFormPage {
 	}
 	
 	// ---- DROPDOWN LIST -------
-	// ----- NATIONALITY
+	// ----- NATIONALITY ACCOUNT DETAILS
 	public WebElement getdropdownNationality() {
 		return dropdownNationality;
 	}
@@ -92,6 +92,10 @@ public class PTBookingFormPage {
 	}
 
 	public void selectValueNationality() {
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
 		List<WebElement> listNationality = driver
 				.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
 		listNationality.get(5).click();
@@ -111,7 +115,7 @@ public class PTBookingFormPage {
 		listTitle.get(1).click();
 	}
 	
-	// ----- SELECT NATIONALITY_01 -----
+	// ----- SELECT NATIONALITY_01 TRAVELLER DETAILS-----
 	public WebElement getDropDownNationality_1() {
 		return DropDownNationality_1;
 	}
@@ -121,6 +125,10 @@ public class PTBookingFormPage {
 	}
 
 	public void selectValueNationality_1() {
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
 		List<WebElement> listNationality_1 = driver.findElements(By.xpath("//*[@name='nationality_1']//option"));
 		listNationality_1.get(5).click();
 	}
