@@ -9,6 +9,7 @@ import library.Driver;
 import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
@@ -29,6 +30,7 @@ public class scrip1 extends Driver {
 		// SIGN IN PAGE
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
+		PTMenuPage menuPage = new PTMenuPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
 		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
 		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
@@ -108,7 +110,7 @@ public class scrip1 extends Driver {
 		agentPage.ClickLogoutButton();
 
 		// CLICK TO HOME PAGE
-		agentPage.ClickLogoPage();
+		menuPage.ClickLogoPage();
 	}
 
 	@AfterClass
