@@ -110,7 +110,7 @@ public class script2 extends Driver {
 		travellerFormPage.writelastNametb("Allen");
 
 		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "200");
+		utils.ScrollDown(driver, "0", "300");
 
 		// NATIONALITY FROM TRAVELLER DETAILS
 		travellerFormPage.selectDropDownNationality_1();

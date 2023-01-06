@@ -59,10 +59,17 @@ public class script3 extends Driver{
 		// CLICK VIEW VOUCHER BUTTON
 		agentPage.ClickViewVoucherButton();
 		
-		// PRINT DATA
-		bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
-		bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		// VALIDATE BOOKING STATUS
+		bookingInvoicePage.validationStatusBooking();
+		
+		// PRINT ACCOUNT DATA
+		//bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		//bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
 
+		// PRINT TRAVELLER DATA
+		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
+		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		
 	}
 	
 

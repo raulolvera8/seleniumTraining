@@ -211,7 +211,7 @@ public class PTAgentPage {
 	}
 
 	/// -------- VIEW VOUCHER BUTTON --------
-	@FindBy(xpath = "//a[ contains (text(), 'View Voucher')]")
+	@FindBy(xpath = "(//a[ contains (text(), 'View Voucher')])[3]")
 	WebElement ViewVoucher;
 
 	private WebElement getViewVoucher() {

@@ -110,8 +110,7 @@ public class PTBookingInvoicePage {
 	public void validationStatusBooking() {
 		System.out.println("BOOKING INVOICE WINDOW");
 		if (reservationAccountAgent.getText().contentEquals("Email: agent@phptravels.com")) {
-			System.out.println(paymentStatusPaidLabel.getText());
-			System.out.println(bookingInvoiceDetails.getText());
+			System.out.println(paymentStatusStripeLabel.getText());
 			System.out.println(reservationAccountAgent.getText());
 		} else {
 			Assert.fail("FAILED");
