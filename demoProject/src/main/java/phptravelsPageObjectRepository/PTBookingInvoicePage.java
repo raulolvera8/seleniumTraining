@@ -103,24 +103,6 @@ public class PTBookingInvoicePage {
 
 	}
 
-	/*// ---- Booking status
-	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")
-	WebElement paymentStatusStripe;
-	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")
-	WebElement paymentStatusPLater;
-	@FindBy(xpath = "//*[@class='card-body'][contains(.,'Miss Diana Velasquez ')]")
-	WebElement travellerDetails;
-
-	@FindBy(xpath = "//*[@class='row my-2']/div")
-	WebElement bookingInvoiceDetails;
-
-	@FindBy(xpath = "//li[contains(.,'user@phptravels.com')]")
-	WebElement reservationNumber;
-	@FindBy(id = "form")
-	WebElement proceedPayBtn;
-
-	
-
 	// -- VALIATION BOOKING STATUS - AGENT - IRIS
 	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
 	WebElement reservationAccountAgent;
@@ -128,16 +110,13 @@ public class PTBookingInvoicePage {
 	public void validationStatusBooking() {
 		System.out.println("BOOKING INVOICE WINDOW");
 		if (reservationAccountAgent.getText().contentEquals("Email: agent@phptravels.com")) {
-			System.out.println(paymentStatusStripe.getText());
+			System.out.println(paymentStatusPaidLabel.getText());
 			System.out.println(bookingInvoiceDetails.getText());
 			System.out.println(reservationAccountAgent.getText());
 		} else {
 			Assert.fail("FAILED");
 		}
 	}
-
-	
-	}*/
 
 	/// -------- PRINT STATUS LABEL FROM BOOKING - IRIS
 	@FindBy(xpath = "//div[@class='infobox infobox-danger']")
@@ -244,11 +223,4 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
 		System.out.println(getSecondDataTraveller().getText());
 	}
-
-	/*
-	 * // Proceed Button - Diana public WebElement getPrceedPayBtn() { return
-	 * proceedPayBtn; }
-	 * 
-	 * public void clickProceedPayBtn() { getPrceedPayBtn().click(); }
-	 */
 }
