@@ -592,42 +592,70 @@ public class PTCustomerPageObject {
 	
 }
 	@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement destinationCity;
-	@FindBy(xpath="//*[@id='select2-tours_city-container']") WebElement writeCity;
-
-	public WebElement getDestination() {
-		return destinationCity;
-		
-	}
 	
-	public void clickDestination() {
-		
-	
-		getDestination().click();
-		
-		
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-		("//*[@id='select2-tours_city-container']")));
-	
-	}
+	@FindBy(xpath="//*[@title=' Search by City']") WebElement writeCountry;
 	
 	
+	/*
+	 * public WebElement getDestination() { return destinationCity;
+	 * 
+	 * }
+	 * 
+	 * public void clickDestination() {
+	 * 
+	 * 
+	 * getDestination().click();
+	 * 
+	 * 
+	 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
+	 * Duration.ofSeconds(5));
+	 * waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+	 * ("//*[text()='Find the best tours packages']")));
+	 * 
+	 * }
+	 */
+	  
+		//---SELECT FROM COUNTRY---- 
+public WebElement getDestination() {
+return destinationCity;
+} 
+public void clickDestination() {
+	getDestination().click();
 	
-	
-public WebElement getCity() {
-	return writeCity;
+	WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30), Duration.ofSeconds(5));
+	waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	("//*[@type='search']")));
 }
 
+public WebElement getCountry() { 
+	return writeCountry; }
+	  
+	  
+ public void writeCountry(String fromDestination) {
+	 
+	 getCountry().sendKeys(fromDestination);
+	  
+ WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20),
+ Duration.ofSeconds(5));
+ waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath ("//*[text()='Find the best tours packages']")));
+	  
+	  }
+ 
 
-public void writeCity(String fromCity) {			
-	getCity().sendKeys(fromCity);
-		
-		
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-		("//*[@id='submit']")));
-	
-	}
+	 
+
+	/*
+	 * public WebElement getCountry() { return writeCity; }
+	 * 
+	 * public void writeCountry(String fromCountry) {
+	 * getCountry().sendKeys(fromCountry);
+	 * 
+	 * Wait<WebDriver> wait2 = new
+	 * FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+	 * .pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException
+	 * .class); wait2.until(ExpectedConditions.attributeToBe(By.xpath(
+	 * "//div[@id='preloader']"), "style", "display: none;")); }
+	 */
 
 @FindBy(xpath="//*[@id='submit']") WebElement submit;
 

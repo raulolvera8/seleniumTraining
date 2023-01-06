@@ -75,8 +75,12 @@ public class PTMenuPage extends Driver {
 
 		getToursBtn().click();
 
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@name='checkin']")));
+		
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+		.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
 	}
 	//// --- FLIGHTS BTN

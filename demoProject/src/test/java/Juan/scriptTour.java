@@ -9,6 +9,7 @@ import library.Driver;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
 
 public class scriptTour extends Driver {
 	WebDriver driver;
@@ -23,7 +24,8 @@ public class scriptTour extends Driver {
 
 		PTHomePage homePage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
-		PTCustomerPageObject tourPage = new PTCustomerPageObject(driver);
+		PTMenuPage tourPage = new PTMenuPage(driver);
+		PTCustomerPageObject tourInfo = new PTCustomerPageObject(driver);
 		homePage.clickBtnAccount();
 		homePage.clickCustomerLoginbtn();
 		
@@ -34,47 +36,47 @@ public class scriptTour extends Driver {
 		
 		//ENTER TOURS
 		tourPage.clickToursBtn();
-		tourPage.clickDestination();
-		tourPage.writeCity("dubai");
-		tourPage.clickSubmit();
-		tourPage.clickDetails();
+		tourInfo.clickDestination();
+		tourInfo.writeCountry("dubai");
+		tourInfo.clickSubmit();
+		tourInfo.clickDetails();
 		
 		//SELECT DATE
-		tourPage.clickDateTour();
-		tourPage.clickDateSelect();
-		tourPage.clickAdults();
-		tourPage.clickAdultsNumber();
-		tourPage.clickChilds();
-		tourPage.clickChildsNumber();
-		tourPage.clickInfants();
-		tourPage.clickInfantsNumber();
-		tourPage.clickBookNowDate();
+		tourInfo.clickDateTour();
+		tourInfo.clickDateSelect();
+		tourInfo.clickAdults();
+		tourInfo.clickAdultsNumber();
+		tourInfo.clickChilds();
+		tourInfo.clickChildsNumber();
+		tourInfo.clickInfants();
+		tourInfo.clickInfantsNumber();
+		tourInfo.clickBookNowDate();
 		
 		//TRAVELLERS INFO
-		tourPage.clickTraveller1();
-		tourPage.writeFirstName1("Ana");
-		tourPage.writeLastName1("Lopez");
+		tourInfo.clickTraveller1();
+		tourInfo.writeFirstName1("Ana");
+		tourInfo.writeLastName1("Lopez");
 		
-		tourPage.clickTraveller2();
-		tourPage.writeFirstName2("Juliana");
-		tourPage.writeLastName2("Delgado");
+		tourInfo.clickTraveller2();
+		tourInfo.writeFirstName2("Juliana");
+		tourInfo.writeLastName2("Delgado");
 		
-		tourPage.clickTraveller3();
-		tourPage.writeFirstName3("Angel");
-		tourPage.writeLastName3("Ramos");
+		tourInfo.clickTraveller3();
+		tourInfo.writeFirstName3("Angel");
+		tourInfo.writeLastName3("Ramos");
 		
 		//PAYMENT METHOD
-		tourPage.clickPaymentMethod();
-		tourPage.clickContinuing();
-		tourPage.clickConfirmBooking();
-		tourPage.printValidationStatus();
-		tourPage.printValidationDetails();
-		tourPage.printValidationInfo();
-		tourPage.clickProceed();
+		tourInfo.clickPaymentMethod();
+		tourInfo.clickContinuing();
+		tourInfo.clickConfirmBooking();
+		tourInfo.printValidationStatus();
+		tourInfo.printValidationDetails();
+		tourInfo.printValidationInfo();
+		tourInfo.clickProceed();
 		
 		//PAYMENT SECTION
-		tourPage.printValidationPay();
-		tourPage.clickPayNowBtn();
+		tourInfo.printValidationPay();
+		tourInfo.clickPayNowBtn();
 		
 	}
 }
