@@ -19,10 +19,15 @@ public class utilities{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	public void  ScrollDown(WebDriver driver, String X, String Y) throws InterruptedException     {
+	public void  ScrollDown(WebDriver driver, String X, String Y) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			  js.executeScript("window.scroll("+X+","+Y+")");
-			Thread.sleep(3000);
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 	  }
 	public void elementScrollDown(WebElement element) {
@@ -38,9 +43,18 @@ public class utilities{
 
 	}
 	
+	public void waiting() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	
 	//wait loader
 	
 	
 	
 	//
+}
+	
 }

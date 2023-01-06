@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import library.Driver;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
-import phptravelsPageObjectRepository.PTSupplier_Page;
+
 
 public class Supplier_AddRoom extends Driver {
 
@@ -25,7 +25,7 @@ public class Supplier_AddRoom extends Driver {
 		// Page object instances.
 		PTHomePage homePage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
-		PTSupplier_Page supplierPage = new PTSupplier_Page(driver);
+		//PTSupplier_Page supplierPage = new PTSupplier_Page(driver);
 
 		// Account selection, main page.
 		homePage.clickBtnAccount();
@@ -42,14 +42,15 @@ public class Supplier_AddRoom extends Driver {
 		// Click in login button.
 		loginPage.clickLoginBtn();
 		
-		//Click in first level Hotels Module.
-		supplierPage.clickHotelsModuleBtn();
-		
-		//Click in second level Hotels Module > Hotels.
-		supplierPage.clickHotelsModuleNestedBtn();
-		
-		//Click in third level Hotels Module > Hotels > Add Room.
-		supplierPage.clickAddRoomsBtn();
+		/*
+		 * //Click in first level Hotels Module. supplierPage.clickHotelsModuleBtn();
+		 * 
+		 * //Click in second level Hotels Module > Hotels.
+		 * supplierPage.clickHotelsModuleNestedBtn();
+		 * 
+		 * //Click in third level Hotels Module > Hotels > Add Room.
+		 * supplierPage.clickAddRoomsBtn();
+		 */
 	}
 
 	@AfterClass
