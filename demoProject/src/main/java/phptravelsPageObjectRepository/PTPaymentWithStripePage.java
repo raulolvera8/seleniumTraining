@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -61,6 +62,7 @@ public class PTPaymentWithStripePage {
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//a[contains (text(), 'Pay Now') and @type='button']")));
 		getPayNowAmount().click();
+	
 
 	}
 

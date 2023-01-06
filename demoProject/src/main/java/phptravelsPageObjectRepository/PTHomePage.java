@@ -50,12 +50,12 @@ public class PTHomePage {
 
 	public void clickBtnAccount() {
 
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(60), Duration.ofSeconds(2));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("ACCOUNT")));
-
+		
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(80), Duration.ofSeconds(2));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.id("ACCOUNT")));
 
 		getBtnAccount().click();
 

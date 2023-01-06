@@ -22,7 +22,7 @@ public class utilities{
 	public void  ScrollDown(WebDriver driver, String X, String Y) throws InterruptedException     {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			  js.executeScript("window.scroll("+X+","+Y+")");
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 
 	  }
 	public void elementScrollDown(WebElement element) {
