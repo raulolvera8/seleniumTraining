@@ -14,6 +14,7 @@ import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTHotelDetailsPage;
 import phptravelsPageObjectRepository.PTHotelHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
@@ -31,7 +32,7 @@ public class hotelsCustomer extends Driver{
 		System.out.println("----Welcome to Hotels----");
 		PTHomePage home=new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
-		PTCustomerPageObject tabHotel= new PTCustomerPageObject(driver);
+		PTMenuPage tabHotel= new PTMenuPage(driver);
 		PTHotelHomePage hotelHomePage = new PTHotelHomePage(driver);
 		PTHotelDetailsPage hotelDetails =  new PTHotelDetailsPage(driver);
 		PTBookingFormPage form = new PTBookingFormPage(driver);

@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -30,11 +31,29 @@ public class PTMenuPage extends Driver {
 	WebElement toursBtn;
 	@FindBy(xpath = "//*[@title='flights']")
 	WebElement flightsBtn;
+	@FindBy(xpath="//*[@href='https://phptravels.net/hotels']") WebElement hotelsBtn;
+
+	// ---- HOTELS TAB
+
+	public WebElement gethotelsBtn() {
+		return hotelsBtn;
+	} 
+	public void clickHotelsBtn() {
+		gethotelsBtn().click();
+	
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+				"display: none;"));
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='container']/h2")));			
+	}
+	// ---- VISA TAB
 
 	public WebElement getVisaBtn() {
 		return visaBtn;
 	}
-
 	public void clickVisaBtn() {
 		getVisaBtn().click();
 		// WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
@@ -60,7 +79,7 @@ public class PTMenuPage extends Driver {
 		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@name='checkin']")));
 
 	}
-
+	//// --- FLIGHTS BTN
 	public WebElement getFlightsBtn() {
 		return flightsBtn;
 	}
