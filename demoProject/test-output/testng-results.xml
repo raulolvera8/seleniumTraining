@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -84,6 +85,29 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- Diana.hotelsCustomer -->
+=======
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-01-05T23:12:22Z" name="Default suite" finished-at="2023-01-05T23:13:31Z" duration-ms="69356">
+    <groups>
+    </groups>
+    <test started-at="2023-01-05T23:12:22Z" name="Default test" finished-at="2023-01-05T23:13:31Z" duration-ms="69356">
+      <class name="IrisRodriguez.script2">
+        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.script2@221a3fa4]" started-at="2023-01-05T23:12:22Z" name="setup" finished-at="2023-01-05T23:12:33Z" duration-ms="10805" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="ShoppingHome()[pri:0, instance:IrisRodriguez.script2@221a3fa4]" started-at="2023-01-05T23:12:33Z" name="ShoppingHome" finished-at="2023-01-05T23:13:31Z" duration-ms="58508" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ShoppingHome -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.script2@221a3fa4]" started-at="2023-01-05T23:13:31Z" name="teardown" finished-at="2023-01-05T23:13:31Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- IrisRodriguez.script2 -->
+>>>>>>> db0019a30bd919d2db5d75fea2ec1e771538781b
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -7,13 +7,15 @@ import org.testng.annotations.Test;
 
 import library.Driver;
 import library.utilities;
-import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTBookingFormPage;
+import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
 import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTMenuPage;
+import phptravelsPageObjectRepository.PTPayWithCardPage;
+import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
 public class script2 extends Driver {
 
@@ -33,10 +35,12 @@ public class script2 extends Driver {
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTMenuPage menuPage = new PTMenuPage(driver);
-		PTAgentPage agentPage = new PTAgentPage(driver);
 		PTFlightsPage searchFlightPage = new PTFlightsPage(driver);
 		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
 		PTBookingFormPage travellerFormPage = new PTBookingFormPage(driver);
+		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
+		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
+		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
 		utilities utils = new utilities(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
@@ -93,108 +97,130 @@ public class script2 extends Driver {
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
 		flightsPage.clickFirstFlight();
 
-		// =========== FLIGHTS BOOKING WINDOW ==========
-
-		// PRINT PERSONAL INFORMATION FROM ACCOUNT
-		System.out.println("Your Personal Information");
-		agentPage.PrintFirstName();
-		agentPage.PrintLastNameLabel();
-		agentPage.PrintEmailLabel();
 
 		// ======== ENTER TRAVELLERS INFORMATION =======
+		// NATIONALITY FROM ACCOUNT DETAILS
+		//travellerFormPage.clickDropdownNationality();
+		//travellerFormPage.selectValueNationality();
+
 		// FIRST NAME
 		travellerFormPage.writefirstNametb("Barry");
 
 		// LAST NAME
-		agentPage.lastnameTraveler1Input("Allen");
+		travellerFormPage.writelastNametb("Allen");
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "200");
 
-		// NATIONALITY
-		agentPage.selectDropDownNationality();
-		agentPage.selectValueNationality();
+		// NATIONALITY FROM TRAVELLER DETAILS
+		travellerFormPage.selectDropDownNationality_1();
+		travellerFormPage.selectValueNationality_1();
 
 		// DATE OF BIRTH
 		// MONTH
-		agentPage.selectDropDownMonth();
-		agentPage.selectValueMonth();
+		travellerFormPage.selectDropDownMonth();
+		travellerFormPage.selectDateOfBirth();
 
 		// DAY
-		agentPage.selectDropDownDay();
-		agentPage.selectValueDay();
+		travellerFormPage.selectDropDownDay();
+		travellerFormPage.selectDay();
 
 		// YEAR
-		agentPage.selectDropDownYear();
-		agentPage.selectValueYear();
+		travellerFormPage.selectDropDownYear();
+		travellerFormPage.selectYear();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "700");
 
 		// ================ PASSPORT INFORMATION ==================
 		// PASSPORT ID
-		agentPage.EnterPassportID("C03005988");
+		travellerFormPage.writePassport("C03005988");
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "400");
 
 		// ================ PASSPORT ISSUANCE INFORMATION ==================
 		// PASSPORT ISSUANCE MONTH
-		agentPage.selectDropDownPassportIssuanceMonth();
-		agentPage.selectValuePassportIssuanceMonth();
+		travellerFormPage.selectPassportMonth();
+		travellerFormPage.itemPassportMonth();
 
 		// PASSPORT ISSUANCE DAY
-		agentPage.selectDropDownPassportIssuanceDay();
-		agentPage.selectValuePassportIssuanceDay();
+		travellerFormPage.selectPassportDay();
+		travellerFormPage.itemPassportDay();
 
 		// PASSPORT ISSUANCE YEAR
-		agentPage.selectDropDownPassportIssuanceYear();
-		agentPage.selectValuePassportIssuanceYear();
+		travellerFormPage.selectPassportYear();
+		travellerFormPage.itemPassportYear();
 
 		// ================ PASSPORT EXPIRY INFORMATION ==================
 		// PASSPORT EXPIRY MONTH
-		agentPage.selectDropDownPassportExpiryMonth();
-		agentPage.selectValuePassportExpiryMonth();
+		travellerFormPage.selectExpiryMonth();
+		travellerFormPage.itemExpiryMonth();
 
 		// PASSPORT EXPIRY DAY
-		agentPage.selectDropDownPassportExpiryDay();
-		agentPage.selectValuePassportExpiryDay();
+		travellerFormPage.selectExpiryDay();
+		travellerFormPage.itemExpiryDay();
 
 		// PASSPORT EXPIRY YEAR
-		agentPage.selectDropDownPassportExpiryYear();
-		agentPage.selectValuePassportExpiryYear();
+		travellerFormPage.selectExpiryYear();
+		travellerFormPage.itemExpiryYear();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "900");
 
 		// ================ PAYMENT METHOD INFORMATION ==================
 		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
-		agentPage.clickrbtnPayWithStripe();
+		travellerFormPage.selectPayStripeRadioBtn();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "1600");
+		
 		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
-		agentPage.clickCheckAgreeTerms();
+		travellerFormPage.selectCheckBoxTerms();
 
 		// CONFIRM BOOKING
-		agentPage.ClickConfirmBooking();
+		travellerFormPage.clickBookingBtn();
 
 		// ================= VERIFY DATA =========================
-		// PRINT BOOKING STATUS
-		agentPage.VerifyBookingStatus();
+		// VALIDATE BOOKING STATUS
+		bookingInvoicePage.validationStatusBooking();
+		
+		// PRINT STATUS
+		//bookingInvocePage.PrintBookingStatus();
 
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "300");
+		// PRINT ACCOUNT DATA
+		//bookingInvocePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		//bookingInvocePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
 
-		// ACCOUNT DATA
-		agentPage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
-		agentPage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		// PRINT TRAVELLER DATA
+		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
+		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		
+		// PROCEED TO CHECK
+		bookingInvoicePage.clickProceedPayBtn();
+		
+		// ======================== WINDOW PAYMENT WITH STRIPE ==================
+		// VERIFY PAYMENT
+		stripePage.VerifylabelAmount();
 
-		// TRAVELLER DATA
-		agentPage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
-		agentPage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		// CLICK PAY NOW WITH AMOUNT
+		stripePage.PayNowWithAmount();
 
-		// VERIFY AMOUNT
+		// ======================== WINDOW PAY WITH CARD FORM ==================
+		// ENTER NUMBER CARD
+		cardPage.CardNumberInput("4242 4242 4242 4242");
+
+		// ENTER CARD EXPIRY
+		cardPage.CardExpiryInput("0630");
+
+		// ENTER CARD CVC
+		cardPage.CardCVCInput("123");
+
+		// ENTER NAME
+		cardPage.NameCardInput("Agent Selenium");
+
+		// CLICK PAGAR BUTTON
+		cardPage.clickPagarButtonWithInfoCard();
 
 	}
 
