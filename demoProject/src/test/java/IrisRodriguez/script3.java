@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import library.Driver;
 import phptravelsPageObjectRepository.PTAgentPage;
+import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 
@@ -28,6 +29,7 @@ public class script3 extends Driver{
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
+		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
 		// ========================= SIGN IN PAGE ====================================
@@ -58,9 +60,11 @@ public class script3 extends Driver{
 		agentPage.ClickViewVoucherButton();
 		
 		// PRINT DATA
-		agentPage.VerifyFirstDataBooking(); //FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
-		agentPage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
+		bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+
 	}
+	
 
 	@AfterClass
 	public void teardown() {
