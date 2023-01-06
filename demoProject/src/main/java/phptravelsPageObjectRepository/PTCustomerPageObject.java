@@ -564,24 +564,6 @@ public class PTCustomerPageObject {
 		
 		//########################  HOTELS WINDOW ########################## Diana
 
-		@FindBy(xpath="//*[@href='https://phptravels.net/hotels']") WebElement hotelsBtn;
-
-		// ---- HOTELS TAB
-
-		public WebElement gethotelsBtn() {
-			return hotelsBtn;
-		} 
-		public void clickHotelsBtn() {
-			gethotelsBtn().click();
-		
-			Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
-					"display: none;"));
-			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='container']/h2")));			
-		}
 		
 		
 	

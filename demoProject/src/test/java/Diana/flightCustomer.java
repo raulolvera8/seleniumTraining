@@ -2,8 +2,11 @@ package Diana;
 import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
+import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
+import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +28,9 @@ public void setup() {
 public void travels() throws InterruptedException {
 	PTHomePage home=new PTHomePage(Driver);
 	PTLoginPage login = new PTLoginPage(Driver);
-	PTCustomerPageObject flights = new PTCustomerPageObject(Driver);
+	PTFlightsPage flights = new PTFlightsPage(Driver);
+	PTMenuPage tabFlights= new PTMenuPage(Driver);
+	PTFlightSearchResultsPage firstFlight = new PTFlightSearchResultsPage(Driver);
 	PTBookingFormPage form = new PTBookingFormPage(Driver);
 	PTBookingInvoicePage validationInvoice = new PTBookingInvoicePage(Driver);
 	utilities utils= new utilities (Driver);
@@ -39,20 +44,20 @@ public void travels() throws InterruptedException {
 	login.clickGotItBtn();
 	login.clickLogin();
 	// Click Flights Tab
-	flights.clickFlightsTab();
+	tabFlights.clickFlightsbtn();
 	// Filling trip form to search
-	flights.writeFlyingFrom("LHE");
-	flights.selectItemFlyingFrom();
-	flights.writeToDestination("DXB");
-	flights.selectItemToDestination();
+	flights.writeFlyingFromOneWay("LHE");
+	flights.selectItemFlyingFromOneWay();
+	flights.writeFlyingDestinationOneWay("DXB");
+	flights.selectItemFlyingDestinationOneWay();
 	flights.selectDepartureDateBox();
 	flights.clickDayDeparture();
 	flights.clickPassengersBox();
 	// Searching flight
-	flights.selectflightsSearchBtn();
+	flights.clickSearchFlights();
 	// --List of flights window
 	//Book now flight 
-	flights.clickBookNowBtn();
+	firstFlight.clickFirstFlight();
 	// ------- INFORMATION FLIGHTS BOOKING WINDOW
 	// ----FILLING INFORMATION FORM   -----
 	// Nationality
