@@ -222,4 +222,21 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
 		System.out.println(getSecondDataTraveller().getText());
 	}
+	
+	//-----VISA VALIDATION  -------
+			@FindBy(xpath="//*[@class='card-body my-5 text-center']//h2") WebElement validationMsg;
+			public WebElement getValidationVisa(){
+				return validationMsg;
+			}
+			
+		
+			public void printVisaValidation() {
+				String validation=getValidationVisa().getText();
+				System.out.println("Demo: " + validation);
+				if (getValidationVisa().getText().contains("Your visa form has been submitted")) {
+					System.out.println(getValidationVisa().getText());
+				}else {
+					Assert.fail();
+				}
+			}
 }

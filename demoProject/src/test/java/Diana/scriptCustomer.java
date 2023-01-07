@@ -20,7 +20,7 @@ public class scriptCustomer extends Driver {
 
 	@Test
 	public void travel() {
-		System.out.println("----Welcome to travels----");
+	/*	System.out.println("----Welcome to travels----");
 		PTHomePage home=new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
 		PTCustomerPageObject visa= new PTCustomerPageObject(driver);
@@ -52,7 +52,7 @@ public class scriptCustomer extends Driver {
 		visa.writePhone("844523659");
 		visa.writeNotes("HELLO");
 		visa.clickSubmitBtn();
-		visa.printValidation();
+		visa.printValidation();*/
 		
 	}
 	@AfterClass

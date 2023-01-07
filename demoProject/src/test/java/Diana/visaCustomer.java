@@ -6,9 +6,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
+import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
+import phptravelsPageObjectRepository.PTMenuPage;
+import phptravelsPageObjectRepository.PTVisaFormPage;
+import phptravelsPageObjectRepository.PTVisaPage;
 
 public class visaCustomer extends Driver {
 	WebDriver driver;
@@ -23,7 +27,10 @@ public class visaCustomer extends Driver {
 		System.out.println("----Welcome to travels----");
 		PTHomePage home=new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
-		PTCustomerPageObject visa= new PTCustomerPageObject(driver);
+		PTVisaPage visaPage= new PTVisaPage(driver);
+		PTMenuPage visaTab = new PTMenuPage(driver);
+		PTVisaFormPage visaForm = new PTVisaFormPage(driver);
+		PTBookingInvoicePage visaValidation = new PTBookingInvoicePage(driver);
 		/// steps to login
 		home.clickBtnAccount();
 		home.clickCustomerLoginbtn();
@@ -31,29 +38,29 @@ public class visaCustomer extends Driver {
 		login.fillPassword("demouser");
 		login.clickLogin();
 		//Click Visa Tab 
-		visa.clickVisaBtn();
+		visaTab.clickVisaBtn();
 		//Click dropdown Btn
-		visa.clickFromCountry();
+		visaPage.clickFromCountry();
 		///Select From Country
-		visa.selectItemFromCountry();
+		visaPage.selectItemFromCountry();
 		//Click dropdown Btn
-		visa.clickToCountryBtn();
+		visaPage.clickToCountryBtn();
 		///Select To Country
-		visa.selectItemToCountry();
+		visaPage.selectItemToCountry();
 		//Select DateBox
-		visa.selectDateBox();
+		visaPage.selectDateBox();
 		//Select Day Calendar
-		visa.clickDayCalendar();
+		visaPage.clickDayCalendar();
 		//Click Search Icon
-		visa.clickSearchIcon();
+		visaPage.clickSearchIcon();
 		
-		visa.writeFirstName("Diana");
-		visa.writeLastName("Velasquez");
-		visa.writeEmail("user@phptravels.com");
-		visa.writePhone("844523659");
-		visa.writeNotes("HELLO");
-		visa.clickSubmitBtn();
-		visa.printValidation();
+		visaForm.writeFirstName("Diana");
+		visaForm.writeLastName("Velasquez");
+		visaForm.writeEmail("user@phptravels.com");
+		visaForm.writePhone("844523659");
+		visaForm.writeNotes("HELLO");
+		visaForm.clickSubmitBtn();
+		visaValidation.printVisaValidation();
 		
 	}
 	@AfterClass
