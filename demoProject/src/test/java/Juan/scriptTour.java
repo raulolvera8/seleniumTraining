@@ -6,10 +6,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
+import phptravelsPageObjectRepository.PTBookingFormPage;
+import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTMenuPage;
+import phptravelsPageObjectRepository.PTPayWithCardPage;
+import phptravelsPageObjectRepository.PTPaymentWithStripePage;
+import phptravelsPageObjectRepository.PTTourBookingPage;
+import phptravelsPageObjectRepository.PTTourInvoicePage;
+import phptravelsPageObjectRepository.PTToursPage;
 
 public class scriptTour extends Driver {
 	WebDriver driver;
@@ -24,8 +31,14 @@ public class scriptTour extends Driver {
 
 		PTHomePage homePage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
-		PTMenuPage tourPage = new PTMenuPage(driver);
-		PTCustomerPageObject tourInfo = new PTCustomerPageObject(driver);
+		PTMenuPage tourMenuPage = new PTMenuPage(driver);
+		PTToursPage tourPage = new PTToursPage(driver);
+		PTTourBookingPage bookingPage = new PTTourBookingPage(driver);
+		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
+		PTPaymentWithStripePage paymentStripePage= new PTPaymentWithStripePage(driver);
+		PTPayWithCardPage payWithCardPage = new PTPayWithCardPage(driver);
+		
+		
 		homePage.clickBtnAccount();
 		homePage.clickCustomerLoginbtn();
 		
@@ -35,48 +48,76 @@ public class scriptTour extends Driver {
 		loginPage.clickLogin();
 		
 		//ENTER TOURS
-		tourPage.clickToursBtn();
-		tourInfo.clickDestination();
-		tourInfo.writeCountry("dubai");
-		tourInfo.clickSubmit();
-		tourInfo.clickDetails();
+		tourMenuPage.clickToursBtn();
+		tourPage.clickDestination();
+		tourPage.writeCountry("dubai");
+		tourPage.selectItemFromTour();
+		tourPage.clickSubmit();
+		tourPage.clickDetails();
 		
 		//SELECT DATE
-		tourInfo.clickDateTour();
-		tourInfo.clickDateSelect();
-		tourInfo.clickAdults();
-		tourInfo.clickAdultsNumber();
-		tourInfo.clickChilds();
-		tourInfo.clickChildsNumber();
-		tourInfo.clickInfants();
-		tourInfo.clickInfantsNumber();
-		tourInfo.clickBookNowDate();
+		tourPage.clickDateTour();
+		tourPage.clickDateSelect();
+		tourPage.clickAdults();
+		tourPage.clickAdultsNumber();
+		tourPage.clickChilds();
+		tourPage.clickChildsNumber();
+		tourPage.clickInfants();
+		tourPage.clickInfantsNumber();
+		tourPage.clickBookNowDate();
 		
 		//TRAVELLERS INFO
-		tourInfo.clickTraveller1();
-		tourInfo.writeFirstName1("Ana");
-		tourInfo.writeLastName1("Lopez");
-		
-		tourInfo.clickTraveller2();
-		tourInfo.writeFirstName2("Juliana");
-		tourInfo.writeLastName2("Delgado");
-		
-		tourInfo.clickTraveller3();
-		tourInfo.writeFirstName3("Angel");
-		tourInfo.writeLastName3("Ramos");
+		//TRAVELLER 1
+		bookingPage.clickTraveller1();
+		bookingPage.writeFirstName1("juan");
+		bookingPage.writeLastName1("limon");
+		//TRAVELLER 2
+		bookingPage.clickTraveller2();
+		bookingPage.writeFirstName2("anita");
+		bookingPage.writeLastName2("bermudez");
+		//TRAVELLER 3
+		bookingPage.clickTraveller3();
+		bookingPage.writeFirstName3("miri");
+		bookingPage.writeLastName3("brown");
+		//TRAVELLER 4
+		bookingPage.clickTraveller4();
+		bookingPage.writeFirstName4("karla");
+		bookingPage.writeLastName4("brown");
 		
 		//PAYMENT METHOD
-		tourInfo.clickPaymentMethod();
-		tourInfo.clickContinuing();
-		tourInfo.clickConfirmBooking();
-		tourInfo.printValidationStatus();
-		tourInfo.printValidationDetails();
-		tourInfo.printValidationInfo();
-		tourInfo.clickProceed();
+		bookingPage.clickPaymentMethod();
+		bookingPage.clickContinuing();
+		bookingPage.clickConfirmBooking();
+		
+		
+		bookingInvoicePage.validationStatusPaid();
+		bookingInvoicePage.validationStatusStripe();
 		
 		//PAYMENT SECTION
-		tourInfo.printValidationPay();
-		tourInfo.clickPayNowBtn();
+		tourPage.printValidationPay();
+		tourPage.clickPayNowBtn();
 		
+		//PAYMENT INFORMATION
+		bookingInvoicePage.printValidationInformation();
+		bookingInvoicePage.printValidationGuestInformation();
+		bookingInvoicePage.clickProceedPayBtn();
+		
+		//PAYMENT STRIPE
+		paymentStripePage.VerifylabelAmount();
+		paymentStripePage.PayNowWithAmount();
+		
+		//PAY WITH CARD
+		payWithCardPage.clickCancelPopUpBtn();
+		payWithCardPage.CardNumberInput("5555555555554444");
+		payWithCardPage.CardExpiryInput("0330");
+		payWithCardPage.CardCVCInput("200");
+		payWithCardPage.NameCardInput("Customer January");
+		payWithCardPage.clickPagarButtonWithInfoCard();
+		
+		
+		//VALIDATION TOUR INVOICE
+		bookingInvoicePage.printValidationStatusAndPayment();
+		bookingInvoicePage.validateDateLabel();
+		bookingInvoicePage.validateTitleHotel();
 	}
 }

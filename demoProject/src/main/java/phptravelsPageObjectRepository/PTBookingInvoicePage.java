@@ -222,4 +222,97 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
 		System.out.println(getSecondDataTraveller().getText());
 	}
-}
+	
+	
+	
+	
+	
+	
+	/////////---------------VERIFY BOOKING DETAILS ---------------
+	///---JUAN
+	//VALIDATION INFORMATION DETAILS
+	@FindBy(xpath="//*[@class='list-group list-group-flush']") WebElement validationInfoDetails;
+	public WebElement getValidationInfoDetails(){
+		return validationInfoDetails;
+	}
+	
+	public void printValidationInformation() {
+		if (getValidationInfoDetails().getText().contains("Booking Details")) {
+			System.out.println(getValidationInfoDetails().getText());
+		}else {
+			Assert.fail();
+		}
+	}
+	
+	
+//VALIDATION INFORMATION GUEST
+	@FindBy(xpath="//*[@class='card-body']") WebElement validationGuestInformation;
+	public WebElement getValidationGuestInformation(){
+		return validationGuestInformation;
+	}
+	
+	public void printValidationGuestInformation() {
+		if (getValidationGuestInformation().getText().contains("Guest Information")) {
+			System.out.println(getValidationGuestInformation().getText());
+		}else {
+			Assert.fail();
+		}
+	}
+	
+	
+	@FindBy(xpath="//*[@class='infobox infobox-success']") WebElement validationStatusAndPayment;
+	public WebElement getValidationStatusAndPayment(){
+		return validationStatusAndPayment;
+	}
+	
+	public void printValidationStatusAndPayment() {
+		if (getValidationStatusAndPayment().getText().contains("  Your booking status is ( Confirmed ) and payment status is stripe ( Paid )   ")) {
+			System.out.println(getValidationStatusAndPayment().getText());
+		}else {
+			Assert.fail();
+		}
+	}
+	
+	
+	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Tours Date')]")
+	WebElement dateLabel;
+
+	public void validateDateLabel() {
+
+		System.out.println("BOOKING INVOICE PAID");
+		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
+
+			// System.out.println(paymentStatusPaidLabel.getText());
+			// System.out.println(bookingInvoiceDetails.getText());
+			System.out.println(dateLabel.getText());
+		} else {
+			Assert.fail("FAILED");
+		}
+	}
+		
+		@FindBy(xpath = "//*[@class='card-title m-0']")
+		WebElement titleHotel;
+
+		public void validateTitleHotel() {
+
+			System.out.println("Sheraton Trip");
+			if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
+
+				// System.out.println(paymentStatusPaidLabel.getText());
+				// System.out.println(bookingInvoiceDetails.getText());
+				System.out.println(titleHotel.getText());
+			} else {
+				Assert.fail("FAILED");
+			}
+		
+		}
+	}
+
+	
+	
+	
+	
+	
+
+	
+
