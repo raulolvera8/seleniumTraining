@@ -43,11 +43,11 @@ public class scriptFlights extends Driver {
 		selectFlight.clickFlightsbtn();
 		
 		//Select Country
-		flightPage.writeFlyingFromOneWay("Mex");
+		flightPage.writeFlyingFromOneWay("MEX");
 		flightPage.selectItemFlyingFromOneWay();
 		
 		//Select Destination
-		flightPage.writeFlyingDestinationOneWay("Fra");
+		flightPage.writeFlyingDestinationOneWay("FRA");
 		flightPage.selectItemFlyingDestinationOneWay();
 		
         // Select Date

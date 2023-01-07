@@ -60,11 +60,12 @@ public class PTFlightsPage extends Driver {
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 	}
 
-	public void selectItemFlyingFromOneWay() {
-		List<WebElement> listFlyingFromOneWay = driver.findElements(
-				By.xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"));
-		listFlyingFromOneWay.get(0).click();
-	}
+	
+	  public void selectItemFlyingFromOneWay() { List<WebElement>
+	  listFlyingFromOneWay = driver.findElements( By.
+	  xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"
+	  )); listFlyingFromOneWay.get(0).click(); }
+	 
 
 //----FLYING DESTINATION
 	public WebElement getFlyingDestinationOneWay() {
