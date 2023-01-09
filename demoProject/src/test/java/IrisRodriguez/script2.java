@@ -53,11 +53,9 @@ public class script2 extends Driver {
 		signInPage.clickAgentLoginbtn();
 
 		// ENTER EMAIL
-		// loginPage.enterEmailInput("agent.phptravels@gmail.com");
 		loginPage.enterEmailInput("agent@phptravels.com");
 
 		// ENTER PASSWORD
-		// loginPage.enterPasswordInput("26dediciembre");
 		loginPage.enterPasswordInput("demoagent");
 
 		// CLICK LOGIN BUTTON
@@ -221,12 +219,19 @@ public class script2 extends Driver {
 
 		// CLICK PAGAR BUTTON
 		cardPage.clickPagarButtonWithInfoCard();
+		
+		// PRINT BOOKING STATUS CONFIRMED
+		bookingInvoicePage.PrintBookingStatusConfirmed();
 
+		// PRINT TRAVELLER DATA
+		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
+		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+		
 	}
 
 	@AfterClass
 	public void teardown() {
-		// teardownDriver();
+		teardownDriver();
 	}
 
 }

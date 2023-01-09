@@ -1,6 +1,7 @@
 package IrisRodriguez;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -45,24 +46,23 @@ public class scrip1 extends Driver {
 		signInPage.clickAgentLoginbtn();
 
 		// ENTER EMAIL
-		// loginPage.enterEmailInput("agent.phptravels@gmail.com");
 		loginPage.enterEmailInput("agent@phptravels.com");
 
 		// ENTER PASSWORD
-		// loginPage.enterPasswordInput("26dediciembre");
 		loginPage.enterPasswordInput("demoagent");
 
 		// CLICK LOGIN BUTTON
 		loginPage.clickLoginButtonAgent();
 
 		// =========================ADD FUNDS WINDOW====================================
-		int variable = Integer.valueOf(agentPage.readWalletBalance());
-		
+
 		// CLICK ADD FUNDS BUTTON
 		agentPage.clickBtnAddFunds();
 
 		// PRINT WALLET BEFORE THE PAYMENT
-		agentPage.VerifyWalletBalance();
+		//double OldAmount = Integer.valueOf(agentPage.readWalletBalance());
+		String valor = agentPage.readWalletBalance();
+		double OldAmount = Integer.valueOf(valor);
 
 		// SELECT STRIPE PAYMENT METHOD
 		agentPage.clickrbtnStripePayment();
@@ -72,6 +72,7 @@ public class scrip1 extends Driver {
 
 		// ENTER PRICE
 		agentPage.enterPrice("100");
+		
 
 		// CLICK PAY NOW BUTTON
 		agentPage.clickPayNowButton();
@@ -103,7 +104,15 @@ public class scrip1 extends Driver {
 		agentPage.Verifylabel();
 
 		// PRINT WALLET AFTER THE PAYMENT
-		agentPage.VerifyWalletBalanceAmount();
+		String valor2 = agentPage.readWalletBalance();
+		double NewAmount = Integer.valueOf(valor2);
+		
+		if(NewAmount>OldAmount)
+		{
+			System.out.println("The payment was successfull");
+		}else {
+			Assert.fail("FAILED");
+		}
 
 		// CLICK SIGN OUT
 		agentPage.ClickLogoutButton();
@@ -114,6 +123,6 @@ public class scrip1 extends Driver {
 
 	@AfterClass
 	public void teardown() {
-		// teardownDriver();
+		 teardownDriver();
 	}
 }

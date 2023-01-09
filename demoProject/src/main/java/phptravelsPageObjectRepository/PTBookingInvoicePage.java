@@ -96,6 +96,11 @@ public class PTBookingInvoicePage {
 	}
 
 	public void clickProceedPayBtn() {
+		
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+	
 		getPrceedPayBtn().click();
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
@@ -105,7 +110,7 @@ public class PTBookingInvoicePage {
 
 	}
 
-	// -- VALIATION BOOKING STATUS - AGENT - IRIS
+	// -- VALIATION BOOKING STATUS PENDIENTE - AGENT - IRIS
 	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
 	WebElement reservationAccountAgent;
 
@@ -119,12 +124,12 @@ public class PTBookingInvoicePage {
 		}
 	}
 
-	/// -------- PRINT STATUS LABEL FROM BOOKING - IRIS
+	/// -------- PRINT STATUS PENDING LABEL FROM BOOKING - IRIS
 	@FindBy(xpath = "//div[@class='infobox infobox-danger']")
-	WebElement bookingStatus;
+	WebElement bookingStatusDanger;
 
 	private WebElement getBookingStatus() {
-		return bookingStatus;
+		return bookingStatusDanger;
 	}
 
 	public void PrintBookingStatus() {
@@ -139,6 +144,25 @@ public class PTBookingInvoicePage {
 		System.out.println(getBookingStatus().getText());
 	}
 
+	/// -------- PRINT STATUS CONFIRMED LABEL FROM BOOKING - IRIS
+	@FindBy(xpath = "//div[@class='infobox infobox-success']")
+	WebElement bookingStatusConfirmed;
+
+	private WebElement getBookingStatusConfirmed() {
+		return bookingStatusConfirmed;
+	}
+
+	public void PrintBookingStatusConfirmed() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getBookingStatusConfirmed().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-success']")));
+		System.out.println(getBookingStatusConfirmed().getText());
+	}
 	/// --- PRINT LABELS DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME,
 	/// EMAIL,
 	/// PHONE, ADDRESS) - IRIS
