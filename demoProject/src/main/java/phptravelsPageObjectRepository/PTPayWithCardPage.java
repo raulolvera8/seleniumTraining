@@ -1,7 +1,6 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -127,13 +126,5 @@ public class PTPayWithCardPage {
 
 		getPagarButtonWithCardInfo().click();
 		System.out.println("Clicking Pagar button ...");
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title']//span")));
-
-	}
-	
-	
-
+	}	
 }

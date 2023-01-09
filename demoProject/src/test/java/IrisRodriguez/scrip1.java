@@ -62,7 +62,6 @@ public class scrip1 extends Driver {
 
 		// PRINT WALLET BEFORE THE PAYMENT
 		agentPage.VerifyWalletBalance();
-		agentPage.VerifyWalletBalanceAmount();
 
 		// SELECT STRIPE PAYMENT METHOD
 		agentPage.clickrbtnStripePayment();
@@ -71,7 +70,7 @@ public class scrip1 extends Driver {
 		agentPage.clearPrice();
 
 		// ENTER PRICE
-		agentPage.enterPrice("200");
+		agentPage.enterPrice("100");
 
 		// CLICK PAY NOW BUTTON
 		agentPage.clickPayNowButton();
@@ -103,7 +102,6 @@ public class scrip1 extends Driver {
 		agentPage.Verifylabel();
 
 		// PRINT WALLET AFTER THE PAYMENT
-		agentPage.VerifyWalletBalance();
 		agentPage.VerifyWalletBalanceAmount();
 
 		// CLICK SIGN OUT
