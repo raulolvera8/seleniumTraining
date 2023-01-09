@@ -31,9 +31,10 @@ public class PTBookingInvoicePage {
 	WebElement paymentStatusStripeLabel;
 	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")
 	WebElement paymentStatusPLaterLabel;
-	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,'Your booking status is ( Confirmed ) and payment status is stripe ( Paid )')]")
+	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")
 	WebElement paymentStatusPaidLabel;
-
+	@FindBy (xpath="//*[@class='card-title m-0']") WebElement hotelNameLabel;
+	@FindBy (xpath ="//*[@class='py-0 card-text'][contains(.,'Checkin')]") WebElement checkInOutLabel;
 	@FindBy(xpath = "//*[@class='card-body'][contains(.,'Miss Diana Velasquez ')]")
 	WebElement travellerDetails;
 
@@ -68,8 +69,9 @@ public class PTBookingInvoicePage {
 		System.out.println("BOOKING INVOICE PAID");
 		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
 
-			// System.out.println(paymentStatusPaidLabel.getText());
-			// System.out.println(bookingInvoiceDetails.getText());
+			 System.out.println(paymentStatusPaidLabel.getText());
+			 System.out.println(hotelNameLabel.getText());
+			 System.out.println(checkInOutLabel.getText());
 			System.out.println(totalPriceLabel.getText());
 		} else {
 			Assert.fail("FAILED");
@@ -94,6 +96,11 @@ public class PTBookingInvoicePage {
 	}
 
 	public void clickProceedPayBtn() {
+		
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+	
 		getPrceedPayBtn().click();
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
@@ -103,7 +110,7 @@ public class PTBookingInvoicePage {
 
 	}
 
-	// -- VALIATION BOOKING STATUS - AGENT - IRIS
+	// -- VALIATION BOOKING STATUS PENDIENTE - AGENT - IRIS
 	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
 	WebElement reservationAccountAgent;
 
@@ -117,12 +124,12 @@ public class PTBookingInvoicePage {
 		}
 	}
 
-	/// -------- PRINT STATUS LABEL FROM BOOKING - IRIS
+	/// -------- PRINT STATUS PENDING LABEL FROM BOOKING - IRIS
 	@FindBy(xpath = "//div[@class='infobox infobox-danger']")
-	WebElement bookingStatus;
+	WebElement bookingStatusDanger;
 
 	private WebElement getBookingStatus() {
-		return bookingStatus;
+		return bookingStatusDanger;
 	}
 
 	public void PrintBookingStatus() {
@@ -137,6 +144,25 @@ public class PTBookingInvoicePage {
 		System.out.println(getBookingStatus().getText());
 	}
 
+	/// -------- PRINT STATUS CONFIRMED LABEL FROM BOOKING - IRIS
+	@FindBy(xpath = "//div[@class='infobox infobox-success']")
+	WebElement bookingStatusConfirmed;
+
+	private WebElement getBookingStatusConfirmed() {
+		return bookingStatusConfirmed;
+	}
+
+	public void PrintBookingStatusConfirmed() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		getBookingStatusConfirmed().isDisplayed();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-success']")));
+		System.out.println(getBookingStatusConfirmed().getText());
+	}
 	/// --- PRINT LABELS DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME,
 	/// EMAIL,
 	/// PHONE, ADDRESS) - IRIS

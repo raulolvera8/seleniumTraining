@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -12,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 
 public class PTAgentPage {
 
@@ -153,45 +154,6 @@ public class PTAgentPage {
 		System.out.println("Clicking LOGOUT button ...");
 	}
 
-	/// -------- WALLET BALANCE (USD) --------
-	@FindBy(xpath = "//p[contains (text(), 'Wallet Balance') and @class='info__desc']")
-	WebElement walletbalance;
-
-	private WebElement getWalletBalance() {
-		return walletbalance;
-	}
-
-	public void VerifyWalletBalance() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//p[contains (text(), 'Wallet Balance') and @class='info__desc']")));
-
-		System.out.println("Hi, Your " + getWalletBalance().getText());
-
-	}
-
-	/// -------- VERIFY AMOUNT BLANCE --------
-	@FindBy(xpath = "//h4[contains (text(), 'USD ') and @class='info__title']")
-	WebElement walletbalanceAmount;
-
-	private WebElement getWalletBalanceAmount() {
-		return walletbalanceAmount;
-	}
-
-	public void VerifyWalletBalanceAmount() {
-		String BalanceAmountFinale = getWalletBalanceAmount().getText();
-		System.out.println("Agent, now you have: " + BalanceAmountFinale + " on your wallet.");
-		
-	                                                   //YOU NEED TO MODIFY THE AMOUNT +100 USD
-		if (getWalletBalanceAmount().getText().contains("USD 3210")) {
-			System.out.println("Thanks for your payment");
-		} else {
-			Assert.fail("The payment was not successful");
-		}
-	}
-
 	/// -------- MY BOOKINGS BUTTON FROM USER VIEW --------
 	@FindBy(xpath = "(//a[ contains (text(), 'My Bookings')])[2]")
 	WebElement MyBookingsButton;
@@ -234,4 +196,22 @@ public class PTAgentPage {
 		System.out.println("Clicking View Voucher button ...");
 	}
 
+	/// -------- LABEL AMOUNT VALIDATION -----------
+	@FindBy(xpath = "//h4[@class='info__title']")
+	WebElement walletBalanceLabel;
+
+	public WebElement getWalletBalancelabel() {
+		List<WebElement> listH4 = driver.findElements(By.xpath("//h4[@class='info__title']"));
+		WebElement valor = listH4.get(0);
+		return valor;
+	}
+
+	public String readWalletBalance() {
+		if (this.getWalletBalancelabel().getText().isEmpty()) {
+			return "0";
+		} else {
+			String texto = this.getWalletBalancelabel().getText();
+			return texto.substring(4);
+		}
+	}
 }

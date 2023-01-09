@@ -31,35 +31,52 @@ public class visaCustomer extends Driver {
 		PTMenuPage visaTab = new PTMenuPage(driver);
 		PTVisaFormPage visaForm = new PTVisaFormPage(driver);
 		PTBookingInvoicePage visaValidation = new PTBookingInvoicePage(driver);
-		/// steps to login
+		// ----- PHPTRAVELS HOME PAGE WINDOW -----
+		// CLICK ACCOUNT BUTTON
 		home.clickBtnAccount();
+		// SELECT ROLE
 		home.clickCustomerLoginbtn();
+		// ----- LOGIN WINDOW ----- 
+		// TYPE CREDENTIALS
+		// EMAIL
 		login.fillEmail("user@phptravels.com");
+		// PASSWORD
 		login.fillPassword("demouser");
+		// ACCEPT COOKIES
+		login.clickGotItBtn();
+		// CLICK LOGIN BUTTON
 		login.clickLogin();
-		//Click Visa Tab 
+		// ----- CUSTOMER HOME PAGE WINDOW -----
+		// CLICK VISA TAB
 		visaTab.clickVisaBtn();
-		//Click dropdown Btn
+		// ----- VISA HOME PAGE WINDOW -----
+		// CLICK FROM COUNTRY BOX
 		visaPage.clickFromCountry();
-		///Select From Country
+		// CLICK COUNTRY VALUE
 		visaPage.selectItemFromCountry();
-		//Click dropdown Btn
+		// CLICK TO COUNTRY BOX
 		visaPage.clickToCountryBtn();
-		///Select To Country
+		// CLICK COUNTRY VALUE
 		visaPage.selectItemToCountry();
-		//Select DateBox
+		// CLICK CALENDAR BOX
 		visaPage.selectDateBox();
-		//Select Day Calendar
+		// CLICK DAY CALENDAR
 		visaPage.clickDayCalendar();
-		//Click Search Icon
+		// CLICK SEARCH ICON
 		visaPage.clickSearchIcon();
-		
+		// TYPE FIRST NAME
 		visaForm.writeFirstName("Diana");
+		// TYPE LAST NAME
 		visaForm.writeLastName("Velasquez");
+		// TYPE EMAIL
 		visaForm.writeEmail("user@phptravels.com");
+		// TYPE PHONE
 		visaForm.writePhone("844523659");
+		// TYPE SOME NOTES
 		visaForm.writeNotes("HELLO");
+		// CLICK SUBMIT BUTTON
 		visaForm.clickSubmitBtn();
+		// PRINT VALIDATION STATUS
 		visaValidation.printVisaValidation();
 		
 	}

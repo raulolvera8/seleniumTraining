@@ -8,7 +8,9 @@ import library.Driver;
 import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
-//import phptravelsPageObjectRepository.PTSupplier_Page;
+//<<<<<<< HEAD
+//import phptravelsPageObjectRepository.PTSupplier_Page;=======
+//>>>>>>> 7924982471f384b7cb301e0d47b1eb819bc3ddee
 
 public class test extends Driver {
 

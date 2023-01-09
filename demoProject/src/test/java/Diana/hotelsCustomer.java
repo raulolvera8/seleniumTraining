@@ -40,39 +40,68 @@ public class hotelsCustomer extends Driver{
 		PTPaymentWithStripePage stripeWindow = new PTPaymentWithStripePage(driver);
 		PTPayWithCardPage payCard = new PTPayWithCardPage(driver);
 		utilities utils = new utilities(driver);
+
+		// ----- PHPTRAVELS HOME PAGE WINDOW -----
+		// CLICK ACCOUNT BUTTON
 		home.clickBtnAccount();
+		// SELECT ROLE
 		home.clickCustomerLoginbtn();
+		// ----- LOGIN WINDOW ----- 
+		// TYPE CREDENTIALS
+		// EMAIL
 		login.fillEmail("user@phptravels.com");
+		// PASSWORD
 		login.fillPassword("demouser");
+		// ACCEPT COOKIES
 		login.clickGotItBtn();
+		// CLICK LOGIN BUTTON
 		login.clickLogin();
-		//---Click hotels tab
+		// ----- CUSTOMER HOME PAGE WINDOW -----
+		// CLICK HOTEL TAB
 		tabHotel.clickHotelsBtn();
-		// --- Click Firs hotel
+		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "400");
-		hotelHomePage.clickhotelDiv();
-		//Select Available rooms
+		// CLICK FIRST HOTEL
+		hotelHomePage.clickhotelDiv();		
+		// ----- HOTEL DETAILS  WINDOW -------
+		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "600");
-		// Select number of rooms
+		// CLICK NUMBER OF ROOMS BOX
 		hotelDetails.selectNumberRoomsBox();
+		// CLICK NUMBER OF ROOMS VALUE
 		hotelDetails.selectNumOfRooms();
-		// Click Book Now button
+		// CLICK BOOK NOW BUTTON
 		hotelDetails.selectbookNowBtn();
-		// Fill form information
+		// ----- HOTEL BOOKING WINDOW ----
+		// INFORMATION TRAVELLER
+		// (SCROLL DOWN)
+		utils.ScrollDown(driver, "0", "300");
+		// CLICK TITLE BOX
 		form.selectDropDowntitle();
+		// CLICK TITLE VALUE 
 		form.selectValueTitle();
+		// TYPE FIRST NAME
 		form.writefirstNametb("Diana");
+		// TYPE LAST NAME
 		form.writelastNametb("Velasquez");
-		utils.ScrollDown(driver, "0", "1100");
+		// (SCROLL DOWN)
+		utils.ScrollDown(driver, "0", "1200");
+		// CLICK PAY WITH STRIPE  RADIO BUTTON 
 		form.selectPayStripeRadioBtn();
+		// CLICK TERMS AND CONDITIONS CHECK-BOX
 		form.selectCheckBoxTerms();
+		// CLICK CONFIRMED RESERVATION HOTEL BUTTON
 		form.clickBookingBtn();
-		// Print Validation status Booking invoice window
-		
+		// PRINT  STATUS	
 		invoiceStatus.validationStatusStripe();
+		// CLICK PROCEED TO PAY BUTTON
 		invoiceStatus.clickProceedPayBtn();
+		// ----- STRIPE  WINDOW ----
+		// VERIFY LABEL AMOUNT
 		stripeWindow.VerifylabelAmount();
+		// CLICK PAY NOW AMOUNT BUTTON
 		stripeWindow.PayNowWithAmount();
+		// ----- PA WINDOW ----
 		payCard.clickCancelPopUpBtn();
 		payCard.CardNumberInput("4242424242424242");
 		payCard.CardExpiryInput("1024");

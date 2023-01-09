@@ -8,11 +8,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import library.utilities;
 
 public class PTBookingFormPage {
 	WebDriver driver;
@@ -21,6 +25,8 @@ public class PTBookingFormPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	utilities utils = new utilities(driver);
+
 
 	/// ---- FLIGHTS BOOKING INFORMATION WINDOW
 	@FindBy(xpath = "//*[@class='form-select form-select-sm nationality']")
@@ -94,6 +100,12 @@ public class PTBookingFormPage {
 		List<WebElement> listNationality = driver
 				.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
 		listNationality.get(5).click();
+		/*WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(60), Duration.ofSeconds(2));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+				"//*[@class='form-title-wrap'][contains(.,'Travellers Information')]")));*/
+	//	utils.elementScrollDown(titleDropDown);
+
+	
 	}
 	// ----- TITLE
 

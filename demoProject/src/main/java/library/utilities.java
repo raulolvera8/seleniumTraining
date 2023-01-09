@@ -23,7 +23,7 @@ public class utilities{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			  js.executeScript("window.scroll("+X+","+Y+")");
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

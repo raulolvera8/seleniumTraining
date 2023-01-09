@@ -20,7 +20,7 @@ public class PTHotelHomePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy (xpath="//*[@class='owl-stage']/div[position()=9]") WebElement hotelDiv;
+	@FindBy (xpath="//*[@class='owl-stage']/div[position()=8]") WebElement hotelDiv;
 
 	public WebElement gethotelDiv() {
 		return hotelDiv;
@@ -34,7 +34,7 @@ public class PTHotelHomePage {
 				"display: none;"));		
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='col-md-7']")));			
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='sec__title_left left-line']")));			
 	
 	}
 }
