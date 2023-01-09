@@ -8,6 +8,7 @@ import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTMenuPage;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,80 +35,115 @@ public void travels() throws InterruptedException {
 	PTBookingFormPage form = new PTBookingFormPage(Driver);
 	PTBookingInvoicePage validationInvoice = new PTBookingInvoicePage(Driver);
 	utilities utils= new utilities (Driver);
-	//Login
-	/*home.clickLanguageDropDownlist();
-	home.clickLanguage();*/
+	
+	// ----- PHPTRAVELS HOME PAGE WINDOW -----
+	// CLICK ACCOUNT BUTTON
 	home.clickBtnAccount();
+	// SELECT ROLE
 	home.clickCustomerLoginbtn();
+	// ----- LOGIN WINDOW ----- 
+	// TYPE CREDENTIALS
+	// EMAIL
 	login.fillEmail("user@phptravels.com");
+	// PASSWORD
 	login.fillPassword("demouser");
+	// ACCEPT COOKIES
 	login.clickGotItBtn();
+	// CLICK LOGIN BUTTON
 	login.clickLogin();
-	// Click Flights Tab
+	// ----- CUSTOMER HOME PAGE WINDOW -----
+	// CLICK FLIGHTS TAB
 	tabFlights.clickFlightsbtn();
-	// Filling trip form to search
+	// ----- FLIGHTS HOME PAGE WINDOW -----
+	// TYPE FROM COUNTRY
 	flights.writeFlyingFromOneWay("LHE");
+	// SELECT COUNTRY
 	flights.selectItemFlyingFromOneWay();
+	// TYPE DESTINATION COUNTRY
 	flights.writeFlyingDestinationOneWay("DXB");
+	// SELECT COUNTRY
 	flights.selectItemFlyingDestinationOneWay();
+	// CLICK CALENDAR BOX
 	flights.selectDepartureDateBox();
+	// CLICK  DAY CALENDAR
 	flights.clickDayDeparture();
-	flights.clickPassengersBox();
-	// Searching flight
+	// CLICK SEARCHING BUTTON 
 	flights.clickSearchFlights();
-	// --List of flights window
-	//Book now flight 
+	// ----- SEARCH RESULTS WINDOW -----
+	// CLICK FIRST FLIGHT RESULT  
 	firstFlight.clickFirstFlight();
-	// ------- INFORMATION FLIGHTS BOOKING WINDOW
-	// ----FILLING INFORMATION FORM   -----
-	// Nationality
+	// -----  FLIGHT BOOKING  WINDOW -----
+	// INFORMATION TRAVELLER
+	// CLICK NATIONALITY BOX
 	form.clickDropdownNationality();
+	// CLICK NATIONALITY VALUE 
 	form.selectValueNationality();
-	// Title
+	// (SCROLL DOWN)
+	utils.ScrollDown(Driver,"0","50");
+	// CLICK TITLE BOX
 	form.selectDropDowntitle();
+	// CLICK TITLE VALUE 
 	form.selectValueTitle();
-	// Frist Name and Last Name 
+	// TYPE FIRST NAME
 	form.writefirstNametb("Diana");
+	// TYPE LAST NAME
 	form.writelastNametb("Velasquez");
-	// dropdown list
-	// Nationality
+	// INFORMATION TRAVELLER  
+	// CLICK NATIONALITY BOX
 	form.selectDropDownNationality_1();
+	// CLICK NATIONALITY VALUE 
 	form.selectValueNationality_1();
-	// Date of Birth
+	// CLICK MONTH BOX
 	form.selectDropDownMonth();
+	// CLICK MONTH VALUE 
 	form.selectDateOfBirth();
-	// Day
+	// CLICK DAY BOX
 	form.selectDropDownDay();
+	// CLICK DAY VALUE
 	form.selectDay();
-	// Year
+	// CLICK YEAR BOX
 	form.selectDropDownYear();
+	// CLICK YEAR VALUE
 	form.selectYear();
-	//Passport ID
-	// Passport Issuance Date
+	// INFORMATION TRAVELLER PASSPORT ISSUANCE
+	// TYPE ID PASSPORT
 	form.writePassport("5555sdfdsd25");
-	// Scroll Down
-	utils.ScrollDown(Driver,"0","700");
+	// (SCROLL DOWN)
+	utils.ScrollDown(Driver,"0","800");
+	// CLICK MONTH BOX
 	form.selectPassportMonth();
+	// CLICK MONTH VALUE 
 	form.itemPassportMonth();
+	// CLICK DAY BOX 
 	form.selectPassportDay();
+	// CLICK DAY VALUE 
 	form.itemPassportDay();
+	// CLICK YEAR BOX 
 	form.selectPassportYear();
+	// CLICK YEAR VALUE 
 	form.itemPassportYear();
-	// Passport Expiry Date
+	// INFORMATION EXPIRY DATE PASSPORT 
+	// CLICK MONTH BOX
 	form.selectExpiryMonth();
+	// CLICK MONTH VALUE 
 	form.itemExpiryMonth();
+	// CLICK DAY BOX 
 	form.selectExpiryDay();
+	// CLICK DAY VALUE 
 	form.itemExpiryDay();
+	// CLICK YEAR BOX 
 	form.selectExpiryYear();
+	// CLICK YEAR VALUE 
 	form.itemExpiryYear();
+	// CLICK PAY LATER RADIO BUTTON 
 	form.selectPayLaterRadioBtn();
-	//ScrollDwon
+	// (SCROLL DOWN)
 	utils.ScrollDown(Driver,"0","1000");
-	// Accept Terms and conditions
+	// CLICK TERMS AND CONDITIONS CHECK-BOX
 	form.selectCheckBoxTerms();
-	// Book now button
+	// CLICK CONFIRMED FLIGHT BUTTON
 	form.clickBookingBtn();
-	// Print Validation status Booking invoice window
+	// PRINT VALIDATION STATUS
 	validationInvoice.validationStatusLater();
 }
 @AfterClass

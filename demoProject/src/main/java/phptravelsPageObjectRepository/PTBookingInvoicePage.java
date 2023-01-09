@@ -31,9 +31,10 @@ public class PTBookingInvoicePage {
 	WebElement paymentStatusStripeLabel;
 	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")
 	WebElement paymentStatusPLaterLabel;
-	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,'Your booking status is ( Confirmed ) and payment status is stripe ( Paid )')]")
+	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")
 	WebElement paymentStatusPaidLabel;
-
+	@FindBy (xpath="//*[@class='card-title m-0']") WebElement hotelNameLabel;
+	@FindBy (xpath ="//*[@class='py-0 card-text'][contains(.,'Checkin')]") WebElement checkInOutLabel;
 	@FindBy(xpath = "//*[@class='card-body'][contains(.,'Miss Diana Velasquez ')]")
 	WebElement travellerDetails;
 
@@ -68,8 +69,9 @@ public class PTBookingInvoicePage {
 		System.out.println("BOOKING INVOICE PAID");
 		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
 
-			// System.out.println(paymentStatusPaidLabel.getText());
-			// System.out.println(bookingInvoiceDetails.getText());
+			 System.out.println(paymentStatusPaidLabel.getText());
+			 System.out.println(hotelNameLabel.getText());
+			 System.out.println(checkInOutLabel.getText());
 			System.out.println(totalPriceLabel.getText());
 		} else {
 			Assert.fail("FAILED");

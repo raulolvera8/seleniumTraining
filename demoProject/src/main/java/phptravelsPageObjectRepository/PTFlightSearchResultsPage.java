@@ -37,10 +37,10 @@ public class PTFlightSearchResultsPage {
 
 		getFirstFlight().click();
 
-		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
-		
+		wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+				
 
 		
 		

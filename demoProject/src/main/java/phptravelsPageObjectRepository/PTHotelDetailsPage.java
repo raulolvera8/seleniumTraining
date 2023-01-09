@@ -20,8 +20,8 @@ public class PTHotelDetailsPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Adults 3')]//select") WebElement numRoomsBox;
-	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Adults 3')]//button") WebElement bookNowBtn;
+	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Child 3')]//select") WebElement numRoomsBox;
+	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Child 3')]//button") WebElement bookNowBtn;
 	// Available rooms
 	// Select number of rooms
 	public WebElement getNumberRooms() {
@@ -31,7 +31,7 @@ public class PTHotelDetailsPage {
 		getNumberRooms().click();
 	}
 	public void selectNumOfRooms() {
-		List <WebElement> listNumOfRooms=driver.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Adults 3')]//select/option"));
+		List <WebElement> listNumOfRooms=driver.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Child 3')]//select/option"));
 		listNumOfRooms.get(1).click();
 	}
 	// Click Book Now Button 
@@ -41,13 +41,17 @@ public class PTHotelDetailsPage {
 	}
 	public void selectbookNowBtn() {
 		getbookNowBtn().click();
-		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+		Wait<WebDriver> wait1 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
+		wait1.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
 				"display: none;"));		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Your Personal Information')]")));			
+		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Your Personal Information')]")));	
+		Wait<WebDriver> wait3 = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title'][contains(.,'Travellers Information')]")));
+		
 	
 
 	}
