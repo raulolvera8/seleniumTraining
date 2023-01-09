@@ -1,6 +1,7 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -183,8 +184,8 @@ public class PTAgentPage {
 	public void VerifyWalletBalanceAmount() {
 		String BalanceAmountFinale = getWalletBalanceAmount().getText();
 		System.out.println("Agent, now you have: " + BalanceAmountFinale + " on your wallet.");
-		
-	                                                   //YOU NEED TO MODIFY THE AMOUNT +100 USD
+
+		// YOU NEED TO MODIFY THE AMOUNT +100 USD
 		if (getWalletBalanceAmount().getText().contains("USD 3210")) {
 			System.out.println("Thanks for your payment");
 		} else {
@@ -233,18 +234,26 @@ public class PTAgentPage {
 		getViewVoucher().click();
 		System.out.println("Clicking View Voucher button ...");
 	}
-	
-	@FindBy (xpath="(//h4[@class= 'info__title'])[1]") WebElement walletBalanceLabel;
-	
+
+	/// -------- LABEL OLD AMOUNT VALIDATION -----------
+	@FindBy(xpath = "//h4[@class='info__title']")
+	WebElement walletBalanceLabel;
+
 	public WebElement getWalletBalancelabel() {
-		return walletBalanceLabel;
+		List<WebElement> listH4 = driver.findElements(By.xpath("//h4[@class='info__title']"));
+		WebElement valor = listH4.get(0);
+		return valor;
 	}
+
 	public String readWalletBalance() {
-		if (this.getWalletBalance().getText().isEmpty()) {
+		if (this.getWalletBalancelabel().getText().isEmpty()) {
 			return "0";
-		} else { 
-			return this.getWalletBalance().getText().substring(4);
+		} else {
+			String texto = this.getWalletBalancelabel().getText();
+			return texto.substring(4);
 		}
 	}
+
+
 
 }

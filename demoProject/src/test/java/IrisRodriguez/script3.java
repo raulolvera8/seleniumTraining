@@ -75,6 +75,6 @@ public class script3 extends Driver{
 
 	@AfterClass
 	public void teardown() {
-		// teardownDriver();
+	    teardownDriver();
 	}
 }
