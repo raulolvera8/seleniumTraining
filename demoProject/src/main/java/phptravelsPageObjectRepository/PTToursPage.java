@@ -79,13 +79,15 @@ public class PTToursPage extends Driver {
 		  ("//*[text()='Find the best tours packages']")));
 		 
 	}
-	
-	
-	  public void selectItemFromTour() { List<WebElement> listTour =
-	  driver.findElements( By.
-	  xpath("//*[@class='select2-results__option']//i"
-	  )); listTour.get(0).click(); }
+	 public void selectItemFromTour() { List<WebElement> listTour =
+	  driver.findElements( By. xpath("(//span[@class ='select2-results']/ul/li)"
+	  )); listTour.get(0).click();
 	 
+	  
+	  
+
+	 }
+
 	
 
 

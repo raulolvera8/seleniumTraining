@@ -154,5 +154,8 @@ public class PTFlightsPage extends Driver {
 
 		System.out.println("Number of Passengers " + getNumberPassengers().getText());
 	}
+	
+	
+	////------CLICK BOOK NOW
 
 }

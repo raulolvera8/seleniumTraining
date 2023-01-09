@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Jan 07 01:57:41 CST 2023</td>
+<td>Started on:</td><td>Mon Jan 09 17:44:19 CST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>25 seconds (25683 ms)</td>
+<tr><td>Total time:</td><td>73 seconds (73507 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,36 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Juan.scriptTour.CustomerPage()'><b>CustomerPage</b><br>Test class: Juan.scriptTour</td>
-<td><div><pre>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:359)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at phptravelsPageObjectRepository.PTToursPage.selectItemFromTour(PTToursPage.java:87)
-	at Juan.scriptTour.CustomerPage(scriptTour.java:49)
+<td title='Juan.scriptFlights.CustomerPage()'><b>CustomerPage</b><br>Test class: Juan.scriptFlights</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@class=&apos;card-body&apos;][contains(.,&apos;Miss Diana Velasquez &apos;)]
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;DESKTOP-RGNEG05&apos;, ip: &apos;192.168.1.72&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [144439bc-a11e-422a-8a6f-440ccf6bf694, findElement {using=xpath, value=//*[@class=&apos;card-body&apos;][contains(.,&apos;Miss Diana Velasquez &apos;)]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:51671, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 14868, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:51671/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 144439bc-a11e-422a-8a6f-440ccf6bf694
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy15.getText(Unknown Source)
+	at phptravelsPageObjectRepository.PTBookingInvoicePage.validationStatusLater(PTBookingInvoicePage.java:84)
+	at Juan.scriptFlights.CustomerPage(scriptFlights.java:123)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,15 +130,36 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1057263702", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1057263702'><pre>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:359)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at phptravelsPageObjectRepository.PTToursPage.selectItemFromTour(PTToursPage.java:87)
-	at Juan.scriptTour.CustomerPage(scriptTour.java:49)
+</pre></div><a href='#' onClick='toggleBox("stack-trace994632067", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace994632067'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@class=&apos;card-body&apos;][contains(.,&apos;Miss Diana Velasquez &apos;)]
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;DESKTOP-RGNEG05&apos;, ip: &apos;192.168.1.72&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [144439bc-a11e-422a-8a6f-440ccf6bf694, findElement {using=xpath, value=//*[@class=&apos;card-body&apos;][contains(.,&apos;Miss Diana Velasquez &apos;)]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:51671, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 14868, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:51671/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 144439bc-a11e-422a-8a6f-440ccf6bf694
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy15.getText(Unknown Source)
+	at phptravelsPageObjectRepository.PTBookingInvoicePage.validationStatusLater(PTBookingInvoicePage.java:84)
+	at Juan.scriptFlights.CustomerPage(scriptFlights.java:123)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -144,8 +186,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>13</td>
-<td>Juan.scriptTour@78641d23</td></tr>
+<td>57</td>
+<td>Juan.scriptFlights@78641d23</td></tr>
 </table><p>
 </body>
 </html>

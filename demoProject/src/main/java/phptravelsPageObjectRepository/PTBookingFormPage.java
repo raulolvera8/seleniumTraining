@@ -55,7 +55,7 @@ public class PTBookingFormPage {
 	WebElement passport_year_DropDown;
 	@FindBy(xpath = "//*[@class='col-md-12 mb-1 gateway_pay-later']")
 	WebElement payLaterRadioBtn;
-	@FindBy(id = "gateway_stripe")
+	@FindBy(xpath = "//*[@id='gateway_stripe']")
 	WebElement payWithStripeRadioBtn;
 	@FindBy(xpath = "//*[@class='custom-checkbox']")
 	WebElement termsAndConditionsCheckBox;
@@ -274,6 +274,16 @@ public class PTBookingFormPage {
 
 	public void selectPayLaterRadioBtn() {
 		getPayLaterRadioBtn().click();
+		
+		
+		/*
+		 * Wait<WebDriver> wait = new
+		 * FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(80))
+		 * .pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException
+		 * .class);
+		 * wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"
+		 * ), "style", "display: none;"));
+		 */
 	}
 
 	// Pay with stripe

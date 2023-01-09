@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
+import library.utilities;
 import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTCustomerPageObject;
@@ -15,7 +16,6 @@ import phptravelsPageObjectRepository.PTMenuPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 import phptravelsPageObjectRepository.PTTourBookingPage;
-import phptravelsPageObjectRepository.PTTourInvoicePage;
 import phptravelsPageObjectRepository.PTToursPage;
 
 public class scriptTour extends Driver {
@@ -37,6 +37,8 @@ public class scriptTour extends Driver {
 		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
 		PTPaymentWithStripePage paymentStripePage= new PTPaymentWithStripePage(driver);
 		PTPayWithCardPage payWithCardPage = new PTPayWithCardPage(driver);
+		utilities utils = new utilities(driver);
+		utils.ScrollDown( driver, "0", "200");
 		
 		
 		homePage.clickBtnAccount();
@@ -51,7 +53,7 @@ public class scriptTour extends Driver {
 		tourMenuPage.clickToursBtn();
 		tourPage.clickDestination();
 		tourPage.writeCountry("dubai");
-		tourPage.selectItemFromTour();
+		//tourPage.selectItemFromTour();
 		tourPage.clickSubmit();
 		tourPage.clickDetails();
 		

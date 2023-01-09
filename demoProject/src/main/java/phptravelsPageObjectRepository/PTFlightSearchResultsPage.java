@@ -34,21 +34,54 @@ public class PTFlightSearchResultsPage {
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
 
-
 		getFirstFlight().click();
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
-		
 
-		
-		
 		System.out.println("Clicking first flight option  ...");
 	}
-	
-	
+
 	// filtro de Direct de juan
-	
+
+	/*
+	 * @FindBy(xpath = "//*[@id='direct']") WebElement directSearch;
+	 * 
+	 * public WebElement getDirectSearch() { return submitBookNow; }
+	 * 
+	 * public void clickDirectSearch() {
+	 * 
+	 * getDirectSearch().click();
+	 * 
+	 * 
+	 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
+	 * Duration.ofSeconds(5));
+	 * waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.
+	 * xpath("//button[text()='Modify Search']")));
+	 * 
+	 * 
+	 * }
+	 */
+
+	@FindBy(xpath = "//*[@type='submit']")
+	WebElement submitBookNow;
+
+	public WebElement getSubmitBookNow() {
+		return submitBookNow;
+	}
+
+	public void clickSubmitBookNow() {
+
+		getSubmitBookNow().click();
+
+		/*
+		 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
+		 * Duration.ofSeconds(5));
+		 * waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.
+		 * xpath("//button[text()='Modify Search']")));
+		 */
+
+	}
 
 }

@@ -1095,42 +1095,60 @@ public class PTCustomerPageObject {
 		}
 	}
 
-	@FindBy(xpath = "//*[@for='flights_7']")
-	WebElement airlinesfilter;
-
-	public WebElement getAirlinesfilter() {
-		return modifySearch;
-	}
-
-	public void clickAirlines() {
-
-		getAirlinesfilter().click();
-
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Modify Search']")));
-
-	}
-
-	@FindBy(xpath = "//span[@class='btn btn-primary']")
-	WebElement firstOption;
-
 	/*
-	 * "//span[@class='btn btn-primary']")[7]
+	 * @FindBy(xpath = "//*[@for='flights_7']") WebElement airlinesfilter;
+	 * 
+	 * public WebElement getAirlinesfilter() { return modifySearch; }
+	 * 
+	 * public void clickAirlines() {
+	 * 
+	 * getAirlinesfilter().click();
+	 * 
+	 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	 * Duration.ofSeconds(5));
+	 * waitElement.until(ExpectedConditions.elementToBeClickable(By.
+	 * xpath("//button[text()='Modify Search']")));
+	 * 
+	 * }
 	 */
-	public WebElement getFirstOption() {
-		return firstOption;
+//	@FindBy(xpath = "//span[@class='btn btn-primary']")
+//	WebElement firstOption;
+//
+//	/*
+//	 * "//span[@class='btn btn-primary']")[7]
+//	 */
+//	public WebElement getFirstOption() {
+//		return firstOption;
+//	}
+//
+//	public void clickFirstOption() {
+//
+//		getFirstOption().click();
+//
+//		/*
+//		 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+//		 * Duration.ofSeconds(5));
+//		 * waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+//		 * ("//button[text()='Modify Search']")));
+//		 */
+//
+//	}
+	
+	
+	
+	@FindBy(xpath = "//*[@type='submit']")
+	WebElement submitBookNow;
+
+	public WebElement getSubmitBookNow() {
+		return submitBookNow;
 	}
 
-	public void clickFirstOption() {
+	public void clickSubmitBookNow() {
 
-		getFirstOption().click();
+		getSubmitBookNow().click();
 
-		/*
-		 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-		 * Duration.ofSeconds(5));
-		 * waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-		 * ("//button[text()='Modify Search']")));
-		 */
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Modify Search']")));
 
 	}
 }
