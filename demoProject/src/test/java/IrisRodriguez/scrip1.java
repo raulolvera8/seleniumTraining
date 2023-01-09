@@ -56,7 +56,8 @@ public class scrip1 extends Driver {
 		loginPage.clickLoginButtonAgent();
 
 		// =========================ADD FUNDS WINDOW====================================
-
+		int variable = Integer.valueOf(agentPage.readWalletBalance());
+		
 		// CLICK ADD FUNDS BUTTON
 		agentPage.clickBtnAddFunds();
 

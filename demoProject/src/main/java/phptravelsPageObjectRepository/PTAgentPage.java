@@ -233,5 +233,18 @@ public class PTAgentPage {
 		getViewVoucher().click();
 		System.out.println("Clicking View Voucher button ...");
 	}
+	
+	@FindBy (xpath="(//h4[@class= 'info__title'])[1]") WebElement walletBalanceLabel;
+	
+	public WebElement getWalletBalancelabel() {
+		return walletBalanceLabel;
+	}
+	public String readWalletBalance() {
+		if (this.getWalletBalance().getText().isEmpty()) {
+			return "0";
+		} else { 
+			return this.getWalletBalance().getText().substring(4);
+		}
+	}
 
 }
