@@ -38,9 +38,9 @@ public class PTPaymentWithStripePage {
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
 		getLabelAmount().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
+		
+		// SWITCH TO NEW WINDOW
+		utils.switchToNewWindow();
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//small")));
 

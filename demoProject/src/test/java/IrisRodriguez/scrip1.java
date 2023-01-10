@@ -114,10 +114,8 @@ public class scrip1 extends Driver {
 
 		// CLICK SIGN OUT
 		agentPage.ClickLogoutButton();
-
-		// CLOSE WINDOW
-		driver.close();
 		
+
 		// WITCH TO THE MAIN WINDOW
 		utils.switchToMainWindow();
 
