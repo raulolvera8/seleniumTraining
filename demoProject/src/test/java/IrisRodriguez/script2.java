@@ -107,8 +107,8 @@ public class script2 extends Driver {
 		utils.ScrollDown(driver, "0", "300");
 
 		// NATIONALITY FROM TRAVELLER DETAILS
-		travellerFormPage.getNationality_1DropDown();
 		travellerFormPage.clickNationality_1DropDown();
+		travellerFormPage.clickValueNationality_1DropDown();
 
 		// DATE OF BIRTH
 		// MONTH
@@ -167,7 +167,7 @@ public class script2 extends Driver {
 		travellerFormPage.clickPayStripeRadioBtn();
 
 		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "1600");
+		utils.ScrollDown(driver, "0", "1700");
 		
 		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
 		travellerFormPage.clickTermsConditionsCheckBox();
@@ -227,7 +227,7 @@ public class script2 extends Driver {
 
 	@AfterClass
 	public void teardown() {
-		teardownDriver();
+		//teardownDriver();
 	}
 
 }
