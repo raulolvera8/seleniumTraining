@@ -35,7 +35,7 @@ public class script3 extends Driver{
 		// ========================= SIGN IN PAGE ====================================
 
 		// CLICK BUTTON SELECT TYPE ACCOUNT
-		signInPage.clickBtnAccount();
+		signInPage.clickAccountBtn();
 
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();

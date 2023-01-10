@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public class PTAgentPage {
 
 	WebDriver driver;
@@ -68,18 +67,6 @@ public class PTAgentPage {
 		System.out.println("Clicking radiobutton Stripe payment method ...");
 	}
 
-	/// -------- CLEAR AMOUNT INPUT --------
-	@FindBy(name = "price")
-	WebElement inputPriceClear;
-
-	private WebElement getPriceInputClean() {
-		return inputPriceClear;
-	}
-
-	public void clearPrice() {
-		getPriceInputClean().clear();
-	}
-
 	/// -------- ENTER AMOUNT INPUT --------
 	@FindBy(name = "price")
 	WebElement inputPrice;
@@ -89,6 +76,7 @@ public class PTAgentPage {
 	}
 
 	public void enterPrice(String Price) {
+		getPriceInput().clear();
 		System.out.println("Entering price ...");
 		getPriceInput().sendKeys(Price);
 	}
@@ -118,14 +106,9 @@ public class PTAgentPage {
 		return labelSuccessfull;
 	}
 
-	public void Verifylabel() {
+	public void PrintPaymentSuccessfulllabel() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-
-		getLabelSuccessfull().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
 
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//*[contains (text(), 'Payment successfull')]")));

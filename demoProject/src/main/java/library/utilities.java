@@ -13,48 +13,59 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-public class utilities{
+public class utilities {
 	WebDriver driver;
+
 	public utilities(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	public void  ScrollDown(WebDriver driver, String X, String Y) {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			  js.executeScript("window.scroll("+X+","+Y+")");
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 
-	  }
+	public void ScrollDown(WebDriver driver, String X, String Y) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scroll(" + X + "," + Y + ")");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 	public void elementScrollDown(WebElement element) {
 		try {
 			JavascriptExecutor js;
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
-		  	Thread.sleep(1000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			System.out.println("Error when trying to locate the element " );
+			System.out.println("Error when trying to locate the element ");
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public void waiting() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		// wait loader
+	}
 	
-	//wait loader
-	
-	
-	
-	//
-}
-	
+	// SWITCH TO NEW WINDOW
+	public void switchToNewWindow() {
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+			break;
+		}
+	}
+
+	// SWITCH TO THE MAIN WINDOW
+	public void switchToMainWindow() {
+		String mainWindow = driver.getWindowHandle();
+		driver.switchTo().window(mainWindow);
+	}
 }
