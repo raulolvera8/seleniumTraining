@@ -1,13 +1,18 @@
 package library;
 
+import java.time.Duration;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class utilities {
 	WebDriver driver;
-
+	String mainWindow;
+	
 	public utilities(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -46,18 +51,34 @@ public class utilities {
 		}
 		// wait loader
 	}
-	
+
+	public void saveMainWindowHandle() {
+		// STORE THE ID OF THE ORIGINAL WINDOW
+		 mainWindow = driver.getWindowHandle();
+	}
+
 	// SWITCH TO NEW WINDOW
 	public void switchToNewWindow() {
+
+		// EXPLICIT WAIT
+		WebDriverWait waitFor = new WebDriverWait(driver, Duration.ofSeconds(4), Duration.ofSeconds(2));
+
+		// WAIT FOR THE NEW WINDOW OR TAB
+		waitFor.until(ExpectedConditions.numberOfWindowsToBe(2));
+
 		for (String winHandle : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandle);
 			break;
 		}
 	}
 
+	// CLOSE ACTUAL WINDOW
+	public void CloseCurrentWindow() {
+		driver.close();
+	}
+	
 	// SWITCH TO THE MAIN WINDOW
 	public void switchToMainWindow() {
-		String mainWindow = driver.getWindowHandle();
 		driver.switchTo().window(mainWindow);
 	}
 }

@@ -44,6 +44,8 @@ public class scrip1 extends Driver {
 
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
+		
+		utils.saveMainWindowHandle();
 
 		// ENTER EMAIL
 		loginPage.enterEmailInput("agent@phptravels.com");
@@ -69,7 +71,7 @@ public class scrip1 extends Driver {
 
 		// ENTER PRICE
 		agentPage.enterPrice("100");
-
+		
 		// CLICK PAY NOW BUTTON
 		agentPage.clickPayNowButton();
 
@@ -115,6 +117,8 @@ public class scrip1 extends Driver {
 		// CLICK SIGN OUT
 		agentPage.ClickLogoutButton();
 		
+		// CLOSE
+		utils.CloseCurrentWindow();
 
 		// WITCH TO THE MAIN WINDOW
 		utils.switchToMainWindow();
@@ -123,6 +127,6 @@ public class scrip1 extends Driver {
 
 	@AfterClass
 	public void teardown() {
-		//teardownDriver();
+		teardownDriver();
 	}
 }
