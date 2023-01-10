@@ -33,19 +33,19 @@ public class visaCustomer extends Driver {
 		PTBookingInvoicePage visaValidation = new PTBookingInvoicePage(driver);
 		// ----- PHPTRAVELS HOME PAGE WINDOW -----
 		// CLICK ACCOUNT BUTTON
-		home.clickBtnAccount();
+		home.clickAccountBtn();
 		// SELECT ROLE
-		home.clickCustomerLoginbtn();
+		home.clickCustomerLoginBtn();
 		// ----- LOGIN WINDOW ----- 
 		// TYPE CREDENTIALS
 		// EMAIL
-		login.fillEmail("user@phptravels.com");
+		login.fillEmailTb("user@phptravels.com");
 		// PASSWORD
-		login.fillPassword("demouser");
+		login.fillPasswordTb("demouser");
 		// ACCEPT COOKIES
 		login.clickGotItBtn();
 		// CLICK LOGIN BUTTON
-		login.clickLogin();
+		login.clickLoginCustomerBtn();
 		// ----- CUSTOMER HOME PAGE WINDOW -----
 		// CLICK VISA TAB
 		visaTab.clickVisaBtn();

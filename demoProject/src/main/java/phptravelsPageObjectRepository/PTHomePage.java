@@ -48,7 +48,7 @@ public class PTHomePage {
 		return btnAccount;
 	}
 
-	public void clickBtnAccount() {
+	public void clickAccountBtn() {
 
 		
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
@@ -71,7 +71,7 @@ public class PTHomePage {
 		return customerLoginBtn;
 	}
 
-	public void clickCustomerLoginbtn() {
+	public void clickCustomerLoginBtn() {
 	
 		getCustomerLogBtn().click();
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))

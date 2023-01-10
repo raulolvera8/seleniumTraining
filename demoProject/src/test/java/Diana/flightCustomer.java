@@ -38,109 +38,109 @@ public void travels() throws InterruptedException {
 	
 	// ----- PHPTRAVELS HOME PAGE WINDOW -----
 	// CLICK ACCOUNT BUTTON
-	home.clickBtnAccount();
+	home.clickAccountBtn();
 	// SELECT ROLE
-	home.clickCustomerLoginbtn();
+	home.clickCustomerLoginBtn();
 	// ----- LOGIN WINDOW ----- 
 	// TYPE CREDENTIALS
 	// EMAIL
-	login.fillEmail("user@phptravels.com");
+	login.fillEmailTb("user@phptravels.com");
 	// PASSWORD
-	login.fillPassword("demouser");
+	login.fillPasswordTb("demouser");
 	// ACCEPT COOKIES
 	login.clickGotItBtn();
 	// CLICK LOGIN BUTTON
-	login.clickLogin();
+	login.clickLoginCustomerBtn();
 	// ----- CUSTOMER HOME PAGE WINDOW -----
 	// CLICK FLIGHTS TAB
 	tabFlights.clickFlightsbtn();
 	// ----- FLIGHTS HOME PAGE WINDOW -----
 	// TYPE FROM COUNTRY
-	flights.writeFlyingFromOneWay("LHE");
+	flights.writeFlyingFromOneWayTb("LHE");
 	// SELECT COUNTRY
-	flights.selectItemFlyingFromOneWay();
+	flights.selectItemFlyingFromOneWayDropDown();
 	// TYPE DESTINATION COUNTRY
-	flights.writeFlyingDestinationOneWay("DXB");
+	flights.writeFlyingDestinationOneWayTb("DXB");
 	// SELECT COUNTRY
-	flights.selectItemFlyingDestinationOneWay();
+	flights.selectItemFlyingDestinationOneWayDropDown();
 	// CLICK CALENDAR BOX
-	flights.selectDepartureDateBox();
+	flights.selectDepartureDateCalendarBox();
 	// CLICK  DAY CALENDAR
-	flights.clickDayDeparture();
+	flights.clickDayDepartureCalendar();
 	// CLICK SEARCHING BUTTON 
-	flights.clickSearchFlights();
+	flights.clickSearchFlightsBtn();
 	// ----- SEARCH RESULTS WINDOW -----
 	// CLICK FIRST FLIGHT RESULT  
-	firstFlight.clickFirstFlight();
+	firstFlight.clickFirstFlightBtn();
 	// -----  FLIGHT BOOKING  WINDOW -----
 	// INFORMATION TRAVELLER
 	// CLICK NATIONALITY BOX
-	form.clickDropdownNationality();
+	form.clickNationalityDropdown();
 	// CLICK NATIONALITY VALUE 
-	form.selectValueNationality();
+	form.clickValueNationalityDropDown();
 	// (SCROLL DOWN)
 	utils.ScrollDown(Driver,"0","50");
 	// CLICK TITLE BOX
-	form.selectDropDowntitle();
+	form.clickTitleDropDown();
 	// CLICK TITLE VALUE 
-	form.selectValueTitle();
+	form.clickValueTitleDropDown();
 	// TYPE FIRST NAME
 	form.writefirstNametb("Diana");
 	// TYPE LAST NAME
 	form.writelastNametb("Velasquez");
 	// INFORMATION TRAVELLER  
 	// CLICK NATIONALITY BOX
-	form.selectDropDownNationality_1();
+	form.clickNationality_1DropDown();
 	// CLICK NATIONALITY VALUE 
-	form.selectValueNationality_1();
+	form.clickValueNationality_1DropDown();
 	// CLICK MONTH BOX
-	form.selectDropDownMonth();
+	form.clickMonthDropDown();
 	// CLICK MONTH VALUE 
-	form.selectDateOfBirth();
+	form.clickValueDateOfBirthDropDown();
 	// CLICK DAY BOX
-	form.selectDropDownDay();
+	form.clickDayDropDown();
 	// CLICK DAY VALUE
-	form.selectDay();
+	form.clickValueDayDropDown();
 	// CLICK YEAR BOX
-	form.selectDropDownYear();
+	form.clickYearDropDown();
 	// CLICK YEAR VALUE
-	form.selectYear();
+	form.clickValueYearDropDown();
 	// INFORMATION TRAVELLER PASSPORT ISSUANCE
 	// TYPE ID PASSPORT
-	form.writePassport("5555sdfdsd25");
+	form.writePassportTb("5555sdfdsd25");
 	// (SCROLL DOWN)
 	utils.ScrollDown(Driver,"0","800");
 	// CLICK MONTH BOX
-	form.selectPassportMonth();
+	form.clickPassportMonthDropDown();
 	// CLICK MONTH VALUE 
-	form.itemPassportMonth();
+	form.clickValuePassportMonthDropDown();
 	// CLICK DAY BOX 
-	form.selectPassportDay();
+	form.clickPassportDayDropDown();
 	// CLICK DAY VALUE 
-	form.itemPassportDay();
+	form.clickValuePassportDayDropDown();
 	// CLICK YEAR BOX 
-	form.selectPassportYear();
+	form.clickPassportYearDropDown();
 	// CLICK YEAR VALUE 
-	form.itemPassportYear();
+	form.clickValuePassportYearDropDown();
 	// INFORMATION EXPIRY DATE PASSPORT 
 	// CLICK MONTH BOX
-	form.selectExpiryMonth();
+	form.clickExpiryMonthDropDown();
 	// CLICK MONTH VALUE 
-	form.itemExpiryMonth();
+	form.clickValueMonthDropDown();
 	// CLICK DAY BOX 
-	form.selectExpiryDay();
+	form.clickExpiryDayDropDown();
 	// CLICK DAY VALUE 
-	form.itemExpiryDay();
+	form.clickValueExpiryDayDropDown();
 	// CLICK YEAR BOX 
-	form.selectExpiryYear();
+	form.clickExpiryYearDropDown();
 	// CLICK YEAR VALUE 
-	form.itemExpiryYear();
+	form.clickValueExpiryYearDropDown();
 	// CLICK PAY LATER RADIO BUTTON 
-	form.selectPayLaterRadioBtn();
+	form.clickPayLaterRadioBtn();
 	// (SCROLL DOWN)
 	utils.ScrollDown(Driver,"0","1000");
 	// CLICK TERMS AND CONDITIONS CHECK-BOX
-	form.selectCheckBoxTerms();
+	form.clickTermsConditionsCheckBox();
 	// CLICK CONFIRMED FLIGHT BUTTON
 	form.clickBookingBtn();
 	// PRINT VALIDATION STATUS
