@@ -45,8 +45,10 @@ public class scrip1 extends Driver {
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
 		
+		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
 		utils.saveMainWindowHandle();
 
+		// AQUI SE ABRE LA SEGUNDA VENTANA
 		// ENTER EMAIL
 		loginPage.enterEmailInput("agent@phptravels.com");
 
@@ -117,10 +119,10 @@ public class scrip1 extends Driver {
 		// CLICK SIGN OUT
 		agentPage.ClickLogoutButton();
 		
-		// CLOSE
+		// SE CIERRA LA SEGUNDA VENTANA
 		utils.CloseCurrentWindow();
 
-		// WITCH TO THE MAIN WINDOW
+		// SWITCH TO THE MAIN WINDOW
 		utils.switchToMainWindow();
 
 	}
