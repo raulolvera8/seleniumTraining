@@ -6,11 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+
 import library.utilities;
 
 //##################### CLASS AND CODE CREATED BY ELIAS LARA.
@@ -19,7 +21,7 @@ public class PTAddTourPage_Supplier {
 
 	WebDriver driver;
 	utilities utility;
-	
+		
 	public PTAddTourPage_Supplier(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -106,12 +108,9 @@ public class PTAddTourPage_Supplier {
 		activateTxt.click();
 
 		getLocationTourTxt().sendKeys(LocationTour);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
+		
+		utility.waiting();
+		
 		WebElement optionSuggested = driver.findElement(By.xpath("//*[@id=\"select2-drop\"]/ul/li"));
 		optionSuggested.click();
 		System.out.println("The tour's location value has been inserted. Value = " + LocationTour);
@@ -162,9 +161,11 @@ public class PTAddTourPage_Supplier {
 
 	public void clickSelectAllCheckbox() {
 
-		if (verifyIsSelected() == true) {
-			getSelectAllCheckbox().click();
-			System.out.println("The checkbox Select all was selected. The checkbox has been unactivated...");
+		if (verifyIsSelected() == false) {
+			utility.clickElementJavascript("//*[@id='INCLUSIONS']/div/div/div[1]/label/div/ins");
+			utility.waiting();
+			utility.clickElementJavascript("//*[@id='INCLUSIONS']/div/div/div[1]/label/div/ins");
+			System.out.println("The checkbox Select all was unselected. The checkbox has been activated and unactivated...");
 		} else {
 			System.out.println("The checkbox Select all is already unselected. No needed to perform any action...");
 		}
@@ -363,10 +364,8 @@ public class PTAddTourPage_Supplier {
 	}
 
 	public void clickContactTab() {
-		WebElement prueba = driver.findElement(By.xpath("//div[@id='materialTabBarJsDemo']//mwc-tab[@id='CONTACT-tab']"));
-		prueba.click();
-		utility.waiting();
-		getContactTab().click();
+		Actions builder = new Actions(driver);   
+		builder.moveToElement(ContactTab, 1, 1).click().build().perform();
 		System.out.println("Contact Tab clicked...");
 	}
 
@@ -470,9 +469,9 @@ public class PTAddTourPage_Supplier {
 
 	// ------------ SELECT TOUR TYPE LIST -----------------
 
-	@FindBy(xpath = "//div[@id='select2-drop']//input[@type='text' and @class='select2-input']")
+	@FindBy(xpath = "//div[@id='select2-drop']/div/input")
 	WebElement TourTypeTxtbox;
-
+	
 	public WebElement getTourTypeTxtbox() {
 		return TourTypeTxtbox;
 	}
@@ -499,7 +498,6 @@ public class PTAddTourPage_Supplier {
 	}
 
 	public void clickSubmitBtn() {
-		// utility.ScrollDown(driver, "0", "800");
 		utility.elementScrollDown(this.getSubmitBtn());
 		getSubmitBtn().click();
 		System.out.println("The Submit button has been clicked...");

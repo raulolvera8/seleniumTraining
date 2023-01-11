@@ -2,6 +2,7 @@ package library;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,7 +50,36 @@ public class utilities {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		// wait loader
+	}
+	
+	//Highlight any element with the xpath value.
+	
+	public void highlightElement(String elementXpath) {
+
+		WebElement element = driver.findElement(By.xpath(elementXpath));
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+
+		try {
+			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", element);
+			Thread.sleep(1500);
+			System.out.println("The element has been identified and highlighted...");
+			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:; background:')", element);
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			System.out.println(
+					"The element with xpath " + elementXpath + " has not been identified properly. Please check.");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	//Performs a click with javascript, with xpath value.
+	public void clickElementJavascript(String xpath) {
+		WebElement element = driver.findElement(By.xpath(xpath));
+		
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
+		System.out.println("The element provided has been clicked properly...");
 	}
 
 	public void saveMainWindowHandle() {

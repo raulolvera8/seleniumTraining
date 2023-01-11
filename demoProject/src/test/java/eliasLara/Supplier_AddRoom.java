@@ -28,7 +28,7 @@ public class Supplier_AddRoom extends Driver {
 		//PTSupplier_Page supplierPage = new PTSupplier_Page(driver);
 
 		// Account selection, main page.
-		homePage.clickBtnAccount();
+		homePage.clickAccountBtn();
 
 		// Click in Supplier login, main page.
 		homePage.clickSupplierLoginbtn();
