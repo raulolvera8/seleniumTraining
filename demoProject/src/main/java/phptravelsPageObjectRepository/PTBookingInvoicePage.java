@@ -23,74 +23,127 @@ public class PTBookingInvoicePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
+	PTBookingFormPage form = new PTBookingFormPage(driver);
 	utilities utils = new utilities(driver);
 
 	// ---- Booking status
-	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")
-	WebElement paymentStatusStripeLabel;
-	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")
-	WebElement paymentStatusPLaterLabel;
-	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")
-	WebElement paymentStatusPaidLabel;
-	@FindBy (xpath="//*[@class='card-title m-0']") WebElement hotelNameLabel;
-	@FindBy (xpath ="//*[@class='py-0 card-text'][contains(.,'Checkin')]") WebElement checkInOutLabel;
-	@FindBy(xpath = "//*[@class='card-body'][contains(.,'Miss Diana Velasquez ')]")
-	WebElement travellerDetails;
+	
+	@FindBy(xpath = "//li[contains(.,'user@phptravels.com')]")WebElement emailLabel;
 
+	// ------ VALIATION BOOKING UNPAID STATUS HOTEL ------
+	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")WebElement paymentStatusStripeLabel;
+	public WebElement getpaymentStatusStripeLabel() {
+		return paymentStatusStripeLabel;
+	}
 	@FindBy(xpath = "//*[@class='row my-2']/div")
 	WebElement bookingInvoiceDetails;
 
-	@FindBy(xpath = "//li[contains(.,'user@phptravels.com')]")
-	WebElement emailLabel;
-	@FindBy(id = "form")
-	WebElement proceedPayBtn;
+	
+	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
+	WebElement emailLabelAgent;
+	
 
 	// -- VALIATION BOOKING UNPAID STATUS HOTEL
 	public void validationStatusStripe() {
-
-		System.out.println("BOOKING INVOICE UNPAID" + emailLabel.getText());
-		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
-
-			System.out.println(paymentStatusStripeLabel.getText());
-			System.out.println(bookingInvoiceDetails.getText());
-			System.out.println(emailLabel.getText());
+		if (getpaymentStatusStripeLabel().getText().contains("Stripe")) {
+			System.out.println("FIRST VALIDATION  PASSED");
+			System.out.println(getpaymentStatusStripeLabel().getText());
 		} else {
-			Assert.fail("FAILED");
+			Assert.fail("FIRST VALIDATION FAILED");
 		}
 	}
 
-	// -- VALIATION BOOKING CONFIRMED STATUS HOTEL
-	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Total Price')]")
-	WebElement totalPriceLabel;
+	// ------ VALIATION BOOKING CONFIRMED STATUS HOTEL ------
+	@FindBy (xpath ="//*[@class='py-0 card-text'][contains(.,'Checkin')]") WebElement checkInOutLabel;
+	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")WebElement paymentStatusPaidLabel;
+	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Total Price')]") WebElement totalPriceLabel;
+	@FindBy (xpath="//*[@class='card-title m-0']") WebElement nameHotelLabel;
+	public WebElement getCheckInOutLabel() {
+		return checkInOutLabel;
+	}
+	
+	public WebElement getPaymentStatusPaidLabel() {
+		return paymentStatusPaidLabel;
+	}
+
+	public WebElement getTotalPriceLabel() {
+		return totalPriceLabel;
+	}
+	
+	public WebElement getNameHotelLabel() {
+		return  nameHotelLabel;
+	}
 
 	public void validationStatusPaid() {
-
-		System.out.println("BOOKING INVOICE PAID");
-		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
-
-			 System.out.println(paymentStatusPaidLabel.getText());
-			 System.out.println(hotelNameLabel.getText());
-			 System.out.println(checkInOutLabel.getText());
-			System.out.println(totalPriceLabel.getText());
+		if (paymentStatusPaidLabel.getText().contains("Paid")) {
+			System.out.println("FIRST VALIDATION PASSED");
+			 System.out.println(getPaymentStatusPaidLabel().getText());
+			 /*
+			*/
 		} else {
-			Assert.fail("FAILED");
+			Assert.fail("FAILED: Invoice status doesn't match");
+		}		
+		if ((getNameHotelLabel().getText().contentEquals("Islamabad Marriott Hotel")) ) {
+			System.out.println("PASSED: Hotel's information is correct");
+			System.out.println(getNameHotelLabel().getText());
+			System.out.println(getCheckInOutLabel().getText());
+		} 
+		else {
+			Assert.fail("FAILED: Hotel's information is incorrect");
+
+		}
+		if (getTotalPriceLabel().getText().contentEquals("Total Price: USD 231.00")) {
+			 System.out.println(getTotalPriceLabel().getText());
+
+		}else {
+			Assert.fail("FAILED: Total price is incorrect");
+
 		}
 	}
-	// -- VALIATION BOOKING STATUS FLIGHT
-
+	// ------ VALIATION BOOKING STATUS FLIGHT ------
+	@FindBy(xpath = "//*[@class='card mt-2 mb-3']") WebElement travellerDetails;
+	@FindBy(xpath="//*[@class='customer']/li[contains(.,'Guest')]") WebElement nameTravellerLabel;
+	@FindBy(xpath="//*[@class='customer']/li[contains(.,'Passport No :')]") WebElement passportNumLabel;
+	@FindBy(xpath="//*[@class='customer']/li[contains(.,'Passport Expiry :')]") WebElement passportExpiryLabel;
+	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")WebElement paymentStatusPLaterLabel;
+	public WebElement getTravellerDetails() {
+		return travellerDetails;
+	}
+	public WebElement getNameTravellerLabel() {
+		return nameTravellerLabel;
+	}
+	public WebElement getPassportNumLabel() {
+		return passportNumLabel;
+	}
+	public WebElement getPassportExpiryLabel() {
+		return passportExpiryLabel;
+	}
+	public WebElement getPaymentStatusPLaterLabel() {
+		return paymentStatusPLaterLabel;
+	}
 	public void validationStatusLater() {
+		String nombre = getNameTravellerLabel().getText().substring(8);
+		String passportNum = getPassportNumLabel().getText().substring(12);
+		String passportExpiry = getPassportExpiryLabel().getText().substring(16);
+
 		System.out.println("BOOKING INVOICE UNPAID");
-		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
-			System.out.println(paymentStatusPLaterLabel.getText());
-			System.out.println(travellerDetails.getText());
-			System.out.println(emailLabel.getText());
+		if (getPaymentStatusPLaterLabel().getText().contains("Pay Later")) {
+			System.out.println("PASSED: Payment status is correct");
+			System.out.println(getPaymentStatusPLaterLabel().getText());
 		} else {
 			Assert.fail("FAILED");
+		} 
+		if ((getTravellerDetails().getText().contains(nombre)) & (getTravellerDetails().getText().contains(passportExpiry)) & (getTravellerDetails().getText().contains(passportNum))) {
+			System.out.println("PASSED: Traveller information is correct");
+			System.out.println(getTravellerDetails().getText());
+		}else {
+			Assert.fail("FAILED: Traveller information doesn't match" );
 		}
 	}
 
 	// Proceed Button
+	@FindBy(id = "form")WebElement proceedPayBtn;
+
 	public WebElement getPrceedPayBtn() {
 		return proceedPayBtn;
 	}
@@ -145,23 +198,17 @@ public class PTBookingInvoicePage {
 	}
 
 	/// -------- PRINT STATUS CONFIRMED LABEL FROM BOOKING - IRIS
-	@FindBy(xpath = "//div[@class='infobox infobox-success']")
-	WebElement bookingStatusConfirmed;
-
-	private WebElement getBookingStatusConfirmed() {
-		return bookingStatusConfirmed;
-	}
-
 	public void PrintBookingStatusConfirmed() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		getBookingStatusConfirmed().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(.,'agent@phptravels.com')]")));
+		System.out.println("BOOKING INVOICE PAID");
+		if (emailLabelAgent.getText().contentEquals("Email: agent@phptravels.com")) {
+			 System.out.println(paymentStatusPaidLabel.getText());
+		} else {
+			Assert.fail("FAILED: The payment was no successfull");
 		}
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-success']")));
-		System.out.println(getBookingStatusConfirmed().getText());
 	}
 	/// --- PRINT LABELS DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME,
 	/// EMAIL,

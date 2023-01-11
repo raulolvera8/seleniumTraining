@@ -9,7 +9,7 @@ import library.Driver;
 import library.utilities;
 import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
-import phptravelsPageObjectRepository.PTCustomerPageObject;
+//import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTFlightSearchResultsPage;
 import phptravelsPageObjectRepository.PTFlightsPage;
 import phptravelsPageObjectRepository.PTHomePage;
@@ -41,43 +41,44 @@ public class scriptFlights extends Driver {
 		utils.ScrollDown( driver, "0", "200");
 		
 		//CLICK ACCOUNT BUTTON
-		homePage.clickBtnAccount();
+		homePage.clickAccountBtn();
 		//SELECT AND CLICK THE ROLE
-		homePage.clickCustomerLoginbtn();
+		homePage.clickCustomerLoginBtn();
 		
 		//WRITE THE EMAIL AND PASSWORD
 		//EMAIL
-		loginPage.fillEmail("user@phptravels.com");
+		loginPage.fillEmailTb("juan.ramirez@itstarksolutions.com");
 		//PASSWORD
-		loginPage.fillPassword("demouser");
+		loginPage.fillPasswordTb("demouser");
 		//ACCEPT COOKIES
 		loginPage.clickGotItBtn();
 		//CLICK LOGIN BUTTON
-		loginPage.clickLogin();
+		loginPage.clickLoginCustomerBtn();
 		
 		//Click on Flights Button
 		selectFlight.clickFlightsbtn();
 		
 		//Select Country
-		flightPage.writeFlyingFromOneWay("LAHO");
+		flightPage.writeFlyingFromOneWayTb("LAHO");
 		// SELECT COUNTRY
-		flightPage.selectItemFlyingFromOneWay();
+		flightPage.selectItemFlyingFromOneWayDropDown();
 		
 		//Select Destination
-		flightPage.writeFlyingDestinationOneWay("DUBA");
+		flightPage.writeFlyingDestinationOneWayTb("DUBA");
 		// SELECT COUNTRY
-		flightPage.selectItemFlyingDestinationOneWay();
+		flightPage.selectItemFlyingDestinationOneWayDropDown();
 		// CLICK CALENDAR BOX
-		flightPage.selectDepartureDateBox();
+		flightPage.selectDepartureDateCalendarBox();
 		// CLICK  DAY CALENDAR
-		flightPage.clickDayDeparture();
+		flightPage.clickDayDepartureCalendar();
 		// CLICK  PASSENGER BOX
 		flightPage.clickPassengersBox();
 		//Click On Search Button
-		flightPage.clickSearchFlights();	
+		flightPage.clickSearchFlightsBtn();
 		//---FILL THE INFO
 		//flightResultPage.clickDirectSearch();	
 		//ClICK BOOK NOW BUTTON
+		flightResultPage.clickDirectSearchRadioBtn();
 		flightResultPage.clickSubmitBookNow();
 		//WRITE FIRST NAME
 		flightBookingPage.writefirstNametb("Juan");
@@ -86,57 +87,57 @@ public class scriptFlights extends Driver {
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver,"0","200");
 		// CLICK NATIONALITY BOX
-		flightBookingPage.selectDropDownNationality_1();
+		flightBookingPage.clickNationalityDropdown();
 		// CLICK NATIONALITY VALUE
-		flightBookingPage.selectValueNationality_1();
+		flightBookingPage.clickValueNationality_1DropDown();
 		// CLICK MONTH BOX
-		flightBookingPage.selectDropDownMonth();
+		flightBookingPage.clickMonthDropDown();
 		// CLICK MONTH VALUE 
-		flightBookingPage.selectDateOfBirth();
+		flightBookingPage.clickValueDateOfBirthDropDown();
 		// CLICK DAY BOX
-		flightBookingPage.selectDropDownDay();
+		flightBookingPage.clickDayDropDown();
 		// CLICK DAY VALUE
-		flightBookingPage.selectDay();
+		flightBookingPage.clickValueDayDropDown();
 		// CLICK YEAR BOX
-		flightBookingPage.selectDropDownYear();
+		flightBookingPage.clickYearDropDown();
 		// CLICK YEAR VALUE
-		flightBookingPage.selectYear();
+		flightBookingPage.clickValueYearDropDown();
 		//WRITE ID PASSPORT
-		flightBookingPage.writePassport("0909090JR887");
+		flightBookingPage.writePassportTb("0909090JR887");
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver,"0","700");
 		// CLICK MONTH BOX
-		flightBookingPage.selectPassportMonth();
+		flightBookingPage.clickPassportMonthDropDown();
 		// CLICK MONTH VALUE 
-		flightBookingPage.itemPassportMonth();
+		flightBookingPage.clickValuePassportMonthDropDown();
 		// CLICK DAY BOX 
-		flightBookingPage.selectPassportDay();
+		flightBookingPage.clickPassportDayDropDown();
 		// CLICK DAY VALUE 
-		flightBookingPage.itemPassportDay();
+		flightBookingPage.clickValuePassportDayDropDown();
 		// CLICK YEAR BOX 
-		flightBookingPage.selectPassportYear();
+		flightBookingPage.clickPassportYearDropDown();
 		// CLICK YEAR VALUE 
-		flightBookingPage.itemPassportYear();
+		flightBookingPage.clickValuePassportYearDropDown();
 		// CLICK MONTH BOX
-		flightBookingPage.selectExpiryMonth();
+		flightBookingPage.clickExpiryMonthDropDown();
 		// CLICK MONTH VALUE 
-		flightBookingPage.itemExpiryMonth();
+		flightBookingPage.clickValueMonthDropDown();
 		// CLICK DAY BOX 
-		flightBookingPage.selectExpiryDay();
+		flightBookingPage.clickExpiryDayDropDown();
 		// CLICK DAY VALUE 
-		flightBookingPage.itemExpiryDay();
+		flightBookingPage.clickValueExpiryDayDropDown();
 		// CLICK YEAR BOX 
-		flightBookingPage.selectExpiryYear();
+		flightBookingPage.clickExpiryYearDropDown();
 		// CLICK YEAR VALUE 
-		flightBookingPage.itemExpiryYear();
+		flightBookingPage.clickValueExpiryYearDropDown();
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver,"0","600");
 		// CLICK PAY LATER RADIO BUTTON 
-		flightBookingPage.selectPayLaterRadioBtn();
+		flightBookingPage.clickPayLaterRadioBtn();
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver,"0","1000");
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
-		flightBookingPage.selectCheckBoxTerms();
+		flightBookingPage.clickTermsConditionsCheckBox();
 		// CLICK CONFIRMED FLIGHT BUTTON
 		flightBookingPage.clickBookingBtn();
 		// PRINT VALIDATION STATUS

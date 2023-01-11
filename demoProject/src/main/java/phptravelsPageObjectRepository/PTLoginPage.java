@@ -105,15 +105,15 @@ public class PTLoginPage {
 		return logInBtn;
 	}
 
-	public void fillEmail(String email) {
+	public void fillEmailTb(String email) {
 		getEmailTb().sendKeys(email);
 	}
 
-	public void fillPassword(String password) {
+	public void fillPasswordTb(String password) {
 		getPasswordTb().sendKeys(password);
 	}
 
-	public void clickLogin() {
+	public void clickLoginCustomerBtn() {
 		getLogInBtn().click();
 	
 	}

@@ -124,10 +124,8 @@ public class PTPayWithCardPage {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type = 'submit']")));
 
-		getPagarButtonWithCardInfo().click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")));
-
 		System.out.println("Clicking Pagar button ...");
+		getPagarButtonWithCardInfo().click();
+
 	}	
 }

@@ -43,19 +43,19 @@ public class hotelsCustomer extends Driver{
 
 		// ----- PHPTRAVELS HOME PAGE WINDOW -----
 		// CLICK ACCOUNT BUTTON
-		home.clickBtnAccount();
+		home.clickAccountBtn();
 		// SELECT ROLE
-		home.clickCustomerLoginbtn();
+		home.clickCustomerLoginBtn();
 		// ----- LOGIN WINDOW ----- 
 		// TYPE CREDENTIALS
 		// EMAIL
-		login.fillEmail("user@phptravels.com");
+		login.fillEmailTb("user@phptravels.com");//user@phptravels.com
 		// PASSWORD
-		login.fillPassword("demouser");
+		login.fillPasswordTb("demouser");//
 		// ACCEPT COOKIES
 		login.clickGotItBtn();
 		// CLICK LOGIN BUTTON
-		login.clickLogin();
+		login.clickLoginCustomerBtn();
 		// ----- CUSTOMER HOME PAGE WINDOW -----
 		// CLICK HOTEL TAB
 		tabHotel.clickHotelsBtn();
@@ -77,9 +77,9 @@ public class hotelsCustomer extends Driver{
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "300");
 		// CLICK TITLE BOX
-		form.selectDropDowntitle();
+		form.clickTitleDropDown();
 		// CLICK TITLE VALUE 
-		form.selectValueTitle();
+		form.clickValueTitleDropDown();
 		// TYPE FIRST NAME
 		form.writefirstNametb("Diana");
 		// TYPE LAST NAME
@@ -87,9 +87,9 @@ public class hotelsCustomer extends Driver{
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "1200");
 		// CLICK PAY WITH STRIPE  RADIO BUTTON 
-		form.selectPayStripeRadioBtn();
+		form.clickPayStripeRadioBtn();
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
-		form.selectCheckBoxTerms();
+		form.clickTermsConditionsCheckBox();
 		// CLICK CONFIRMED RESERVATION HOTEL BUTTON
 		form.clickBookingBtn();
 		// PRINT  STATUS	

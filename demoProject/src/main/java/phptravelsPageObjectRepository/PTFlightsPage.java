@@ -52,7 +52,7 @@ public class PTFlightsPage extends Driver {
 		return flyingFromOneWay;
 	}
 
-	public void writeFlyingFromOneWay(String fromCountry) {
+	public void writeFlyingFromOneWayTb(String fromCountry) {
 		getFlyingFromOneWay().sendKeys(fromCountry);
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
@@ -61,7 +61,7 @@ public class PTFlightsPage extends Driver {
 	}
 
 	
-	  public void selectItemFlyingFromOneWay() { List<WebElement>
+	  public void selectItemFlyingFromOneWayDropDown() { List<WebElement>
 	  listFlyingFromOneWay = driver.findElements( By.
 	  xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"
 	  )); listFlyingFromOneWay.get(0).click(); }
@@ -72,7 +72,7 @@ public class PTFlightsPage extends Driver {
 		return flyingDestination;
 	}
 
-	public void writeFlyingDestinationOneWay(String destinationCountry) {
+	public void writeFlyingDestinationOneWayTb(String destinationCountry) {
 		getFlyingDestinationOneWay().sendKeys(destinationCountry);
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
@@ -80,7 +80,7 @@ public class PTFlightsPage extends Driver {
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 	}
 
-	public void selectItemFlyingDestinationOneWay() {
+	public void selectItemFlyingDestinationOneWayDropDown() {
 		List<WebElement> listFlyingDestinationOneWay = driver.findElements(
 				By.xpath("//*[@class='autocomplete-wrapper _1 row_2']//div[@class='autocomplete-result']"));
 		listFlyingDestinationOneWay.get(0).click();
@@ -91,7 +91,7 @@ public class PTFlightsPage extends Driver {
 		return departureDateBox;
 	}
 
-	public void selectDepartureDateBox() {
+	public void selectDepartureDateCalendarBox() {
 		getDepartureDateBox().click();
 	}
 
@@ -99,7 +99,7 @@ public class PTFlightsPage extends Driver {
 		return dayDeparture;
 	}
 
-	public void clickDayDeparture() {
+	public void clickDayDepartureCalendar() {
 		getDayDeparture().click();
 	}
 //---- PASSENGERS BOX
@@ -122,7 +122,7 @@ public class PTFlightsPage extends Driver {
 		return search;
 	}
 
-	public void clickSearchFlights() {
+	public void clickSearchFlightsBtn() {
 		getflightsSearchBtn().click();
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(80))

@@ -45,13 +45,14 @@ public class scriptTour extends Driver {
 		utils.ScrollDown( driver, "0", "200");
 		
 		
-		homePage.clickBtnAccount();
-		homePage.clickCustomerLoginbtn();
+		homePage.clickAccountBtn();
+		homePage.clickCustomerLoginBtn();
 		
 		//LOGIN 
-		loginPage.fillEmail("user@phptravels.com");
-		loginPage.fillPassword("demouser");
-		loginPage.clickLogin();
+		loginPage.fillEmailTb("user@phptravels.com");
+		loginPage.fillPasswordTb("demouser");
+		loginPage.clickGotItBtn();
+		loginPage.clickLoginCustomerBtn();
 		
 		//ENTER TOURS
 		tourMenuPage.clickToursBtn();
