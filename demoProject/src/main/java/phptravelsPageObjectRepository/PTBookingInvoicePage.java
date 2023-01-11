@@ -32,15 +32,21 @@ public class PTBookingInvoicePage {
 
 	// ------ VALIATION BOOKING UNPAID STATUS HOTEL ------
 	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")WebElement paymentStatusStripeLabel;
+	@FindBy(xpath="//*[@class='col-md-3 pt-1 text-center']//h4") WebElement priceUnpaidLabel;
+	public WebElement getPriceUnpaidLabel() {
+		return priceUnpaidLabel;
+	}
+	public String readPriceUnpaid() {
+		String priceUnpaid=getPriceUnpaidLabel().getText();
+		return priceUnpaid;
+	}
 	public WebElement getpaymentStatusStripeLabel() {
 		return paymentStatusStripeLabel;
 	}
-	@FindBy(xpath = "//*[@class='row my-2']/div")
-	WebElement bookingInvoiceDetails;
+	@FindBy(xpath = "//*[@class='row my-2']/div") WebElement bookingInvoiceDetails;
 
 	
-	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
-	WebElement emailLabelAgent;
+	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]") WebElement emailLabelAgent;
 	
 
 	// -- VALIATION BOOKING UNPAID STATUS HOTEL
