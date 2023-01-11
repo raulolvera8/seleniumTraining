@@ -5,6 +5,7 @@
     <classes>
       <class name="Juan.scriptFlights">
         <methods>
+          <include name="teardown"/>
           <include name="CustomerPage"/>
           <include name="setup"/>
         </methods>

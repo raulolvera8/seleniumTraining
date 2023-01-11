@@ -16,6 +16,8 @@ import phptravelsPageObjectRepository.PTMenuPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 import phptravelsPageObjectRepository.PTTourBookingPage;
+import phptravelsPageObjectRepository.PTTourDetails;
+import phptravelsPageObjectRepository.PTToursInDubai;
 import phptravelsPageObjectRepository.PTToursPage;
 
 public class scriptTour extends Driver {
@@ -33,6 +35,8 @@ public class scriptTour extends Driver {
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTMenuPage tourMenuPage = new PTMenuPage(driver);
 		PTToursPage tourPage = new PTToursPage(driver);
+		PTToursInDubai tourDubai = new PTToursInDubai(driver);
+		PTTourDetails tourDetails = new PTTourDetails(driver);
 		PTTourBookingPage bookingPage = new PTTourBookingPage(driver);
 		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
 		PTPaymentWithStripePage paymentStripePage= new PTPaymentWithStripePage(driver);
@@ -53,20 +57,22 @@ public class scriptTour extends Driver {
 		tourMenuPage.clickToursBtn();
 		tourPage.clickDestination();
 		tourPage.writeCountry("dubai");
-		//tourPage.selectItemFromTour();
+		tourPage.selectItemFromTour();
 		tourPage.clickSubmit();
-		tourPage.clickDetails();
+		
+		
+		tourDubai.clickDetails();
 		
 		//SELECT DATE
-		tourPage.clickDateTour();
-		tourPage.clickDateSelect();
-		tourPage.clickAdults();
-		tourPage.clickAdultsNumber();
-		tourPage.clickChilds();
-		tourPage.clickChildsNumber();
-		tourPage.clickInfants();
-		tourPage.clickInfantsNumber();
-		tourPage.clickBookNowDate();
+		tourDetails.clickDateTour();
+		tourDetails.clickDateSelect();
+		tourDetails.clickAdults();
+		tourDetails.clickAdultsNumber();
+		tourDetails.clickChilds();
+		tourDetails.clickChildsNumber();
+		tourDetails.clickInfants();
+		tourDetails.clickInfantsNumber();
+		tourDetails.clickBookNowDate();
 		
 		//TRAVELLERS INFO
 		//TRAVELLER 1
@@ -96,8 +102,8 @@ public class scriptTour extends Driver {
 		bookingInvoicePage.validationStatusStripe();
 		
 		//PAYMENT SECTION
-		tourPage.printValidationPay();
-		tourPage.clickPayNowBtn();
+		//tourPage.printValidationPay();
+		//tourPage.clickPayNowBtn();
 		
 		//PAYMENT INFORMATION
 		bookingInvoicePage.printValidationInformation();

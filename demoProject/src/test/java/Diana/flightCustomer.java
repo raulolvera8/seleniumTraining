@@ -114,7 +114,7 @@ public void travels() throws InterruptedException {
 	form.selectPassportMonth();
 	// CLICK MONTH VALUE 
 	form.itemPassportMonth();
-	// CLICK DAY BOX 
+	// CLICK DAY BOX
 	form.selectPassportDay();
 	// CLICK DAY VALUE 
 	form.itemPassportDay();
