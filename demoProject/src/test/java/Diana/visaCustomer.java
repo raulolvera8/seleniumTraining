@@ -39,9 +39,9 @@ public class visaCustomer extends Driver {
 		// ----- LOGIN WINDOW ----- 
 		// TYPE CREDENTIALS
 		// EMAIL
-		login.fillEmailTb("user@phptravels.com");
+		login.fillEmailTb("diana@itstark");//user@phptravels.com
 		// PASSWORD
-		login.fillPasswordTb("demouser");
+		login.fillPasswordTb("itstark");//demouser
 		// ACCEPT COOKIES
 		login.clickGotItBtn();
 		// CLICK LOGIN BUTTON

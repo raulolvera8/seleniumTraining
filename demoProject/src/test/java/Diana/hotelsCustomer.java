@@ -49,9 +49,9 @@ public class hotelsCustomer extends Driver{
 		// ----- LOGIN WINDOW ----- 
 		// TYPE CREDENTIALS
 		// EMAIL
-		login.fillEmailTb("user@phptravels.com");
+		login.fillEmailTb("user@phptravels.com");//user@phptravels.com
 		// PASSWORD
-		login.fillPasswordTb("demouser");
+		login.fillPasswordTb("demouser");//
 		// ACCEPT COOKIES
 		login.clickGotItBtn();
 		// CLICK LOGIN BUTTON
