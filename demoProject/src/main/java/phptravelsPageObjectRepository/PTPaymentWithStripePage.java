@@ -1,7 +1,6 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -23,6 +22,7 @@ public class PTPaymentWithStripePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
 	utilities utils = new utilities(driver);
 
 	/// -------- VERIFY PAY WITH STRIPE USD XX.XX (LABEL) -------- IRIS
@@ -38,9 +38,6 @@ public class PTPaymentWithStripePage {
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
 		getLabelAmount().isDisplayed();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//small")));
 
@@ -62,7 +59,7 @@ public class PTPaymentWithStripePage {
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//a[contains (text(), 'Pay Now') and @type='button']")));
 		getPayNowAmount().click();
-	
+		System.out.println("Clicking Pay Now button");
 
 	}
 

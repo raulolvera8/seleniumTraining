@@ -47,7 +47,7 @@ public class script2 extends Driver {
 		// ========================= SIGN IN PAGE ====================================
 
 		// CLICK BUTTON SELECT TYPE ACCOUNT
-		signInPage.clickBtnAccount();
+		signInPage.clickAccountBtn();
 
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
@@ -67,20 +67,20 @@ public class script2 extends Driver {
 		menuPage.clickbtnFlights();
 
 		// ENTER CITY FLYING FROM
-		searchFlightPage.writeFlyingFromOneWay("LHE");
+		searchFlightPage.writeFlyingFromOneWayTb("LHE");
 
 		// CLICK FIRST OPTION
-		searchFlightPage.selectItemFlyingFromOneWay();
+		searchFlightPage.selectItemFlyingFromOneWayDropDown();
 
 		// ENTER CITY TO DESTINATION
-		searchFlightPage.writeFlyingDestinationOneWay("DXB");
+		searchFlightPage.writeFlyingDestinationOneWayTb("DXB");
 
 		// CLICK SECOND OPTION
-		searchFlightPage.selectItemFlyingDestinationOneWay();
+		searchFlightPage.selectItemFlyingDestinationOneWayDropDown();
 
 		// CLICK DATE FLY INPUT FOR TO SEE OPTIONS
-		searchFlightPage.selectDepartureDateBox();
-		searchFlightPage.clickDayDeparture();
+		searchFlightPage.selectDepartureDateCalendarBox();
+		searchFlightPage.clickDayDepartureCalendar();
 
 		// CLICK TO SEE OPTIONS FROM PASSANGERS
 		searchFlightPage.clickPassengersBox();
@@ -89,18 +89,14 @@ public class script2 extends Driver {
 		searchFlightPage.PrintNumberPassangers();
 
 		// SEARCH FLIGHTS BUTTON
-		searchFlightPage.clickSearchFlights();
+		searchFlightPage.clickSearchFlightsBtn();
 
 		// ========== TOTAL FLIGHTS WINDOW ==========
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
-		flightsPage.clickFirstFlight();
+		flightsPage.clickFirstFlightBtn();
 
 
 		// ======== ENTER TRAVELLERS INFORMATION =======
-		// NATIONALITY FROM ACCOUNT DETAILS
-		//travellerFormPage.clickDropdownNationality();
-		//travellerFormPage.selectValueNationality();
-
 		// FIRST NAME
 		travellerFormPage.writefirstNametb("Barry");
 
@@ -111,70 +107,70 @@ public class script2 extends Driver {
 		utils.ScrollDown(driver, "0", "300");
 
 		// NATIONALITY FROM TRAVELLER DETAILS
-		travellerFormPage.selectDropDownNationality_1();
-		travellerFormPage.selectValueNationality_1();
+		travellerFormPage.clickNationality_1DropDown();
+		travellerFormPage.clickValueNationality_1DropDown();
 
 		// DATE OF BIRTH
 		// MONTH
-		travellerFormPage.selectDropDownMonth();
-		travellerFormPage.selectDateOfBirth();
+		travellerFormPage.clickMonthDropDown();
+		travellerFormPage.clickValueDateOfBirthDropDown();
 
 		// DAY
-		travellerFormPage.selectDropDownDay();
-		travellerFormPage.selectDay();
+		travellerFormPage.clickDayDropDown();
+		travellerFormPage.clickValueDayDropDown();
 
 		// YEAR
-		travellerFormPage.selectDropDownYear();
-		travellerFormPage.selectYear();
+		travellerFormPage.clickYearDropDown();
+		travellerFormPage.clickValueYearDropDown();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "700");
 
 		// ================ PASSPORT INFORMATION ==================
 		// PASSPORT ID
-		travellerFormPage.writePassport("C03005988");
+		travellerFormPage.writePassportTb("C03005988");
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "400");
 
 		// ================ PASSPORT ISSUANCE INFORMATION ==================
 		// PASSPORT ISSUANCE MONTH
-		travellerFormPage.selectPassportMonth();
-		travellerFormPage.itemPassportMonth();
+		travellerFormPage.clickPassportMonthDropDown();
+		travellerFormPage.clickValuePassportMonthDropDown();
 
 		// PASSPORT ISSUANCE DAY
-		travellerFormPage.selectPassportDay();
-		travellerFormPage.itemPassportDay();
+		travellerFormPage.clickPassportDayDropDown();
+		travellerFormPage.clickValuePassportDayDropDown();
 
 		// PASSPORT ISSUANCE YEAR
-		travellerFormPage.selectPassportYear();
-		travellerFormPage.itemPassportYear();
+		travellerFormPage.clickPassportYearDropDown();
+		travellerFormPage.clickValuePassportYearDropDown();
 
 		// ================ PASSPORT EXPIRY INFORMATION ==================
 		// PASSPORT EXPIRY MONTH
-		travellerFormPage.selectExpiryMonth();
-		travellerFormPage.itemExpiryMonth();
+		travellerFormPage.clickExpiryMonthDropDown();
+		travellerFormPage.clickValueMonthDropDown();
 
 		// PASSPORT EXPIRY DAY
-		travellerFormPage.selectExpiryDay();
-		travellerFormPage.itemExpiryDay();
+		travellerFormPage.clickExpiryDayDropDown();
+		travellerFormPage.clickValueExpiryDayDropDown();
 
 		// PASSPORT EXPIRY YEAR
-		travellerFormPage.selectExpiryYear();
-		travellerFormPage.itemExpiryYear();
+		travellerFormPage.clickExpiryYearDropDown();
+		travellerFormPage.clickValueExpiryYearDropDown();
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "900");
 
 		// ================ PAYMENT METHOD INFORMATION ==================
 		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
-		travellerFormPage.selectPayStripeRadioBtn();
+		travellerFormPage.clickPayStripeRadioBtn();
 
 		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "1600");
+		utils.ScrollDown(driver, "0", "1700");
 		
 		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
-		travellerFormPage.selectCheckBoxTerms();
+		travellerFormPage.clickTermsConditionsCheckBox();
 
 		// CONFIRM BOOKING
 		travellerFormPage.clickBookingBtn();
@@ -231,7 +227,7 @@ public class script2 extends Driver {
 
 	@AfterClass
 	public void teardown() {
-		teardownDriver();
+		//teardownDriver();
 	}
 
 }
