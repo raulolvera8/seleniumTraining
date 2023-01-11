@@ -1,6 +1,7 @@
 package Diana;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,23 +19,23 @@ import phptravelsPageObjectRepository.PTMenuPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
-public class hotelsCustomer extends Driver{
+public class hotelsCustomer extends Driver {
 	WebDriver driver;
-	
+
 	@BeforeClass
 	public void setup() {
 		System.out.println("set up driver traavels");
-		this.driver=initFirefoxDriver();
+		this.driver = initFirefoxDriver();
 	}
 
 	@Test
 	public void travel() throws InterruptedException {
 		System.out.println("----Welcome to Hotels----");
-		PTHomePage home=new PTHomePage(driver);
+		PTHomePage home = new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
-		PTMenuPage tabHotel= new PTMenuPage(driver);
+		PTMenuPage tabHotel = new PTMenuPage(driver);
 		PTHotelHomePage hotelHomePage = new PTHotelHomePage(driver);
-		PTHotelDetailsPage hotelDetails =  new PTHotelDetailsPage(driver);
+		PTHotelDetailsPage hotelDetails = new PTHotelDetailsPage(driver);
 		PTBookingFormPage form = new PTBookingFormPage(driver);
 		PTBookingInvoicePage invoiceStatus = new PTBookingInvoicePage(driver);
 		PTPaymentWithStripePage stripeWindow = new PTPaymentWithStripePage(driver);
@@ -46,10 +47,10 @@ public class hotelsCustomer extends Driver{
 		home.clickAccountBtn();
 		// SELECT ROLE
 		home.clickCustomerLoginBtn();
-		// ----- LOGIN WINDOW ----- 
+		// ----- LOGIN WINDOW -----
 		// TYPE CREDENTIALS
 		// EMAIL
-		login.fillEmailTb("user@phptravels.com");//user@phptravels.com
+		login.fillEmailTb("user@phptravels.com");// user@phptravels.com
 		// PASSWORD
 		login.fillPasswordTb("demouser");//
 		// ACCEPT COOKIES
@@ -62,8 +63,13 @@ public class hotelsCustomer extends Driver{
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "400");
 		// CLICK FIRST HOTEL
-		hotelHomePage.clickhotelDiv();		
-		// ----- HOTEL DETAILS  WINDOW -------
+		// PRINT HOTEL NAME WILL SELECT
+				String hotelName = hotelHomePage.readNameHotelLabel();
+				System.out.println(hotelName);
+		hotelHomePage.clickHotelName();
+		
+		
+		// ----- HOTEL DETAILS WINDOW -------
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "600");
 		// CLICK NUMBER OF ROOMS BOX
@@ -78,7 +84,7 @@ public class hotelsCustomer extends Driver{
 		utils.ScrollDown(driver, "0", "300");
 		// CLICK TITLE BOX
 		form.clickTitleDropDown();
-		// CLICK TITLE VALUE 
+		// CLICK TITLE VALUE
 		form.clickValueTitleDropDown();
 		// TYPE FIRST NAME
 		form.writefirstNametb("Diana");
@@ -86,34 +92,69 @@ public class hotelsCustomer extends Driver{
 		form.writelastNametb("Velasquez");
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver, "0", "1200");
-		// CLICK PAY WITH STRIPE  RADIO BUTTON 
+		// CLICK PAY WITH STRIPE RADIO BUTTON
 		form.clickPayStripeRadioBtn();
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
 		form.clickTermsConditionsCheckBox();
 		// CLICK CONFIRMED RESERVATION HOTEL BUTTON
 		form.clickBookingBtn();
-		// PRINT  STATUS	
+		// PRINT STATUS
 		invoiceStatus.validationStatusStripe();
+		// SAVE TOTAL PRICE VARIABLE
+		String totalPriceInProcess = invoiceStatus.readTotalPricePaidLabel();
+		System.out.println("PAGO EN PROCESO DE AUTORIZAR: " + totalPriceInProcess);
+		// SAVE HOTEL NAME VARIABLE
+		String hotelNameInProcess = invoiceStatus.readHotelNameLabel();
+		System.out.println("HOTEL EN PROCESO DE AUTORIZAR: " + hotelNameInProcess);
+		// SAVE CHECK IN CHECK OUT DATES
+		String checkOutInProcess = invoiceStatus.readCheckOutIn();
+		System.out.println("FECHAS EN PROCESO DE AUTORIZAR: " + checkOutInProcess);
+
 		// CLICK PROCEED TO PAY BUTTON
 		invoiceStatus.clickProceedPayBtn();
-		// ----- STRIPE  WINDOW ----
+		// ----- STRIPE WINDOW ----
 		// VERIFY LABEL AMOUNT
 		stripeWindow.VerifylabelAmount();
 		// CLICK PAY NOW AMOUNT BUTTON
 		stripeWindow.PayNowWithAmount();
-		// ----- PA WINDOW ----
+		// ----- PAY WINDOW ----
 		payCard.clickCancelPopUpBtn();
 		payCard.CardNumberInput("4242424242424242");
 		payCard.CardExpiryInput("1024");
 		payCard.CardCVCInput("123");
 		payCard.NameCardInput("Diana Velasquez");
 		payCard.clickPagarButtonWithInfoCard();
-		//driver.switchTo().alert().accept();
-		//driver.switchTo().alert().dismiss();
-		invoiceStatus.validationStatusPaid();
+		
+		// SAVE TOTAL PRICE VARIABLE
+		String totalPricePaid = invoiceStatus.readTotalPricePaidLabel();
+		// SAVE HOTEL NAME VARIABLE
+		String hotelNameLabel = invoiceStatus.readHotelNameLabel();
+		// SAVE CHECK IN CHECK OUT DATES
+		String checkOutInLabel = invoiceStatus.readCheckOutIn();
+		if (totalPricePaid.contentEquals(totalPriceInProcess)) {
+			System.out.println("PASSED:\n AUTORIZADO : " + totalPricePaid);
+		} else {
+			Assert.fail("FAILED: PAGO INCORRECTO");
+		}
+		if (hotelNameLabel.contentEquals(hotelNameInProcess)) {
+			System.out.println("PASSED:\n HOTEL AUTORIZADO: " + hotelNameLabel);
+
+		} else {
+			Assert.fail("FAILED: NOMBRE HOTEL INCORRECTO");
+		}
+		if (checkOutInLabel.contentEquals(checkOutInProcess)) {
+			System.out.println("PASSED:\n FECHAS AUTORIZADAS " + checkOutInLabel);
+
+		} else {
+			Assert.fail("FAILED: FECHAS INCORRECTAS");
+		}
+		// BOOKING INVOICE VALIDATION
+				invoiceStatus.validationStatusPaid();
+
 	}
+
 	@AfterClass
 	public void teardown() {
-		
+		teardownDriver();
 	}
 }

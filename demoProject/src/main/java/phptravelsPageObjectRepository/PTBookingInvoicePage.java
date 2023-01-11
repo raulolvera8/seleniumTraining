@@ -23,51 +23,69 @@ public class PTBookingInvoicePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
 	PTBookingFormPage form = new PTBookingFormPage(driver);
 	utilities utils = new utilities(driver);
 
 	// ---- Booking status
-	
-	@FindBy(xpath = "//li[contains(.,'user@phptravels.com')]")WebElement emailLabel;
-
+	@FindBy(xpath = "//li[contains(.,'user@phptravels.com')]")
+	WebElement emailLabel;
 	// ------ VALIATION BOOKING UNPAID STATUS HOTEL ------
-	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")WebElement paymentStatusStripeLabel;
-	@FindBy(xpath="//*[@class='col-md-3 pt-1 text-center']//h4") WebElement priceUnpaidLabel;
+	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")
+	WebElement paymentStatusStripeLabel;
+	@FindBy(xpath = "//*[@class='py-0 card-text'][contains(.,'Checkin')]")
+	WebElement checkInOutLabel;
+	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Total Price')]")
+	WebElement totalPriceLabel;
+	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Room Type')]")
+	WebElement hotelNameLabel;
+
+	public WebElement getHotelNameLabel() {
+		return hotelNameLabel;
+	}
+
+	public String readHotelNameLabel() {
+		String hotelNameLabel = getHotelNameLabel().getText();
+		return hotelNameLabel;
+	}
+
 	public WebElement getPriceUnpaidLabel() {
-		return priceUnpaidLabel;
+		return totalPriceLabel;
 	}
-	public String readPriceUnpaid() {
-		String priceUnpaid=getPriceUnpaidLabel().getText();
-		return priceUnpaid;
+
+	public String readTotalPriceUnpaidLabel() {
+		String totalPriceUnpaidLabel = getPriceUnpaidLabel().getText();
+		return totalPriceUnpaidLabel;
 	}
+
+	public WebElement getCheckInOutLabel() {
+		return checkInOutLabel;
+	}
+
+	public String readCheckOutIn() {
+		String checkOutInLabel = getCheckInOutLabel().getText();
+		return checkOutInLabel;
+	}
+
 	public WebElement getpaymentStatusStripeLabel() {
 		return paymentStatusStripeLabel;
 	}
-	@FindBy(xpath = "//*[@class='row my-2']/div") WebElement bookingInvoiceDetails;
-
-	
-	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]") WebElement emailLabelAgent;
-	
 
 	// -- VALIATION BOOKING UNPAID STATUS HOTEL
 	public void validationStatusStripe() {
 		if (getpaymentStatusStripeLabel().getText().contains("Stripe")) {
 			System.out.println("FIRST VALIDATION  PASSED");
 			System.out.println(getpaymentStatusStripeLabel().getText());
+			
 		} else {
 			Assert.fail("FIRST VALIDATION FAILED");
 		}
 	}
 
 	// ------ VALIATION BOOKING CONFIRMED STATUS HOTEL ------
-	@FindBy (xpath ="//*[@class='py-0 card-text'][contains(.,'Checkin')]") WebElement checkInOutLabel;
-	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")WebElement paymentStatusPaidLabel;
-	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Total Price')]") WebElement totalPriceLabel;
-	@FindBy (xpath="//*[@class='card-title m-0']") WebElement nameHotelLabel;
-	public WebElement getCheckInOutLabel() {
-		return checkInOutLabel;
-	}
-	
+	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")
+	WebElement paymentStatusPaidLabel;
+
 	public WebElement getPaymentStatusPaidLabel() {
 		return paymentStatusPaidLabel;
 	}
@@ -75,59 +93,61 @@ public class PTBookingInvoicePage {
 	public WebElement getTotalPriceLabel() {
 		return totalPriceLabel;
 	}
-	
-	public WebElement getNameHotelLabel() {
-		return  nameHotelLabel;
+
+	public String readTotalPricePaidLabel() {
+		String totalPricePaidLabel = getTotalPriceLabel().getText();
+		return totalPricePaidLabel;
 	}
 
 	public void validationStatusPaid() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait.until(ExpectedConditions.visibilityOf(paymentStatusPaidLabel));
+
 		if (paymentStatusPaidLabel.getText().contains("Paid")) {
-			System.out.println("FIRST VALIDATION PASSED");
-			 System.out.println(getPaymentStatusPaidLabel().getText());
-			 /*
-			*/
+			System.out.println(getPaymentStatusPaidLabel().getText());
 		} else {
 			Assert.fail("FAILED: Invoice status doesn't match");
-		}		
-		if ((getNameHotelLabel().getText().contentEquals("Islamabad Marriott Hotel")) ) {
-			System.out.println("PASSED: Hotel's information is correct");
-			System.out.println(getNameHotelLabel().getText());
-			System.out.println(getCheckInOutLabel().getText());
-		} 
-		else {
-			Assert.fail("FAILED: Hotel's information is incorrect");
-
-		}
-		if (getTotalPriceLabel().getText().contentEquals("Total Price: USD 231.00")) {
-			 System.out.println(getTotalPriceLabel().getText());
-
-		}else {
-			Assert.fail("FAILED: Total price is incorrect");
-
 		}
 	}
+
 	// ------ VALIATION BOOKING STATUS FLIGHT ------
-	@FindBy(xpath = "//*[@class='card mt-2 mb-3']") WebElement travellerDetails;
-	@FindBy(xpath="//*[@class='customer']/li[contains(.,'Guest')]") WebElement nameTravellerLabel;
-	@FindBy(xpath="//*[@class='customer']/li[contains(.,'Passport No :')]") WebElement passportNumLabel;
-	@FindBy(xpath="//*[@class='customer']/li[contains(.,'Passport Expiry :')]") WebElement passportExpiryLabel;
-	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")WebElement paymentStatusPLaterLabel;
+	@FindBy(xpath = "//*[@class='card mt-2 mb-3']")
+	WebElement travellerDetails;
+	@FindBy(xpath = "//*[@class='customer']/li[contains(.,'Guest')]")
+	WebElement nameTravellerLabel;
+	@FindBy(xpath = "//*[@class='customer']/li[contains(.,'Passport No :')]")
+	WebElement passportNumLabel;
+	@FindBy(xpath = "//*[@class='customer']/li[contains(.,'Passport Expiry :')]")
+	WebElement passportExpiryLabel;
+	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")
+	WebElement paymentStatusPLaterLabel;
+
 	public WebElement getTravellerDetails() {
 		return travellerDetails;
 	}
+
 	public WebElement getNameTravellerLabel() {
 		return nameTravellerLabel;
 	}
+
 	public WebElement getPassportNumLabel() {
 		return passportNumLabel;
 	}
+
 	public WebElement getPassportExpiryLabel() {
 		return passportExpiryLabel;
 	}
+
 	public WebElement getPaymentStatusPLaterLabel() {
 		return paymentStatusPLaterLabel;
 	}
+
 	public void validationStatusLater() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait.until(ExpectedConditions.visibilityOf(paymentStatusPLaterLabel));
+		
 		String nombre = getNameTravellerLabel().getText().substring(8);
 		String passportNum = getPassportNumLabel().getText().substring(12);
 		String passportExpiry = getPassportExpiryLabel().getText().substring(16);
@@ -138,28 +158,32 @@ public class PTBookingInvoicePage {
 			System.out.println(getPaymentStatusPLaterLabel().getText());
 		} else {
 			Assert.fail("FAILED");
-		} 
-		if ((getTravellerDetails().getText().contains(nombre)) & (getTravellerDetails().getText().contains(passportExpiry)) & (getTravellerDetails().getText().contains(passportNum))) {
+		}
+		if ((getTravellerDetails().getText().contains(nombre))
+				& (getTravellerDetails().getText().contains(passportExpiry))
+				& (getTravellerDetails().getText().contains(passportNum))) {
 			System.out.println("PASSED: Traveller information is correct");
 			System.out.println(getTravellerDetails().getText());
-		}else {
-			Assert.fail("FAILED: Traveller information doesn't match" );
+		} else {
+			Assert.fail("FAILED: Traveller information doesn't match");
 		}
 	}
 
 	// Proceed Button
-	@FindBy(id = "form")WebElement proceedPayBtn;
+	@FindBy(id = "form")
+	WebElement proceedPayBtn;
 
 	public WebElement getPrceedPayBtn() {
 		return proceedPayBtn;
 	}
+	
 
 	public void clickProceedPayBtn() {
-		
+
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
-	
+
 		getPrceedPayBtn().click();
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
@@ -204,6 +228,9 @@ public class PTBookingInvoicePage {
 	}
 
 	/// -------- PRINT STATUS CONFIRMED LABEL FROM BOOKING - IRIS
+	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
+	WebElement emailLabelAgent;
+
 	public void PrintBookingStatusConfirmed() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -211,11 +238,12 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(.,'agent@phptravels.com')]")));
 		System.out.println("BOOKING INVOICE PAID");
 		if (emailLabelAgent.getText().contentEquals("Email: agent@phptravels.com")) {
-			 System.out.println(paymentStatusPaidLabel.getText());
+			System.out.println(paymentStatusPaidLabel.getText());
 		} else {
 			Assert.fail("FAILED: The payment was no successfull");
 		}
 	}
+
 	/// --- PRINT LABELS DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME,
 	/// EMAIL,
 	/// PHONE, ADDRESS) - IRIS
@@ -301,75 +329,79 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
 		System.out.println(getSecondDataTraveller().getText());
 	}
-	
-	//-----VISA VALIDATION  -------
-			@FindBy(xpath="//*[@class='card-body my-5 text-center']//h2") WebElement validationMsg;
-			public WebElement getValidationVisa(){
-				return validationMsg;
-			}
-			
-		
-			public void printVisaValidation() {
-				String validation=getValidationVisa().getText();
-				System.out.println("Demo: " + validation);
-				if (getValidationVisa().getText().contains("Your visa form has been submitted")) {
-					System.out.println(getValidationVisa().getText());
-				}else {
-					Assert.fail();
-				}
-			}
 
-	
-	
-	
-	
-	
-	/////////---------------VERIFY BOOKING DETAILS ---------------
-	///---JUAN
-	//VALIDATION INFORMATION DETAILS
-	@FindBy(xpath="//*[@class='list-group list-group-flush']") WebElement validationInfoDetails;
-	public WebElement getValidationInfoDetails(){
-		return validationInfoDetails;
+	// -----VISA VALIDATION -------
+	@FindBy(xpath = "//*[@class='card-body my-5 text-center']//h2")
+	WebElement validationMsg;
+
+	public WebElement getValidationVisa() {
+		return validationMsg;
 	}
-	
-	public void printValidationInformation() {
-		if (getValidationInfoDetails().getText().contains("Booking Details")) {
-			System.out.println(getValidationInfoDetails().getText());
-		}else {
+
+	public void printVisaValidation() {
+		String validation = getValidationVisa().getText();
+		System.out.println("Demo: " + validation);
+		if (getValidationVisa().getText().contains("Your visa form has been submitted")) {
+			System.out.println(getValidationVisa().getText());
+		} else {
 			Assert.fail();
 		}
 	}
-	
-	
+
+	///////// ---------------VERIFY BOOKING DETAILS ---------------
+	/// ---JUAN
+	// VALIDATION INFORMATION DETAILS
+	@FindBy(xpath = "//*[@class='list-group list-group-flush']")
+	WebElement validationInfoDetails;
+
+	public WebElement getValidationInfoDetails() {
+		return validationInfoDetails;
+	}
+
+	public void printValidationInformation() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait.until(ExpectedConditions.visibilityOf(validationInfoDetails));
+		
+		if (getValidationInfoDetails().getText().contains("Booking Details")) {
+			System.out.println(getValidationInfoDetails().getText());
+		} else {
+			Assert.fail();
+		}
+	}
+
 //VALIDATION INFORMATION GUEST
-	@FindBy(xpath="//*[@class='card-body']") WebElement validationGuestInformation;
-	public WebElement getValidationGuestInformation(){
+	@FindBy(xpath = "//*[@class='card-body']")
+	WebElement validationGuestInformation;
+
+	public WebElement getValidationGuestInformation() {
 		return validationGuestInformation;
 	}
-	
+
 	public void printValidationGuestInformation() {
 		if (getValidationGuestInformation().getText().contains("Guest Information")) {
 			System.out.println(getValidationGuestInformation().getText());
-		}else {
+		} else {
 			Assert.fail();
 		}
 	}
-	
-	
-	@FindBy(xpath="//*[@class='infobox infobox-success']") WebElement validationStatusAndPayment;
-	public WebElement getValidationStatusAndPayment(){
+
+	@FindBy(xpath = "//*[@class='infobox infobox-success']")
+	WebElement validationStatusAndPayment;
+
+	public WebElement getValidationStatusAndPayment() {
 		return validationStatusAndPayment;
 	}
-	
+
 	public void printValidationStatusAndPayment() {
-		if (getValidationStatusAndPayment().getText().contains("  Your booking status is ( Confirmed ) and payment status is stripe ( Paid )   ")) {
+		if (getValidationStatusAndPayment().getText()
+				.contains("  Your booking status is ( Confirmed ) and payment status is stripe ( Paid )   ")) {
 			System.out.println(getValidationStatusAndPayment().getText());
-		}else {
+		} else {
 			Assert.fail();
 		}
 	}
-	
-	
+
 	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Tours Date')]")
 	WebElement dateLabel;
 
@@ -385,30 +417,21 @@ public class PTBookingInvoicePage {
 			Assert.fail("FAILED");
 		}
 	}
-		
-		@FindBy(xpath = "//*[@class='card-title m-0']")
-		WebElement titleHotel;
 
-		public void validateTitleHotel() {
+	@FindBy(xpath = "//*[@class='card-title m-0']")
+	WebElement titleHotel;
 
-			System.out.println("Sheraton Trip");
-			if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
+	public void validateTitleHotel() {
 
-				// System.out.println(paymentStatusPaidLabel.getText());
-				// System.out.println(bookingInvoiceDetails.getText());
-				System.out.println(titleHotel.getText());
-			} else {
-				Assert.fail("FAILED");
-			}
-		
+		System.out.println("Sheraton Trip");
+		if (emailLabel.getText().contentEquals("Email: user@phptravels.com")) {
+
+			// System.out.println(paymentStatusPaidLabel.getText());
+			// System.out.println(bookingInvoiceDetails.getText());
+			System.out.println(titleHotel.getText());
+		} else {
+			Assert.fail("FAILED");
 		}
+
 	}
-
-	
-	
-	
-	
-	
-
-	
-
+}

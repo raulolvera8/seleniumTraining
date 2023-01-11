@@ -20,15 +20,19 @@ public class PTHotelHomePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy (xpath="//*[@class='owl-stage']/div[position()=8]") WebElement hotelDiv;
+	@FindBy (xpath="//*[@class='owl-stage']/div[position()=6]/*[@class='card-item mb-0']/*[@class='card-body']/h6") WebElement nameHotelLabel;
+	//@FindBy (xpath="//*[@class=' waves-effect']/strong[contains(text(),'Islamabad Marriott Hotel')]") WebElement nameHotelLabel;
 
-	public WebElement gethotelDiv() {
-		return hotelDiv;
-	} 
-	public void clickhotelDiv() {
-		gethotelDiv().click();
-	
-		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+	public WebElement getNameHotelLabel() {
+		return nameHotelLabel;
+	}
+	public String readNameHotelLabel() {
+		String nameHotelLabel= this.getNameHotelLabel().getText();
+		return nameHotelLabel;
+	}
+	public void clickHotelName() {
+		getNameHotelLabel().click();
+				Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
 				"display: none;"));		

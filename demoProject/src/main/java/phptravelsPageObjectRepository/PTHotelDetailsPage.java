@@ -52,8 +52,6 @@ public class PTHotelDetailsPage {
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 		wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title'][contains(.,'Travellers Information')]")));
 		
-	
-
 	}
 	
 	

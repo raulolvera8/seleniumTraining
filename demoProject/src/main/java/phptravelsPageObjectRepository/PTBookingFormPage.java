@@ -85,6 +85,7 @@ public class PTBookingFormPage {
 	public void writelastNametb(String lastName) {
 		getlastNametb().sendKeys(lastName);
 	}
+	
 	// ---- DROPDOWN LIST -------
 
 	// ----- NATIONALITY

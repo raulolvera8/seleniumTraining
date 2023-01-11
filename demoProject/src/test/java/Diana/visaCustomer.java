@@ -16,18 +16,19 @@ import phptravelsPageObjectRepository.PTVisaPage;
 
 public class visaCustomer extends Driver {
 	WebDriver driver;
+
 	@BeforeClass
 	public void setup() {
 		System.out.println("set up driver traavels");
-		this.driver=initFirefoxDriver();
+		this.driver = initFirefoxDriver();
 	}
 
 	@Test
 	public void travel() {
 		System.out.println("----Welcome to travels----");
-		PTHomePage home=new PTHomePage(driver);
+		PTHomePage home = new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
-		PTVisaPage visaPage= new PTVisaPage(driver);
+		PTVisaPage visaPage = new PTVisaPage(driver);
 		PTMenuPage visaTab = new PTMenuPage(driver);
 		PTVisaFormPage visaForm = new PTVisaFormPage(driver);
 		PTBookingInvoicePage visaValidation = new PTBookingInvoicePage(driver);
@@ -36,12 +37,12 @@ public class visaCustomer extends Driver {
 		home.clickAccountBtn();
 		// SELECT ROLE
 		home.clickCustomerLoginBtn();
-		// ----- LOGIN WINDOW ----- 
+		// ----- LOGIN WINDOW -----
 		// TYPE CREDENTIALS
 		// EMAIL
-		login.fillEmailTb("diana@itstark");//user@phptravels.com
+		login.fillEmailTb("diana@itstark");// user@phptravels.com
 		// PASSWORD
-		login.fillPasswordTb("itstark");//demouser
+		login.fillPasswordTb("itstark");// demouser
 		// ACCEPT COOKIES
 		login.clickGotItBtn();
 		// CLICK LOGIN BUTTON
@@ -78,10 +79,12 @@ public class visaCustomer extends Driver {
 		visaForm.clickSubmitBtn();
 		// PRINT VALIDATION STATUS
 		visaValidation.printVisaValidation();
-		
+
 	}
+
 	@AfterClass
 	public void teardown() {
-		
+		teardownDriver();
+
 	}
 }
