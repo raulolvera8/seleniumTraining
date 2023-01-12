@@ -49,9 +49,11 @@ public class script2 extends Driver {
 		// CLICK BUTTON SELECT TYPE ACCOUNT
 		signInPage.clickAccountBtn();
 
+		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
+		utils.saveMainWindowHandle();
+
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
-
 
 		// ENTER EMAIL
 		loginPage.enterEmailInput("agent@phptravels.com");
@@ -103,9 +105,6 @@ public class script2 extends Driver {
 		// LAST NAME
 		travellerFormPage.writelastNametb("Allen");
 
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "300");
-
 		// NATIONALITY FROM TRAVELLER DETAILS
 		travellerFormPage.clickNationality_1DropDown();
 		travellerFormPage.clickValueNationality_1DropDown();
@@ -123,15 +122,9 @@ public class script2 extends Driver {
 		travellerFormPage.clickYearDropDown();
 		travellerFormPage.clickValueYearDropDown();
 
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "700");
-
 		// ================ PASSPORT INFORMATION ==================
 		// PASSPORT ID
 		travellerFormPage.writePassportTb("C03005988");
-
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "400");
 
 		// ================ PASSPORT ISSUANCE INFORMATION ==================
 		// PASSPORT ISSUANCE MONTH
@@ -159,15 +152,9 @@ public class script2 extends Driver {
 		travellerFormPage.clickExpiryYearDropDown();
 		travellerFormPage.clickValueExpiryYearDropDown();
 
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "900");
-
 		// ================ PAYMENT METHOD INFORMATION ==================
 		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
 		travellerFormPage.clickPayStripeRadioBtn();
-
-		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "1700");
 
 		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
 		travellerFormPage.clickTermsConditionsCheckBox();

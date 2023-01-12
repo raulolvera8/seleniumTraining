@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.opentelemetry.api.internal.Utils;
 import library.utilities;
 
 public class PTHomePage {
@@ -94,13 +93,13 @@ public class PTHomePage {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
 
 		getAgentLogBtn().click();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
+		
+		utility.switchToNewWindow();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		System.out.println("Login Agent Account...");
 	}
+	// -------------------------------------------------
 
 	/// -----Supplier login----- Elías Lara.
 

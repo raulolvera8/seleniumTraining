@@ -98,7 +98,6 @@ public class utilities {
 
 		for (String winHandle : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandle);
-			break;
 		}
 	}
 

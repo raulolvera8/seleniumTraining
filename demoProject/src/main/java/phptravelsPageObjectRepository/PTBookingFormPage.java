@@ -8,25 +8,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import library.utilities;
 
 public class PTBookingFormPage {
 	WebDriver driver;
+	utilities utils;
 
 	public PTBookingFormPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		utils = new utilities(driver);
 	}
-	utilities utils = new utilities(driver);
-
 
 	/// ---- FLIGHTS BOOKING INFORMATION WINDOW
 	@FindBy(xpath = "//*[@class='form-select form-select-sm nationality']")
@@ -129,6 +127,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickNationality_1DropDown() {
+		utils.elementScrollDown(this.getNationality_1DropDown());
 		getNationality_1DropDown().click();
 	}
 
@@ -189,6 +188,7 @@ public class PTBookingFormPage {
 	}
 
 	public void writePassportTb(String passport) {
+		utils.elementScrollDown(this.getPassportTb());
 		getPassportTb().sendKeys(passport);
 	}
 
@@ -198,6 +198,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickPassportMonthDropDown() {
+		utils.elementScrollDown(this.getPassportMonthDropDown());
 		getPassportMonthDropDown().click();
 	}
 
@@ -305,6 +306,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickPayStripeRadioBtn() {
+		utils.elementScrollDown(this.getPayStripe());
 		getPayStripe().click();
 	}
 
@@ -314,6 +316,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickTermsConditionsCheckBox() {
+		utils.elementScrollDown(this.getTermsConditionsCheckBox());
 		getTermsConditionsCheckBox().click();
 	}
 
