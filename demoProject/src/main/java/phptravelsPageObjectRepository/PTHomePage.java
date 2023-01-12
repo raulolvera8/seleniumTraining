@@ -94,14 +94,10 @@ public class PTHomePage {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
 
 		getAgentLogBtn().click();
-		utility.switchToNewWindow();
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-//		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(80))
-//				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-//
-//		wait.until(
-//				ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@type='submit']")));
 
 		System.out.println("Login Agent Account...");
 	}

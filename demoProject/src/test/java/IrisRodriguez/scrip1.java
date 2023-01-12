@@ -41,14 +41,13 @@ public class scrip1 extends Driver {
 
 		// CLICK BUTTON SELECT TYPE ACCOUNT
 		signInPage.clickAccountBtn();
-
-		// CLICK USER BUTTON
-		signInPage.clickAgentLoginbtn();
 		
 		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
 		utils.saveMainWindowHandle();
 
-		// AQUI SE ABRE LA SEGUNDA VENTANA
+		// CLICK USER BUTTON
+		signInPage.clickAgentLoginbtn();
+		
 		// ENTER EMAIL
 		loginPage.enterEmailInput("agent@phptravels.com");
 

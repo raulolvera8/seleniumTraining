@@ -43,11 +43,6 @@ public class script3 extends Driver {
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
 
-		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
-		utils.saveMainWindowHandle();
-
-		// AQUI SE ABRE LA SEGUNDA VENTANA
-
 		// ENTER EMAIL
 		// loginPage.enterEmailInput("agent.phptravels@gmail.com");
 		loginPage.enterEmailInput("agent@phptravels.com");
