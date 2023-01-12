@@ -94,9 +94,10 @@ public class PTHomePage {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'Agents Login' ) ]")));
 
 		getAgentLogBtn().click();
-		for (String winHandle : driver.getWindowHandles()) {
-			driver.switchTo().window(winHandle);
-		}
+//		for (String winHandle : driver.getWindowHandles()) {
+//			driver.switchTo().window(winHandle);
+//		}
+		utility.switchToNewWindow();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		System.out.println("Login Agent Account...");

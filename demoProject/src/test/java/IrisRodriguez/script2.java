@@ -49,9 +49,11 @@ public class script2 extends Driver {
 		// CLICK BUTTON SELECT TYPE ACCOUNT
 		signInPage.clickAccountBtn();
 
+		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
+		utils.saveMainWindowHandle();
+
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
-
 
 		// ENTER EMAIL
 		loginPage.enterEmailInput("agent@phptravels.com");
