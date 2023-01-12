@@ -52,6 +52,11 @@ public class script2 extends Driver {
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
 
+		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
+		utils.saveMainWindowHandle();
+
+		// AQUI SE ABRE LA SEGUNDA VENTANA
+
 		// ENTER EMAIL
 		loginPage.enterEmailInput("agent@phptravels.com");
 
@@ -94,7 +99,6 @@ public class script2 extends Driver {
 		// ========== TOTAL FLIGHTS WINDOW ==========
 		// SELECT FIRST TRAVEL OPTION BOOK NOW
 		flightsPage.clickFirstFlightBtn();
-
 
 		// ======== ENTER TRAVELLERS INFORMATION =======
 		// FIRST NAME
@@ -168,7 +172,7 @@ public class script2 extends Driver {
 
 		//// SCROLL DOWN
 		utils.ScrollDown(driver, "0", "1700");
-		
+
 		// CLICK CHECKBOX AGREE TERMS AND CONDITIONS
 		travellerFormPage.clickTermsConditionsCheckBox();
 
@@ -178,21 +182,23 @@ public class script2 extends Driver {
 		// ================= VERIFY DATA =========================
 		// VALIDATE BOOKING STATUS
 		bookingInvoicePage.validationStatusBooking();
-		
+
 		// PRINT STATUS
-		//bookingInvocePage.PrintBookingStatus();
+		// bookingInvocePage.PrintBookingStatus();
 
 		// PRINT ACCOUNT DATA
-		//bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
-		//bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		// bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL,
+		// PHONE, ADDRESS
+		// bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE,
+		// ADDRESS COMPANY
 
 		// PRINT TRAVELLER DATA
 		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
 		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
-		
+
 		// PROCEED TO CHECK
 		bookingInvoicePage.clickProceedPayBtn();
-		
+
 		// ======================== WINDOW PAYMENT WITH STRIPE ==================
 		// VERIFY PAYMENT
 		stripePage.VerifylabelAmount();
@@ -215,19 +221,24 @@ public class script2 extends Driver {
 
 		// CLICK PAGAR BUTTON
 		cardPage.clickPagarButtonWithInfoCard();
-		
+
 		// PRINT BOOKING STATUS CONFIRMED
 		bookingInvoicePage.PrintBookingStatusConfirmed();
 
 		// PRINT TRAVELLER DATA
 		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
 		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
-		
+
+		// SE CIERRA LA SEGUNDA VENTANA
+		utils.CloseCurrentWindow();
+
+		// SWITCH TO THE MAIN WINDOW
+		utils.switchToMainWindow();
 	}
 
 	@AfterClass
 	public void teardown() {
-		//teardownDriver();
+		teardownDriver();
 	}
 
 }

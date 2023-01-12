@@ -6,12 +6,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import library.Driver;
+import library.utilities;
 import phptravelsPageObjectRepository.PTAgentPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 
-public class script3 extends Driver{
+public class script3 extends Driver {
 
 	WebDriver driver;
 
@@ -30,6 +31,8 @@ public class script3 extends Driver{
 		PTLoginPage loginPage = new PTLoginPage(driver);
 		PTAgentPage agentPage = new PTAgentPage(driver);
 		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
+		utilities utils = new utilities(driver);
+
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
 		// ========================= SIGN IN PAGE ====================================
@@ -39,6 +42,11 @@ public class script3 extends Driver{
 
 		// CLICK USER BUTTON
 		signInPage.clickAgentLoginbtn();
+
+		// AQUI SE GUARDA QUE ESTÁS EN LA VENTANA PRINCIPAL
+		utils.saveMainWindowHandle();
+
+		// AQUI SE ABRE LA SEGUNDA VENTANA
 
 		// ENTER EMAIL
 		// loginPage.enterEmailInput("agent.phptravels@gmail.com");
@@ -52,29 +60,36 @@ public class script3 extends Driver{
 		loginPage.clickLoginButtonAgent();
 
 		// ======================== MY BOOKINGS WINDOW ========================
-		
+
 		// CLICK MY BOOKINGS BUTTON
 		agentPage.ClickMyBookingsButton();
 
 		// CLICK VIEW VOUCHER BUTTON
 		agentPage.ClickViewVoucherButton();
-		
+
 		// VALIDATE BOOKING STATUS
 		bookingInvoicePage.validationStatusBooking();
-		
+
 		// PRINT ACCOUNT DATA
-		//bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL, PHONE, ADDRESS
-		//bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE, ADDRESS COMPANY
+		// bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL,
+		// PHONE, ADDRESS
+		// bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE,
+		// ADDRESS COMPANY
 
 		// PRINT TRAVELLER DATA
 		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
 		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
+
 		
+		// SE CIERRA LA SEGUNDA VENTANA
+		utils.CloseCurrentWindow();
+
+		// SWITCH TO THE MAIN WINDOW
+		utils.switchToMainWindow();
 	}
-	
 
 	@AfterClass
 	public void teardown() {
-	    teardownDriver();
+		teardownDriver();
 	}
 }
