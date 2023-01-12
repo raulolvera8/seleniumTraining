@@ -14,16 +14,21 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import library.utilities;
+
 public class PTAgentPage {
 
 	WebDriver driver;
+	utilities utility;
 
 	public PTAgentPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		utility = new utilities(driver);
+
 	}
 
-	/// -------- ADD FUNDS BUTTON --------
+	/// -------- ADD FUNDS BUTTON -------- IRIS
 	@FindBy(xpath = "//a[ contains (text(), 'Add Funds') and @class=' waves-effect']")
 	WebElement btnAddFunds;
 
@@ -44,8 +49,9 @@ public class PTAgentPage {
 
 		System.out.println("Clicking Add Funds button...");
 	}
+	// --------------------------------------------
 
-	/// -------- SELECT STRIPE RADIOBUTTON --------
+	/// -------- SELECT STRIPE RADIOBUTTON -------- IRIS
 	@FindBy(xpath = "//input[@name='payment_gateway' and @value='stripe']")
 	WebElement rbtnStripePayment;
 
@@ -66,8 +72,9 @@ public class PTAgentPage {
 		getStripePayment().click();
 		System.out.println("Clicking radiobutton Stripe payment method ...");
 	}
+	// --------------------------------------------
 
-	/// -------- ENTER AMOUNT INPUT --------
+	/// -------- ENTER AMOUNT INPUT -------- IRIS
 	@FindBy(name = "price")
 	WebElement inputPrice;
 
@@ -80,8 +87,9 @@ public class PTAgentPage {
 		System.out.println("Entering price ...");
 		getPriceInput().sendKeys(Price);
 	}
+	// --------------------------------------------
 
-	/// -------- CLICK PAY NOW BUTTON --------
+	/// -------- CLICK PAY NOW BUTTON -------- IRIS
 	@FindBy(xpath = "//button[contains (text(), 'Pay Now') and @type='submit']")
 	WebElement PayNowButton;
 
@@ -96,9 +104,9 @@ public class PTAgentPage {
 		getPayNowButton().click();
 		System.out.println("Clicking Pay Now button ...");
 	}
+	// --------------------------------------------
 
-	/// -------- VERIFY PAYMENT SUCCESSFULL --------
-
+	/// -------- VERIFY PAYMENT SUCCESSFULL -------- IRIS
 	@FindBy(xpath = "//*[contains (text(), 'Payment successfull')]")
 	WebElement labelSuccessfull;
 
@@ -107,6 +115,7 @@ public class PTAgentPage {
 	}
 
 	public void PrintPaymentSuccessfulllabel() {
+		utility.elementScrollDown(this.getLabelSuccessfull());
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
@@ -115,8 +124,9 @@ public class PTAgentPage {
 
 		System.out.println("Hi, Agent.. " + getLabelSuccessfull().getText());
 	}
+	// --------------------------------------------
 
-	/// -------- LOGOUT BUTTON FROM USER VIEW --------
+	/// -------- LOGOUT BUTTON FROM USER VIEW -------- IRIS
 	@FindBy(xpath = "(//a[ contains (text(), 'Logout')])[2]")
 	WebElement LogOut;
 
@@ -136,8 +146,9 @@ public class PTAgentPage {
 		getLogouttButton().click();
 		System.out.println("Clicking LOGOUT button ...");
 	}
+	// --------------------------------------------
 
-	/// -------- MY BOOKINGS BUTTON FROM USER VIEW --------
+	/// -------- MY BOOKINGS BUTTON FROM USER VIEW -------- IRIS
 	@FindBy(xpath = "(//a[ contains (text(), 'My Bookings')])[2]")
 	WebElement MyBookingsButton;
 
@@ -157,8 +168,9 @@ public class PTAgentPage {
 		getMyBookingsButton().click();
 		System.out.println("Clicking My Bookings button ...");
 	}
+	// --------------------------------------------
 
-	/// -------- VIEW VOUCHER BUTTON --------
+	/// -------- VIEW VOUCHER BUTTON -------- IRIS
 	@FindBy(xpath = "(//a[ contains (text(), 'View Voucher')])[3]")
 	WebElement ViewVoucher;
 
@@ -178,8 +190,9 @@ public class PTAgentPage {
 		getViewVoucher().click();
 		System.out.println("Clicking View Voucher button ...");
 	}
+	// --------------------------------------------
 
-	/// -------- LABEL AMOUNT VALIDATION -----------
+	/// -------- LABEL AMOUNT VALIDATION ----------- IRIS
 	@FindBy(xpath = "//h4[@class='info__title']")
 	WebElement walletBalanceLabel;
 
@@ -197,4 +210,6 @@ public class PTAgentPage {
 			return texto.substring(4);
 		}
 	}
+	// --------------------------------------------
+
 }

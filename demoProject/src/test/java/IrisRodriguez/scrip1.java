@@ -100,7 +100,7 @@ public class scrip1 extends Driver {
 		cardPage.clickPagarButtonWithInfoCard();
 
 		//// SCROLL DOWN
-		utils.ScrollDown(driver, "0", "200");
+		//utils.ScrollDown(driver, "0", "200");
 		
 		// PRINT PAYMENT SUCCESSFULL LABEL
 		agentPage.PrintPaymentSuccessfulllabel();
