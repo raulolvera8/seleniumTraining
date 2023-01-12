@@ -35,45 +35,31 @@ public class PTFlightSearchResultsPage {
 				"(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
 
 		getFirstFlight().click();
-/*
-<<<<<<< HEAD
-		
-		 * Wait<WebDriver> wait = new
-		 * FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-		 * .pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException
-		 * .class); <<<<<<< HEAD wait2.until(ExpectedConditions.attributeToBe(By.xpath(
-		 * "//div[@id='preloader']"), "style", "display: none;")); =======
-		 * wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"
-		 * ), "style", "display: none;"));
-		 * 
-		 * >>>>>>> 7924982471f384b7cb301e0d47b1eb819bc3ddee
-		 
-=======*/
+
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
 		wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
-				
-//>>>>>>> 1c96278a6387196460bcdb4de5cb11b884b81202
 
 		System.out.println("Clicking first flight option  ...");
 	}
+	// -------------------------------------------------------------
+
 
 	// filtro de Direct de juan
 
-	
-	  @FindBy(xpath = "//*[@id='direct']") WebElement directSearch;
-	  
-	  public WebElement getDirectSearch() { return directSearch; }
-	  
-	  public void clickDirectSearchRadioBtn() {
-	  
-	  getDirectSearch().click();
-	  
-	 
-	  
-	  }
-	 
+	@FindBy(xpath = "//*[@id='direct']")
+	WebElement directSearch;
+
+	public WebElement getDirectSearch() {
+		return directSearch;
+	}
+
+	public void clickDirectSearchRadioBtn() {
+
+		getDirectSearch().click();
+
+	}
 
 	@FindBy(xpath = "//*[@type='submit']")
 	WebElement submitBookNow;

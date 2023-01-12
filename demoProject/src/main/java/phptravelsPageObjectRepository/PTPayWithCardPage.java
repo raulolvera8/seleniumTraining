@@ -21,21 +21,28 @@ public class PTPayWithCardPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	/// -------- CLICK CANCELAR BOTON POP UP SEGURIDAD METHOD -------- IRIS
-		@FindBy(xpath="//*[@class='mt5 flex-container justify-content-center']//button") WebElement cancelPopUpBtn;
-		public WebElement getCancelPopUpBtn() {
-			return cancelPopUpBtn;
-		}
-		public void clickCancelPopUpBtn() {
-			Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='ModalContent VerificationModal-modal ModalContent--afterOpen']")));
-			
-			getCancelPopUpBtn().click();
-			System.out.println("Pop up was closed");
-		}
-		
+	/// -------- CLICK CANCELAR BOTON POP UP SEGURIDAD METHOD -------- IRIS
+	@FindBy(xpath = "//*[@class='mt5 flex-container justify-content-center']//button")
+	WebElement cancelPopUpBtn;
+
+	public WebElement getCancelPopUpBtn() {
+		return cancelPopUpBtn;
+	}
+
+	public void clickCancelPopUpBtn() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//*[@class='ModalContent VerificationModal-modal ModalContent--afterOpen']")));
+
+		getCancelPopUpBtn().click();
+		System.out.println("Pop up was closed");
+	}
+	// -------------------------------------------------------------
+
+
 	/// -------- ENTER NUMBER CARD -------- IRIS
 	@FindBy(id = "cardNumber")
 	WebElement cardNumber;
@@ -54,6 +61,8 @@ public class PTPayWithCardPage {
 		System.out.println("Entering card number ...");
 		getCardNumber().sendKeys(CardNumber);
 	}
+	// -------------------------------------------------------------
+
 
 	/// -------- ENTER CARD EXPIRE -------- IRIS
 	@FindBy(id = "cardExpiry")
@@ -73,6 +82,8 @@ public class PTPayWithCardPage {
 		System.out.println("Entering card number expiry ...");
 		getCardExpiry().sendKeys(CardExpiry);
 	}
+	// -------------------------------------------------------------
+	
 
 	/// -------- ENTER CVC CARD -------- IRIS
 	@FindBy(id = "cardCvc")
@@ -92,6 +103,8 @@ public class PTPayWithCardPage {
 		System.out.println("Entering Card CVC ...");
 		getCardCVC().sendKeys(CardCVC);
 	}
+	// -------------------------------------------------------------
+
 
 	/// -------- ENTER NAME CARD -------- IRIS
 	@FindBy(id = "billingName")
@@ -111,6 +124,8 @@ public class PTPayWithCardPage {
 		System.out.println("Entering name card ...");
 		getCardName().sendKeys(NameCard);
 	}
+	// -------------------------------------------------------------
+
 
 	/// -------- CLICK PAGAR BUTTON FROM VIEW AFTER PAYMENT METHOD -------- IRIS
 	@FindBy(xpath = "//button[@type = 'submit']")
@@ -127,6 +142,9 @@ public class PTPayWithCardPage {
 		System.out.println("Clicking Pagar button ...");
 		getPagarButtonWithCardInfo().click();
 		WebDriverWait waitLabel = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitLabel.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")));
-	}	
+		waitLabel.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")));
+	}
+	// -------------------------------------------------------------
+
 }
