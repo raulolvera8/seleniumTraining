@@ -30,7 +30,8 @@ public class PTBookingInvoicePage {
 	// ---- Booking status
 	@FindBy(xpath = "//li[contains(.,'user@phptravels.com')]")
 	WebElement emailLabel;
-	// ------ VALIATION BOOKING UNPAID STATUS HOTEL ------
+	// --------- VALIDATION BOOKING UNPAID STATUS HOTEL ------ DIANA
+	// ------ XPATH FOR VALIATION BOOKING UNPAID STATUS HOTEL ------
 	@FindBy(xpath = "//div[@class='infobox infobox-danger'][contains(.,'Your booking status is ( Pending ) and payment status is stripe ( Unpaid )')]")
 	WebElement paymentStatusStripeLabel;
 	@FindBy(xpath = "//*[@class='py-0 card-text'][contains(.,'Checkin')]")
@@ -39,7 +40,9 @@ public class PTBookingInvoicePage {
 	WebElement totalPriceLabel;
 	@FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Room Type')]")
 	WebElement hotelNameLabel;
+	// --------------------------------------
 
+	// ----- HOTEL NAME LABEL ---- DIANA
 	public WebElement getHotelNameLabel() {
 		return hotelNameLabel;
 	}
@@ -49,6 +52,8 @@ public class PTBookingInvoicePage {
 		return hotelNameLabel;
 	}
 
+	// --------------------------------------
+	// ---- PRICE UNPAID LABEL ---- DIANA
 	public WebElement getPriceUnpaidLabel() {
 		return totalPriceLabel;
 	}
@@ -58,6 +63,8 @@ public class PTBookingInvoicePage {
 		return totalPriceUnpaidLabel;
 	}
 
+	// --------------------------------------
+	// ---- DATES CHECK OUT / CHECK IN LABEL ---- DIANA
 	public WebElement getCheckInOutLabel() {
 		return checkInOutLabel;
 	}
@@ -67,38 +74,51 @@ public class PTBookingInvoicePage {
 		return checkOutInLabel;
 	}
 
+	// --------------------------------------
+	// ---- PAYMENT STATUS LABEL ---- DIANA
 	public WebElement getpaymentStatusStripeLabel() {
 		return paymentStatusStripeLabel;
 	}
 
-	// -- VALIATION BOOKING UNPAID STATUS HOTEL
+	// --------------------------------------
+	// ---- PRINT VALIATION BOOKING UNPAID STATUS HOTEL ---- DIANA
 	public void validationStatusStripe() {
 		if (getpaymentStatusStripeLabel().getText().contains("Stripe")) {
 			System.out.println("FIRST VALIDATION  PASSED");
 			System.out.println(getpaymentStatusStripeLabel().getText());
-			
+
 		} else {
 			Assert.fail("FIRST VALIDATION FAILED");
 		}
 	}
+	// --------- END VALIDATION BOOKING UNPAID STATUS HOTEL ------ DIANA
 
-	// ------ VALIATION BOOKING CONFIRMED STATUS HOTEL ------
+	// --------- VALIDATION BOOKING PAID STATUS HOTEL ------ DIANA
+	// ------ XPATH FOR VALIATION BOOKING PAID STATUS HOTEL ------
 	@FindBy(xpath = "//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")
 	WebElement paymentStatusPaidLabel;
 
+	// --------------------------------------
+	// ---- PAYMENT STATUS LABEL ---- DIANA
 	public WebElement getPaymentStatusPaidLabel() {
 		return paymentStatusPaidLabel;
 	}
 
+	// --------------------------------------
+	// ---- PRICE UNPAID LABEL ---- DIANA
 	public WebElement getTotalPriceLabel() {
 		return totalPriceLabel;
 	}
 
+	// --------------------------------------
+	// ---- PRICE PAID LABEL ---- DIANA
 	public String readTotalPricePaidLabel() {
 		String totalPricePaidLabel = getTotalPriceLabel().getText();
 		return totalPricePaidLabel;
 	}
 
+	// --------------------------------------
+	// ---- PRINT VALIATION BOOKING PAID STATUS HOTEL ---- DIANA
 	public void validationStatusPaid() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -110,8 +130,13 @@ public class PTBookingInvoicePage {
 			Assert.fail("FAILED: Invoice status doesn't match");
 		}
 	}
+	// --------------------------------------
 
-	// ------ VALIATION BOOKING STATUS FLIGHT ------
+	// --------- END VALIDATION BOOKING PAID STATUS HOTEL ------ DIANA
+
+	// --------- VALIDATION BOOKING UNPAID STATUS FLIGHT ------ DIANA
+
+	// ------ XPATH FOR VALIATION BOOKING STATUS FLIGHT ------
 	@FindBy(xpath = "//*[@class='card mt-2 mb-3']")
 	WebElement travellerDetails;
 	@FindBy(xpath = "//*[@class='customer']/li[contains(.,'Guest')]")
@@ -122,32 +147,39 @@ public class PTBookingInvoicePage {
 	WebElement passportExpiryLabel;
 	@FindBy(xpath = "//div[@class='infobox infobox-warning'][contains(.,'Your booking status is ( Pending ) and payment status is pay later ( Unpaid )')]")
 	WebElement paymentStatusPLaterLabel;
-
+	// --------------------------------------
+	// ---- TRAVELLER DETAILS LABEL ---- DIANA
 	public WebElement getTravellerDetails() {
 		return travellerDetails;
 	}
-
+	// --------------------------------------
+	// ---- NAME TRAVELLER LABEL ---- DIANA
 	public WebElement getNameTravellerLabel() {
 		return nameTravellerLabel;
 	}
-
+	// --------------------------------------
+	// ---- NUMBER PASSPORT LABEL ---- DIANA
 	public WebElement getPassportNumLabel() {
 		return passportNumLabel;
 	}
-
+	// --------------------------------------
+	// ---- EXPIRY PASSPORT LABEL ---- DIANA
 	public WebElement getPassportExpiryLabel() {
 		return passportExpiryLabel;
 	}
-
+	// --------------------------------------
+	// ---- PAYMENT STATUS LABEL ---- DIANA
 	public WebElement getPaymentStatusPLaterLabel() {
 		return paymentStatusPLaterLabel;
 	}
+	// --------------------------------------
+	// ---- PRINT VALIATION BOOKING UNPAID STATUS FLIGHTS ---- DIANA
 
 	public void validationStatusLater() {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait.until(ExpectedConditions.visibilityOf(paymentStatusPLaterLabel));
-		
+
 		String nombre = getNameTravellerLabel().getText().substring(8);
 		String passportNum = getPassportNumLabel().getText().substring(12);
 		String passportExpiry = getPassportExpiryLabel().getText().substring(16);
@@ -168,15 +200,19 @@ public class PTBookingInvoicePage {
 			Assert.fail("FAILED: Traveller information doesn't match");
 		}
 	}
+	// --------------------------------------
+	// ---- END VALIATION BOOKING UNPAID STATUS FLIGHTS ---- DIANA
+	
+	// ----  PROCEED TO PAY WITH STRIPE BUTTON  ---- DIANA
+	// ------ XPATH FOR PAY WITH STRIPE BUTTON ------
 
-	// Proceed Button
 	@FindBy(id = "form")
 	WebElement proceedPayBtn;
-
+	// --------------------------------------
+	// ---- PROCEED TO PAY BUTTON ---- DIANA
 	public WebElement getPrceedPayBtn() {
 		return proceedPayBtn;
 	}
-	
 
 	public void clickProceedPayBtn() {
 
@@ -192,6 +228,7 @@ public class PTBookingInvoicePage {
 		System.out.println("Stripe Window");
 
 	}
+	// ----  END PROCEED TO PAY WITH STRIPE BUTTON  ---- DIANA
 
 	// -- VALIATION BOOKING STATUS PENDIENTE - AGENT - IRIS
 	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
@@ -362,7 +399,7 @@ public class PTBookingInvoicePage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait.until(ExpectedConditions.visibilityOf(validationInfoDetails));
-		
+
 		if (getValidationInfoDetails().getText().contains("Booking Details")) {
 			System.out.println(getValidationInfoDetails().getText());
 		} else {
