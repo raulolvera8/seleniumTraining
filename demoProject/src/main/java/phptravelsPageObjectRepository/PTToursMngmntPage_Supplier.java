@@ -13,8 +13,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
-//##################### CLASS AND CODE CREATED BY ELIAS LARA.
-
 public class PTToursMngmntPage_Supplier {
 
 	WebDriver driver;
@@ -24,7 +22,11 @@ public class PTToursMngmntPage_Supplier {
 		PageFactory.initElements(driver, this);
 	}
 
-	// ------------ VERIFY IF THE TOUR ELEMENT EXIST PREVIOUS THE CREATION ----
+	// ******************************************************
+	// Objective: VERIFIES IF THE TOUR ELEMENT EXIST PREVIOUS THE CREATION.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	public void verifyIfTourExistPrevCreation(String tourName) {
 		try {
@@ -42,7 +44,11 @@ public class PTToursMngmntPage_Supplier {
 		}
 	}
 
-	// ------------- +ADD BUTTON --------------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN ADD BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement AddTourBtn;
@@ -63,7 +69,11 @@ public class PTToursMngmntPage_Supplier {
 
 	}
 
-	// Verify if tour added is visible in Tours Management Screen.
+	// ******************************************************
+	// Objective: VERIFIES IF THE TOUR HAS BEEN ADDED IN 'TOURS MANAGEMENT' SCREEN.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	public void VerifyIfTourIsAdded(String tourName) {
 		try {
@@ -81,7 +91,12 @@ public class PTToursMngmntPage_Supplier {
 		}
 	}
 
-	// Click in Profile button for supplier role.
+	// ******************************************************
+	// Objective: CLICK IN PROFILE BUTTON FOR SUPPLIER ROLE.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//button[@id='dropdownMenuProfile']")
 	WebElement profileBtn;
 
@@ -101,7 +116,11 @@ public class PTToursMngmntPage_Supplier {
 		System.out.println("Profile button has been clicked. Dropdown is displayed...");
 	}
 
-	// Click in Logout option for supplier role.
+	// ******************************************************
+	// Objective: CLICK IN LOGOUT OPTION FOR SUPPLIER ROLE.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//ul[contains(@class, 'dropdown-menu')]//i[text()='logout']")
 	WebElement logoutBtn;

@@ -12,8 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-//##################### CLASS AND CODE CREATED BY ELIAS LARA.
-
 public class PTDashboardPage_Supplier {
 
 	WebDriver driver;
@@ -23,7 +21,11 @@ public class PTDashboardPage_Supplier {
 		PageFactory.initElements(driver, this);
 	}
 
-	// ----- Tours Module click ---------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN TOURS MODULE BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//a[@aria-controls='toursmodule']")
 	WebElement ToursModuleBtn;
@@ -37,7 +39,12 @@ public class PTDashboardPage_Supplier {
 		System.out.println("Tours module clicked and expanded...");
 	}
 
-	// ----- Tours Module > Tours click ---------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN TOURS MODULE BUTTON > TOURS BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//div[@id='toursmodule']/nav[@id='drawerAccordionPages']/a[@data-bs-target='#Tours']")
 	WebElement ToursModuleNestedBtn;
 
@@ -52,7 +59,11 @@ public class PTDashboardPage_Supplier {
 
 	}
 
-	// ----- Tours Module > Tours > Manage Tours click
+	// ******************************************************
+	// Objective: CLICK IN TOURS MODULE BUTTON > TOURS BUTTON > MANAGE TOURS BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='Tours']/nav/a[text()='Manage Tours']")
 	WebElement ManageToursBtn;
@@ -72,7 +83,12 @@ public class PTDashboardPage_Supplier {
 		System.out.println("Manage tours nested button clicked. The user is in Manage tours page...");
 	}
 
-	// ----- Hotels Module click ---------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN HOTELS MODULE BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//a[@aria-controls='hotelsmodule']")
 	WebElement HotelsModuleBtn;
 
@@ -85,7 +101,12 @@ public class PTDashboardPage_Supplier {
 		System.out.println("Hotels module clicked and expanded...");
 	}
 
-	// ----- Hotels Module > Hotels click ---------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN HOTELS MODULE BUTTON > HOTELS BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//div[@id='hotelsmodule']/nav[@id='drawerAccordionPages']/a[@data-bs-target='#Hotels']")
 	WebElement HotelsModuleNestedBtn;
 
@@ -100,7 +121,11 @@ public class PTDashboardPage_Supplier {
 
 	}
 
-	// ----- Hotels Module > Hotels > Add Room click
+	// ******************************************************
+	// Objective: CLICK IN HOTELS MODULE BUTTON > HOTELS BUTTON > ADD ROOM BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='Hotels']/nav/a[text()='Add Room']")
 	WebElement AddRoomsBtn;

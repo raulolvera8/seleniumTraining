@@ -13,6 +13,13 @@ import phptravelsPageObjectRepository.PTDashboardPage_Supplier;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTToursMngmntPage_Supplier;
 
+//******************************************************
+// Title: Supplier_CreateTour
+// Objective: CREATES A TOUR WITH SUPPLIER ROLE.
+// Author: Elías Lara.
+// Date of creation/adding: 01 07 23
+// *******************************************************
+
 public class Supplier_CreateTour extends Driver {
 
 	WebDriver driver;
@@ -178,9 +185,10 @@ public class Supplier_CreateTour extends Driver {
 
 		tourManage.clickLogoutBtn();
 
-		// Close current window.
+		// Closing the browsers.
 
 		utility.CloseCurrentWindow();
+		utility.switchToMainWindow();
 
 	}
 

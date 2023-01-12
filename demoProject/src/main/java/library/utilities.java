@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class utilities {
 	WebDriver driver;
 	String mainWindow;
-	
+
 	public utilities(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -44,6 +44,12 @@ public class utilities {
 
 	}
 
+	// ******************************************************
+	// Objective: Wait time without any validation of any object/element.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	public void waiting() {
 		try {
 			Thread.sleep(2000);
@@ -51,16 +57,21 @@ public class utilities {
 			e.printStackTrace();
 		}
 	}
-	
-	//Highlight any element with the xpath value.
-	
+
+	// ******************************************************
+	// Objective: Highlight any element using the xpath value.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	public void highlightElement(String elementXpath) {
 
 		WebElement element = driver.findElement(By.xpath(elementXpath));
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 
 		try {
-			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')", element);
+			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')",
+					element);
 			Thread.sleep(1500);
 			System.out.println("The element has been identified and highlighted...");
 			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:; background:')", element);
@@ -71,20 +82,24 @@ public class utilities {
 			e.printStackTrace();
 		}
 	}
+
+	// ******************************************************
+	// Objective: Performs a click with javascript, using xpath value.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 	
-	
-	//Performs a click with javascript, with xpath value.
 	public void clickElementJavascript(String xpath) {
 		WebElement element = driver.findElement(By.xpath(xpath));
-		
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
+
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
 		System.out.println("The element provided has been clicked properly...");
 	}
 
 	public void saveMainWindowHandle() {
 		// STORE THE ID OF THE ORIGINAL WINDOW
-		 mainWindow = driver.getWindowHandle();
+		mainWindow = driver.getWindowHandle();
 	}
 
 	// SWITCH TO NEW WINDOW
@@ -105,7 +120,7 @@ public class utilities {
 	public void CloseCurrentWindow() {
 		driver.close();
 	}
-	
+
 	// SWITCH TO THE MAIN WINDOW
 	public void switchToMainWindow() {
 		driver.switchTo().window(mainWindow);
