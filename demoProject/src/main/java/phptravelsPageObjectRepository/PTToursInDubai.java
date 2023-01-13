@@ -20,9 +20,9 @@ public class PTToursInDubai extends Driver {
 		PageFactory.initElements(driver, this);
 
 	}
-	
-	  @FindBy(xpath=
-			  "//*[@src='https://phptravels.net/api/uploads/images/tours/slider/thumbs/9.jpg']")
+	  @FindBy(xpath="//a[@href='https://phptravels.net/tour/en/usd/dubai/sheraton-trip/24/15-01-2023/1/1/0']/span/i"
+)
+				
 			  WebElement details;
 			  
 			  public WebElement getDetails() { return details; }
@@ -34,10 +34,12 @@ public class PTToursInDubai extends Driver {
 			  
 			  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 			  Duration.ofSeconds(5));
-			  waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-			  ("//*[@id='currency']")));
+			  waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+			  ("//*[text()='Filter Search']")));
 			  
 			  }
+			  
+			 // "//*[@src='https://phptravels.net/api/uploads/images/tours/slider/thumbs/9.jpg']"
 			 
 	
 }

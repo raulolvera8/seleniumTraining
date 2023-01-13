@@ -93,15 +93,15 @@ public class scriptFlights extends Driver {
 		// CLICK MONTH BOX
 		flightBookingPage.clickMonthDropDown();
 		// CLICK MONTH VALUE 
-		flightBookingPage.clickValueDateOfBirthDropDown();
+		flightBookingPage.clickValueDateOfBirthDropDown(5);
 		// CLICK DAY BOX
 		flightBookingPage.clickDayDropDown();
 		// CLICK DAY VALUE
-		flightBookingPage.clickValueDayDropDown();
+		flightBookingPage.clickValueDayDropDown(10);
 		// CLICK YEAR BOX
 		flightBookingPage.clickYearDropDown();
 		// CLICK YEAR VALUE
-		flightBookingPage.clickValueYearDropDown();
+		flightBookingPage.clickValueYearDropDown(5);
 		//WRITE ID PASSPORT
 		flightBookingPage.writePassportTb("0909090JR887");
 		// (SCROLL DOWN)
@@ -109,32 +109,32 @@ public class scriptFlights extends Driver {
 		// CLICK MONTH BOX
 		flightBookingPage.clickPassportMonthDropDown();
 		// CLICK MONTH VALUE 
-		flightBookingPage.clickValuePassportMonthDropDown();
+		flightBookingPage.clickValuePassportMonthDropDown(5);
 		// CLICK DAY BOX 
 		flightBookingPage.clickPassportDayDropDown();
 		// CLICK DAY VALUE 
-		flightBookingPage.clickValuePassportDayDropDown();
+		flightBookingPage.clickValuePassportDayDropDown(5);
 		// CLICK YEAR BOX 
 		flightBookingPage.clickPassportYearDropDown();
 		// CLICK YEAR VALUE 
-		flightBookingPage.clickValuePassportYearDropDown();
+		flightBookingPage.clickValuePassportYearDropDown(5);
 		// CLICK MONTH BOX
 		flightBookingPage.clickExpiryMonthDropDown();
 		// CLICK MONTH VALUE 
-		flightBookingPage.clickValueMonthDropDown();
+		flightBookingPage.clickValueMonthDropDown(5);
 		// CLICK DAY BOX 
 		flightBookingPage.clickExpiryDayDropDown();
 		// CLICK DAY VALUE 
-		flightBookingPage.clickValueExpiryDayDropDown();
+		flightBookingPage.clickValueExpiryDayDropDown(5);
 		// CLICK YEAR BOX 
 		flightBookingPage.clickExpiryYearDropDown();
 		// CLICK YEAR VALUE 
-		flightBookingPage.clickValueExpiryYearDropDown();
+		flightBookingPage.clickValueExpiryYearDropDown(5);
 		// (SCROLL DOWN)
 		utils.ScrollDown(driver,"0","600");
 		// CLICK PAY LATER RADIO BUTTON 
 		flightBookingPage.clickPayLaterRadioBtn();
-		// (SCROLL DOWN)
+		//(SCROLL DOWN)
 		utils.ScrollDown(driver,"0","1000");
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
 		flightBookingPage.clickTermsConditionsCheckBox();

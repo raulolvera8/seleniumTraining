@@ -49,7 +49,7 @@ public class scriptTour extends Driver {
 		homePage.clickCustomerLoginBtn();
 		
 		//LOGIN 
-		loginPage.fillEmailTb("user@phptravels.com");
+		loginPage.fillEmailTb("juan.ramirez@itstarksolutions.com");
 		loginPage.fillPasswordTb("demouser");
 		loginPage.clickGotItBtn();
 		loginPage.clickLoginCustomerBtn();
@@ -59,7 +59,7 @@ public class scriptTour extends Driver {
 		tourPage.clickDestination();
 		tourPage.writeCountry("dubai");
 		tourPage.selectItemFromTour();
-		tourPage.clickSubmit();
+		//tourPage.clickSubmit();
 		
 		
 		tourDubai.clickDetails();
