@@ -1,7 +1,6 @@
 package phptravelsPageObjectRepository;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
@@ -24,14 +23,18 @@ public class PTLoginPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-    // ######### ACCEPT COOKIES ########
-	@FindBy (id="cookie_stop") WebElement gotitBtn;
+
+	// ######### ACCEPT COOKIES ########
+	@FindBy(id = "cookie_stop")
+	WebElement gotitBtn;
 
 	public WebElement getGotItBtn() {
 		return gotitBtn;
 	}
-	public void clickGotItBtn() {			
-		getGotItBtn().click();;
+
+	public void clickGotItBtn() {
+		getGotItBtn().click();
+		;
 	}
 	// ############# SUPPLIER SECTION #######################################
 
@@ -115,11 +118,11 @@ public class PTLoginPage {
 
 	public void clickLoginCustomerBtn() {
 		getLogInBtn().click();
-	
+
 	}
 	// ############# END OF CUSTOMER SECTION #######################################
 
-	// ELEMENTS FROM LOGIN AGENT  ------ Iris
+	// ELEMENTS FROM LOGIN AGENT ------ IRIS
 	@FindBy(xpath = "//input[@name='email' and (@type='email')]")
 	WebElement emailInput;
 
@@ -133,8 +136,8 @@ public class PTLoginPage {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(80))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//input[@name='email' and (@type='email')]")));
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email' and (@type='email')]")));
 
 		getEmailInput().sendKeys(email);
 	}
@@ -150,21 +153,20 @@ public class PTLoginPage {
 		System.out.println("Entering password...");
 		getPasswordInput().sendKeys(password);
 	}
-	
+
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement LoginButton;
-	
+
 	private WebElement getLoginButtonAgent() {
 		return LoginButton;
 	}
-	
+
 	public void clickLoginButtonAgent() {
-		
+
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(80))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//button[@type='submit']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='submit']")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -172,5 +174,6 @@ public class PTLoginPage {
 
 		getLoginButtonAgent().click();
 	}
-	
+	// -------------------------------------------------------------
+
 }

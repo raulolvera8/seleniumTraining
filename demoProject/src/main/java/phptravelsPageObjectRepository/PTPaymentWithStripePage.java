@@ -43,6 +43,8 @@ public class PTPaymentWithStripePage {
 
 		System.out.println("Pay With " + getLabelAmount().getText());
 	}
+	// -------------------------------------------------------------
+
 
 	/// -------- PAY NOW BUTTON WITH AMOUNT XX.XX BUTTON -------- IRIS
 	@FindBy(xpath = "//a[contains (text(), 'Pay Now') and @type='button']")
@@ -62,5 +64,7 @@ public class PTPaymentWithStripePage {
 		System.out.println("Clicking Pay Now button");
 
 	}
+	// -------------------------------------------------------------
+
 
 }

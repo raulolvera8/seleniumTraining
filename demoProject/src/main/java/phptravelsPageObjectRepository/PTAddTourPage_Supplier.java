@@ -15,20 +15,22 @@ import org.openqa.selenium.support.ui.Wait;
 
 import library.utilities;
 
-//##################### CLASS AND CODE CREATED BY ELIAS LARA.
-
 public class PTAddTourPage_Supplier {
 
 	WebDriver driver;
 	utilities utility;
-		
+
 	public PTAddTourPage_Supplier(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		utility = new utilities(driver);
 	}
 
-	// ------------- INSERT TOUR NAME TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS TOUR NAME TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourname']")
 	WebElement TourNameTxt;
@@ -41,9 +43,13 @@ public class PTAddTourPage_Supplier {
 		getTourNameTxt().sendKeys(tourName);
 		System.out.println("Tour name has been inserted. Value = " + tourName);
 	}
-	
-	
-	// ------------- INSERT TOUR DESCRIPTION TEXTBOX ---------
+
+	// ******************************************************
+	// Objective: INSERTS TOUR DESCRIPTION TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//html/body[@contenteditable='true']")
 	WebElement TourDescTxt;
 
@@ -59,7 +65,12 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Tour description has been inserted. Value = " + TourDesc);
 	}
 
-	// ------------- INSERT ADULT QUANTITY TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS ADULT QUANTITY TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//table//input[@name='maxadult']")
 	WebElement AdultQtyTxt;
 
@@ -72,7 +83,13 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Adult quantity value has been inserted. Value = " + AdultQty);
 	}
 
-	// ------------- INSERT ADULTS PRICE TEXTBOX -----------------
+	// ------------- -----------------
+	// ******************************************************
+	// Objective: INSERTS ADULTS PRICE TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//table//input[@name='adultprice']")
 	WebElement AdultPriceTxt;
 
@@ -85,7 +102,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Adult Price value has been inserted. Value = " + AdultPrice);
 	}
 
-	// ------------- INSERT TOUR LOCATION ---------------------------------------
+	// ******************************************************
+	// Objective: INSERTS TOUR LOCATION TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='select2-drop']/div/input")
 	WebElement LocationTourTxt;
@@ -108,9 +129,9 @@ public class PTAddTourPage_Supplier {
 		activateTxt.click();
 
 		getLocationTourTxt().sendKeys(LocationTour);
-		
+
 		utility.waiting();
-		
+
 		WebElement optionSuggested = driver.findElement(By.xpath("//*[@id=\"select2-drop\"]/ul/li"));
 		optionSuggested.click();
 		System.out.println("The tour's location value has been inserted. Value = " + LocationTour);
@@ -118,7 +139,12 @@ public class PTAddTourPage_Supplier {
 
 	}
 
-	// ------------- CLICK IN INCLUSIONS TAB ---------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN INCLUSIONS TAB.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//div[@id='materialTabBarJsDemo']//mwc-tab[@id='INCLUSIONS-tab']")
 	WebElement InlcusionsTab;
 
@@ -132,7 +158,12 @@ public class PTAddTourPage_Supplier {
 		System.out.println("INLCUSIONS Tab clicked...");
 	}
 
-	// ------------- CLICK IN SELECT ALL CHECKBOX------------------------
+	// ******************************************************
+	// Objective: CLICK IN SELECT ALL CHECKBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//*[@id='INCLUSIONS']/div/div/div[1]/label/div/ins")
 	WebElement SelectAllCheckbox;
 
@@ -141,8 +172,14 @@ public class PTAddTourPage_Supplier {
 
 	}
 
-	// VERIFIES IF THE CHECKBOX IS SELECTED, IF TRUE THEN UNSELECTS IT, IF NOT JUST
+	// ******************************************************
+	// Objective: VERIFIES IF THE CHECKBOX IS SELECTED, IF TRUE THEN UNSELECTS IT,
+	// IF NOT JUST
 	// CONTINUES.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	public boolean verifyIsSelected() {
 
 		WebElement verifyCheckbox = driver.findElement(By.xpath("//*[@id='INCLUSIONS']/div/div/div[1]/label/div"));
@@ -165,13 +202,19 @@ public class PTAddTourPage_Supplier {
 			utility.clickElementJavascript("//*[@id='INCLUSIONS']/div/div/div[1]/label/div/ins");
 			utility.waiting();
 			utility.clickElementJavascript("//*[@id='INCLUSIONS']/div/div/div[1]/label/div/ins");
-			System.out.println("The checkbox Select all was unselected. The checkbox has been activated and unactivated...");
+			System.out.println(
+					"The checkbox Select all was unselected. The checkbox has been activated and unactivated...");
 		} else {
 			System.out.println("The checkbox Select all is already unselected. No needed to perform any action...");
 		}
 	}
 
-	// ------------- CLICK IN CAB FACILITIES CHECKBOX -----------------
+	// ******************************************************
+	// Objective: CLICK IN CAB FACILITIES CHECKBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "(//label[@class='pointer']/div[@style='position: relative;'])[2]")
 	WebElement CabFacilitiesChkbox;
 
@@ -184,7 +227,12 @@ public class PTAddTourPage_Supplier {
 		System.out.println("The checkbox Cab Facilities is now selected...");
 	}
 
-	// ------------- CLICK IN LOCAL TAX CHECKBOX-------------------------
+	// ******************************************************
+	// Objective: CLICK IN LOCAL TAX CHECKBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "(//label[@class='pointer']/div[@style='position: relative;'])[3]")
 	WebElement LocalTaxChkbox;
 
@@ -197,7 +245,12 @@ public class PTAddTourPage_Supplier {
 		System.out.println("The checkbox Local Tax is now selected...");
 	}
 
-	// ------------- CLICK IN PLAYGROUND NEARBY CHECKBOX----------------------
+	// ******************************************************
+	// Objective: CLICK IN PLAYGROUND NEARBY CHECKBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "(//label[@class='pointer']/div[@style='position: relative;'])[4]")
 	WebElement PlaygrndNrbyChkbox;
 
@@ -210,7 +263,12 @@ public class PTAddTourPage_Supplier {
 		System.out.println("The checkbox Playground Nearby is now selected...");
 	}
 
-	// ------------- CLICK IN LOCAL GUIDES CHECKBOX---------------------
+	// ******************************************************
+	// Objective: CLICK IN LOCAL GUIDES CHECKBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "(//label[@class='pointer']/div[@style='position: relative;'])[8]")
 	WebElement LocalGuidesChkbox;
 
@@ -223,7 +281,12 @@ public class PTAddTourPage_Supplier {
 		System.out.println("The checkbox Local Guides is now selected...");
 	}
 
-	// ------------- CLICK IN EXCLUSIONS TAB ---------------------------------------
+	// ******************************************************
+	// Objective: CLICK IN EXCLUSIONS TAB.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "//div[@id='materialTabBarJsDemo']//mwc-tab[@id='EXCLUSIONS-tab']")
 	WebElement ExclusionsTab;
 
@@ -238,7 +301,12 @@ public class PTAddTourPage_Supplier {
 
 	}
 
-	// ------------- CLICK IN VISA CHARGE CHECKBOX-----------------------------
+	// ******************************************************
+	// Objective: CLICK IN VISA CHARGE CHECKBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
+
 	@FindBy(xpath = "(//label[@class='pointer']/div[@style='position: relative;'])[49]")
 	WebElement VisaChargeChkbox;
 
@@ -251,7 +319,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("The checkbox Visa Charges is now selected...");
 	}
 
-	// ------------ META INFO TAB -----------------
+	// ******************************************************
+	// Objective: CLICK IN META INFO TAB.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='materialTabBarJsDemo']//mwc-tab[@id='META_INFO-tab']")
 	WebElement MetaInfoTab;
@@ -266,7 +338,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("META INFO Tab clicked...");
 	}
 
-	// ------------ META TITLE TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS META TITLE TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourmetatitle']")
 	WebElement MetaTitleTxtbox;
@@ -280,7 +356,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("META Title inserted. Value = " + metaTitle);
 	}
 
-	// ------------ META KEYWORDS TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS META KEYWORDS TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourkeywords']")
 	WebElement MetaKeywordsTxtbox;
@@ -294,7 +374,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("META Keywords inserted. Value = " + metaKeywords);
 	}
 
-	// ------------ META DESCRIPTION TEXTAREA -----------------
+	// ******************************************************
+	// Objective: INSERTS META DESCRIPTION TEXTAREA.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//textarea[@name='tourmetadesc']")
 	WebElement MetaDescTxtarea;
@@ -308,7 +392,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("META Description inserted. Value = " + metaDesc);
 	}
 
-	// ------------ POLICY TAB -----------------
+	// ******************************************************
+	// Objective: CLICK IN POLICY TAB.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='materialTabBarJsDemo']//mwc-tab[@id='POLICY-tab']")
 	WebElement PolicyTab;
@@ -323,7 +411,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Policy Tab clicked...");
 	}
 
-	// ----------------- PAYMENT OPTIONS TEXTBOX -----------------------------
+	// ******************************************************
+	// Objective: INSERTS PAYMENT OPTIONS TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//li/input[@type='text' and @id='s2id_autogen14']")
 	WebElement PaymentOptTxtbox;
@@ -340,7 +432,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Payment option inserted. Value = " + paymentOpt);
 	}
 
-	// ----------------- POLICY AND TERMS TEXTAREA ------------------------------
+	// ******************************************************
+	// Objective: INSERTS POLICY AND TERMS TEXTAREA.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//textarea[@name='tourprivacy']")
 	WebElement PolicyAndTermsTxtarea;
@@ -354,7 +450,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Policy and terms inserted. Value = " + PolicyAndTerms);
 	}
 
-	// ------------ CONTACT TAB -----------------
+	// ******************************************************
+	// Objective: CLICK IN CONTACT TAB.
+	// Autor: Elías Lara.
+	// Date of creation/adding: Jan 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='materialTabBarJsDemo']//mwc-tab[@id='CONTACT-tab']")
 	WebElement ContactTab;
@@ -364,12 +464,17 @@ public class PTAddTourPage_Supplier {
 	}
 
 	public void clickContactTab() {
-		Actions builder = new Actions(driver);   
+		Actions builder = new Actions(driver);
 		builder.moveToElement(ContactTab, 1, 1).click().build().perform();
 		System.out.println("Contact Tab clicked...");
 	}
 
-	// ------------ TOURS OPERATOR'S EMAIL TEXTBOX -----------------
+	// ------------ -----------------
+	// ******************************************************
+	// Objective: INSERTS TOURS OPERATOR'S EMAIL TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='touremail']")
 	WebElement TourEmailTxtbox;
@@ -383,7 +488,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Operator's email inserted. Value = " + tourEmail);
 	}
 
-	// ------------ OPERATOR'S WEBSITE TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS OPERATOR'S WEBSITE TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourwebsite']")
 	WebElement TourWebsiteTxtbox;
@@ -397,7 +506,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Operator's website inserted. Value = " + tourWebsite);
 	}
 
-	// ------------ OPERATOR'S PHONE TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS OPERATOR'S PHONE TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourphone']")
 	WebElement TourPhoneTxtbox;
@@ -411,7 +524,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Operator's Phone inserted. Value = " + tourPhone);
 	}
 
-	// ------------ OPERATOR'S FULL ADDRESS TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS OPERATOR'S FULL ADDRESS TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourfulladdress']")
 	WebElement TourAddressTxtbox;
@@ -425,7 +542,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Operator's Full Address inserted. Value = " + tourAddress);
 	}
 
-	// ------------ TOUR HOURS TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS TOUR HOURS TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourhours']")
 	WebElement TourHoursTxtbox;
@@ -439,7 +560,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Tour Hours inserted. Value = " + tourHours);
 	}
 
-	// ------------ TOUR DAYS TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS TOUR DAYS TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tourdays']")
 	WebElement TourDaysTxtbox;
@@ -453,7 +578,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Tour Days inserted. Value = " + tourDays);
 	}
 
-	// ------------ TOUR NIGHTS TEXTBOX -----------------
+	// ******************************************************
+	// Objective: INSERTS TOUR NIGHTS TEXTBOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='tournights']")
 	WebElement TourNightsTxtbox;
@@ -467,11 +596,15 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Tour Nights inserted. Value = " + tourNights);
 	}
 
-	// ------------ SELECT TOUR TYPE LIST -----------------
+	// ******************************************************
+	// Objective: SELECT TOUR TYPE LIST.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//div[@id='select2-drop']/div/input")
 	WebElement TourTypeTxtbox;
-	
+
 	public WebElement getTourTypeTxtbox() {
 		return TourTypeTxtbox;
 	}
@@ -488,7 +621,11 @@ public class PTAddTourPage_Supplier {
 		System.out.println("Tour Type selected. Value = " + tourType);
 	}
 
-	// ---------------- Click for button Submit -----------------------------
+	// ******************************************************
+	// Objective: CLICK IN 'SUBMIT' BUTTON.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//button[@id='add']")
 	WebElement SubmitBtn;

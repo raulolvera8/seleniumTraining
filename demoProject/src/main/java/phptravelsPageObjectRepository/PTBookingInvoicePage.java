@@ -243,6 +243,8 @@ public class PTBookingInvoicePage {
 			Assert.fail("FAILED");
 		}
 	}
+	// -------------------------------------------------------------
+
 
 	/// -------- PRINT STATUS PENDING LABEL FROM BOOKING - IRIS
 	@FindBy(xpath = "//div[@class='infobox infobox-danger']")
@@ -263,6 +265,8 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='infobox infobox-danger']")));
 		System.out.println(getBookingStatus().getText());
 	}
+	// -------------------------------------------------------------
+
 
 	/// -------- PRINT STATUS CONFIRMED LABEL FROM BOOKING - IRIS
 	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
@@ -280,6 +284,8 @@ public class PTBookingInvoicePage {
 			Assert.fail("FAILED: The payment was no successfull");
 		}
 	}
+	// -------------------------------------------------------------
+
 
 	/// --- PRINT LABELS DATA ON BOOKING VIEW (PERSONAL DATA, NAME, LAST NAME,
 	/// EMAIL,
@@ -304,6 +310,8 @@ public class PTBookingInvoicePage {
 
 		System.out.println("BOOKING INVOICE " + getFirstData().getText());
 	}
+	// -------------------------------------------------------------
+
 
 	/// ---- PRINT LABELS DATA ON BOOKING VIEW (COMPANY DATA, NAME, EMAIL, PHONE,
 	/// ADDRESS) - IRIS
@@ -325,6 +333,8 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[2]")));
 		System.out.println(getSecondData().getText());
 	}
+	// -------------------------------------------------------------
+
 
 	/// ---- PRINT LABELS TRAVELLER DATA 1 (NAME, NATIONALITY, DATE OF BIRTH) - IRIS
 	@FindBy(xpath = "(//ul[@class='customer'])[3]")
@@ -345,6 +355,8 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[3]")));
 		System.out.println(getFirstDataTraveller().getText());
 	}
+	// -------------------------------------------------------------
+
 
 	/// ---- PRINT LABELS TRAVELLER DATA 2 (PASSPORT NO., PASSPORT EXPIRY, PASSPORT
 	/// ISSUANCE) --- IRIS
@@ -366,6 +378,8 @@ public class PTBookingInvoicePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ul[@class='customer'])[4]")));
 		System.out.println(getSecondDataTraveller().getText());
 	}
+	// -------------------------------------------------------------
+
 
 	// -----VISA VALIDATION -------
 	@FindBy(xpath = "//*[@class='card-body my-5 text-center']//h2")
