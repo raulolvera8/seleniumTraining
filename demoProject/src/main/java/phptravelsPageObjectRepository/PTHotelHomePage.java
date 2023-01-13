@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,23 +14,34 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import library.utilities;
+
 public class PTHotelHomePage {
 	WebDriver driver;
-
+	utilities utility;
 	public PTHotelHomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		utility = new utilities(driver);
 	}
+	
+	
+	// -------------- XPATH FOR HOTEL HOME WINDOW -----------
 	@FindBy (xpath="//*[@class='owl-stage']/div[position()=6]/*[@class='card-item mb-0']/*[@class='card-body']/h6") WebElement nameHotelLabel;
-	//@FindBy (xpath="//*[@class=' waves-effect']/strong[contains(text(),'Islamabad Marriott Hotel')]") WebElement nameHotelLabel;
 
+	// -----------
+	// ---- NAME HOTEL LABEL ---- DIANA
 	public WebElement getNameHotelLabel() {
 		return nameHotelLabel;
 	}
+	// -----------
+	// ---- READ HOTEL LABEL ---- DIANA
 	public String readNameHotelLabel() {
 		String nameHotelLabel= this.getNameHotelLabel().getText();
 		return nameHotelLabel;
 	}
+	// -----------
+	// ---- SELECT HOTEL LABEL ---- DIANA
 	public void clickHotelName() {
 		getNameHotelLabel().click();
 				Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
@@ -41,4 +53,16 @@ public class PTHotelHomePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='sec__title_left left-line']")));			
 	
 	}
+	// -----------
+	// ---- SCROLL TO HOTEL SECTION  ---- DIANA
+	@FindBy (xpath="//*[@class='hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px pb-5']") WebElement hotelSection;
+	public void scrollToHotelSection() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(nameHotelLabel));	
+		
+		utility.elementScrollDown(hotelSection);
+	}
+	// -----------
+
 }

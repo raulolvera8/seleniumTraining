@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class utilities {
 	WebDriver driver;
 	String mainWindow;
-	
+
 	public utilities(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
