@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,17 +49,16 @@ public class PTToursPage extends Driver {
 	
 
 	
-	public WebElement getDestination() {
-		return destinationCity;
-		
-	}
 	
-	public void clickDestination() {
-	  getDestination().click();
+    public WebElement getDestination() { return destinationCity;
+	  
+	  }
+	  
+    public void clickDestination() { getDestination().click();
 	  
 	  
 	  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
-	  Duration.ofSeconds(5));
+	  Duration.ofSeconds(5));  
 	  waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 	  ("//*[text()='Find the best tours packages']")));
 	  
@@ -71,45 +71,45 @@ public class PTToursPage extends Driver {
 	}
 	public void writeCountry(String fromDestination) {
 		getCountry().sendKeys(fromDestination);
+				
 		
-		
-		  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
+		  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(60),
 		  Duration.ofSeconds(5));
-		  waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-		  ("(//span[@class ='select2-results']/ul/li)[1]")));
-		 
+		  waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		  ("(//span[@class ='select2-results']/ul/li)[1]" )));
+		
 	}
-	 public void selectItemFromTour() { List<WebElement> listTour =
-	  driver.findElements( By. xpath("(//span[@class ='select2-results']/ul/li)[1]"
-	  )); listTour.get(0).click();
+	  public void selectItemFromTour() { List<WebElement> listTour = driver
+	  .findElements( By. xpath("(//span[@class ='select2-results']/ul/li)[1]" ));
+	  listTour.get(0).click();
+	  
+	
 	 
-	  
-	  
-
-	 }
-
-	
-
-
-	
-@FindBy(xpath="//*[@id='submit']") WebElement submit;
-
-public WebElement getSubmit() {
-	return submit;
+	  }
 }
 
-public void clickSubmit() {
+	 
+
 	
 
-	getSubmit().click();
-	
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-		("//*[@id='select2-tours_city-container']")));
-	
-	}
-}
 
+	
+/*
+ * @FindBy(xpath="//*[@id='submit']") WebElement submit;
+ * 
+ * public WebElement getSubmit() { return submit; }
+ * 
+ * public void clickSubmit() {
+ * 
+ * 
+ * getSubmit().click();
+ * 
+ * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
+ * Duration.ofSeconds(5));
+ * waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+ * ("//*[text()='Dubai,United Arab Emirates']")));
+ * //"//*[text()='Dubai,United Arab Emirates']" } }
+ */
 	
 	
 

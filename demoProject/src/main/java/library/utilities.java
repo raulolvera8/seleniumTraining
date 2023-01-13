@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.log4testng.Logger;
 
 public class utilities {
 	WebDriver driver;
@@ -17,6 +18,7 @@ public class utilities {
 	public utilities(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		
 	}
 
 	public void ScrollDown(WebDriver driver, String X, String Y) {
@@ -125,4 +127,15 @@ public class utilities {
 	public void switchToMainWindow() {
 		driver.switchTo().window(mainWindow);
 	}
+	
+	
+	
+	
+	// WAIT THE COMPLETE PAGE 
+    public void pageStatus() {
+    	String currentUrl = driver.getCurrentUrl();
+    	System.out.println(currentUrl);
+	  
+	  }
+	 
 }

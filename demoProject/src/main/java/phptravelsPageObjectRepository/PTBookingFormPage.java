@@ -92,6 +92,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickNationalityDropdown() {
+		utils.elementScrollDown(this.getNationalityDropDown());
 		getNationalityDropDown().click();
 	}
 
@@ -145,9 +146,9 @@ public class PTBookingFormPage {
 		getMonthDropDown().click();
 	}
 
-	public void clickValueDateOfBirthDropDown() {
+	public void clickValueDateOfBirthDropDown(int index) {
 		List<WebElement> listMonth = driver.findElements(By.xpath("//*[@name='dob_month_1']//option"));
-		listMonth.get(5).click();
+		listMonth.get(index).click();
 	}
 
 	// ----- DAY
@@ -160,9 +161,9 @@ public class PTBookingFormPage {
 		getDayDropDown().click();
 	}
 
-	public void clickValueDayDropDown() {
+	public void clickValueDayDropDown(int index) {
 		List<WebElement> listDay = driver.findElements(By.xpath("//*[@name='dob_day_1']//option"));
-		listDay.get(10).click();
+		listDay.get(index).click();
 	}
 
 	// ----- YEAR
@@ -175,9 +176,9 @@ public class PTBookingFormPage {
 		getYearDropDow().click();
 	}
 
-	public void clickValueYearDropDown() {
+	public void clickValueYearDropDown(int index) {
 		List<WebElement> listYear = driver.findElements(By.xpath("//*[@name='dob_year_1']//option"));
-		listYear.get(5).click();
+		listYear.get(index).click();
 	}
 	// ---- END DROPDOWN LIST -------
 
@@ -202,10 +203,10 @@ public class PTBookingFormPage {
 		getPassportMonthDropDown().click();
 	}
 
-	public void clickValuePassportMonthDropDown() {
+	public void clickValuePassportMonthDropDown(int index) {
 		List<WebElement> listPassportMonth = driver
 				.findElements(By.xpath("//*[@name='passport_issuance_month_1']//option"));
-		listPassportMonth.get(5).click();
+		listPassportMonth.get(index).click();
 	}
 
 	// -- click Passport Day
@@ -217,10 +218,10 @@ public class PTBookingFormPage {
 		getPassportDayDropDown().click();
 	}
 
-	public void clickValuePassportDayDropDown() {
+	public void clickValuePassportDayDropDown(int index) {
 		List<WebElement> ListPassportDay = driver
 				.findElements(By.xpath("//*[@name='passport_issuance_day_1']//option"));
-		ListPassportDay.get(5).click();
+		ListPassportDay.get(index).click();
 	}
 
 	// --- click Passport Year
@@ -232,10 +233,10 @@ public class PTBookingFormPage {
 		getPassportYearDropDown().click();
 	}
 
-	public void clickValuePassportYearDropDown() {
+	public void clickValuePassportYearDropDown(int index) {
 		List<WebElement> ListPassportYear = driver
 				.findElements(By.xpath("//*[@name='passport_issuance_year_1']//option"));
-		ListPassportYear.get(5).click();
+		ListPassportYear.get(index).click();
 	}
 
 	/// Passport Expiry Date
@@ -248,9 +249,9 @@ public class PTBookingFormPage {
 		getExpiryMonthDropDown().click();
 	}
 
-	public void clickValueMonthDropDown() {
+	public void clickValueMonthDropDown(int index) {
 		List<WebElement> listExpiryMonth = driver.findElements(By.xpath("//*[@name='passport_month_1']//option"));
-		listExpiryMonth.get(5).click();
+		listExpiryMonth.get(index).click();
 	}
 
 	// --- Expiry Day
@@ -262,9 +263,9 @@ public class PTBookingFormPage {
 		getExpiryDayDropDown().click();
 	}
 
-	public void clickValueExpiryDayDropDown() {
+	public void clickValueExpiryDayDropDown(int index) {
 		List<WebElement> listExpiryDay = driver.findElements(By.xpath("//*[@name='passport_day_1']//option"));
-		listExpiryDay.get(5).click();
+		listExpiryDay.get(index).click();
 	}
 
 	// --- Expiry Year
@@ -276,9 +277,9 @@ public class PTBookingFormPage {
 		getExpiryYearDropDown().click();
 	}
 
-	public void clickValueExpiryYearDropDown() {
+	public void clickValueExpiryYearDropDown(int index) {
 		List<WebElement> listExpiryYear = driver.findElements(By.xpath("//*[@name='passport_year_1']//option"));
-		listExpiryYear.get(5).click();
+		listExpiryYear.get(index).click();
 	}
 
 	// PAY LATER
@@ -287,6 +288,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickPayLaterRadioBtn() {
+		utils.elementScrollDown(this.getPayLaterRadioBtn());
 		getPayLaterRadioBtn().click();
 		
 		

@@ -66,7 +66,6 @@ public class PTFlightsPage extends Driver {
 	  xpath("//*[@class='autocomplete-wrapper _1 row_1']//div[@class='autocomplete-result']"
 	  )); listFlyingFromOneWay.get(0).click(); }
 	 
-
 //----FLYING DESTINATION
 	public WebElement getFlyingDestinationOneWay() {
 		return flyingDestination;
