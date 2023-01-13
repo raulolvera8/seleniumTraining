@@ -3,12 +3,23 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="Juan.scriptTour">
         <methods>
           <include name="CustomerPage"/>
+=======
+      <class name="Diana.flightCustomer">
+        <methods>
+          <include name="travels"/>
+>>>>>>> 1254349c1fa5cd0d2edd9986c37950b323c15842
           <include name="setup"/>
+          <include name="teardown"/>
         </methods>
+<<<<<<< HEAD
       </class> <!-- Juan.scriptTour -->
+=======
+      </class> <!-- Diana.flightCustomer -->
+>>>>>>> 1254349c1fa5cd0d2edd9986c37950b323c15842
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

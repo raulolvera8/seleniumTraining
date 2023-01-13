@@ -83,7 +83,8 @@ public class flightCustomer extends Driver {
 		// CLICK NATIONALITY VALUE
 		form.clickValueNationalityDropDown();
 		// (SCROLL DOWN)
-		utils.ScrollDown(Driver, "0", "50");
+		form.scrollToFormTravellerSection();
+		//utils.ScrollDown(Driver, "0", "50");
 		// CLICK TITLE BOX
 		form.clickTitleDropDown();
 		// CLICK TITLE VALUE
@@ -92,9 +93,11 @@ public class flightCustomer extends Driver {
 		form.writefirstNametb("Diana");
 		// TYPE LAST NAME
 		form.writelastNametb("Velasquez");
-		// INFORMATION TRAVELLER
+		//form.scrollToFormTravellerNationalitySection();
+		
+		
 		// CLICK NATIONALITY BOX
-		form.clickNationalityDropdown();
+		form.clickNationality_1DropDown();
 		// CLICK NATIONALITY VALUE
 		form.clickValueNationality_1DropDown();
 		// CLICK MONTH BOX
@@ -113,7 +116,7 @@ public class flightCustomer extends Driver {
 		// TYPE ID PASSPORT
 		form.writePassportTb("5555sdfdsd25");
 		// (SCROLL DOWN)
-		utils.ScrollDown(Driver, "0", "800");
+		//utils.ScrollDown(Driver, "0", "800");
 		// CLICK MONTH BOX
 		form.clickPassportMonthDropDown();
 		// CLICK MONTH VALUE
@@ -142,10 +145,13 @@ public class flightCustomer extends Driver {
 		form.clickExpiryYearDropDown();
 		// CLICK YEAR VALUE
 		form.clickValueExpiryYearDropDown();
+		// SCROLL DOWN
+		form.scrollToMethodPaymentSection();
+
 		// CLICK PAY LATER RADIO BUTTON
 		form.clickPayLaterRadioBtn();
 		// (SCROLL DOWN)
-		utils.ScrollDown(Driver, "0", "1000");
+		//utils.ScrollDown(Driver, "0", "1000");
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
 		form.clickTermsConditionsCheckBox();
 		// CLICK CONFIRMED FLIGHT BUTTON
@@ -156,6 +162,6 @@ public class flightCustomer extends Driver {
 
 	@AfterClass
 	public void teardown() {
-		teardownDriver();
+		//teardownDriver();
 	}
 }

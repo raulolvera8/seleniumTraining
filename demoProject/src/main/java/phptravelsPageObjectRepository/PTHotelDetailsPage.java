@@ -14,28 +14,38 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import library.utilities;
+
 public class PTHotelDetailsPage {
 	WebDriver driver;
+	utilities utility;
 	public PTHotelDetailsPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		utility = new utilities(driver);
 	}
+	// ----- HOTEL DETAILS WINDOW -------
+	// ------  XPATH FOR HOTEL DETAILS WINDOW ----- DIANA 
+	
 	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Child 3')]//select") WebElement numRoomsBox;
 	@FindBy (xpath="//*[@class='card mb-4'][contains(.,'Child 3')]//button") WebElement bookNowBtn;
-	// Available rooms
-	// Select number of rooms
+	// ---------------------
+	// ---- SELECT NUMBER OF ROOMS BOX ----- DIANA
 	public WebElement getNumberRooms() {
 		return numRoomsBox;
 	}
 	public void selectNumberRoomsBox() {
 		getNumberRooms().click();
 	}
+	// ---------------------
+	// ---- SELECT NUMBER OF ROOMS ----- DIANA
+
 	public void selectNumOfRooms() {
 		List <WebElement> listNumOfRooms=driver.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Child 3')]//select/option"));
 		listNumOfRooms.get(1).click();
 	}
-	// Click Book Now Button 
-	
+	// ---------------------
+	// ---- CLICK BOOK NOW BUTTON ----- DIANA	
 	public WebElement getbookNowBtn() {
 		return bookNowBtn;
 	}
@@ -53,6 +63,16 @@ public class PTHotelDetailsPage {
 		wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title'][contains(.,'Travellers Information')]")));
 		
 	}
-	
+	// ---- SCROLL TO AVAILABLE ROOMS ----- DIANA
+	// --- XPATH FOR AVAILABLE ROOMS SECTION ---
+	@FindBy (id="availability") WebElement availableRoomsSection;
+	public WebElement getAvailableRoomsSection() {
+		return availableRoomsSection;
+	}
+	 public void scrollToAvailableRooms() {
+		 utility.elementScrollDown(getAvailableRoomsSection());
+	 }
+	// ---- END SCROLL TO AVAILABLE ROOMS ----- 
+
 	
 }

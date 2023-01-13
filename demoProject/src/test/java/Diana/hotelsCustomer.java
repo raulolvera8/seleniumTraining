@@ -61,17 +61,16 @@ public class hotelsCustomer extends Driver {
 		// CLICK HOTEL TAB
 		tabHotel.clickHotelsBtn();
 		// (SCROLL DOWN)
-		utils.ScrollDown(driver, "0", "400");
+		hotelHomePage.scrollToHotelSection();
 		// CLICK FIRST HOTEL
 		// PRINT HOTEL NAME WILL SELECT
 				String hotelName = hotelHomePage.readNameHotelLabel();
 				System.out.println(hotelName);
-		hotelHomePage.clickHotelName();
-		
-		
+		hotelHomePage.clickHotelName();	
 		// ----- HOTEL DETAILS WINDOW -------
-		// (SCROLL DOWN)
-		utils.ScrollDown(driver, "0", "600");
+		// (SCROLL DOWN)	
+		hotelDetails.scrollToAvailableRooms();
+		//utils.ScrollDown(driver, "0", "600");
 		// CLICK NUMBER OF ROOMS BOX
 		hotelDetails.selectNumberRoomsBox();
 		// CLICK NUMBER OF ROOMS VALUE
@@ -81,7 +80,7 @@ public class hotelsCustomer extends Driver {
 		// ----- HOTEL BOOKING WINDOW ----
 		// INFORMATION TRAVELLER
 		// (SCROLL DOWN)
-		utils.ScrollDown(driver, "0", "300");
+		form.scrollToFormTravellerSection();
 		// CLICK TITLE BOX
 		form.clickTitleDropDown();
 		// CLICK TITLE VALUE
@@ -91,7 +90,7 @@ public class hotelsCustomer extends Driver {
 		// TYPE LAST NAME
 		form.writelastNametb("Velasquez");
 		// (SCROLL DOWN)
-		utils.ScrollDown(driver, "0", "1200");
+		form.scrollToMethodPaymentSection();
 		// CLICK PAY WITH STRIPE RADIO BUTTON
 		form.clickPayStripeRadioBtn();
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
@@ -150,11 +149,9 @@ public class hotelsCustomer extends Driver {
 		}
 		// BOOKING INVOICE VALIDATION
 				invoiceStatus.validationStatusPaid();
-
 	}
-
 	@AfterClass
 	public void teardown() {
-		teardownDriver();
+		//teardownDriver();
 	}
 }

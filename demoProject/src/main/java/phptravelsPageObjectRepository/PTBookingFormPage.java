@@ -26,7 +26,9 @@ public class PTBookingFormPage {
 		utils = new utilities(driver);
 	}
 
+
 	/// ---- FLIGHTS BOOKING INFORMATION WINDOW
+	// ---- XPATH TO FLIGHTS BOOKING INFORMATION WINDOW
 	@FindBy(xpath = "//*[@class='form-select form-select-sm nationality']")
 	WebElement NationalityDropDown;
 	@FindBy(name = "title_1")
@@ -65,9 +67,9 @@ public class PTBookingFormPage {
 	WebElement termsAndConditionsCheckBox;
 	@FindBy(id = "booking")
 	WebElement bookingBtn;
-
-	// --- TRAVELLER INFORMATION
-
+	// -------------------
+	// --- TRAVELLER INFORMATION ---- 
+	// --- WRITE FIRST NAME ----- DIANA
 	public WebElement getFirstNametb() {
 		return firstNametb;
 	}
@@ -75,6 +77,8 @@ public class PTBookingFormPage {
 	public void writefirstNametb(String firstName) {
 		getFirstNametb().sendKeys(firstName);
 	}
+	// -------------------
+	// --- WRITE LAST NAME ----- DIANA
 
 	public WebElement getlastNametb() {
 		return lastNametb;
@@ -83,10 +87,10 @@ public class PTBookingFormPage {
 	public void writelastNametb(String lastName) {
 		getlastNametb().sendKeys(lastName);
 	}
-	
-	// ---- DROPDOWN LIST -------
+	// -------------------
 
-	// ----- NATIONALITY
+	// ---- DROPDOWN LIST -------
+	// ----- CLICK NATIONALITY BOX ---- DIANA
 	public WebElement getNationalityDropDown() {
 		return NationalityDropDown;
 	}
@@ -95,7 +99,7 @@ public class PTBookingFormPage {
 		utils.elementScrollDown(this.getNationalityDropDown());
 		getNationalityDropDown().click();
 	}
-
+	// ----- CLICK  VALUE NATIONALITY  ---- DIANA
 	public void clickValueNationalityDropDown() {
 		List<WebElement> listNationality = driver
 				.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
@@ -104,7 +108,6 @@ public class PTBookingFormPage {
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"//*[@class='form-title-wrap'][contains(.,'Travellers Information')]")));*/
 	//	utils.elementScrollDown(titleDropDown);
-
 	
 	}
 	// ----- TITLE
@@ -128,7 +131,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickNationality_1DropDown() {
-		utils.elementScrollDown(this.getNationality_1DropDown());
+		//utils.elementScrollDown(this.getNationality_1DropDown());
 		getNationality_1DropDown().click();
 	}
 
@@ -338,4 +341,37 @@ public class PTBookingFormPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title']//span")));
 
 	}
+	// ------ SCROLL TO FORM TRAVELLER SECTION ------ DIANA
+	// ------ XPATH FOR SCROLL FORM TRAVELLER SECTION
+	@FindBy (xpath="//*[@class='form-box payment-received-wrap mb-2']") WebElement formTravellerSection;
+	public WebElement getFormTravellerSection() {
+		return formTravellerSection;
+	}
+	public void scrollToFormTravellerSection() {
+		utils.elementScrollDown(getFormTravellerSection());
+	}
+	// -----------------------------
+	// ------ SCROLL TO FORM TRAVELLER NATIONALITY SECTION ------ DIANA
+	// ------ XPATH FOR SCROLL FORM TRAVELLER NATIONALITY NASECTION
+	
+	@FindBy (xpath="//*[@class='row mt-3'][position()=1]") WebElement formTravellerNationalitySection;
+	public WebElement getFormTravellerNationalitySection() {
+		return formTravellerNationalitySection;
+	}
+	public void scrollToFormTravellerNationalitySection() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		utils.elementScrollDown(getNationalityDropDown());
+	}
+	//------------
+	// ------ SCROLL TO METHOD PAYMENT SECTION ------ DIANA
+	// ------ XPATH FOR SCROLL METHOD PAYMENT SECTION
+		@FindBy (xpath="//*[@class='form-box']") WebElement methodPaymentSection;
+		public WebElement getMethodPaymentSection() {
+			return methodPaymentSection;
+		}
+		public void scrollToMethodPaymentSection() {
+			utils.elementScrollDown(getMethodPaymentSection());
+		}
+		// -----------------------------
+
 }
