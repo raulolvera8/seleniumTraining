@@ -112,15 +112,15 @@ public class script2 extends Driver {
 		// DATE OF BIRTH
 		// MONTH
 		travellerFormPage.clickMonthDropDown();
-		travellerFormPage.clickValueDateOfBirthDropDown();
+		travellerFormPage.clickValueDateOfBirthDropDown(3);
 
 		// DAY
 		travellerFormPage.clickDayDropDown();
-		travellerFormPage.clickValueDayDropDown();
+		travellerFormPage.clickValueDayDropDown(14);
 
 		// YEAR
 		travellerFormPage.clickYearDropDown();
-		travellerFormPage.clickValueYearDropDown();
+		travellerFormPage.clickValueYearDropDown(38);
 
 		// ================ PASSPORT INFORMATION ==================
 		// PASSPORT ID
@@ -129,28 +129,28 @@ public class script2 extends Driver {
 		// ================ PASSPORT ISSUANCE INFORMATION ==================
 		// PASSPORT ISSUANCE MONTH
 		travellerFormPage.clickPassportMonthDropDown();
-		travellerFormPage.clickValuePassportMonthDropDown();
+		travellerFormPage.clickValuePassportMonthDropDown(2);
 
 		// PASSPORT ISSUANCE DAY
 		travellerFormPage.clickPassportDayDropDown();
-		travellerFormPage.clickValuePassportDayDropDown();
+		travellerFormPage.clickValuePassportDayDropDown(4);
 
 		// PASSPORT ISSUANCE YEAR
 		travellerFormPage.clickPassportYearDropDown();
-		travellerFormPage.clickValuePassportYearDropDown();
+		travellerFormPage.clickValuePassportYearDropDown(4);
 
 		// ================ PASSPORT EXPIRY INFORMATION ==================
 		// PASSPORT EXPIRY MONTH
 		travellerFormPage.clickExpiryMonthDropDown();
-		travellerFormPage.clickValueMonthDropDown();
+		travellerFormPage.clickValueMonthDropDown(2);
 
 		// PASSPORT EXPIRY DAY
 		travellerFormPage.clickExpiryDayDropDown();
-		travellerFormPage.clickValueExpiryDayDropDown();
+		travellerFormPage.clickValueExpiryDayDropDown(2);
 
 		// PASSPORT EXPIRY YEAR
 		travellerFormPage.clickExpiryYearDropDown();
-		travellerFormPage.clickValueExpiryYearDropDown();
+		travellerFormPage.clickValueExpiryYearDropDown(3);
 
 		// ================ PAYMENT METHOD INFORMATION ==================
 		// CLICK RADIOBUTTON PAY WITH STRIPE METHOD TRAVELLER WINDOW
