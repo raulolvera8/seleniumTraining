@@ -34,13 +34,16 @@ public class PTFlightSearchResultsPage {
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"(//button[@class='btn btn-block theme-search-results-item-price-btn ladda waves-effect'])[1]//span")));
 
-		getFirstFlight().click();
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
 		wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
-
+		
+		getFirstFlight().click();
+		
+		wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+		
 		System.out.println("Clicking first flight option  ...");
 	}
 	// -------------------------------------------------------------
