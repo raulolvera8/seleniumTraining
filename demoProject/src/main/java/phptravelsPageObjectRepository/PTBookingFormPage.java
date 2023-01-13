@@ -85,7 +85,10 @@ public class PTBookingFormPage {
 	}
 
 	public void writelastNametb(String lastName) {
+		utils.elementScrollDown(this.getlastNametb());
 		getlastNametb().sendKeys(lastName);
+		utils.elementScrollDown(this.getNationalityDropDown());
+
 	}
 	// -------------------
 
@@ -191,7 +194,6 @@ public class PTBookingFormPage {
 	}
 
 	public void writePassportTb(String passport) {
-		utils.elementScrollDown(this.getPassportTb());
 		getPassportTb().sendKeys(passport);
 	}
 
@@ -201,7 +203,6 @@ public class PTBookingFormPage {
 	}
 
 	public void clickPassportMonthDropDown() {
-		utils.elementScrollDown(this.getPassportMonthDropDown());
 		getPassportMonthDropDown().click();
 	}
 
