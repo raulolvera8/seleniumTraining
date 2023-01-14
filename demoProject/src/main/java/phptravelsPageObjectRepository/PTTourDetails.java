@@ -39,6 +39,11 @@ public class PTTourDetails  extends Driver {
 
 		getDateTour().click();
 		
+		
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
+		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		("//*[text()='Description']")));
+		
 		/*
 		 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 		 * Duration.ofSeconds(5));

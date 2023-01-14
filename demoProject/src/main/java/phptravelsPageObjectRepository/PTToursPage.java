@@ -104,6 +104,11 @@ public class PTToursPage extends Driver {
  
      getSubmit().click();
      
+ 	WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30), Duration.ofSeconds(5));
+	waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+	("//*[text()='Filter Search']")));
+     
+     
  	Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 			.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 	wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));

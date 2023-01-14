@@ -75,26 +75,42 @@ public class scriptTour extends Driver {
 		tourDetails.clickInfantsNumber();
 		tourDetails.clickBookNowDate();
 		
+		
+
 		//TRAVELLERS INFO
 		//TRAVELLER 1
 		bookingPage.clickTraveller1();
 		bookingPage.writeFirstName1("juan");
 		bookingPage.writeLastName1("limon");
+		
+
 		//TRAVELLER 2
 		bookingPage.clickTraveller2();
 		bookingPage.writeFirstName2("anita");
-		bookingPage.writeLastName2("bermudez");
+		bookingPage.writeLastName2("perez");
+		
+		utils.ScrollDown( driver, "0", "600");
+
 		//TRAVELLER 3
 		bookingPage.clickTraveller3();
 		bookingPage.writeFirstName3("miri");
 		bookingPage.writeLastName3("brown");
+		
+		utils.ScrollDown( driver, "0", "400");
+
 		//TRAVELLER 4
 		bookingPage.clickTraveller4();
 		bookingPage.writeFirstName4("karla");
 		bookingPage.writeLastName4("brown");
 		
+		utils.ScrollDown( driver, "0", "800");
+
+		
 		//PAYMENT METHOD
 		bookingPage.clickPaymentMethod();
+		
+		utils.ScrollDown( driver, "0", "400");
+
 		bookingPage.clickContinuing();
 		bookingPage.clickConfirmBooking();
 		

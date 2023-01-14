@@ -14,7 +14,7 @@ import library.utilities;
 
 public class PTTourBookingPage {
 	WebDriver driver;
-	///utilities utils;
+	//utilities utils;
 
 
 	public PTTourBookingPage(WebDriver driver) {
@@ -40,11 +40,12 @@ public class PTTourBookingPage {
 			public void clickTraveller1() {
 
 
+
 			getTraveller1().click();
 
 			WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 			Duration.ofSeconds(5));
-			waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+			waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 			("//*[text()='Tour Booking']")));
 
 				
@@ -60,9 +61,9 @@ public class PTTourBookingPage {
 					
 					
 				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-						Duration.ofSeconds(5));
-						waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-						("//*[text()='Tour Booking']")));
+				Duration.ofSeconds(5));
+				waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+				("//*[text()='Tour Booking']")));
 				
 				}
 			public WebElement getLastName1() {
@@ -72,11 +73,11 @@ public class PTTourBookingPage {
 
 			public void writeLastName1(String lastName) {			
 				getLastName1().sendKeys(lastName);
-					
+
 					
 				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 						Duration.ofSeconds(5));
-						waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+						waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 						("//*[text()='Tour Booking']")));
 				
 				}
@@ -85,6 +86,7 @@ public class PTTourBookingPage {
 			//TRAVELLER 2
 			@FindBy(xpath="//*[@name='title_2']//option[@value='Mrs']") WebElement traveller2;
 			@FindBy(xpath="//*[@name='firstname_2']") WebElement firstName2;
+			
 			@FindBy(xpath="//*[@name='lastname_2']") WebElement lastName2;
 
 
@@ -101,7 +103,7 @@ public class PTTourBookingPage {
 
 				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 				Duration.ofSeconds(5));
-				waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+				waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 				("//*[text()='Tour Booking']")));
 
 					
@@ -117,9 +119,9 @@ public class PTTourBookingPage {
 						
 						
 					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-							Duration.ofSeconds(5));
-							waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-							("//*[text()='Tour Booking']")));
+					Duration.ofSeconds(5));
+					waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+				    ("//*[text()='Travellers Information']")));
 					
 					}
 				public WebElement getLastName2() {
@@ -128,13 +130,13 @@ public class PTTourBookingPage {
 
 
 				public void writeLastName2(String lastName) {			
-					getFirstName2().sendKeys(lastName);
+					getLastName2().sendKeys(lastName);
 						
 						
 					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-							Duration.ofSeconds(5));
-							waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-							("//*[text()='Tour Booking']")));
+					Duration.ofSeconds(5));
+					waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+					("//*[text()='Travellers Information']")));
 					
 					}
 				
@@ -151,46 +153,46 @@ public class PTTourBookingPage {
 
 					}
 
-					public void clickTraveller3() {
+				public void clickTraveller3() {
 
-					getTraveller3().click();
+				getTraveller3().click();
 
-					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-					Duration.ofSeconds(5));
-					waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-					("//*[text()='Tour Booking']")));
-
-
-
-					}
-					public WebElement getFirstName3() {
-						return firstName3;
-					}
+				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+				Duration.ofSeconds(5));
+				waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+				("//*[text()='Tour Booking']")));
 
 
-					public void writeFirstName3(String firstName) {			
-						getFirstName3().sendKeys(firstName);
+
+				}
+				public WebElement getFirstName3() {
+				  return firstName3;
+				}
+
+
+				public void writeFirstName3(String firstName) {			
+				  getFirstName3().sendKeys(firstName);
 							
 							
-						WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-								Duration.ofSeconds(5));
-								waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-								("//*[text()='Tour Booking']")));
+				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+				Duration.ofSeconds(5));
+				waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+				("//*[text()='Tour Booking']")));
 						
-						}
-					public WebElement getLastName3() {
-						return lastName3;
 					}
+				public WebElement getLastName3() {
+			     	return lastName3;
+				}
 
 
-					public void writeLastName3(String lastName) {			
-						getFirstName3().sendKeys(lastName);
+				public void writeLastName3(String lastName) {			
+					getLastName3().sendKeys(lastName);
 							
 							
-						WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-								Duration.ofSeconds(5));
-								waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-								("//*[text()='Tour Booking']")));
+				WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+				Duration.ofSeconds(5));
+				waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+				("//*[text()='Tour Booking']")));
 						
 						}
 					
@@ -239,7 +241,7 @@ public class PTTourBookingPage {
 
 
 						public void writeLastName4(String lastName) {			
-							getFirstName4().sendKeys(lastName);
+							getLastName4().sendKeys(lastName);
 								
 								
 							WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
@@ -266,13 +268,13 @@ public class PTTourBookingPage {
 
 							WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 							Duration.ofSeconds(5));
-							waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+							waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 							("//*[text()='Tour Booking']")));
 							
 							}
 							
 							
-							@FindBy(xpath="//*[@id='agreechb']") WebElement checkboxContinuing;
+							@FindBy(xpath="//*[@for='agreechb']") WebElement checkboxContinuing;
 							
 							public WebElement getContinuing() {
 								 return checkboxContinuing;
@@ -285,9 +287,9 @@ public class PTTourBookingPage {
 
 								getContinuing().click();
 
-								WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+								WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
 								Duration.ofSeconds(5));
-								waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+								waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 								("//*[text()='Tour Booking']")));
 								
 								}
@@ -308,7 +310,7 @@ public class PTTourBookingPage {
 
 									WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 									Duration.ofSeconds(5));
-									waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+									waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
 									("//*[text()='Tour Booking']")));
 									
 									}
