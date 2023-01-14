@@ -46,6 +46,20 @@ public class utilities {
 
 	}
 
+	public void elementScrollDownWithTopMenu(WebElement element) {
+		try {
+			JavascriptExecutor js;
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			Thread.sleep(2000);
+			js.executeScript("window.scrollByLines(-5)");
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.println("Error when trying to locate the element ");
+			e.printStackTrace();
+		}
+
+	}
 	// ******************************************************
 	// Objective: Wait time without any validation of any object/element.
 	// Author: Elías Lara.

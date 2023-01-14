@@ -87,7 +87,7 @@ public class PTBookingFormPage {
 	public void writelastNametb(String lastName) {
 		utils.elementScrollDown(this.getlastNametb());
 		getlastNametb().sendKeys(lastName);
-		utils.elementScrollDown(this.getNationalityDropDown());
+		//utils.elementScrollDown(this.getNationalityDropDown());
 
 	}
 	// -------------------
@@ -99,7 +99,6 @@ public class PTBookingFormPage {
 	}
 
 	public void clickNationalityDropdown() {
-		utils.elementScrollDown(this.getNationalityDropDown());
 		getNationalityDropDown().click();
 	}
 	// ----- CLICK  VALUE NATIONALITY  ---- DIANA
@@ -135,6 +134,7 @@ public class PTBookingFormPage {
 
 	public void clickNationality_1DropDown() {
 		//utils.elementScrollDown(this.getNationality_1DropDown());
+		utils.elementScrollDownWithTopMenu(this.getNationality_1DropDown());
 		getNationality_1DropDown().click();
 	}
 
@@ -204,6 +204,7 @@ public class PTBookingFormPage {
 	}
 
 	public void clickPassportMonthDropDown() {
+		utils.elementScrollDownWithTopMenu(this.getPassportMonthDropDown());
 		getPassportMonthDropDown().click();
 	}
 
