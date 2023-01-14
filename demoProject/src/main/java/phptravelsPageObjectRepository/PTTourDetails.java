@@ -3,11 +3,14 @@ package phptravelsPageObjectRepository;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import library.Driver;
@@ -36,12 +39,14 @@ public class PTTourDetails  extends Driver {
 
 		getDateTour().click();
 		
-			WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
-			waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-			("//*[text()='Description']")));
+		/*
+		 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+		 * Duration.ofSeconds(5));
+		 * waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
+		 * ("//*[@class='label-text']")));
+		 */
 			
 			
-		
 		}
 
 	public WebElement getDateSelect() {
@@ -139,10 +144,10 @@ public class PTTourDetails  extends Driver {
 	 
 	 }
 
-	public void clickChildsNumber() {
+	public void clickChildsNumber(int index) {
+	 WebElement childNumber = driver.findElement(By.xpath("//*[@id='childs']//option[@value='"+index+"']"));
 	 
-	 
-	 getAdultsNumber().click();
+	 childNumber.click();
 	 
 	 WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
 	 Duration.ofSeconds(5));
@@ -212,10 +217,17 @@ public class PTTourDetails  extends Driver {
 
 			getBookNowDate().click();
 
-		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-		Duration.ofSeconds(5));
-		waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-		("//*[text()='Description']")));
+			/*
+			 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
+			 * Duration.ofSeconds(5));
+			 * waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+			 * ("//*[text()='Your Personal Information']")));
+			 */
+		
+		 Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+		
 
 			
 

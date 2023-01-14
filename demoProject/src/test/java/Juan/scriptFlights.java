@@ -85,7 +85,7 @@ public class scriptFlights extends Driver {
 		//WRITE LAST NAME
 		flightBookingPage.writelastNametb("Ramirez");
 		// (SCROLL DOWN)
-		utils.ScrollDown(driver,"0","200");
+		//utils.ScrollDown(driver,"0","200");
 		// CLICK NATIONALITY BOX
 		flightBookingPage.clickNationalityDropdown();
 		// CLICK NATIONALITY VALUE
@@ -105,7 +105,7 @@ public class scriptFlights extends Driver {
 		//WRITE ID PASSPORT
 		flightBookingPage.writePassportTb("0909090JR887");
 		// (SCROLL DOWN)
-		utils.ScrollDown(driver,"0","700");
+		//utils.ScrollDown(driver,"0","700");
 		// CLICK MONTH BOX
 		flightBookingPage.clickPassportMonthDropDown();
 		// CLICK MONTH VALUE 
@@ -131,11 +131,11 @@ public class scriptFlights extends Driver {
 		// CLICK YEAR VALUE 
 		flightBookingPage.clickValueExpiryYearDropDown(5);
 		// (SCROLL DOWN)
-		utils.ScrollDown(driver,"0","600");
+		//utils.ScrollDown(driver,"0","600");
 		// CLICK PAY LATER RADIO BUTTON 
 		flightBookingPage.clickPayLaterRadioBtn();
 		//(SCROLL DOWN)
-		utils.ScrollDown(driver,"0","1000");
+		//utils.ScrollDown(driver,"0","1000");
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
 		flightBookingPage.clickTermsConditionsCheckBox();
 		// CLICK CONFIRMED FLIGHT BUTTON

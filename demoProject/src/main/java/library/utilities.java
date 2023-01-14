@@ -18,7 +18,7 @@ public class utilities {
 	public utilities(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		
+
 	}
 
 	public void ScrollDown(WebDriver driver, String X, String Y) {
@@ -90,7 +90,7 @@ public class utilities {
 	// Author: Elías Lara.
 	// Date of creation/adding: 01 07 23
 	// *******************************************************
-	
+
 	public void clickElementJavascript(String xpath) {
 		WebElement element = driver.findElement(By.xpath(xpath));
 
@@ -127,15 +127,12 @@ public class utilities {
 	public void switchToMainWindow() {
 		driver.switchTo().window(mainWindow);
 	}
-	
-	
-	
-	
-	// WAIT THE COMPLETE PAGE 
-    public void pageStatus() {
-    	String currentUrl = driver.getCurrentUrl();
-    	System.out.println(currentUrl);
-	  
-	  }
-	 
+
+	/*
+	 * // WAIT THE COMPLETE PAGE public void pageStatus() { String currentUrl =
+	 * driver.getCurrentUrl(); System.out.println(currentUrl);
+	 * 
+	 * }
+	 */
+
 }

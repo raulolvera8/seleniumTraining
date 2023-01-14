@@ -59,7 +59,7 @@ public class scriptTour extends Driver {
 		tourPage.clickDestination();
 		tourPage.writeCountry("dubai");
 		tourPage.selectItemFromTour();
-		//tourPage.clickSubmit();
+		tourPage.clickSubmit();
 		
 		
 		tourDubai.clickDetails();
@@ -70,7 +70,7 @@ public class scriptTour extends Driver {
 		tourDetails.clickAdults();
 		tourDetails.clickAdultsNumber();
 		tourDetails.clickChilds();
-		tourDetails.clickChildsNumber();
+		tourDetails.clickChildsNumber(1);
 		tourDetails.clickInfants();
 		tourDetails.clickInfantsNumber();
 		tourDetails.clickBookNowDate();

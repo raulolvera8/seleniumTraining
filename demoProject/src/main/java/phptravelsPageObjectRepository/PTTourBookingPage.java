@@ -10,8 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import library.utilities;
+
 public class PTTourBookingPage {
 	WebDriver driver;
+	///utilities utils;
+
 
 	public PTTourBookingPage(WebDriver driver) {
 		this.driver = driver;
@@ -149,7 +153,6 @@ public class PTTourBookingPage {
 
 					public void clickTraveller3() {
 
-
 					getTraveller3().click();
 
 					WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
@@ -157,7 +160,7 @@ public class PTTourBookingPage {
 					waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
 					("//*[text()='Tour Booking']")));
 
-						
+
 
 					}
 					public WebElement getFirstName3() {

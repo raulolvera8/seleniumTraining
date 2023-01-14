@@ -103,10 +103,10 @@ public class PTBookingFormPage {
 		getNationalityDropDown().click();
 	}
 	// ----- CLICK  VALUE NATIONALITY  ---- DIANA
-	public void clickValueNationalityDropDown() {
+	public void clickValueNationalityDropDown(int index) {
 		List<WebElement> listNationality = driver
 				.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
-		listNationality.get(5).click();
+		listNationality.get(index).click();
 		/*WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(60), Duration.ofSeconds(2));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"//*[@class='form-title-wrap'][contains(.,'Travellers Information')]")));*/
