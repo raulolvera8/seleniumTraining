@@ -112,7 +112,7 @@ public class PTBookingFormPage {
 	//	utils.elementScrollDown(titleDropDown);
 	
 	}
-	// ----- TITLE
+	// ----- TITLE --- DIANA
 
 	public WebElement getTitleDropDown() {
 		return titleDropDown;
@@ -126,7 +126,7 @@ public class PTBookingFormPage {
 		List<WebElement> listTitle = driver.findElements(By.xpath("//*[@name='title_1']//option"));
 		listTitle.get(1).click();
 	}
-	// ----- NATIONALITY_01
+	// ----- NATIONALITY_01 --- DIANA
 
 	public WebElement getNationality_1DropDown() {
 		return Nationality_1DropDown;
@@ -142,7 +142,7 @@ public class PTBookingFormPage {
 		List<WebElement> listNationality_1 = driver.findElements(By.xpath("//*[@name='nationality_1']//option"));
 		listNationality_1.get(5).click();
 	}
-	// ----- DATE OF BIRTH
+	// ----- DATE OF BIRTH ---- DIANA
 
 	public WebElement getMonthDropDown() {
 		return MonthDropDown;
@@ -157,7 +157,7 @@ public class PTBookingFormPage {
 		listMonth.get(index).click();
 	}
 
-	// ----- DAY
+	// ----- DAY ---- DIANA
 
 	public WebElement getDayDropDown() {
 		return DayDropDown;
@@ -172,7 +172,7 @@ public class PTBookingFormPage {
 		listDay.get(index).click();
 	}
 
-	// ----- YEAR
+	// ----- YEAR ---- DIANA
 
 	public WebElement getYearDropDow() {
 		return YearDropDown;
@@ -188,7 +188,7 @@ public class PTBookingFormPage {
 	}
 	// ---- END DROPDOWN LIST -------
 
-	// ----- PASSPORT DATA ------
+	// ----- PASSPORT DATA ------ DIANA
 	// Passport Issuance Date
 	public WebElement getPassportTb() {
 		return passportTb;
@@ -198,7 +198,7 @@ public class PTBookingFormPage {
 		getPassportTb().sendKeys(passport);
 	}
 
-	// --click Passport Month
+	// --Click Passport Month -- DIANA
 	public WebElement getPassportMonthDropDown() {
 		return passport_issuance_monthDropDown;
 	}
@@ -214,7 +214,7 @@ public class PTBookingFormPage {
 		listPassportMonth.get(index).click();
 	}
 
-	// -- click Passport Day
+	// -- Click Passport Day ---- DIANA
 	public WebElement getPassportDayDropDown() {
 		return passport_issuance_dayDropDown;
 	}
@@ -229,7 +229,7 @@ public class PTBookingFormPage {
 		ListPassportDay.get(index).click();
 	}
 
-	// --- click Passport Year
+	// --- Click Passport Year  ---- DIANA
 	public WebElement getPassportYearDropDown() {
 		return passport_issuance_year_DropDown;
 	}
@@ -244,7 +244,7 @@ public class PTBookingFormPage {
 		ListPassportYear.get(index).click();
 	}
 
-	/// Passport Expiry Date
+	/// Passport Expiry Date ---- DIANA
 	// --- Expiry Month
 	public WebElement getExpiryMonthDropDown() {
 		return passport_month_DropDown;
@@ -259,7 +259,7 @@ public class PTBookingFormPage {
 		listExpiryMonth.get(index).click();
 	}
 
-	// --- Expiry Day
+	// --- Expiry Day ------ DIANA
 	public WebElement getExpiryDayDropDown() {
 		return passport_day_DropDown;
 	}
@@ -273,7 +273,7 @@ public class PTBookingFormPage {
 		listExpiryDay.get(index).click();
 	}
 
-	// --- Expiry Year
+	// --- Expiry Year ---- DIANA
 	public WebElement getExpiryYearDropDown() {
 		return passport_year_DropDown;
 	}
@@ -287,7 +287,7 @@ public class PTBookingFormPage {
 		listExpiryYear.get(index).click();
 	}
 
-	// PAY LATER
+	// PAY LATER ----- DIANA
 	public WebElement getPayLaterRadioBtn() {
 		return payLaterRadioBtn;
 	}
@@ -295,19 +295,9 @@ public class PTBookingFormPage {
 	public void clickPayLaterRadioBtn() {
 		utils.elementScrollDown(this.getPayLaterRadioBtn());
 		getPayLaterRadioBtn().click();
-		
-		
-		/*
-		 * Wait<WebDriver> wait = new
-		 * FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(80))
-		 * .pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException
-		 * .class);
-		 * wait.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"
-		 * ), "style", "display: none;"));
-		 */
 	}
 
-	// Pay with stripe
+	// Pay with stripe ------ DIANA
 	public WebElement getPayStripe() {
 		return payWithStripeRadioBtn;
 	}
@@ -317,7 +307,7 @@ public class PTBookingFormPage {
 		getPayStripe().click();
 	}
 
-	// ACCEPT TERMS AND CONDITIONS termsAndConditionsCheckBoxbookingBtn
+	// ACCEPT TERMS AND CONDITIONS ---- DIANA
 	public WebElement getTermsConditionsCheckBox() {
 		return termsAndConditionsCheckBox;
 	}
@@ -327,12 +317,12 @@ public class PTBookingFormPage {
 		getTermsConditionsCheckBox().click();
 	}
 
-	// CONFIRM BOOKING BTN
+	// CONFIRM BOOKING BTN ----- DIANA
 	public WebElement getBookingBtn() {
 		return bookingBtn;
 	}
 
-	public void clickBookingBtn() {
+	public void clickBookingBtn() { 
 		getBookingBtn().click();
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
@@ -343,37 +333,4 @@ public class PTBookingFormPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='title']//span")));
 
 	}
-	// ------ SCROLL TO FORM TRAVELLER SECTION ------ DIANA
-	// ------ XPATH FOR SCROLL FORM TRAVELLER SECTION
-	@FindBy (xpath="//*[@class='form-box payment-received-wrap mb-2']") WebElement formTravellerSection;
-	public WebElement getFormTravellerSection() {
-		return formTravellerSection;
-	}
-	public void scrollToFormTravellerSection() {
-		utils.elementScrollDown(getFormTravellerSection());
-	}
-	// -----------------------------
-	// ------ SCROLL TO FORM TRAVELLER NATIONALITY SECTION ------ DIANA
-	// ------ XPATH FOR SCROLL FORM TRAVELLER NATIONALITY NASECTION
-	
-	@FindBy (xpath="//*[@class='row mt-3'][position()=1]") WebElement formTravellerNationalitySection;
-	public WebElement getFormTravellerNationalitySection() {
-		return formTravellerNationalitySection;
-	}
-	public void scrollToFormTravellerNationalitySection() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		utils.elementScrollDown(getNationalityDropDown());
-	}
-	//------------
-	// ------ SCROLL TO METHOD PAYMENT SECTION ------ DIANA
-	// ------ XPATH FOR SCROLL METHOD PAYMENT SECTION
-		@FindBy (xpath="//*[@class='form-box']") WebElement methodPaymentSection;
-		public WebElement getMethodPaymentSection() {
-			return methodPaymentSection;
-		}
-		public void scrollToMethodPaymentSection() {
-			utils.elementScrollDown(getMethodPaymentSection());
-		}
-		// -----------------------------
-
 }

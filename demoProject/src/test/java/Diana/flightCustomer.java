@@ -46,7 +46,7 @@ public class flightCustomer extends Driver {
 		// SELECT ROLE
 		home.clickCustomerLoginBtn();
 		// ----- LOGIN WINDOW -----
-		// TYPE CREDENTIALS
+		// WRITE CREDENTIALS
 		// EMAIL
 		login.fillEmailTb("diana@itstark");// user@phptravels.com
 		// PASSWORD
@@ -81,10 +81,8 @@ public class flightCustomer extends Driver {
 		// CLICK NATIONALITY BOX
 		form.clickNationalityDropdown();
 		// CLICK NATIONALITY VALUE
-		form.clickValueNationalityDropDown();
+		form.clickValueNationalityDropDown(4);
 		// (SCROLL DOWN)
-		form.scrollToFormTravellerSection();
-		//utils.ScrollDown(Driver, "0", "50");
 		// CLICK TITLE BOX
 		form.clickTitleDropDown();
 		// CLICK TITLE VALUE
@@ -93,9 +91,6 @@ public class flightCustomer extends Driver {
 		form.writefirstNametb("Diana");
 		// TYPE LAST NAME
 		form.writelastNametb("Velasquez");
-		//form.scrollToFormTravellerNationalitySection();
-		
-		
 		// CLICK NATIONALITY BOX
 		form.clickNationality_1DropDown();
 		// CLICK NATIONALITY VALUE
@@ -103,51 +98,48 @@ public class flightCustomer extends Driver {
 		// CLICK MONTH BOX
 		form.clickMonthDropDown();
 		// CLICK MONTH VALUE
-		form.clickValueDateOfBirthDropDown();
+		form.clickValueDateOfBirthDropDown(5);
 		// CLICK DAY BOX
 		form.clickDayDropDown();
 		// CLICK DAY VALUE
-		form.clickValueDayDropDown();
+		form.clickValueDayDropDown(5);
 		// CLICK YEAR BOX
 		form.clickYearDropDown();
 		// CLICK YEAR VALUE
-		form.clickValueYearDropDown();
+		form.clickValueYearDropDown(5);
 		// INFORMATION TRAVELLER PASSPORT ISSUANCE
 		// TYPE ID PASSPORT
 		form.writePassportTb("5555sdfdsd25");
 		// (SCROLL DOWN)
-		//utils.ScrollDown(Driver, "0", "800");
 		// CLICK MONTH BOX
 		form.clickPassportMonthDropDown();
 		// CLICK MONTH VALUE
-		form.clickValuePassportMonthDropDown();
+		form.clickValuePassportMonthDropDown(5);
 		// CLICK DAY BOX
 		form.clickPassportDayDropDown();
-		form.clickValuePassportMonthDropDown();
+		form.clickValuePassportMonthDropDown(5);
 		// CLICK DAY BOX
 		form.clickPassportDayDropDown();
 		// CLICK DAY VALUE
-		form.clickValuePassportDayDropDown();
+		form.clickValuePassportDayDropDown(6);
 		// CLICK YEAR BOX
 		form.clickPassportYearDropDown();
 		// CLICK YEAR VALUE
-		form.clickValuePassportYearDropDown();
+		form.clickValuePassportYearDropDown(5);
 		// INFORMATION EXPIRY DATE PASSPORT
 		// CLICK MONTH BOX
 		form.clickExpiryMonthDropDown();
 		// CLICK MONTH VALUE
-		form.clickValueMonthDropDown();
+		form.clickValueMonthDropDown(5);
 		// CLICK DAY BOX
 		form.clickExpiryDayDropDown();
 		// CLICK DAY VALUE
-		form.clickValueExpiryDayDropDown();
+		form.clickValueExpiryDayDropDown(5);
 		// CLICK YEAR BOX
 		form.clickExpiryYearDropDown();
 		// CLICK YEAR VALUE
-		form.clickValueExpiryYearDropDown();
+		form.clickValueExpiryYearDropDown(5);
 		// SCROLL DOWN
-		form.scrollToMethodPaymentSection();
-
 		// CLICK PAY LATER RADIO BUTTON
 		form.clickPayLaterRadioBtn();
 		// (SCROLL DOWN)

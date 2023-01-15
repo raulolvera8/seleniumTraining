@@ -60,27 +60,21 @@ public class hotelsCustomer extends Driver {
 		// ----- CUSTOMER HOME PAGE WINDOW -----
 		// CLICK HOTEL TAB
 		tabHotel.clickHotelsBtn();
-		// (SCROLL DOWN)
-		hotelHomePage.scrollToHotelSection();
 		// CLICK FIRST HOTEL
 		// PRINT HOTEL NAME WILL SELECT
-				String hotelName = hotelHomePage.readNameHotelLabel();
-				System.out.println(hotelName);
-		hotelHomePage.clickHotelName();	
+		String hotelName = hotelHomePage.readNameHotelLabel();
+		System.out.println(hotelName);
+		hotelHomePage.clickHotelName();
 		// ----- HOTEL DETAILS WINDOW -------
-		// (SCROLL DOWN)	
-		hotelDetails.scrollToAvailableRooms();
-		//utils.ScrollDown(driver, "0", "600");
+		// (SCROLL DOWN)
 		// CLICK NUMBER OF ROOMS BOX
 		hotelDetails.selectNumberRoomsBox();
 		// CLICK NUMBER OF ROOMS VALUE
-		hotelDetails.selectNumOfRooms();
+		hotelDetails.selectNumOfRooms(2);
 		// CLICK BOOK NOW BUTTON
 		hotelDetails.selectbookNowBtn();
 		// ----- HOTEL BOOKING WINDOW ----
 		// INFORMATION TRAVELLER
-		// (SCROLL DOWN)
-		form.scrollToFormTravellerSection();
 		// CLICK TITLE BOX
 		form.clickTitleDropDown();
 		// CLICK TITLE VALUE
@@ -89,8 +83,6 @@ public class hotelsCustomer extends Driver {
 		form.writefirstNametb("Diana");
 		// TYPE LAST NAME
 		form.writelastNametb("Velasquez");
-		// (SCROLL DOWN)
-		form.scrollToMethodPaymentSection();
 		// CLICK PAY WITH STRIPE RADIO BUTTON
 		form.clickPayStripeRadioBtn();
 		// CLICK TERMS AND CONDITIONS CHECK-BOX
@@ -108,7 +100,6 @@ public class hotelsCustomer extends Driver {
 		// SAVE CHECK IN CHECK OUT DATES
 		String checkOutInProcess = invoiceStatus.readCheckOutIn();
 		System.out.println("FECHAS EN PROCESO DE AUTORIZAR: " + checkOutInProcess);
-
 		// CLICK PROCEED TO PAY BUTTON
 		invoiceStatus.clickProceedPayBtn();
 		// ----- STRIPE WINDOW ----
@@ -123,7 +114,7 @@ public class hotelsCustomer extends Driver {
 		payCard.CardCVCInput("123");
 		payCard.NameCardInput("Diana Velasquez");
 		payCard.clickPagarButtonWithInfoCard();
-		
+
 		// SAVE TOTAL PRICE VARIABLE
 		String totalPricePaid = invoiceStatus.readTotalPricePaidLabel();
 		// SAVE HOTEL NAME VARIABLE
@@ -148,10 +139,11 @@ public class hotelsCustomer extends Driver {
 			Assert.fail("FAILED: FECHAS INCORRECTAS");
 		}
 		// BOOKING INVOICE VALIDATION
-				invoiceStatus.validationStatusPaid();
+		invoiceStatus.validationStatusPaid();
 	}
+
 	@AfterClass
 	public void teardown() {
-		//teardownDriver();
+		// teardownDriver();
 	}
 }

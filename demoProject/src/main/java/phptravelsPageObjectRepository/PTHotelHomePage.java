@@ -19,50 +19,46 @@ import library.utilities;
 public class PTHotelHomePage {
 	WebDriver driver;
 	utilities utility;
+
 	public PTHotelHomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		utility = new utilities(driver);
 	}
-	
-	
-	// -------------- XPATH FOR HOTEL HOME WINDOW -----------
-	@FindBy (xpath="//*[@class='owl-stage']/div[position()=6]/*[@class='card-item mb-0']/*[@class='card-body']/h6") WebElement nameHotelLabel;
 
-	// -----------
+	// -------------- XPATH FOR HOTEL HOME WINDOW -----------
+	@FindBy(xpath = "//*[@class='hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px pb-5']")
+	WebElement hotelSection;
+
+	@FindBy(xpath = "//*[@class='owl-stage']/div[position()=6]/*[@class='card-item mb-0']/*[@class='card-body']/h6")
+	WebElement nameHotelLabel;
+
 	// ---- NAME HOTEL LABEL ---- DIANA
 	public WebElement getNameHotelLabel() {
 		return nameHotelLabel;
 	}
-	// -----------
+
 	// ---- READ HOTEL LABEL ---- DIANA
 	public String readNameHotelLabel() {
-		String nameHotelLabel= this.getNameHotelLabel().getText();
+		String nameHotelLabel = this.getNameHotelLabel().getText();
 		return nameHotelLabel;
 	}
-	// -----------
+
 	// ---- SELECT HOTEL LABEL ---- DIANA
 	public void clickHotelName() {
-		getNameHotelLabel().click();
-				Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style",
-				"display: none;"));		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+		// SCROLL DOWN
+		Wait<WebDriver> waitElementToBeClickable = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='sec__title_left left-line']")));			
-	
-	}
-	// -----------
-	// ---- SCROLL TO HOTEL SECTION  ---- DIANA
-	@FindBy (xpath="//*[@class='hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px pb-5']") WebElement hotelSection;
-	public void scrollToHotelSection() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
-		wait.until(ExpectedConditions.elementToBeClickable(nameHotelLabel));	
-		
+		waitElementToBeClickable.until(ExpectedConditions.elementToBeClickable(nameHotelLabel));
 		utility.elementScrollDown(hotelSection);
-	}
-	// -----------
+		// CLICK NAME HOTEL
+		getNameHotelLabel().click();
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='sec__title_left left-line']")));
 
+	}
 }
