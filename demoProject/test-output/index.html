@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\JuanRamirez\AppData\Local\Temp\testng-eclipse--932627700\testng-customsuite.xml</span>
+                    <span>C:\Users\JuanRamirez\AppData\Local\Temp\testng-eclipse--1880426580\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -128,14 +128,14 @@
                   <a name="CustomerPage">
                   </a> <!-- CustomerPage -->
                   <span class="method-name">CustomerPage</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@name=&apos;date&apos;]
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: #form
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
 System info: host: &apos;DESKTOP-RGNEG05&apos;, ip: &apos;192.168.1.72&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [ec3ff05c-9422-49b7-862c-bcf49c07c6b0, findElement {using=xpath, value=//*[@name=&apos;date&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:58411, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 4760, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:58411/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
+Command: [7abf3f85-1c52-4be6-9f0b-5c9e0092a575, findElement {using=id, value=form}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:59006, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13968, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:59006/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7abf3f85-1c52-4be6-9f0b-5c9e0092a575
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -155,8 +155,8 @@ Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-	at phptravelsPageObjectRepository.PTTourDetails.clickDateTour(PTTourDetails.java:40)
-	at Juan.scriptTour.CustomerPage(scriptTour.java:68)
+	at phptravelsPageObjectRepository.PTBookingInvoicePage.clickTourProceedPayBtn(PTBookingInvoicePage.java:250)
+	at Juan.scriptTour.CustomerPage(scriptTour.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -191,7 +191,7 @@ Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\JuanRamirez\AppData\Local\Temp\testng-eclipse--932627700\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\JuanRamirez\AppData\Local\Temp\testng-eclipse--1880426580\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -244,12 +244,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'CustomerPage')
 data.setCell(0, 2, 'Juan.scriptTour')
-data.setCell(0, 3, 112822);
+data.setCell(0, 3, 58957);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 58 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -284,7 +284,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">CustomerPage</span>
-                <span class="method-start">16906 ms</span>
+                <span class="method-start">12669 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 13 22:12:38 CST 2023</td>
+<td>Started on:</td><td>Mon Jan 16 01:58:10 CST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>129 seconds (129758 ms)</td>
+<tr><td>Total time:</td><td>71 seconds (71662 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,14 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='Juan.scriptTour.CustomerPage()'><b>CustomerPage</b><br>Test class: Juan.scriptTour</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@name=&apos;date&apos;]
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #form
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
 System info: host: &apos;DESKTOP-RGNEG05&apos;, ip: &apos;192.168.1.72&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [ec3ff05c-9422-49b7-862c-bcf49c07c6b0, findElement {using=xpath, value=//*[@name=&apos;date&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:58411, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 4760, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:58411/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
+Command: [7abf3f85-1c52-4be6-9f0b-5c9e0092a575, findElement {using=id, value=form}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:59006, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13968, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:59006/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7abf3f85-1c52-4be6-9f0b-5c9e0092a575
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -103,8 +103,8 @@ Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-	at phptravelsPageObjectRepository.PTTourDetails.clickDateTour(PTTourDetails.java:40)
-	at Juan.scriptTour.CustomerPage(scriptTour.java:68)
+	at phptravelsPageObjectRepository.PTBookingInvoicePage.clickTourProceedPayBtn(PTBookingInvoicePage.java:250)
+	at Juan.scriptTour.CustomerPage(scriptTour.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -130,15 +130,15 @@ Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1640832113", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1640832113'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@name=&apos;date&apos;]
+</pre></div><a href='#' onClick='toggleBox("stack-trace1841945133", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1841945133'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #form
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
 System info: host: &apos;DESKTOP-RGNEG05&apos;, ip: &apos;192.168.1.72&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [ec3ff05c-9422-49b7-862c-bcf49c07c6b0, findElement {using=xpath, value=//*[@name=&apos;date&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:58411, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 4760, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:58411/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
+Command: [7abf3f85-1c52-4be6-9f0b-5c9e0092a575, findElement {using=id, value=form}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:59006, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13968, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:59006/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7abf3f85-1c52-4be6-9f0b-5c9e0092a575
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -158,8 +158,8 @@ Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-	at phptravelsPageObjectRepository.PTTourDetails.clickDateTour(PTTourDetails.java:40)
-	at Juan.scriptTour.CustomerPage(scriptTour.java:68)
+	at phptravelsPageObjectRepository.PTBookingInvoicePage.clickTourProceedPayBtn(PTBookingInvoicePage.java:250)
+	at Juan.scriptTour.CustomerPage(scriptTour.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -186,7 +186,7 @@ Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>112</td>
+<td>58</td>
 <td>Juan.scriptTour@78641d23</td></tr>
 </table><p>
 </body>

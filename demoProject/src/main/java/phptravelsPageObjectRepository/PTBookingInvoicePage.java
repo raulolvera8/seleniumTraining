@@ -206,6 +206,9 @@ public class PTBookingInvoicePage {
 	// ----  PROCEED TO PAY WITH STRIPE BUTTON  ---- DIANA
 	// ------ XPATH FOR PAY WITH STRIPE BUTTON ------
 
+
+
+	
 	@FindBy(id = "form")
 	WebElement proceedPayBtn;
 	// --------------------------------------
@@ -215,6 +218,30 @@ public class PTBookingInvoicePage {
 	}
 
 	public void clickProceedPayBtn() {
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+
+		getPrceedPayBtn().click();
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@style='width:450px']/img")));
+		System.out.println("Stripe Window");
+
+	}
+	
+	
+	
+	@FindBy(xpath ="//*[@class='btn btn-success btn-block']") WebElement tourProceedPayBtn;
+	// --------------------------------------
+	// ---- PROCEED TO PAY BUTTON ---- JUAN
+	public WebElement getProceedPayBtn() {
+		return tourProceedPayBtn;
+	}
+
+	public void clickTourProceedPayBtn() {
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);

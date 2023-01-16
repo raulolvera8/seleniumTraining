@@ -88,6 +88,8 @@ public class PTBookingFormPage {
 		utils.elementScrollDown(this.getlastNametb());
 		getlastNametb().sendKeys(lastName);
 		//utils.elementScrollDown(this.getNationalityDropDown());
+		
+		
 
 	}
 	// -------------------
@@ -99,12 +101,13 @@ public class PTBookingFormPage {
 	}
 
 	public void clickNationalityDropdown() {
+		utils.elementScrollDownWithTopMenu(this.getNationalityDropDown());
 		getNationalityDropDown().click();
 	}
 	// ----- CLICK  VALUE NATIONALITY  ---- DIANA
 	public void clickValueNationalityDropDown(int index) {
 		List<WebElement> listNationality = driver
-				.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
+		.findElements(By.xpath("//*[@class='form-select form-select-sm nationality']//option"));
 		listNationality.get(index).click();
 		/*WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(60), Duration.ofSeconds(2));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(

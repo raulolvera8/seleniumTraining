@@ -2,36 +2,36 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-14T04:12:38Z" name="Default suite" finished-at="2023-01-14T04:14:47Z" duration-ms="129758">
+  <suite started-at="2023-01-16T07:58:10Z" name="Default suite" finished-at="2023-01-16T07:59:22Z" duration-ms="71662">
     <groups>
     </groups>
-    <test started-at="2023-01-14T04:12:38Z" name="Default test" finished-at="2023-01-14T04:14:47Z" duration-ms="129758">
+    <test started-at="2023-01-16T07:58:10Z" name="Default test" finished-at="2023-01-16T07:59:22Z" duration-ms="71662">
       <class name="Juan.scriptTour">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-14T04:12:38Z" name="setup" finished-at="2023-01-14T04:12:55Z" duration-ms="16882" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-16T07:58:10Z" name="setup" finished-at="2023-01-16T07:58:23Z" duration-ms="12640" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="CustomerPage()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-14T04:12:55Z" name="CustomerPage" finished-at="2023-01-14T04:14:47Z" duration-ms="112822" status="FAIL">
+        <test-method signature="CustomerPage()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-16T07:58:23Z" name="CustomerPage" finished-at="2023-01-16T07:59:22Z" duration-ms="58957" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Unable to locate element: //*[@name='date']
+              <![CDATA[Unable to locate element: #form
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'DESKTOP-RGNEG05', ip: '192.168.1.72', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.5'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [ec3ff05c-9422-49b7-862c-bcf49c07c6b0, findElement {using=xpath, value=//*[@name='date']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:58411, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 4760, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:58411/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0]]>
+Command: [7abf3f85-1c52-4be6-9f0b-5c9e0092a575, findElement {using=id, value=form}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:59006, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13968, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:59006/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7abf3f85-1c52-4be6-9f0b-5c9e0092a575]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: //*[@name='date']
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: #form
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'DESKTOP-RGNEG05', ip: '192.168.1.72', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.5'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [ec3ff05c-9422-49b7-862c-bcf49c07c6b0, findElement {using=xpath, value=//*[@name='date']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:58411, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 4760, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:58411/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: ec3ff05c-9422-49b7-862c-bcf49c07c6b0
+Command: [7abf3f85-1c52-4be6-9f0b-5c9e0092a575, findElement {using=id, value=form}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 108.0.2, moz:accessibilityChecks: false, moz:buildID: 20230104165113, moz:debuggerAddress: 127.0.0.1:59006, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13968, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:59006/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7abf3f85-1c52-4be6-9f0b-5c9e0092a575
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -51,8 +51,8 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-at phptravelsPageObjectRepository.PTTourDetails.clickDateTour(PTTourDetails.java:40)
-at Juan.scriptTour.CustomerPage(scriptTour.java:68)
+at phptravelsPageObjectRepository.PTBookingInvoicePage.clickTourProceedPayBtn(PTBookingInvoicePage.java:250)
+at Juan.scriptTour.CustomerPage(scriptTour.java:119)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

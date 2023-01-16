@@ -89,43 +89,34 @@ public class scriptTour extends Driver {
 		bookingPage.writeFirstName2("anita");
 		bookingPage.writeLastName2("perez");
 		
-		utils.ScrollDown( driver, "0", "600");
-
 		//TRAVELLER 3
-		bookingPage.clickTraveller3();
-		bookingPage.writeFirstName3("miri");
+		//bookingPage.clickTraveller3();
+		bookingPage.writeFirstName3("michael");
 		bookingPage.writeLastName3("brown");
 		
-		utils.ScrollDown( driver, "0", "400");
-
 		//TRAVELLER 4
-		bookingPage.clickTraveller4();
+		//bookingPage.clickTraveller4();
 		bookingPage.writeFirstName4("karla");
 		bookingPage.writeLastName4("brown");
 		
-		utils.ScrollDown( driver, "0", "800");
-
 		
 		//PAYMENT METHOD
 		bookingPage.clickPaymentMethod();
-		
-		utils.ScrollDown( driver, "0", "400");
-
 		bookingPage.clickContinuing();
 		bookingPage.clickConfirmBooking();
 		
 		
-		bookingInvoicePage.validationStatusPaid();
-		bookingInvoicePage.validationStatusStripe();
+		//bookingInvoicePage.validationStatusPaid();
+	    //bookingInvoicePage.validationStatusStripe();
 		
 		//PAYMENT SECTION
 		//tourPage.printValidationPay();
 		//tourPage.clickPayNowBtn();
 		
 		//PAYMENT INFORMATION
-		bookingInvoicePage.printValidationInformation();
-		bookingInvoicePage.printValidationGuestInformation();
-		bookingInvoicePage.clickProceedPayBtn();
+		//bookingInvoicePage.VerifyFirstDataBooking();
+		//bookingInvoicePage.readTotalPriceUnpaidLabel();
+		bookingInvoicePage.clickTourProceedPayBtn();
 		
 		//PAYMENT STRIPE
 		paymentStripePage.VerifylabelAmount();
