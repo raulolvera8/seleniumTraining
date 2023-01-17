@@ -59,10 +59,10 @@ public class scriptTour extends Driver {
 		tourPage.clickDestination();
 		tourPage.writeCountry("dubai");
 		tourPage.selectItemFromTour();
-		tourPage.clickSubmit();
+		tourPage.clickSubmitBtn();
 		
 		
-		tourDubai.clickDetails();
+		tourDubai.clickDetailsBtn();
 		
 		//SELECT DATE
 		tourDetails.clickDateTour();
@@ -110,6 +110,9 @@ public class scriptTour extends Driver {
 		bookingInvoicePage.VerifyFirstDataBooking();
 		bookingInvoicePage.VerifySecondDataBooking();
 		
+		//String totalPriceInProcess = bookingInvoicePage.readTotalPricePaidLabel();
+		//System.out.println("PAGO EN PROCESO DE AUTORIZAR: " + totalPriceInProcess);
+		
 		//bookingInvoicePage.readTotalPriceUnpaidLabel();
 		bookingInvoicePage.clickTourProceedPayBtn();
 		
@@ -130,6 +133,9 @@ public class scriptTour extends Driver {
 		bookingInvoicePage.validationStatusPaid();
 		bookingInvoicePage.VerifyFirstDataBooking();
 		bookingInvoicePage.VerifySecondDataBooking();
+		
+		String totalPrice = bookingInvoicePage.readTotalPricePaidLabel();
+		System.out.println("PRECIO TOTAL : " + totalPrice);
 		//bookingInvoicePage.printValidationStatusAndPayment();
 		//bookingInvoicePage.validateDateLabel();
 		//bookingInvoicePage.validateTitleHotel();

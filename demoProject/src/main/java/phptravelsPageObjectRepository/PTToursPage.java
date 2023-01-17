@@ -99,7 +99,7 @@ public class PTToursPage extends Driver {
 	 return submit; 
    }
   
-   public void clickSubmit() {
+   public void clickSubmitBtn() {
  
  
      getSubmit().click();

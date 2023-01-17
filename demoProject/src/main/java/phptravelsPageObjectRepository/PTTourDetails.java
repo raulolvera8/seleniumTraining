@@ -73,13 +73,12 @@ public class PTTourDetails  extends Driver {
 
 		//PEOPLE OF TOUR
 
-		 @FindBy(xpath="//*[@id='adults']") WebElement adults;
-		 @FindBy(xpath="//*[@id='adults']//option[@value='2']") WebElement adultsNumber;
+ @FindBy(xpath="//*[@id='adults']") WebElement adults;
+ @FindBy(xpath="//*[@id='adults']//option[@value='2']") WebElement adultsNumber;
 
 
-
-	  public WebElement getAdults() {
-		  return adults;
+	 public WebElement getAdults() {
+    	  return adults;
 	  
 	  
 	  }
@@ -87,12 +86,12 @@ public class PTTourDetails  extends Driver {
 	  public void clickAdults() {
 	  
 	  
-	  getAdults().click();
+	      getAdults().click();
 	  
-	  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-	  Duration.ofSeconds(5));
-	  waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-	  ("//*[text()='Description']")));
+	     WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	     Duration.ofSeconds(5));
+	     waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	     ("//*[text()='Description']")));
 	 
 			
 
@@ -100,12 +99,12 @@ public class PTTourDetails  extends Driver {
 	 
 
 
-	public WebElement getAdultsNumber() { 
+	  public WebElement getAdultsNumber() { 
 			  return adultsNumber; 
 		  
 		  }
 
-	public void clickAdultsNumber() {
+	  public void clickAdultsNumber() {
 		  
 		  
 		  getAdultsNumber().click();
@@ -119,8 +118,8 @@ public class PTTourDetails  extends Driver {
 
 		  }
 		 
-	@FindBy(xpath="//*[@id='childs']") WebElement childs;
-	@FindBy(xpath="//*[@id='childs']//option[@value='1']") WebElement childsNumber;
+ @FindBy(xpath="//*[@id='childs']") WebElement childs;
+ @FindBy(xpath="//*[@id='childs']//option[@value='1']") WebElement childsNumber;
 
 
 
@@ -133,12 +132,12 @@ public class PTTourDetails  extends Driver {
 	public void clickChilds() {
 
 
-	getChilds().click();
+	      getChilds().click();
 
-	WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-	Duration.ofSeconds(5));
-	waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-	("//*[text()='Description']")));
+	      WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	      Duration.ofSeconds(5));
+	      waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	      ("//*[text()='Description']")));
 
 		
 
@@ -152,19 +151,19 @@ public class PTTourDetails  extends Driver {
 	public void clickChildsNumber(int index) {
 	 WebElement childNumber = driver.findElement(By.xpath("//*[@id='childs']//option[@value='"+index+"']"));
 	 
-	 childNumber.click();
+	      childNumber.click();
 	 
-	 WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-	 Duration.ofSeconds(5));
-	 waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-	 ("//*[text()='Description']")));
+	      WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	      Duration.ofSeconds(5));
+	      waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	      ("//*[text()='Description']")));
 
 			
 
 	 }
 
-	@FindBy(xpath="//*[@id='infants']") WebElement infants;
-	@FindBy(xpath="//*[@id='infants']//option[@value='1']") WebElement infantsNumber;
+ @FindBy(xpath="//*[@id='infants']") WebElement infants;
+ @FindBy(xpath="//*[@id='infants']//option[@value='1']") WebElement infantsNumber;
 
 
 
@@ -177,12 +176,12 @@ public class PTTourDetails  extends Driver {
 	public void clickInfants() {
 
 
-	getInfants().click();
+	     getInfants().click();
 
-	WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-	Duration.ofSeconds(5));
-	waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-	("//*[text()='Description']")));
+	     WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+       	 Duration.ofSeconds(5));
+	     waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	     ("//*[text()='Description']")));
 
 		
 
@@ -198,18 +197,18 @@ public class PTTourDetails  extends Driver {
 	public void clickInfantsNumber() {
 	 
 	 
-	getInfantsNumber().click();
+	     getInfantsNumber().click();
 	 
-	 WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
-	 Duration.ofSeconds(5));
-	 waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
-	 ("//*[text()='Description']")));
+	     WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10),
+	     Duration.ofSeconds(5));
+	     waitElement.until(ExpectedConditions.elementToBeClickable(By.xpath
+	     ("//*[text()='Description']")));
 
 			
 
 	 }
 
-	@FindBy(xpath="//*[@type='submit']") WebElement bookNowDate;
+ @FindBy(xpath="//*[@type='submit']") WebElement bookNowDate;
 
 	public WebElement getBookNowDate() {
 		 return bookNowDate;
@@ -220,7 +219,7 @@ public class PTTourDetails  extends Driver {
 		public void clickBookNowDate() {
 
 
-			getBookNowDate().click();
+		getBookNowDate().click();
 
 			/*
 			 * WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
@@ -230,8 +229,8 @@ public class PTTourDetails  extends Driver {
 			 */
 		
 		 Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
-			wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
+	     .pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+	     wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 		
 
 			

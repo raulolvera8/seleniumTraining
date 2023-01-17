@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Juan.scriptTour">
+      <class name="Juan.scriptFlights">
         <methods>
+          <include name="teardown"/>
           <include name="CustomerPage"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- Juan.scriptTour -->
+      </class> <!-- Juan.scriptFlights -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -97,7 +97,7 @@ public class PTMenuPage extends Driver {
 
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
 		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SEARCH FOR BEST FLIGHTS']")));
+		ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SEARCH FOR BEST FLIGHTS']")));
 
 	}
 
@@ -112,10 +112,10 @@ public class PTMenuPage extends Driver {
 	public void ClickLogoPage() {
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
 		waitElement.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@href='https://phptravels.net/'])[1]")));
+		ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@href='https://phptravels.net/'])[1]")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
 		getLogoPage().click();
@@ -135,10 +135,10 @@ public class PTMenuPage extends Driver {
 
 		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(5));
 		waitElement.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//a[ contains (text(), 'flights') and @class='active_flights waves-effect']")));
+		By.xpath("//a[ contains (text(), 'flights') and @class='active_flights waves-effect']")));
 
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
 		getbtnFlights().click();
