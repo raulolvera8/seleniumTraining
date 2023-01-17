@@ -107,7 +107,7 @@ public class PTAgentPage {
 	// --------------------------------------------
 
 	/// -------- VERIFY PAYMENT SUCCESSFULL -------- IRIS
-	@FindBy(xpath = "//*[contains (text(), 'Payment successfull')]")
+	@FindBy(xpath = "//strong[contains (text(), 'Payment successfull')]")
 	WebElement labelSuccessfull;
 
 	private WebElement getLabelSuccessfull() {
@@ -115,12 +115,15 @@ public class PTAgentPage {
 	}
 
 	public void PrintPaymentSuccessfulllabel() {
-		utility.elementScrollDown(this.getLabelSuccessfull());
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		utility.elementScrollDownWithTopMenu(this.getLabelSuccessfull());
 
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//*[contains (text(), 'Payment successfull')]")));
+		WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+		waitElement.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[contains (text(), 'Payment successfull')]")));
+
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));
 
 		System.out.println("Hi, Agent.. " + getLabelSuccessfull().getText());
 	}
@@ -183,6 +186,10 @@ public class PTAgentPage {
 		waitElement.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[ contains (text(), 'View Voucher')]")));
 
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		
 		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 		wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@id='preloader']"), "style", "display: none;"));

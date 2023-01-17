@@ -257,17 +257,22 @@ public class PTBookingInvoicePage {
 	}
 	// ----  END PROCEED TO PAY WITH STRIPE BUTTON  ---- DIANA
 
-	// -- VALIATION BOOKING STATUS PENDIENTE - AGENT - IRIS
+	// -- VALIATION BOOKING STATUS - AGENT - IRIS
 	@FindBy(xpath = "//li[contains(.,'agent@phptravels.com')]")
 	WebElement reservationAccountAgent;
 
 	public void validationStatusBooking() {
-		System.out.println("BOOKING INVOICE WINDOW");
-		if (reservationAccountAgent.getText().contentEquals("Email: agent@phptravels.com")) {
-			System.out.println(paymentStatusStripeLabel.getText());
+		
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		
+		if (paymentStatusPaidLabel.getText().contains("Paid")) {
+			System.out.println(getPaymentStatusPaidLabel().getText());
 			System.out.println(reservationAccountAgent.getText());
+
 		} else {
-			Assert.fail("FAILED");
+			Assert.fail("FAILED: Invoice status doesn't match");
 		}
 	}
 	// -------------------------------------------------------------

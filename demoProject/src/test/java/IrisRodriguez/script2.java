@@ -164,7 +164,7 @@ public class script2 extends Driver {
 
 		// ================= VERIFY DATA =========================
 		// VALIDATE BOOKING STATUS
-		bookingInvoicePage.validationStatusBooking();
+		bookingInvoicePage.validationStatusStripe();
 
 		// PRINT STATUS
 		// bookingInvocePage.PrintBookingStatus();
@@ -221,7 +221,7 @@ public class script2 extends Driver {
 
 	@AfterClass
 	public void teardown() {
-		//teardownDriver();
+		teardownDriver();
 	}
 
 }

@@ -141,9 +141,9 @@ public class PTPayWithCardPage {
 
 		System.out.println("Clicking Pagar button ...");
 		getPagarButtonWithCardInfo().click();
-		WebDriverWait waitLabel = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
-		waitLabel.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")));
+//		WebDriverWait waitLabel = new WebDriverWait(driver, Duration.ofSeconds(20), Duration.ofSeconds(5));
+//		waitLabel.until(ExpectedConditions.visibilityOfElementLocated(
+//				By.xpath("//div[@class='infobox infobox-success'][contains(.,' ( Paid')]")));
 	}
 	// -------------------------------------------------------------
 
