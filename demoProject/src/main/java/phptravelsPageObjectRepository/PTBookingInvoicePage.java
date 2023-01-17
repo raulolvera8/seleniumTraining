@@ -512,4 +512,16 @@ public class PTBookingInvoicePage {
 		}
 
 	}
-}
+	
+	
+	
+	/*
+	 * @FindBy(xpath = "//*[@class='list-group-item'][contains(.,'Total Price')]")
+	 * WebElement totalPriceTourLabel;
+	 * 
+	 * public WebElement getPriceTourLabel() { return totalPriceLabel; }
+	 */
+	
+	}
+
+

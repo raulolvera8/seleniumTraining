@@ -106,15 +106,10 @@ public class scriptTour extends Driver {
 		bookingPage.clickConfirmBooking();
 		
 		
-		//bookingInvoicePage.validationStatusPaid();
-	    //bookingInvoicePage.validationStatusStripe();
+	    bookingInvoicePage.validationStatusStripe();
+		bookingInvoicePage.VerifyFirstDataBooking();
+		bookingInvoicePage.VerifySecondDataBooking();
 		
-		//PAYMENT SECTION
-		//tourPage.printValidationPay();
-		//tourPage.clickPayNowBtn();
-		
-		//PAYMENT INFORMATION
-		//bookingInvoicePage.VerifyFirstDataBooking();
 		//bookingInvoicePage.readTotalPriceUnpaidLabel();
 		bookingInvoicePage.clickTourProceedPayBtn();
 		
@@ -123,7 +118,7 @@ public class scriptTour extends Driver {
 		paymentStripePage.PayNowWithAmount();
 		
 		//PAY WITH CARD
-		payWithCardPage.clickCancelPopUpBtn();
+		//payWithCardPage.clickCancelPopUpBtn();
 		payWithCardPage.CardNumberInput("5555555555554444");
 		payWithCardPage.CardExpiryInput("0330");
 		payWithCardPage.CardCVCInput("200");
@@ -132,8 +127,11 @@ public class scriptTour extends Driver {
 		
 		
 		//VALIDATION TOUR INVOICE
-		bookingInvoicePage.printValidationStatusAndPayment();
-		bookingInvoicePage.validateDateLabel();
-		bookingInvoicePage.validateTitleHotel();
+		bookingInvoicePage.validationStatusPaid();
+		bookingInvoicePage.VerifyFirstDataBooking();
+		bookingInvoicePage.VerifySecondDataBooking();
+		//bookingInvoicePage.printValidationStatusAndPayment();
+		//bookingInvoicePage.validateDateLabel();
+		//bookingInvoicePage.validateTitleHotel();
 	}
 }
