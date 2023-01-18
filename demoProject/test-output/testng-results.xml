@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-17T05:38:45Z" name="Default suite" finished-at="2023-01-17T05:40:24Z" duration-ms="98911">
+  <suite started-at="2023-01-18T06:31:45Z" name="Default suite" finished-at="2023-01-18T06:32:10Z" duration-ms="24285">
     <groups>
     </groups>
-    <test started-at="2023-01-17T05:38:45Z" name="Default test" finished-at="2023-01-17T05:40:24Z" duration-ms="98911">
-      <class name="Juan.scriptTour">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-17T05:38:45Z" name="setup" finished-at="2023-01-17T05:38:58Z" duration-ms="12493" status="PASS">
+    <test started-at="2023-01-18T06:31:45Z" name="Default test" finished-at="2023-01-18T06:32:10Z" duration-ms="24285">
+      <class name="Juan.scriptSupplier">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptSupplier@78641d23]" started-at="2023-01-18T06:31:45Z" name="setup" finished-at="2023-01-18T06:31:57Z" duration-ms="12024" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="CustomerPage()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-17T05:38:58Z" name="CustomerPage" finished-at="2023-01-17T05:40:24Z" duration-ms="86363" status="PASS">
+        <test-method signature="supplierBooking()[pri:0, instance:Juan.scriptSupplier@78641d23]" started-at="2023-01-18T06:31:57Z" name="supplierBooking" finished-at="2023-01-18T06:32:10Z" duration-ms="12200" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CustomerPage -->
-      </class> <!-- Juan.scriptTour -->
+        </test-method> <!-- supplierBooking -->
+      </class> <!-- Juan.scriptSupplier -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -140,5 +140,32 @@ public class PTHomePage {
 		utility.elementScrollDown(this.getEmailInput());
 	}
 	
+	
+	//NEW SUPPLIER LOGIN
+	@FindBy(xpath = "//*[@href='https://phptravels.net/api/supplier']")
+	WebElement newSupplierLoginBtn;
+
+	public WebElement getNewSupplierLoginBtn() {
+		return newSupplierLoginBtn;
+	}
+
+	public void clickNewSupplierLoginbtn() {
+
+		getNewSupplierLoginBtn().click();
+
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		  
+		 
+	
+
+	}
+	
+	
+	
 
 }

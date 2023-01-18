@@ -145,5 +145,115 @@ public class PTDashboardPage_Supplier {
 
 		System.out.println("Add Room nested button clicked. The user is in Add Room page...");
 	}
+	
+	
+	
+	
+	///CLICK PENDING BOOKING---- JUAN
+	@FindBy(xpath = "//*[@class='icon-circle bg-warning text-white']")
+	WebElement pendingBooking;
+
+	public WebElement getPendingBooking() {
+		return pendingBooking;
+	}
+
+	public void clickPendingBookingBtn() {
+		getPendingBooking().click();
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(15))
+		.pollingEvery(Duration.ofSeconds(5)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Dashboard']")));
+		
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+				wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@class='bodyload']"), "style", "display: none;"));
+
+		System.out.println("CLICK IN PENDING BOOKING");
+	}
+	
+	
+	//CLICK BOOKING STATUS
+	
+	@FindBy(xpath = "//select[@id='booking_status']")
+	WebElement bookingStatus;
+
+	public WebElement getBookingStatus() {
+		return bookingStatus;
+	}
+
+	public void clickBookingStatus() {
+		getBookingStatus().click();
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(15))
+		.pollingEvery(Duration.ofSeconds(5)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Dashboard']")));
+
+		System.out.println("CLICK IN BOOKING STATUS");
+	}
+	
+	
+	//SELECT VALUE CANCELL
+	@FindBy(xpath = "//*[@value='64,hotels,Cancelled']")
+	WebElement statusCancel;
+
+	public WebElement getStatusCancel() {
+		return statusCancel;
+	}
+
+	public void clickStatusCancel() {
+		getStatusCancel().click();
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(15))
+		.pollingEvery(Duration.ofSeconds(5)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Dashboard']")));
+
+		System.out.println("CLICK IN STATUS CANCEL");
+	}
+	
+	//CLICK CANCEL BOOKING
+	@FindBy(xpath = "//*[@class='icon-circle bg-danger text-white']")
+	WebElement cancelBooking;
+
+	public WebElement getCancelBooking() {
+		return cancelBooking;
+	}
+
+	public void clickCancelBookingBtn() {
+		getCancelBooking().click();
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(15))
+		.pollingEvery(Duration.ofSeconds(5)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Dashboard']")));
+
+		System.out.println("CLICK IN CANCEL BOOKING");
+	}
+	
+	//VERIFY THE ID
+	
+	@FindBy(xpath = "//*[text()='64']")
+	WebElement verifyId;
+
+	private WebElement verifyId() {
+		return verifyId;
+	}
+
+	public void VerifyId() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+		.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		
+		verifyId().isDisplayed();
+
+		System.out.println("THE ID NUMBER IS : " + verifyId().getText());
+
+
+	}
+	
+	
+	
+	
 
 }

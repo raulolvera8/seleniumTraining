@@ -64,13 +64,25 @@ public class PTLoginPage {
 	public void setPasswordtxtbox(String password) {
 		getPasswordTxtbox().sendKeys(password);
 		System.out.println("Supplier email been inserted. Value is: " + password);
+		
+		Wait<WebDriver> wait = new
+		FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+		.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+				  
+	    wait.until( ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Administrator Users Only']")));
+				  
+	 
 	}
 
 	// ----- SUPPLIER login button -----------
 
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "//button[@class='btn btn-primary btn-block ladda-button fadeIn animated mdc-ripple-upgraded']")
 	WebElement loginBtn;
 
+	/*
+	 * @FindBy(xpath ="//button[@type='submit']" ) WebElement loginBtn;
+	 */
+	
 	public WebElement getLoginButton() {
 		return loginBtn;
 	}
@@ -79,11 +91,17 @@ public class PTLoginPage {
 		getLoginButton().click();
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()='Dashboard']")));
+		
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+				wait2.until(ExpectedConditions.attributeToBe(By.xpath("//div[@class='bodyload']"), "style", "display: none;"));
 
 		System.out.println("Supplier Login button has been clicked. The user is in dashboard page...");
+		
 	}
 
 	// ############# END OF SUPPLIER SECTION #######################################
