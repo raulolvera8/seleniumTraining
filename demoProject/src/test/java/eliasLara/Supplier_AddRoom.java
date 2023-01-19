@@ -13,6 +13,13 @@ import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTRoomsMngmntPage_Supplier;
 
+//******************************************************
+//Title: Supplier_AddRoom
+//Objective: CREATES A NEW ROOM WITH SUPPLIER ROLE.
+//Author: Elías Lara.
+//Date of creation/adding: 01 18 23
+//*******************************************************
+
 public class Supplier_AddRoom extends Driver {
 
 	WebDriver driver;
