@@ -23,8 +23,9 @@ public class Driver {
 	}
 
 	public WebDriver initFirefoxDriver() {
-		String URL = "https://phptravels.net/";
-
+		//String URL = "https://phptravels.net/";
+		String URL = "https://petstore.octoperf.com/actions/Catalog.action";
+		
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Selenium Training\\geckodriver-v0.31.0-win64\\geckodriver.exe");
 		// driver = new FirefoxDriver();
