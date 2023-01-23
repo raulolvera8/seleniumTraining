@@ -177,13 +177,17 @@ public class Supplier_CreateTour extends Driver {
 
 		tourManage.VerifyIfTourIsAdded("Huatulco Trip");
 
+		// Click in Dasboard main button.
+
+		dashBoard.clickDashboardBtn();
+
 		// Click in profile button for logout option.
 
-		tourManage.clickProfileBtn();
+		dashBoard.clickProfileBtn();
 
 		// Click in logout option after clicking the profile button.
 
-		tourManage.clickLogoutBtn();
+		dashBoard.clickLogoutBtn();
 
 		// Closing the browsers.
 

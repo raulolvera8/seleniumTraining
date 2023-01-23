@@ -101,9 +101,13 @@ public class PTHomePage {
 	}
 	// -------------------------------------------------
 
-	/// -----Supplier login----- Elías Lara.
+	// ******************************************************
+	// Objective: LOGIN FOR SUPPLIER ROLE.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
-	@FindBy(xpath = "//a[text()='Supplier Login']")
+	@FindBy(xpath = "(//a[text()='Supplier Login'])[2]")
 	WebElement SupplierLoginBtn;
 
 	public WebElement getSupplierLoginBtn() {
