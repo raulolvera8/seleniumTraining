@@ -63,7 +63,7 @@ public class JP_homePage {
 	public void clickFishesIcon() {
 		getFishIcon().click();
 
-		System.out.println("Glu glu glu...");
+		System.out.println("Clicking on Fish section... glu glu glu...");
 	}
 
 	//--------------------- CLICK ON FIRST ELEMENT FROM TABLE--------------------------- IRIS
