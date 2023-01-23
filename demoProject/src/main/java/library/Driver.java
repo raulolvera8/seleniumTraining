@@ -118,7 +118,7 @@ public class Driver {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
 				.pollingEvery(Duration.ofSeconds(5)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='ACCOUNT']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@src, 'reptiles')])[2]")));
 
 		// webpage is ready at this point
 
