@@ -89,8 +89,8 @@ public class Driver {
 		return driver;
 	}
 	
-	public WebDriver initChromeDriverPetStore() {
-		String URL = "https://petstore.octoperf.com/actions/Catalog.action";
+	public WebDriver initChromeDriverWtURL(String URL) {
+		String pageDir = URL;
 
 		System.out.println("Setting chrome driver path...");
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
@@ -108,7 +108,7 @@ public class Driver {
 		options.setExperimentalOption("useAutomationExtension", false);
 
 		// open the url
-		driver.navigate().to(URL);
+		driver.navigate().to(pageDir);
 		driver.manage().window().maximize();
 
 		System.out.println("Waiting page to be ready...");
