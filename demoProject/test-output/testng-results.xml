@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="3" total="8" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-18T06:31:45Z" name="Default suite" finished-at="2023-01-18T06:32:10Z" duration-ms="24285">
+  <suite started-at="2023-01-20T17:30:21Z" name="Suite" finished-at="2023-01-20T17:30:21Z" duration-ms="155">
     <groups>
+      <group name="Group1">
+        <method signature="MultipleGroups.atom()[pri:0, instance:Juan.MultipleGroups@132e0cc]" name="atom" class="Juan.MultipleGroups"/>
+        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@132e0cc]" name="electron" class="Juan.MultipleGroups"/>
+        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="electron" class="Juan.MultipleGroups"/>
+      </group> <!-- Group1 -->
+      <group name="Group2">
+        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@132e0cc]" name="electron" class="Juan.MultipleGroups"/>
+        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="electron" class="Juan.MultipleGroups"/>
+        <method signature="MultipleGroups.neutron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="neutron" class="Juan.MultipleGroups"/>
+        <method signature="MultipleGroups.proton()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="proton" class="Juan.MultipleGroups"/>
+      </group> <!-- Group2 -->
     </groups>
-    <test started-at="2023-01-18T06:31:45Z" name="Default test" finished-at="2023-01-18T06:32:10Z" duration-ms="24285">
-      <class name="Juan.scriptSupplier">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptSupplier@78641d23]" started-at="2023-01-18T06:31:45Z" name="setup" finished-at="2023-01-18T06:31:57Z" duration-ms="12024" status="PASS">
+    <test started-at="2023-01-20T17:30:21Z" name="Test" finished-at="2023-01-20T17:30:21Z" duration-ms="72">
+      <class name="Juan.MultipleGroups">
+        <test-method signature="atom()[pri:0, instance:Juan.MultipleGroups@132e0cc]" started-at="2023-01-20T17:30:21Z" name="atom" finished-at="2023-01-20T17:30:21Z" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="supplierBooking()[pri:0, instance:Juan.scriptSupplier@78641d23]" started-at="2023-01-18T06:31:57Z" name="supplierBooking" finished-at="2023-01-18T06:32:10Z" duration-ms="12200" status="PASS">
+        </test-method> <!-- atom -->
+        <test-method signature="electron()[pri:0, instance:Juan.MultipleGroups@132e0cc]" started-at="2023-01-20T17:30:21Z" name="electron" finished-at="2023-01-20T17:30:21Z" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- supplierBooking -->
-      </class> <!-- Juan.scriptSupplier -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- electron -->
+      </class> <!-- Juan.MultipleGroups -->
+    </test> <!-- Test -->
+    <test started-at="2023-01-20T17:30:21Z" name="Test Two" finished-at="2023-01-20T17:30:21Z" duration-ms="16">
+      <class name="Juan.MultipleGroups">
+        <test-method signature="electron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" started-at="2023-01-20T17:30:21Z" name="electron" finished-at="2023-01-20T17:30:21Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- electron -->
+        <test-method signature="neutron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" started-at="2023-01-20T17:30:21Z" name="neutron" finished-at="2023-01-20T17:30:21Z" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- neutron -->
+        <test-method signature="proton()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" started-at="2023-01-20T17:30:21Z" name="proton" finished-at="2023-01-20T17:30:21Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- proton -->
+      </class> <!-- Juan.MultipleGroups -->
+    </test> <!-- Test Two -->
+  </suite> <!-- Suite -->
 </testng-results>
