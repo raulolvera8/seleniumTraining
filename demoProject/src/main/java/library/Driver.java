@@ -92,6 +92,44 @@ public class Driver {
 
 		return driver;
 	}
+	
+	public WebDriver initChromeDriverPetStore() {
+		String URL = "https://petstore.octoperf.com/actions/Catalog.action";
+
+		System.out.println("Setting chrome driver path...");
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();
+		System.out.println("Creating driver...");
+
+		// adding chrome options to prevent that webdriver is detected in chrome.
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments();
+		options.addArguments("--incognito", "--disable-blink-features", "--disable-blink-features=AutomationControlled",
+				"--disable-smooth-scrolling=true");
+		options.addArguments(
+				"--user-agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'");
+		options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+		options.setExperimentalOption("useAutomationExtension", false);
+
+		// open the url
+		driver.navigate().to(URL);
+		driver.manage().window().maximize();
+
+		System.out.println("Waiting page to be ready...");
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(ElementNotInteractableException.class);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='ACCOUNT']")));
+
+		// webpage is ready at this point
+
+		System.out.println("Page is loaded and ready to use!");
+
+		return driver;
+	}
 
 	public void teardownDriver() {
 

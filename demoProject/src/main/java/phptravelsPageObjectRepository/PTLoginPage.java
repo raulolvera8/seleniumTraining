@@ -38,7 +38,11 @@ public class PTLoginPage {
 	}
 	// ############# SUPPLIER SECTION #######################################
 
-	// ----- SUPPLIER Email text box -----------
+	// ******************************************************
+	// Objective: INSERT SUPPLIER EMAIL TEXT BOX.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//form//input[@name='email' and @type='text']")
 	WebElement EmailTxtbox;
@@ -52,7 +56,11 @@ public class PTLoginPage {
 		System.out.println("Supplier email been inserted. Value is: " + email);
 	}
 
-	// ----- SUPPLIER password text box -----------
+	// ******************************************************
+	// Objective: INSERT PASSWORD TEXT BOX FOR SUPPLIER.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//input[@name='password']")
 	WebElement PasswordTxtbox;
@@ -63,10 +71,14 @@ public class PTLoginPage {
 
 	public void setPasswordtxtbox(String password) {
 		getPasswordTxtbox().sendKeys(password);
-		System.out.println("Supplier email been inserted. Value is: " + password);
+		System.out.println("Supplier password been inserted. Value is: " + password);
 	}
 
-	// ----- SUPPLIER login button -----------
+	// ******************************************************
+	// Objective: CLICK IN LOGIN BUTTON FOR SUPPLIER ROLE.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement loginBtn;

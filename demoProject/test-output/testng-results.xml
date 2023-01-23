@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="3" total="8" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-17T05:38:45Z" name="Default suite" finished-at="2023-01-17T05:40:24Z" duration-ms="98911">
+  <suite started-at="2023-01-20T17:33:58Z" name="Suite" finished-at="2023-01-20T17:33:58Z" duration-ms="149">
     <groups>
+      <group name="Group1">
+        <method signature="MultipleGroups.atom()[pri:0, instance:IrisRodriguez.MultipleGroups@15b204a1]" name="atom" class="IrisRodriguez.MultipleGroups"/>
+        <method signature="MultipleGroups.electron()[pri:0, instance:IrisRodriguez.MultipleGroups@15b204a1]" name="electron" class="IrisRodriguez.MultipleGroups"/>
+        <method signature="MultipleGroups.electron()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" name="electron" class="IrisRodriguez.MultipleGroups"/>
+      </group> <!-- Group1 -->
+      <group name="Group2">
+        <method signature="MultipleGroups.electron()[pri:0, instance:IrisRodriguez.MultipleGroups@15b204a1]" name="electron" class="IrisRodriguez.MultipleGroups"/>
+        <method signature="MultipleGroups.electron()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" name="electron" class="IrisRodriguez.MultipleGroups"/>
+        <method signature="MultipleGroups.neutron()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" name="neutron" class="IrisRodriguez.MultipleGroups"/>
+        <method signature="MultipleGroups.proton()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" name="proton" class="IrisRodriguez.MultipleGroups"/>
+      </group> <!-- Group2 -->
     </groups>
-    <test started-at="2023-01-17T05:38:45Z" name="Default test" finished-at="2023-01-17T05:40:24Z" duration-ms="98911">
-      <class name="Juan.scriptTour">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-17T05:38:45Z" name="setup" finished-at="2023-01-17T05:38:58Z" duration-ms="12493" status="PASS">
+    <test started-at="2023-01-20T17:33:58Z" name="Test one" finished-at="2023-01-20T17:33:58Z" duration-ms="53">
+      <class name="IrisRodriguez.MultipleGroups">
+        <test-method signature="atom()[pri:0, instance:IrisRodriguez.MultipleGroups@15b204a1]" started-at="2023-01-20T17:33:58Z" name="atom" finished-at="2023-01-20T17:33:58Z" duration-ms="17" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="CustomerPage()[pri:0, instance:Juan.scriptTour@78641d23]" started-at="2023-01-17T05:38:58Z" name="CustomerPage" finished-at="2023-01-17T05:40:24Z" duration-ms="86363" status="PASS">
+        </test-method> <!-- atom -->
+        <test-method signature="electron()[pri:0, instance:IrisRodriguez.MultipleGroups@15b204a1]" started-at="2023-01-20T17:33:58Z" name="electron" finished-at="2023-01-20T17:33:58Z" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CustomerPage -->
-      </class> <!-- Juan.scriptTour -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- electron -->
+      </class> <!-- IrisRodriguez.MultipleGroups -->
+    </test> <!-- Test one -->
+    <test started-at="2023-01-20T17:33:58Z" name="Test two" finished-at="2023-01-20T17:33:58Z" duration-ms="16">
+      <class name="IrisRodriguez.MultipleGroups">
+        <test-method signature="electron()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" started-at="2023-01-20T17:33:58Z" name="electron" finished-at="2023-01-20T17:33:58Z" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- electron -->
+        <test-method signature="neutron()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" started-at="2023-01-20T17:33:58Z" name="neutron" finished-at="2023-01-20T17:33:58Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- neutron -->
+        <test-method signature="proton()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" started-at="2023-01-20T17:33:58Z" name="proton" finished-at="2023-01-20T17:33:58Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- proton -->
+      </class> <!-- IrisRodriguez.MultipleGroups -->
+    </test> <!-- Test two -->
+  </suite> <!-- Suite -->
 </testng-results>

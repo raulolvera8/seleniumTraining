@@ -101,9 +101,13 @@ public class PTHomePage {
 	}
 	// -------------------------------------------------
 
-	/// -----Supplier login----- Elías Lara.
+	// ******************************************************
+	// Objective: LOGIN FOR SUPPLIER ROLE.
+	// Author: Elías Lara.
+	// Date of creation/adding: 01 07 23
+	// *******************************************************
 
-	@FindBy(xpath = "//a[text()='Supplier Login']")
+	@FindBy(xpath = "(//a[text()='Supplier Login'])[2]")
 	WebElement SupplierLoginBtn;
 
 	public WebElement getSupplierLoginBtn() {
@@ -139,6 +143,33 @@ public class PTHomePage {
 	public void scrollToEmail() {
 		utility.elementScrollDown(this.getEmailInput());
 	}
+	
+	
+	//NEW SUPPLIER LOGIN
+	@FindBy(xpath = "//*[@href='https://phptravels.net/api/supplier']")
+	WebElement newSupplierLoginBtn;
+
+	public WebElement getNewSupplierLoginBtn() {
+		return newSupplierLoginBtn;
+	}
+
+	public void clickNewSupplierLoginbtn() {
+
+		getNewSupplierLoginBtn().click();
+
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		  
+		 
+	
+
+	}
+	
+	
 	
 
 }
