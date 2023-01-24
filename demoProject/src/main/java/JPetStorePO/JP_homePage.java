@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,10 +22,7 @@ public class JP_homePage {
 
 	}
 
-// ---------- SELECT DOGS TAB ----------------- DIANA
-	// XPATHS FOR DOGS TAB
-	@FindBy(xpath = "//*[@href='/actions/Catalog.action;jsessionid=3770D7D5B4516EE0D2E3E630D400835E?viewCategory=&categoryId=DOGS']")
-	WebElement dogsTab;
+
 
 //******************************************************
 //Title:clickReptilesIcon
@@ -94,7 +92,21 @@ public class JP_homePage {
 	}
 
 
+	// ---------- SELECT DOGS TAB ----------------- DIANA
+		// XPATHS FOR DOGS TAB
+		@FindBy(xpath="//img[@src='../images/dogs_icon.gif']")
+		WebElement dogsTab;
 
+		public WebElement getDogsTab() {
+			return dogsTab;
+		}
+		public void clickDogsTab() {
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(this.Driver).withTimeout(Duration.ofSeconds(60))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("MainImage")));		
+			getDogsTab().click();
+		
+		}
 	
 	
 	
