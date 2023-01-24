@@ -28,8 +28,8 @@ public class PetStore_ReptilesValidations extends Driver {
 		homePage.clickReptilesIcon();
 		
 		//Extract the values from reptiles rows.
-		reptilesDash.getFirstColumn();
-		reptilesDash.getSecondColumn();
+		reptilesDash.validateFirstColumn();
+		reptilesDash.validateSecondColumn();
 	}
 	
 	@AfterClass
