@@ -52,6 +52,34 @@ public class JP_homePage {
 		System.out.println("The Reptiles Icon has been clicked. The user is now in Reptiles Dashboard...");
 	}
 	
+	
+	
+	//--------------------- CLICK ON FISH ICON --------------------------- IRIS
+	@FindBy(xpath = "//img[@src='../images/fish_icon.gif']")
+	WebElement fishIcon;
+
+	public WebElement getFishIcon() {
+		return fishIcon;
+	}
+	public void clickFishesIcon() {
+		getFishIcon().click();
+
+        System.out.println("Clicking on Fish section... glu glu glu...");
+		}
+			
+	//--------------------- CLICK ON FIRST ELEMENT FROM TABLE--------------------------- IRIS
+	@FindBy(xpath = "(//td)[1]")
+	WebElement FirstElementTable;
+
+	public WebElement getFirstElementTable() {
+		return FirstElementTable;
+	}
+
+	public void clickFirstElementTable() {
+		getFirstElementTable().click();
+		System.out.println("Clicking on first option...");
+	}
+	
 	//----------SELECT BIRDS BUTTON-------------
 	@FindBy(xpath = "//*[@src='../images/sm_birds.gif']" )
 	WebElement birdsButton;
