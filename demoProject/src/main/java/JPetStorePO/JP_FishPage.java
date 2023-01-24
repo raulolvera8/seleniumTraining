@@ -38,7 +38,7 @@ public class JP_FishPage {
 
 	public void PrintIdFirstColumn() {
 		String value = getPrintIdFirstElementTable().getText();
-		System.out.println("The first Product ID is" + value + ".");
+		System.out.println("The first Product ID is " + value + ".");
 	}
 	
 	// ------------------ GET NAME FIRST ELEMENT FROM TABLE ---------------------------- IRIS

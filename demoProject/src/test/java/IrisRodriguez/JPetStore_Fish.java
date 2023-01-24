@@ -19,7 +19,7 @@ public class JPetStore_Fish extends Driver {
 		this.driver = initFirefoxDriver();
 	}
 	
-	@Test
+	@Test()
 	public void HomeJPetStore() {
 
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
