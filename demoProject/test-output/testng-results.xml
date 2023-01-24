@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-24T17:21:27Z" name="Default suite" finished-at="2023-01-24T17:21:32Z" duration-ms="4742">
+  <suite started-at="2023-01-24T17:27:40Z" name="Default suite" finished-at="2023-01-24T17:27:44Z" duration-ms="4045">
     <groups>
     </groups>
-    <test started-at="2023-01-24T17:21:27Z" name="Default test" finished-at="2023-01-24T17:21:32Z" duration-ms="4742">
+    <test started-at="2023-01-24T17:27:40Z" name="Default test" finished-at="2023-01-24T17:27:44Z" duration-ms="4045">
       <class name="IrisRodriguez.JPetStore_Fish">
-        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-24T17:21:27Z" name="setup" finished-at="2023-01-24T17:21:31Z" duration-ms="4139" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-24T17:27:40Z" name="setup" finished-at="2023-01-24T17:27:44Z" duration-ms="3450" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-24T17:21:31Z" name="HomeJPetStore" finished-at="2023-01-24T17:21:32Z" duration-ms="575" status="PASS">
+        <test-method signature="HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-24T17:27:44Z" name="HomeJPetStore" finished-at="2023-01-24T17:27:44Z" duration-ms="578" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HomeJPetStore -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-24T17:21:32Z" name="teardown" finished-at="2023-01-24T17:21:32Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-24T17:27:44Z" name="teardown" finished-at="2023-01-24T17:27:44Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

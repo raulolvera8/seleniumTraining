@@ -46,12 +46,12 @@ public class JP_FishPage {
 	WebElement PrintNameFirstElementTable;
 
 	public WebElement getPrintNameFirstElementTable() {
-		return FirstElementTable;
+		return PrintNameFirstElementTable;
 	}
 
 	public void PrintNameFirstColumn() {
 		String value = getPrintNameFirstElementTable().getText();
-		System.out.println("The first Product ID is" + value + ".");
+		System.out.println("The first fish name is " + value + ".");
 	}
 
 }
