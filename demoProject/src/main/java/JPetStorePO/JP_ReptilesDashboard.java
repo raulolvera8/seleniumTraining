@@ -47,8 +47,8 @@ public class JP_ReptilesDashboard {
 	}
 
 	public void validateSecondColumn() {
-		String value = getFirstColumn().getText();
-		System.out.println("The value obtained in the first column is " + value + ".");
+		String value = getSecondColumn().getText();
+		System.out.println("The value obtained in the second column is " + value + ".");
 	}
 
 }

@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-24T00:33:27Z" name="Default suite" finished-at="2023-01-24T00:33:44Z" duration-ms="16958">
+  <suite started-at="2023-01-24T18:04:07Z" name="Suite" finished-at="2023-01-24T18:04:12Z" duration-ms="4459">
     <groups>
+      <group name="fishIndex">
+        <method signature="JPetStore_Fish.JPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@78aab498]" name="JPetStore" class="IrisRodriguez.JPetStore_Fish"/>
+      </group> <!-- fishIndex -->
+      <group name="home">
+        <method signature="JPetStore_Fish.HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@78aab498]" name="HomeJPetStore" class="IrisRodriguez.JPetStore_Fish"/>
+      </group> <!-- home -->
     </groups>
-    <test started-at="2023-01-24T00:33:27Z" name="Default test" finished-at="2023-01-24T00:33:44Z" duration-ms="16958">
-      <class name="Juan.scriptPetStore">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptPetStore@1fc32e4f]" started-at="2023-01-24T00:33:27Z" name="setup" finished-at="2023-01-24T00:33:41Z" duration-ms="13967" status="PASS">
+    <test started-at="2023-01-24T18:04:07Z" name="Test" finished-at="2023-01-24T18:04:12Z" duration-ms="4459">
+      <class name="IrisRodriguez.JPetStore_Fish">
+        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.JPetStore_Fish@78aab498]" started-at="2023-01-24T18:04:07Z" name="setup" finished-at="2023-01-24T18:04:11Z" duration-ms="3804" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="HomeJPetStore()[pri:0, instance:Juan.scriptPetStore@1fc32e4f]" started-at="2023-01-24T00:33:41Z" name="HomeJPetStore" finished-at="2023-01-24T00:33:44Z" duration-ms="2961" status="PASS">
+        <test-method signature="HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@78aab498]" started-at="2023-01-24T18:04:11Z" name="HomeJPetStore" finished-at="2023-01-24T18:04:12Z" duration-ms="334" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HomeJPetStore -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:Juan.scriptPetStore@1fc32e4f]" started-at="2023-01-24T00:33:44Z" name="teardown" finished-at="2023-01-24T00:33:44Z" duration-ms="0" status="PASS">
+        <test-method signature="JPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@78aab498]" started-at="2023-01-24T18:04:12Z" name="JPetStore" finished-at="2023-01-24T18:04:12Z" duration-ms="294" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- JPetStore -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.JPetStore_Fish@78aab498]" started-at="2023-01-24T18:04:12Z" name="teardown" finished-at="2023-01-24T18:04:12Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- Juan.scriptPetStore -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- IrisRodriguez.JPetStore_Fish -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
