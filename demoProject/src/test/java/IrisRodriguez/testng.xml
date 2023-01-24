@@ -4,7 +4,8 @@
   <test name="Test">
 	  <groups>
 	   <run>
-		   <include name="Fish"></include>
+		   <include name="home"></include>
+		   <include name="fishIndex"></include>
 	   </run>
    </groups>
     <classes>

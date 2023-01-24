@@ -4,13 +4,16 @@
   <test thread-count="5" name="Test(failed)">
     <groups>
       <run>
-        <include name="Fish"/>
+        <include name="Home"/>
+        <include name="fishIndex"/>
       </run>
     </groups>
     <classes>
       <class name="IrisRodriguez.JPetStore_Fish">
         <methods>
-          <include name="HomeJPetStore"/>
+          <include name="teardown"/>
+          <include name="JPetStore"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- IrisRodriguez.JPetStore_Fish -->
     </classes>
