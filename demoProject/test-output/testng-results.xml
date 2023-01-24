@@ -2,88 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <suite started-at="2023-01-20T17:30:21Z" name="Suite" finished-at="2023-01-20T17:30:21Z" duration-ms="155">
-    <groups>
-      <group name="Group1">
-        <method signature="MultipleGroups.atom()[pri:0, instance:Juan.MultipleGroups@132e0cc]" name="atom" class="Juan.MultipleGroups"/>
-        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@132e0cc]" name="electron" class="Juan.MultipleGroups"/>
-        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="electron" class="Juan.MultipleGroups"/>
-      </group> <!-- Group1 -->
-      <group name="Group2">
-        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@132e0cc]" name="electron" class="Juan.MultipleGroups"/>
-        <method signature="MultipleGroups.electron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="electron" class="Juan.MultipleGroups"/>
-        <method signature="MultipleGroups.neutron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="neutron" class="Juan.MultipleGroups"/>
-        <method signature="MultipleGroups.proton()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" name="proton" class="Juan.MultipleGroups"/>
-      </group> <!-- Group2 -->
-    </groups>
-    <test started-at="2023-01-20T17:30:21Z" name="Test" finished-at="2023-01-20T17:30:21Z" duration-ms="72">
-      <class name="Juan.MultipleGroups">
-        <test-method signature="atom()[pri:0, instance:Juan.MultipleGroups@132e0cc]" started-at="2023-01-20T17:30:21Z" name="atom" finished-at="2023-01-20T17:30:21Z" duration-ms="14" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- atom -->
-        <test-method signature="electron()[pri:0, instance:Juan.MultipleGroups@132e0cc]" started-at="2023-01-20T17:30:21Z" name="electron" finished-at="2023-01-20T17:30:21Z" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- electron -->
-      </class> <!-- Juan.MultipleGroups -->
-    </test> <!-- Test -->
-    <test started-at="2023-01-20T17:30:21Z" name="Test Two" finished-at="2023-01-20T17:30:21Z" duration-ms="16">
-      <class name="Juan.MultipleGroups">
-        <test-method signature="electron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" started-at="2023-01-20T17:30:21Z" name="electron" finished-at="2023-01-20T17:30:21Z" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- electron -->
-        <test-method signature="neutron()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" started-at="2023-01-20T17:30:21Z" name="neutron" finished-at="2023-01-20T17:30:21Z" duration-ms="5" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- neutron -->
-        <test-method signature="proton()[pri:0, instance:Juan.MultipleGroups@1458ed9c]" started-at="2023-01-20T17:30:21Z" name="proton" finished-at="2023-01-20T17:30:21Z" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- proton -->
-      </class> <!-- Juan.MultipleGroups -->
-    </test> <!-- Test Two -->
-=======
-  <suite started-at="2023-01-20T17:33:58Z" name="Suite" finished-at="2023-01-20T17:33:58Z" duration-ms="149">
-=======
-  <suite started-at="2023-01-23T23:19:33Z" name="Default suite" finished-at="2023-01-23T23:19:37Z" duration-ms="4070">
->>>>>>> 3c54d8eb921eb44954580ce57ef2a8cc90652f0b
+  <suite started-at="2023-01-24T00:33:27Z" name="Default suite" finished-at="2023-01-24T00:33:44Z" duration-ms="16958">
     <groups>
     </groups>
-    <test started-at="2023-01-23T23:19:33Z" name="Default test" finished-at="2023-01-23T23:19:37Z" duration-ms="4070">
-      <class name="IrisRodriguez.JPetStore_Fish">
-        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-23T23:19:33Z" name="setup" finished-at="2023-01-23T23:19:36Z" duration-ms="3524" status="PASS">
+    <test started-at="2023-01-24T00:33:27Z" name="Default test" finished-at="2023-01-24T00:33:44Z" duration-ms="16958">
+      <class name="Juan.scriptPetStore">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptPetStore@1fc32e4f]" started-at="2023-01-24T00:33:27Z" name="setup" finished-at="2023-01-24T00:33:41Z" duration-ms="13967" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-23T23:19:36Z" name="HomeJPetStore" finished-at="2023-01-23T23:19:37Z" duration-ms="527" status="PASS">
+        <test-method signature="HomeJPetStore()[pri:0, instance:Juan.scriptPetStore@1fc32e4f]" started-at="2023-01-24T00:33:41Z" name="HomeJPetStore" finished-at="2023-01-24T00:33:44Z" duration-ms="2961" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HomeJPetStore -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.JPetStore_Fish@2b40ff9c]" started-at="2023-01-23T23:19:37Z" name="teardown" finished-at="2023-01-23T23:19:37Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:Juan.scriptPetStore@1fc32e4f]" started-at="2023-01-24T00:33:44Z" name="teardown" finished-at="2023-01-24T00:33:44Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
-<<<<<<< HEAD
-        </test-method> <!-- electron -->
-        <test-method signature="neutron()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" started-at="2023-01-20T17:33:58Z" name="neutron" finished-at="2023-01-20T17:33:58Z" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- neutron -->
-        <test-method signature="proton()[pri:0, instance:IrisRodriguez.MultipleGroups@4313f5bc]" started-at="2023-01-20T17:33:58Z" name="proton" finished-at="2023-01-20T17:33:58Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- proton -->
-      </class> <!-- IrisRodriguez.MultipleGroups -->
-    </test> <!-- Test two -->
->>>>>>> 7b2587617ef393f22223f1ea1e9bb7e0dce27340
-  </suite> <!-- Suite -->
-=======
         </test-method> <!-- teardown -->
-      </class> <!-- IrisRodriguez.JPetStore_Fish -->
+      </class> <!-- Juan.scriptPetStore -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
->>>>>>> 3c54d8eb921eb44954580ce57ef2a8cc90652f0b
 </testng-results>
