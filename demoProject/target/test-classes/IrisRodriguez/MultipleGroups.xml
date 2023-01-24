@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test one">
+  <groups>
+	  <run>
+		  <include name="Group1"/>
+	  </run>
+  </groups>
+    <classes>
+      <class name="IrisRodriguez.MultipleGroups"/>
+    </classes>
+  </test> <!-- Test one -->
+  <test name="Test two">
+  <groups>
+	  <run>
+		  <include name="Group2"/>
+	  </run>
+  </groups>
+    <classes>
+      <class name="IrisRodriguez.MultipleGroups"/>
+    </classes>
+  </test> <!-- Test two-->
+</suite> <!-- Suite -->

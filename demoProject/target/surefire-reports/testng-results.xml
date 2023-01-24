@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-01-17T17:39:59Z" name="IrisRodriguez.script2" finished-at="2023-01-17T17:41:42Z" duration-ms="102897">
+    <groups>
+    </groups>
+    <test started-at="2023-01-17T17:39:59Z" name="Command line test" finished-at="2023-01-17T17:41:42Z" duration-ms="102897">
+      <class name="IrisRodriguez.script2">
+        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.script2@35a50a4c]" started-at="2023-01-17T17:39:59Z" name="setup" finished-at="2023-01-17T17:40:06Z" duration-ms="6786" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="ShoppingHome()[pri:0, instance:IrisRodriguez.script2@35a50a4c]" started-at="2023-01-17T17:40:06Z" name="ShoppingHome" finished-at="2023-01-17T17:41:42Z" duration-ms="96086" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ShoppingHome -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.script2@35a50a4c]" started-at="2023-01-17T17:41:42Z" name="teardown" finished-at="2023-01-17T17:41:42Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- IrisRodriguez.script2 -->
+    </test> <!-- Command line test -->
+  </suite> <!-- IrisRodriguez.script2 -->
+</testng-results>
