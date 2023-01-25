@@ -23,15 +23,15 @@ public class JP_LoginPage {
 	
 	
 	@FindBy(xpath = "//*[@name='username']")
-	WebElement userNameBird;
+	WebElement userName;
 
 	// ------FLYING FROM
-	public WebElement getUserNameBird() {
-		return userNameBird;
+	public WebElement getUserName() {
+		return userName;
 	}
 
-	public void writeUserNameBird(String userNameBird) {
-		getUserNameBird().sendKeys(userNameBird);
+	public void writeUserName(String userName) {
+		getUserName().sendKeys(userName);
 
 		
 	}
@@ -53,14 +53,14 @@ public class JP_LoginPage {
 	
 	
 	@FindBy(xpath = "//*[@name='password']")
-	WebElement userPasswordBird;
+	WebElement userPassword;
 
-	public WebElement getPasswordBird() {
-		return userPasswordBird;
+	public WebElement getPassword() {
+		return userPassword;
 	}
 
-	public void writePasswordBird(String passwordBird) {
-		getPasswordBird().sendKeys(passwordBird);
+	public void writePassword(String password) {
+		getPassword().sendKeys(password);
 
 
 	}

@@ -6,8 +6,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import library.Driver;
 import JPetStorePO.JP_DogsPage;
+import JPetStorePO.JP_LoginPage;
+import JPetStorePO.JP_OrderPage;
 import JPetStorePO.JP_ValidationAnimalselectedPage;
 import JPetStorePO.JP_homePage;
+import JPetStorePO.JP_paymentDetailsPage;
 import JPetStorePO.JP_shoppingCartPage;
 
 public class JPetStore extends Driver {
@@ -20,13 +23,21 @@ public class JPetStore extends Driver {
 	@Test 
 	public void JPetstore_HomeWindow() throws InterruptedException {
 		JP_homePage homeWindow = new JP_homePage(Driver);
+		homeWindow.clickSignInButton();
+		JP_LoginPage login = new JP_LoginPage(Driver);
+		login.writeUserName("DIANA");
+		login.ClearPassword();
+		login.writePassword("JPETSTORE");
+		login.clickLoginButton();
 		homeWindow.clickDogsTab();
+
+		
+		
 		JP_DogsPage DogsWindow = new JP_DogsPage(Driver);
 		DogsWindow.clickItem();
-		
+	
 		JP_ValidationAnimalselectedPage validation= new JP_ValidationAnimalselectedPage(Driver);
 		validation.validationMsg();
-		//JP_DogsPage DogsWindow = new JP_DogsPage(Driver);
 		DogsWindow.clickAddToCartBtn();
 		// ----- VALIDATION AMOUNT
 		JP_shoppingCartPage shoppingCart = new JP_shoppingCartPage(Driver);
@@ -47,16 +58,21 @@ public class JPetStore extends Driver {
 			shoppingCart.clickProceedtoCheckoutBtn();
 		}else {
 			System.out.println("FAILED");
-
 		}
+		
+		JP_paymentDetailsPage paymentDetails = new JP_paymentDetailsPage(Driver);
+		paymentDetails.clickContinueBtn();
+		JP_OrderPage order= new JP_OrderPage(Driver);
+		order.clickConfirmOrderBtn();
+	
 	}
 	@Test
 	public void JPetstore_DogWindow() {
-		
+
 	}
 	@Test 
 	public void JPetstore_validationMsg() {
-
+		
 	}
 	
 	public void JPetstore_addToCart() {
