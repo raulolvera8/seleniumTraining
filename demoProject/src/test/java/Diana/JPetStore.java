@@ -3,6 +3,7 @@ package Diana;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import library.Driver;
 import JPetStorePO.JP_DogsPage;
@@ -15,13 +16,16 @@ import JPetStorePO.JP_shoppingCartPage;
 
 public class JPetStore extends Driver {
 	public WebDriver Driver;
-	@BeforeClass (alwaysRun=true)
+
+	@BeforeClass(alwaysRun = true)
 	public void setup() {
 		System.out.println("set up driver traavels");
 		this.Driver = initFirefoxDriverPetStore();
 	}
-	@Test 
-	public void JPetstore_HomeWindow() throws InterruptedException {
+
+	@Test(groups = { "pets" }, priority = 0)
+
+	public void JPetstore_HomeWindow() {
 		// CLICK SIGN IN ACCOUNT ICON
 		JP_homePage homeWindow = new JP_homePage(Driver);
 		homeWindow.clickSignInButton();
@@ -36,21 +40,27 @@ public class JPetStore extends Driver {
 		// CLICK LOGIN BUTTON
 		login.clickLoginButton();
 		// CLICK DOGS TAB
-		homeWindow.clickDogsTab();		
+		homeWindow.clickDogsTab();
 		// CLIC ANIMAL'S NAME
 		JP_DogsPage DogsWindow = new JP_DogsPage(Driver);
+
 		DogsWindow.clickItem();
-		// VALIDATION ANIMAL'S NAME  SELECTED
-		JP_ValidationAnimalselectedPage validation= new JP_ValidationAnimalselectedPage(Driver);
+		// VALIDATION ANIMAL'S NAME SELECTED
+		JP_ValidationAnimalselectedPage validation = new JP_ValidationAnimalselectedPage(Driver);
 		validation.validationMsg();
 		// CLICK ADD TO CART BUTTON
 		DogsWindow.clickAddToCartBtn();
+	}
+
+	@Parameters({ "quantity" })
+	@Test(groups = { "operation" }, priority = 1)
+	public void JPetstore_operationAmmount(String quantities) throws InterruptedException {
 		// ----- VALIDATION TOTAL PRICE, LIST PRICE, QUANTITY SELECTED
 		JP_shoppingCartPage shoppingCart = new JP_shoppingCartPage(Driver);
 		// QUANTITY CHANGED
-		shoppingCart.changeQuanity("5");
+		shoppingCart.changeQuanity(quantities);
 		// CLICK UPDATE BUTTON
-		shoppingCart.clickUpdateCartBtn();		
+		shoppingCart.clickUpdateCartBtn();
 		// QUANTITY, TOTAL COST, LIST PRICE ARE SAVED
 		String TotalCost = shoppingCart.readTotalCostLabel();
 		double Total_Cost = Double.valueOf(TotalCost);
@@ -61,37 +71,35 @@ public class JPetStore extends Driver {
 		// MULTIPLICATION LIST PRICE * QUANTITY
 		double calculatedAmount = list_Price * quantityChanged;
 		// VALIDATION RESULTS OF MULTIPLICATION
-		if (calculatedAmount ==  Total_Cost) {
+		if (calculatedAmount == Total_Cost) {
 			System.out.println("Total a pagar: " + calculatedAmount);
 			System.out.println("Quantity: " + quantityChanged);
 			System.out.println("List Price : " + list_Price);
 			shoppingCart.clickProceedtoCheckoutBtn();
-		}else {
+		} else {
 			System.out.println("FAILED");
 		}
-		// PAYMENT DETAILS 
+	}
+
+	@Test(groups = "validationOrder", priority = 2)
+	public void JPetstore_validationMsg() {
+
+		// PAYMENT DETAILS
 		JP_paymentDetailsPage paymentDetails = new JP_paymentDetailsPage(Driver);
 		// CONTINUE TO NEXT WEBSITE
 		paymentDetails.clickContinueBtn();
 		// CONFIRM ORDER BTN
-		JP_OrderPage order= new JP_OrderPage(Driver);
+		JP_OrderPage order = new JP_OrderPage(Driver);
 		order.clickConfirmOrderBtn();
 		// CONFIRM ORDER LABEL
 		order.readconfirmationLabel();
 	}
-	@Test
-	public void JPetstore_DogWindow() {
+
+	public void JPetstore_addToCart() {
 
 	}
-	@Test 
-	public void JPetstore_validationMsg() {
-		
-	}
-	
-	public void JPetstore_addToCart() {
-		
-	}
-	@AfterClass (alwaysRun=true)
+
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 	}
 }

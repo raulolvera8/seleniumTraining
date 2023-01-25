@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="jpetstore">
-  <parameter name="parameter" value="5"></parameter>
-    <classes>
-      <class name="Diana.JPetStore">
-      </class>
-    </classes>
-  </test> 
+	<test name="jpetstore">
+		<parameter name="quantity" value="5"></parameter>
+		<groups>
+			<run>
+				<include name="pets"></include>
+				<include name="operation"></include>
+				<include name="validationOrder"></include>
+			</run>
+		</groups>
 
-  <!-- jpetstore -->
+		<classes>
+
+			<class name="Diana.JPetStore"></class>
+		</classes>
+	</test>
+
+	<!-- jpetstore -->
 </suite> <!-- Suite -->
