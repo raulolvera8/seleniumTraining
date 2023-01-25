@@ -22,10 +22,10 @@ public class JP_BirdsDashboard {
 
 
 
-	@FindBy(xpath ="//*[@href='/actions/Catalog.action?viewProduct=&productId=AV-CB-01']")
+	@FindBy(xpath ="//*[text()='AV-CB-01']")
 	WebElement selectBird;
 
-public WebElement getSelectBird() {
+    public WebElement getSelectBird() {
 		return selectBird;
 	}
 
@@ -58,6 +58,89 @@ public WebElement getSelectBird() {
 
 		System.out.println("Bird selected is: " + getSelectedBird().getText());
 	}
+	
+	//NEW ASSIGMENT-----PURCHASE A BIRD
+	
+	@FindBy(xpath ="//*[@href='/actions/Cart.action?addItemToCart=&workingItemId=EST-18']")
+	WebElement addToCartButton;
+
+public WebElement getAddToCart() {
+		return addToCartButton;
+	}
+
+	public void clickAddToCartButton() {
+		
+		getAddToCart().click();
+	}
+	
+	
+	
+	@FindBy(xpath ="//*[@href='/actions/Order.action?newOrderForm=']")
+	WebElement proceedToCheckoutButton;
+
+public WebElement getProceedToCheckout() {
+		return proceedToCheckoutButton;
+	}
+
+	public void clickProceedToCheckoutButton() {
+		
+		getProceedToCheckout().click();
+	}
+	
+	
+
+
+
+	@FindBy(xpath ="//*[@name='newOrder']")
+	WebElement continueButton;
+
+public WebElement getContinue() {
+		return continueButton;
+	}
+
+	public void clickContinueButton() {
+		
+		getContinue().click();
+	}
+	
+	
+	
+	@FindBy(xpath ="//*[@href='/actions/Order.action?newOrder=&confirmed=true']")
+	WebElement confirmButton;
+
+public WebElement getConfirm() {
+		return confirmButton;
+	}
+
+	public void clickConfirmButton() {
+		
+		getConfirm().click();
+	}
+	
+	
+	
+	@FindBy(xpath ="//*[@align='center']")
+	WebElement orderBird;
+
+	private WebElement getOrderBird() {
+		return orderBird;
+	}
+
+	public void VerifyOrderBird() {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.Driver).withTimeout(Duration.ofSeconds(60))
+		.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+		getOrderBird().isDisplayed();
+		
+		for (String winHandle : Driver.getWindowHandles()) {
+			Driver.switchTo().window(winHandle);
+		}
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@align='center']")));
+
+		System.out.println("" + getOrderBird().getText());
+	}
+
+
 
 
 }

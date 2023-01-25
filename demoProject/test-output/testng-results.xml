@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-01-25T15:42:55Z" name="Default suite" finished-at="2023-01-25T15:43:02Z" duration-ms="6841">
+    <groups>
+    </groups>
+    <test started-at="2023-01-25T15:42:55Z" name="Default test" finished-at="2023-01-25T15:43:02Z" duration-ms="6841">
+      <class name="IrisRodriguez.JPetStore_SearchFish">
+        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" started-at="2023-01-25T15:42:55Z" name="setup" finished-at="2023-01-25T15:43:01Z" duration-ms="6018" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" started-at="2023-01-25T15:43:01Z" name="HomeJPetStore" finished-at="2023-01-25T15:43:02Z" duration-ms="783" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HomeJPetStore -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" started-at="2023-01-25T15:43:02Z" name="teardown" finished-at="2023-01-25T15:43:02Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- IrisRodriguez.JPetStore_SearchFish -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

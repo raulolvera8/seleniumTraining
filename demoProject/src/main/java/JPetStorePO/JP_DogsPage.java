@@ -20,9 +20,13 @@ public class JP_DogsPage {
 		PageFactory.initElements(Driver, this);
 
 	}
-	@FindBy(xpath="//a[text()='K9-PO-02']") WebElement item;
+	// XPATH FOR DOGS WINDOW
+	@FindBy(xpath="//tr[4]/td[1]") WebElement itemBtn;
+	@FindBy (xpath ="//table/tbody/tr[2]/td[5]") WebElement addToCartBtn;
+	// ---------- CLICK ITEM -------- DIANA
+
 	public WebElement getItem() {
-		return item;
+		return itemBtn;
 	}
 	public void clickItem() {
 			 getItem().click();
@@ -30,5 +34,16 @@ public class JP_DogsPage {
 						.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2")));	
 	}
+	
+	// ------- CLICK ADD TO CART BTN ------ DIANA
+	
+	public WebElement getAddToCartBtn(){
+		return addToCartBtn;
+	}
+	public void clickAddToCartBtn() {
+		getAddToCartBtn().click();
+	}
+	
+	
 
 }
