@@ -59,7 +59,7 @@ public class JP_BirdsDashboard {
 		System.out.println("Bird selected is: " + getSelectedBird().getText());
 	}
 	
-	//NEW ASSIGMENT
+	//NEW ASSIGMENT-----PURCHASE A BIRD
 	
 	@FindBy(xpath ="//*[@href='/actions/Cart.action?addItemToCart=&workingItemId=EST-18']")
 	WebElement addToCartButton;

@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-24T22:36:35Z" name="Default suite" finished-at="2023-01-24T22:36:55Z" duration-ms="20122">
+  <suite started-at="2023-01-25T01:05:27Z" name="Default suite" finished-at="2023-01-25T01:06:02Z" duration-ms="35431">
     <groups>
     </groups>
-    <test started-at="2023-01-24T22:36:35Z" name="Default test" finished-at="2023-01-24T22:36:55Z" duration-ms="20122">
+    <test started-at="2023-01-25T01:05:27Z" name="Default test" finished-at="2023-01-25T01:06:02Z" duration-ms="35431">
       <class name="Juan.scriptPurchaseBird">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptPurchaseBird@1fc32e4f]" started-at="2023-01-24T22:36:35Z" name="setup" finished-at="2023-01-24T22:36:48Z" duration-ms="13165" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptPurchaseBird@3d9c13b5]" started-at="2023-01-25T01:05:27Z" name="setup" finished-at="2023-01-25T01:05:49Z" duration-ms="22414" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="HomeJPetStore()[pri:0, instance:Juan.scriptPurchaseBird@1fc32e4f]" started-at="2023-01-24T22:36:48Z" name="HomeJPetStore" finished-at="2023-01-24T22:36:55Z" duration-ms="6920" status="PASS">
+        <test-method signature="HomeJPetStore()[pri:0, instance:Juan.scriptPurchaseBird@3d9c13b5]" started-at="2023-01-25T01:05:49Z" name="HomeJPetStore" finished-at="2023-01-25T01:06:02Z" duration-ms="12970" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HomeJPetStore -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:Juan.scriptPurchaseBird@1fc32e4f]" started-at="2023-01-24T22:36:55Z" name="teardown" finished-at="2023-01-24T22:36:55Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:Juan.scriptPurchaseBird@3d9c13b5]" started-at="2023-01-25T01:06:02Z" name="teardown" finished-at="2023-01-25T01:06:02Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
