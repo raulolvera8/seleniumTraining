@@ -22,9 +22,10 @@ public class Driver {
 		js.executeScript("window.scroll(0,600)");
 	}
 
+	// PHPTRAVELS
 	public WebDriver initFirefoxDriver() {
-		//String URL = "https://phptravels.net/";
-		String URL = "https://petstore.octoperf.com/actions/Catalog.action";
+		String URL = "https://phptravels.net/";
+		//String URL = "https://petstore.octoperf.com/actions/Catalog.action";
 		
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Selenium Training\\geckodriver-v0.31.0-win64\\geckodriver.exe");
@@ -37,6 +38,7 @@ public class Driver {
 		return driver;
 
 	}
+	// JPETSTORE
 	public WebDriver initFirefoxDriverPetStore() {
 		String URL = "https://petstore.octoperf.com/actions/Catalog.action";
 

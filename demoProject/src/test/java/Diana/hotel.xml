@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="creditCardTest">
+  <parameter name="Digits_Credit_Card" value="4242424242424242"></parameter>
+    <parameter name="expireDate" value="1024"></parameter>
+    <parameter name="cvv" value="123"></parameter>
+    <parameter name="name" value="Diana Velasquez"></parameter>
+
+ <classes>
+ <class name="Diana.hotelsCustomer"></class>
+ </classes>
+  </test> <!-- creditCardTest -->
+</suite> <!-- Suite -->

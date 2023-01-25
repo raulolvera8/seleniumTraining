@@ -22,35 +22,45 @@ public class JPetStore extends Driver {
 	}
 	@Test 
 	public void JPetstore_HomeWindow() throws InterruptedException {
+		// CLICK SIGN IN ACCOUNT ICON
 		JP_homePage homeWindow = new JP_homePage(Driver);
 		homeWindow.clickSignInButton();
+		// SIGN IN ACCOUNT
 		JP_LoginPage login = new JP_LoginPage(Driver);
+		// WRITE USER
 		login.writeUserName("DIANA");
+		// CLEAR PASSWORD
 		login.ClearPassword();
+		// WRITE PASSWORD
 		login.writePassword("JPETSTORE");
+		// CLICK LOGIN BUTTON
 		login.clickLoginButton();
-		homeWindow.clickDogsTab();
-
-		
-		
+		// CLICK DOGS TAB
+		homeWindow.clickDogsTab();		
+		// CLIC ANIMAL'S NAME
 		JP_DogsPage DogsWindow = new JP_DogsPage(Driver);
 		DogsWindow.clickItem();
-	
+		// VALIDATION ANIMAL'S NAME  SELECTED
 		JP_ValidationAnimalselectedPage validation= new JP_ValidationAnimalselectedPage(Driver);
 		validation.validationMsg();
+		// CLICK ADD TO CART BUTTON
 		DogsWindow.clickAddToCartBtn();
-		// ----- VALIDATION AMOUNT
+		// ----- VALIDATION TOTAL PRICE, LIST PRICE, QUANTITY SELECTED
 		JP_shoppingCartPage shoppingCart = new JP_shoppingCartPage(Driver);
+		// QUANTITY CHANGED
 		shoppingCart.changeQuanity("5");
-		shoppingCart.clickUpdateCartBtn();
+		// CLICK UPDATE BUTTON
+		shoppingCart.clickUpdateCartBtn();		
+		// QUANTITY, TOTAL COST, LIST PRICE ARE SAVED
 		String TotalCost = shoppingCart.readTotalCostLabel();
 		double Total_Cost = Double.valueOf(TotalCost);
 		String quantity = shoppingCart.readQuantityInput();
 		int quantityChanged = Integer.valueOf(quantity);
 		String listPrice = shoppingCart.readListPriceLabel();
 		double list_Price = Double.valueOf(listPrice);
-	
+		// MULTIPLICATION LIST PRICE * QUANTITY
 		double calculatedAmount = list_Price * quantityChanged;
+		// VALIDATION RESULTS OF MULTIPLICATION
 		if (calculatedAmount ==  Total_Cost) {
 			System.out.println("Total a pagar: " + calculatedAmount);
 			System.out.println("Quantity: " + quantityChanged);
@@ -59,12 +69,15 @@ public class JPetStore extends Driver {
 		}else {
 			System.out.println("FAILED");
 		}
-		
+		// PAYMENT DETAILS 
 		JP_paymentDetailsPage paymentDetails = new JP_paymentDetailsPage(Driver);
+		// CONTINUE TO NEXT WEBSITE
 		paymentDetails.clickContinueBtn();
+		// CONFIRM ORDER BTN
 		JP_OrderPage order= new JP_OrderPage(Driver);
 		order.clickConfirmOrderBtn();
-	
+		// CONFIRM ORDER LABEL
+		order.readconfirmationLabel();
 	}
 	@Test
 	public void JPetstore_DogWindow() {
