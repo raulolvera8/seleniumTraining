@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite Automotive"> <test name="GroupingTestMethods">
+	<groups>
+		<run>
+			<include name="Car"/>
+		</run>
+	</groups>
+	<classes>
+      <class name="raulOlvera.GroupingTestMethods"/>
+    </classes>
+  </test> <!-- Car -->
+</suite> <!-- Suite Automotive -->
