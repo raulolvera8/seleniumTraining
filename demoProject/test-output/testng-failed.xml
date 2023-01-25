@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="IrisRodriguez.JPetStore_Fish">
+      <class name="IrisRodriguez.ParameterTestthroughXML">
         <methods>
-          <include name="teardown"/>
-          <include name="HomeJPetStore"/>
-          <include name="setup"/>
+          <include name="rollSTD"/>
         </methods>
-      </class> <!-- IrisRodriguez.JPetStore_Fish -->
+      </class> <!-- IrisRodriguez.ParameterTestthroughXML -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
