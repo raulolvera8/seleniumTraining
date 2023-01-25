@@ -13,6 +13,8 @@ public class JP_ValidationAnimalselectedPage {
 		PageFactory.initElements(Driver, this);
 
 	}
+	// -------- HEADER ------------ DIANA
+	// XPATH FOR ANIMAL SELECTED WINDOW
 	@FindBy (xpath="//h2") WebElement headerProduct;
 	public WebElement getHeaderProduct() {
 		return headerProduct;
@@ -20,6 +22,8 @@ public class JP_ValidationAnimalselectedPage {
 	public void validationMsg() {
 		if (getHeaderProduct().isDisplayed()) {
 			System.out.println("Animal: " + getHeaderProduct().getText());
-		}
+		}	
 	}
+	
+	// ---------- 
 }
