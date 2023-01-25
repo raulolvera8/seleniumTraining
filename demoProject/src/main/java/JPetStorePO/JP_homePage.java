@@ -144,5 +144,80 @@ public class JP_homePage {
 		getSearchButton().click();
 		System.out.println("Clicking on search button...");
 	}
+	
+	// ******************************************************
+		// Title: clickSignInLink
+		// Objective: Click on Sign In Link.
+		// Author: Elías Lara.
+		// Date of creation/adding: 01 25 23
+		// *******************************************************
+
+		@FindBy(xpath = "//a[text()='Sign In']")
+		WebElement signInLink;
+
+		public WebElement getsignInLink() {
+			return signInLink;
+		}
+
+		public void clickSignInLink() {
+			getsignInLink().click();
+
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(Driver).withTimeout(Duration.ofSeconds(80))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
+
+			System.out.println("Sign In Link has been clicked. The user is now in Loggin page.");
+		}
+
+		// ******************************************************
+		// Title: clickMyAccountLink
+		// Objective: Click on My Account Link once the user has logged in.
+		// Author: Elías Lara.
+		// Date of creation/adding: 01 25 23
+		// *******************************************************
+
+		@FindBy(xpath = "//a[text()='My Account']")
+		WebElement myAccountLink;
+
+		public WebElement getMyAccountLink() {
+			return myAccountLink;
+		}
+
+		public void clickMyAccountLink() {
+			getMyAccountLink().click();
+
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(Driver).withTimeout(Duration.ofSeconds(80))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='password']")));
+
+			System.out.println("My Account Link has been clicked. The user is now in Edit Account Form page.");
+		}
+
+		// ******************************************************
+		// Title: clickSignOutLink
+		// Objective: Click on Sign Out Link once the user has logged in.
+		// Author: Elías Lara.
+		// Date of creation/adding: 01 25 23
+		// *******************************************************
+		
+		@FindBy(xpath = "//a[text()='Sign Out']")
+		WebElement signOutLink;
+
+		public WebElement getSignOutLink() {
+			return signOutLink;
+		}
+		
+		public void clickSignOutLink() {
+			getSignOutLink().click();
+			
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(Driver).withTimeout(Duration.ofSeconds(80))
+					.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Sign In']")));
+
+			System.out.println("Sign out link has been clicked, the user is logged off.");
+		}
 
 }
