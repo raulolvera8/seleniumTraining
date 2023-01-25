@@ -1,9 +1,9 @@
 package IrisRodriguez;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.WebDriver;
 
 import JPetStorePO.JP_homePage;
 import library.Driver;
@@ -12,13 +12,13 @@ public class JPetStore_SearchFish extends Driver {
 
 	WebDriver driver;
 
-	@BeforeClass(alwaysRun=true)
+	@BeforeClass()
 	public void setup() {
 		// INITIALIZE WEBDRIVER
 		this.driver = initFirefoxDriver();
 	}
 	
-	@Test(groups = {"home"})
+	@Test()
 	public void HomeJPetStore() {
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
 		// HOME PAGE PETSTORE
@@ -35,7 +35,7 @@ public class JPetStore_SearchFish extends Driver {
 
 	}
 	
-	@AfterClass(alwaysRun=true)
+	@AfterClass()
 	public void teardown() {
 		//teardownDriver();
 	}
