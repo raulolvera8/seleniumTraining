@@ -2,24 +2,27 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-25T01:05:27Z" name="Default suite" finished-at="2023-01-25T01:06:02Z" duration-ms="35431">
+  <suite started-at="2023-01-25T05:04:17Z" name="Default suite" finished-at="2023-01-25T05:04:22Z" duration-ms="5120">
     <groups>
+      <group name="home">
+        <method signature="JPetStore_SearchFish.HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" name="HomeJPetStore" class="IrisRodriguez.JPetStore_SearchFish"/>
+      </group> <!-- home -->
     </groups>
-    <test started-at="2023-01-25T01:05:27Z" name="Default test" finished-at="2023-01-25T01:06:02Z" duration-ms="35431">
-      <class name="Juan.scriptPurchaseBird">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptPurchaseBird@3d9c13b5]" started-at="2023-01-25T01:05:27Z" name="setup" finished-at="2023-01-25T01:05:49Z" duration-ms="22414" status="PASS">
+    <test started-at="2023-01-25T05:04:17Z" name="Default test" finished-at="2023-01-25T05:04:22Z" duration-ms="5120">
+      <class name="IrisRodriguez.JPetStore_SearchFish">
+        <test-method is-config="true" signature="setup()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" started-at="2023-01-25T05:04:17Z" name="setup" finished-at="2023-01-25T05:04:22Z" duration-ms="4955" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="HomeJPetStore()[pri:0, instance:Juan.scriptPurchaseBird@3d9c13b5]" started-at="2023-01-25T01:05:49Z" name="HomeJPetStore" finished-at="2023-01-25T01:06:02Z" duration-ms="12970" status="PASS">
+        <test-method signature="HomeJPetStore()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" started-at="2023-01-25T05:04:22Z" name="HomeJPetStore" finished-at="2023-01-25T05:04:22Z" duration-ms="136" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HomeJPetStore -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:Juan.scriptPurchaseBird@3d9c13b5]" started-at="2023-01-25T01:06:02Z" name="teardown" finished-at="2023-01-25T01:06:02Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:IrisRodriguez.JPetStore_SearchFish@2b40ff9c]" started-at="2023-01-25T05:04:22Z" name="teardown" finished-at="2023-01-25T05:04:22Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- Juan.scriptPurchaseBird -->
+      </class> <!-- IrisRodriguez.JPetStore_SearchFish -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
