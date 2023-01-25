@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class JP_homePage {
 	WebDriver Driver;
@@ -66,6 +67,20 @@ public class JP_homePage {
 		}
 			
 	
+	
+	//LOGIN BUTTON
+	@FindBy(xpath = "//*[text()='Sign In']" )
+	WebElement signInButton;
+
+    public WebElement getSignInButton() {
+		return signInButton;
+	}
+
+	public void clickSignInButton() {
+		
+		getSignInButton().click();
+	}
+	
 	//----------SELECT BIRDS BUTTON-------------
 	@FindBy(xpath = "//*[@src='../images/sm_birds.gif']" )
 	WebElement birdsButton;
@@ -77,6 +92,14 @@ public class JP_homePage {
 	public void clickBirdsButton() {
 		
 		getBirdsButton().click();
+		
+		/*
+		 * WebDriverWait waitElement = new WebDriverWait(Driver, Duration.ofSeconds(20),
+		 * Duration.ofSeconds(5)); waitElement.until(
+		 * ExpectedConditions.visibilityOfElementLocated(By.xpath(
+		 * "//*[@href='Catalog.action?viewCategory=&categoryId=BIRDS']")));
+		 */
+		
 	}
 
 
