@@ -9,7 +9,7 @@ import JPetStorePO.JP_ReptilesDashboard;
 import JPetStorePO.JP_homePage;
 import library.Driver;
 
-public class PetStore_ReptilesValidations extends Driver {
+public class JPetStore_ReptilesValidations extends Driver {
 
 	WebDriver driver;
 
