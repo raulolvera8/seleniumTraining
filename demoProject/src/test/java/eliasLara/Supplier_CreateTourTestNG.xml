@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+	<test thread-count="5" name="Test">
+		<parameter name="email" value="supplier@phptravels.com" />
+		<parameter name="password" value="demosupplier" />
+		<parameter name="tourName" value="Medieval Europe Tour" />
+		<parameter name="tourDesc" value="This is a brief description about Medieval Tour thorugh Europe." />
+		<parameter name="adultQty" value="2" />
+		<parameter name="adultPrice" value="250.00" />
+		<parameter name="locationTour" value="Paris" />
+		<parameter name="metaTitle" value="MEDIEVAL EUROPE" />
+		<parameter name="metaKeywords" value="A Medieval Europe Tour." />
+		<parameter name="metaDesc" value="This is a Meta Description." />
+		<parameter name="paymentOption" value="Credit Card" />
+		<parameter name="policyAndTerms" value="This is a text describing the Policy and Terms of the trip." />
+		<parameter name="tourEmail" value="medievaltours@dummymail.com" />
+		<parameter name="tourWebsite" value="medievaltravels.com" />
+		<parameter name="tourPhone" value="8444578962" />
+		<parameter name="tourAddress" value="Random St. 4552 WA" />
+		<parameter name="tourHours" value="72" />
+		<parameter name="tourDays" value="3" />
+		<parameter name="tourNights" value="2" />
+		<parameter name="tourType" value="Couples" />
+		<classes>
+			<class name="eliasLara.Supplier_CreateTourTestNG" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
