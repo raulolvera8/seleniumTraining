@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="ParameterTestthrough">
+    <classes>
+      <class name="Juan.ParameterTestthroughXML"/>
+      <class name="Juan.scriptPurchaseBird"/>
+      <class name="Juan.scriptTour"/>
+      <class name="Juan.GroupingTestMethods"/>
+      <class name="Juan.scriptPetStore"/>
+      <class name="Juan.scriptFlights"/>
+      <class name="Juan.scriptSupplier"/>
+      <class name="Juan.MultipleGroups"/>
+    </classes>
+  </test> <!-- ParameterTestthrough -->
+</suite> <!-- Suite -->
