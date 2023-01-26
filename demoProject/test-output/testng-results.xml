@@ -2,65 +2,33 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-25T18:16:01Z" name="Default suite" finished-at="2023-01-25T18:16:25Z" duration-ms="23290">
+  <suite started-at="2023-01-26T06:30:00Z" name="Default suite" finished-at="2023-01-26T06:30:13Z" duration-ms="13179">
     <groups>
     </groups>
-    <test started-at="2023-01-25T18:16:01Z" name="Default test" finished-at="2023-01-25T18:16:25Z" duration-ms="23290">
-      <class name="Juan.scriptTour">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Juan.scriptTour@146dfe6]" started-at="2023-01-25T18:16:01Z" name="setup" finished-at="2023-01-25T18:16:19Z" duration-ms="17970" status="PASS">
+    <test started-at="2023-01-26T06:30:00Z" name="Default test" finished-at="2023-01-26T06:30:13Z" duration-ms="13179">
+      <class name="Diana.hotelsCustomer">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Diana.hotelsCustomer@1869fbd2]" started-at="2023-01-26T06:30:00Z" name="setup" finished-at="2023-01-26T06:30:13Z" duration-ms="13074" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="CustomerPage()[pri:0, instance:Juan.scriptTour@146dfe6]" started-at="2023-01-25T18:16:19Z" name="CustomerPage" finished-at="2023-01-25T18:16:25Z" duration-ms="5269" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
+        <test-method signature="travel(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Diana.hotelsCustomer@1869fbd2]" started-at="2023-01-26T06:30:13Z" name="travel" finished-at="2023-01-26T06:30:13Z" duration-ms="0" status="FAIL">
+          <exception class="org.testng.TestNGException">
             <message>
-              <![CDATA[Unable to locate element: //div[@id='preloader']
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.4.0', revision: 'e5c75ed026a'
-System info: host: 'DESKTOP-RGNEG05', ip: '192.168.1.73', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.5'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [5b1de3c6-ecca-4bec-abb0-8d77e379a5f2, findElement {using=xpath, value=//div[@id='preloader']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 109.0, moz:accessibilityChecks: false, moz:buildID: 20230112150232, moz:debuggerAddress: 127.0.0.1:55950, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13672, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:55950/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 5b1de3c6-ecca-4bec-abb0-8d77e379a5f2]]>
+              <![CDATA[
+Parameter 'Digits_Credit_Card' is required by @Test on method travel but has not been marked @Optional or defined
+in C:\Users\JuanRamirez\AppData\Local\Temp\testng-eclipse--1064181697\testng-customsuite.xml]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: //div[@id='preloader']
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.4.0', revision: 'e5c75ed026a'
-System info: host: 'DESKTOP-RGNEG05', ip: '192.168.1.73', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.5'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [5b1de3c6-ecca-4bec-abb0-8d77e379a5f2, findElement {using=xpath, value=//div[@id='preloader']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 109.0, moz:accessibilityChecks: false, moz:buildID: 20230112150232, moz:debuggerAddress: 127.0.0.1:55950, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 13672, moz:profile: C:\Users\JUANRA~1\AppData\L..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:55950/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 5b1de3c6-ecca-4bec-abb0-8d77e379a5f2
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
-at org.openqa.selenium.support.ui.ExpectedConditions$31.apply(ExpectedConditions.java:869)
-at org.openqa.selenium.support.ui.ExpectedConditions$31.apply(ExpectedConditions.java:864)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-at phptravelsPageObjectRepository.PTHomePage.clickAccountBtn(PTHomePage.java:55)
-at Juan.scriptTour.CustomerPage(scriptTour.java:48)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'Digits_Credit_Card' is required by @Test on method travel but has not been marked @Optional or defined
+in C:\Users\JuanRamirez\AppData\Local\Temp\testng-eclipse--1064181697\testng-customsuite.xml
+at org.testng.internal.Parameters.createParams(Parameters.java:290)
+at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:769)
+at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:49)
+at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:37)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:924)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
 at org.testng.TestRunner.privateRun(TestRunner.java:648)
@@ -80,11 +48,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CustomerPage -->
-      </class> <!-- Juan.scriptTour -->
+        </test-method> <!-- travel -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:Diana.hotelsCustomer@1869fbd2]" started-at="2023-01-26T06:30:13Z" name="teardown" finished-at="2023-01-26T06:30:13Z" duration-ms="49" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- Diana.hotelsCustomer -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

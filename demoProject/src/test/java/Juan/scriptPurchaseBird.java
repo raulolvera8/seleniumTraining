@@ -29,11 +29,11 @@ public class scriptPurchaseBird extends Driver {
 		//CLICK LOGIN BUTTON
 		homePage.clickSignInButton();
 		//WRITE THE USERNAME
-		loginBirds.writeUserNameBird("JuanRam");
+		loginBirds.writeUserName("JuanRam");
 		//CLEAR THE TEXT OF PASSWORD
 		loginBirds.ClearPassword();
 		//WRITE THE PASSWORD
-		loginBirds.writePasswordBird("admin");
+		loginBirds.writePassword("admin");
 		//CLICK LOGIN BUTTON
 		loginBirds.clickLoginButton();
 		//CLICK ON BIRDS

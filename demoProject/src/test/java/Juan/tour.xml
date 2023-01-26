@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test  name="Test">
+    <parameter name="CardNumber" value="5555555555554444" />
+		<parameter name="CardExpiry" value="0330" />
+		<parameter name="CardCVC" value="200" />
+		<parameter name="CardName" value="Customer January" />
+		<classes>
+			<class name="Juan.scriptTour" />
+		</classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

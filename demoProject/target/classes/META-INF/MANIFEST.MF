@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: JuanRamirez
 Build-Jdk: 17.0.5
-=======
-Built-By: HP
-Build-Jdk: 19
->>>>>>> 40be8885ae6d2dca7c7b21a984acb675ab411cc5
 Created-By: Maven Integration for Eclipse
 

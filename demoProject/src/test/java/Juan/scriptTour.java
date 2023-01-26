@@ -3,6 +3,7 @@ package Juan;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -27,8 +28,11 @@ public class scriptTour extends Driver {
 	public void setup() {
 			this.driver=initFirefoxDriver();
 	 }
+	
+	@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
+
 	@Test
-	public void CustomerPage() {
+	public void CustomerPage(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
 
 
 		PTHomePage homePage = new PTHomePage(driver);
@@ -122,11 +126,19 @@ public class scriptTour extends Driver {
 		
 		//PAY WITH CARD
 		//payWithCardPage.clickCancelPopUpBtn();
-		payWithCardPage.CardNumberInput("5555555555554444");
-		payWithCardPage.CardExpiryInput("0330");
-		payWithCardPage.CardCVCInput("200");
-		payWithCardPage.NameCardInput("Customer January");
-		payWithCardPage.clickPagarButtonWithInfoCard();
+		//payWithCardPage.CardNumberInput("5555555555554444");
+		payWithCardPage.CardNumberInput(cardNumber);
+		
+		//payWithCardPage.CardExpiryInput("0330");
+		payWithCardPage.CardExpiryInput(cardExpiry);
+		
+		//payWithCardPage.CardCVCInput("200");
+		payWithCardPage.CardCVCInput(cardCVC);
+		
+		//payWithCardPage.NameCardInput("Customer January");
+		payWithCardPage.NameCardInput(cardName);
+		
+		//payWithCardPage.clickPagarButtonWithInfoCard();
 		
 		
 		//VALIDATION TOUR INVOICE
