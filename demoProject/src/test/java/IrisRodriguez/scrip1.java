@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -18,14 +19,15 @@ public class scrip1 extends Driver {
 
 	WebDriver driver;
 
-	@BeforeClass
+	@BeforeClass(alwaysRun=true)
 	public void setup() {
 		// INITIALIZE WEBDRIVER
 		this.driver = initFirefoxDriver();
 	}
 
+	@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
 	@Test
-	public void ShoppingHome() {
+	public void addCredits(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
 
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
 		// SIGN IN PAGE
@@ -85,16 +87,21 @@ public class scrip1 extends Driver {
 
 		// ======================== WINDOW PAY WITH CARD FORM ==================
 		// ENTER NUMBER CARD
-		cardPage.CardNumberInput("4242 4242 4242 4242");
+		//cardPage.CardNumberInput("4242 4242 4242 4242");
+		cardPage.CardNumberInput(cardNumber);
+
 
 		// ENTER CARD EXPIRY
-		cardPage.CardExpiryInput("0630");
+		//cardPage.CardExpiryInput("0630");
+		cardPage.CardExpiryInput(cardExpiry);
 
 		// ENTER CARD CVC
-		cardPage.CardCVCInput("123");
+		//cardPage.CardCVCInput("123");
+		cardPage.CardCVCInput(cardCVC);
 
 		// ENTER NAME
-		cardPage.NameCardInput("Agent Selenium");
+		//cardPage.NameCardInput("Agent Selenium");
+		cardPage.NameCardInput(cardName);
 
 		// CLICK PAGAR BUTTON
 		cardPage.clickPagarButtonWithInfoCard();
@@ -126,7 +133,7 @@ public class scrip1 extends Driver {
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void teardown() {
 		teardownDriver();
 	}
