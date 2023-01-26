@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="jpetstore_part1(failed)">
     <classes>
-      <class name="Diana.hotelsCustomer">
+      <class name="Diana.JPetStore">
         <methods>
+          <include name="JPetstore_HomeWindow"/>
+          <include name="tearDown"/>
           <include name="setup"/>
-          <include name="travel"/>
-          <include name="teardown"/>
         </methods>
-      </class> <!-- Diana.hotelsCustomer -->
+      </class> <!-- Diana.JPetStore -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- jpetstore_part1(failed) -->
+</suite> <!-- Failed suite [Suite] -->
