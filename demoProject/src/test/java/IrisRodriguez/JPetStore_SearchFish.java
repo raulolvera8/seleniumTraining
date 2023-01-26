@@ -1,10 +1,11 @@
 package IrisRodriguez;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.WebDriver;
 
+import JPetStorePO.JP_ResultsFromSearchPage;
 import JPetStorePO.JP_homePage;
 import library.Driver;
 
@@ -12,17 +13,18 @@ public class JPetStore_SearchFish extends Driver {
 
 	WebDriver driver;
 
-	@BeforeClass(alwaysRun=true)
+	@BeforeClass()
 	public void setup() {
 		// INITIALIZE WEBDRIVER
 		this.driver = initFirefoxDriver();
 	}
 	
-	@Test(groups = {"home"})
+	@Test()
 	public void HomeJPetStore() {
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
 		// HOME PAGE PETSTORE
 		JP_homePage homePage = new JP_homePage(driver);
+		JP_ResultsFromSearchPage searchPage = new JP_ResultsFromSearchPage(driver);
 		
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
 		// =========================HOME PAGE====================================
@@ -32,10 +34,13 @@ public class JPetStore_SearchFish extends Driver {
 		
 		// CLICK ON SEARCH BUTTON
 		homePage.clickSearchButton();
+		
+		// PRINT ALL RESULTS
+		searchPage.PrintResults();
 
 	}
 	
-	@AfterClass(alwaysRun=true)
+	@AfterClass()
 	public void teardown() {
 		//teardownDriver();
 	}

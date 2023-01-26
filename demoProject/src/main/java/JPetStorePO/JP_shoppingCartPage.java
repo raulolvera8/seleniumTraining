@@ -67,7 +67,7 @@ public class JP_shoppingCartPage {
 		}
 	// --------- PROCEED TO CHECKOUT -------- DIANA
 	// ------ XPATH
-	@FindBy (className="Button") WebElement ProceedtoCheckoutBtn;	
+	@FindBy (xpath="//*[@class='Button'][text()='Proceed to Checkout']") WebElement ProceedtoCheckoutBtn;	
 	public WebElement getProceedtoCheckoutBtn() {
 		return ProceedtoCheckoutBtn;
 	}

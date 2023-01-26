@@ -33,7 +33,7 @@ public class JP_FishPage {
 	WebElement PrintIdFirstElementTable;
 
 	public WebElement getPrintIdFirstElementTable() {
-		return FirstElementTable;
+		return PrintIdFirstElementTable;
 	}
 
 	public void PrintIdFirstColumn() {

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -27,9 +28,9 @@ public class hotelsCustomer extends Driver {
 		System.out.println("set up driver traavels");
 		this.driver = initFirefoxDriver();
 	}
-
+	@Parameters ({"Digits_Credit_Card", "expireDate", "cvv", "name"})
 	@Test
-	public void travel() throws InterruptedException {
+	public void travel(String cardNumber, String expirationDate, String cvv, String name) throws InterruptedException {
 		System.out.println("----Welcome to Hotels----");
 		PTHomePage home = new PTHomePage(driver);
 		PTLoginPage login = new PTLoginPage(driver);
@@ -109,10 +110,10 @@ public class hotelsCustomer extends Driver {
 		stripeWindow.PayNowWithAmount();
 		// ----- PAY WINDOW ----
 		payCard.clickCancelPopUpBtn();
-		payCard.CardNumberInput("4242424242424242");
-		payCard.CardExpiryInput("1024");
-		payCard.CardCVCInput("123");
-		payCard.NameCardInput("Diana Velasquez");
+		payCard.CardNumberInput(cardNumber);//"4242424242424242"
+		payCard.CardExpiryInput(expirationDate);//"1024;
+		payCard.CardCVCInput(cvv);
+		payCard.NameCardInput(name);//Diana Velasquez
 		payCard.clickPagarButtonWithInfoCard();
 
 		// SAVE TOTAL PRICE VARIABLE
