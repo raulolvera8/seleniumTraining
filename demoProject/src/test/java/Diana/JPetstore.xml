@@ -10,7 +10,7 @@
 	<test name="jpetstore_part1">
 	<classes>
 	<class name="Diana.JPetStore"></class>
-	</classes>
+	</classes> 
 	</test>
 
 	<!-- jpetstore -->
