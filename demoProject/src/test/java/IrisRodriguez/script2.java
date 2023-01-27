@@ -3,6 +3,7 @@ package IrisRodriguez;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -27,8 +28,9 @@ public class script2 extends Driver {
 		this.driver = initFirefoxDriver();
 	}
 
-	@Test
-	public void ShoppingHome() throws InterruptedException {
+
+	@Test(dataProvider = "myData", dataProviderClass = DataProviderClass.class)
+	public void foundBooking(String cardNumber, String cardExpiry, String cardCVC, String cardName) throws InterruptedException {
 
 		// ===================== DECLARAR LAS PAGINAS DE OBJETOS =====================
 		// SIGN IN PAGE
@@ -166,15 +168,6 @@ public class script2 extends Driver {
 		// VALIDATE BOOKING STATUS
 		bookingInvoicePage.validationStatusStripe();
 
-		// PRINT STATUS
-		// bookingInvocePage.PrintBookingStatus();
-
-		// PRINT ACCOUNT DATA
-		// bookingInvoicePage.VerifyFirstDataBooking(); // FIRST NAME, LAST NAME, EMAIL,
-		// PHONE, ADDRESS
-		// bookingInvoicePage.VerifySecondDataBooking(); // COMPANY NAME, EMAIL, PHONE,
-		// ADDRESS COMPANY
-
 		// PRINT TRAVELLER DATA
 		bookingInvoicePage.VerifyFirstDataTraveller(); // NAME, NATIONALITY, DATE OF BIRTH
 		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
@@ -191,16 +184,21 @@ public class script2 extends Driver {
 
 		// ======================== WINDOW PAY WITH CARD FORM ==================
 		// ENTER NUMBER CARD
-		cardPage.CardNumberInput("4242 4242 4242 4242");
+		//cardPage.CardNumberInput("4242 4242 4242 4242");
+		cardPage.CardNumberInput(cardNumber);
+
 
 		// ENTER CARD EXPIRY
-		cardPage.CardExpiryInput("0630");
+		//cardPage.CardExpiryInput("0630");
+		cardPage.CardExpiryInput(cardExpiry);
 
 		// ENTER CARD CVC
-		cardPage.CardCVCInput("123");
+		//cardPage.CardCVCInput("123");
+		cardPage.CardCVCInput(cardCVC);
 
 		// ENTER NAME
-		cardPage.NameCardInput("Agent Selenium");
+		//cardPage.NameCardInput("Agent Selenium");
+		cardPage.NameCardInput(cardName);
 
 		// CLICK PAGAR BUTTON
 		cardPage.clickPagarButtonWithInfoCard();
