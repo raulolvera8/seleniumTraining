@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -25,8 +26,9 @@ public class scrip1 extends Driver {
 		this.driver = initFirefoxDriver();
 	}
 
-	@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
-	@Test
+	//@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
+	
+	@Test(dataProvider = "myData", dataProviderClass = DataProviderClass.class)
 	public void addCredits(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
 
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
