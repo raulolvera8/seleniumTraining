@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -30,8 +31,10 @@ public class scriptTour extends Driver {
 	 }
 	
 	@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
+	
+	@Test(dataProvider = "myInformation", dataProviderClass = dataProviderTour.class)
 
-	@Test
+	
 	public void CustomerPage(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
 
 
