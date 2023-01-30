@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -27,8 +26,8 @@ public class scrip1 extends Driver {
 
 	//@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
 	
-	@Test(dataProvider = "myData", dataProviderClass = DataProviderClass.class)
-	public void addCredits(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
+	@Test(dataProvider = "ExcelData", dataProviderClass = ExcelDataProvider.class)
+	public void addCredits(String cardNumber, String cardExpiry, String cardCVC, String cardName) throws InterruptedException  {
 
 		// =====================DECLARAR LAS PAGINAS DE OBJETOS=====================
 		// SIGN IN PAGE
@@ -90,7 +89,6 @@ public class scrip1 extends Driver {
 		// ENTER NUMBER CARD
 		//cardPage.CardNumberInput("4242 4242 4242 4242");
 		cardPage.CardNumberInput(cardNumber);
-
 
 		// ENTER CARD EXPIRY
 		//cardPage.CardExpiryInput("0630");
