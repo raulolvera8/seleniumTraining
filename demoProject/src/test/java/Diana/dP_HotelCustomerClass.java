@@ -28,7 +28,9 @@ public class dP_HotelCustomerClass extends Driver {
 		this.driver = initFirefoxDriver();
 	}
 	//@Parameters ({"Digits_Credit_Card", "expireDate", "cvv", "name"})
-	@Test (dataProvider = "dataCreditCard", dataProviderClass =dataProvider_hotelCustomer.class )
+	//@Test (dataProvider = "dataCreditCard", dataProviderClass =dataProvider_hotelCustomer.class )
+	@Test (dataProvider = "ExcelData", dataProviderClass =ExcelDP.class )
+
 	public void travel(String cardNumber, String expirationDate, String cvv, String name) throws InterruptedException {
 		System.out.println("----Welcome to Hotels----");
 		PTHomePage home = new PTHomePage(driver);
