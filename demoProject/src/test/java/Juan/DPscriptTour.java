@@ -1,17 +1,12 @@
 package Juan;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import library.Driver;
 import library.utilities;
-import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
-import phptravelsPageObjectRepository.PTCustomerPageObject;
 import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTMenuPage;
@@ -22,7 +17,7 @@ import phptravelsPageObjectRepository.PTTourDetails;
 import phptravelsPageObjectRepository.PTToursInDubai;
 import phptravelsPageObjectRepository.PTToursPage;
 
-public class scriptTour extends Driver {
+public class DPscriptTour extends Driver {
 	WebDriver driver;
 
 	@BeforeClass 
@@ -30,11 +25,11 @@ public class scriptTour extends Driver {
 			this.driver=initFirefoxDriver();
 	 }
 	
-	@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
+	//@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
 	
-	@Test(dataProvider = "myInformation", dataProviderClass = dataProviderTour.class)
+	//@Test(dataProvider = "myInformation", dataProviderClass = dataProviderTour.class)
 	
-	//@Test (dataProvider = "DataJuan", dataProviderClass =ExcelDataP.class )
+	@Test (dataProvider = "excelData", dataProviderClass = excelData.class )
 
 	
 	public void CustomerPage(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
@@ -130,7 +125,7 @@ public class scriptTour extends Driver {
 		paymentStripePage.PayNowWithAmount();
 		
 		//PAY WITH CARD
-		//payWithCardPage.clickCancelPopUpBtn();
+		payWithCardPage.clickCancelPopUpBtn();
 		//payWithCardPage.CardNumberInput("5555555555554444");
 		payWithCardPage.CardNumberInput(cardNumber);
 		
@@ -143,7 +138,7 @@ public class scriptTour extends Driver {
 		//payWithCardPage.NameCardInput("Customer January");
 		payWithCardPage.NameCardInput(cardName);
 		
-		//payWithCardPage.clickPagarButtonWithInfoCard();
+		payWithCardPage.clickPagarButtonWithInfoCard();
 		
 		
 		//VALIDATION TOUR INVOICE
@@ -157,4 +152,5 @@ public class scriptTour extends Driver {
 		//bookingInvoicePage.validateDateLabel();
 		//bookingInvoicePage.validateTitleHotel();
 	}
+
 }

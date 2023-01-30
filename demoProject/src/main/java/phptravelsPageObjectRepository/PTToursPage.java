@@ -60,7 +60,7 @@ public class PTToursPage extends Driver {
 	  WebDriverWait waitElement = new WebDriverWait(driver, Duration.ofSeconds(30),
 	  Duration.ofSeconds(5));  
 	  waitElement.until(ExpectedConditions.visibilityOfElementLocated(By.xpath
-	  ("//*[text()='Find the best tours packages']")));
+	  ("//*[text()='FIND BEST TOURS PACKAGES TODAY']")));
 	  
 	  }
 	 
