@@ -26,8 +26,8 @@ public class PTHotelHomePage {
 		utility = new utilities(driver);
 	}
 
-	// -------------- XPATH FOR HOTEL HOME WINDOW -----------
-	@FindBy(xpath = "//*[@class='hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px pb-5']")
+	// -------------- XPATH FOR HOTEL HOME WINDOW -----------REPARAR hotelSection
+	@FindBy(xpath = "//*[@class='sec__title line-height-55 bottom-line']")
 	WebElement hotelSection;
 
 	@FindBy(xpath = "//*[@class='owl-stage']/div[position()=6]/*[@class='card-item mb-0']/*[@class='card-body']/h6")

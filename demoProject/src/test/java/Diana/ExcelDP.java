@@ -3,20 +3,28 @@ package Diana;
 import java.io.FileInputStream;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
 public class ExcelDP {
+	
+	private static final int NUMERIC = 0;
+
 	@DataProvider (name = "ExcelData")
 	public Object [][] excelDataPovider(){
 		Object [][] dataObj = getExcelData(
-				"C:\\Users\\HP\\Documents\\dataTest\\dataPayment.xlsx",
+				"C:\\Users\\HP\\Documents\\dataTest\\dataPayments.xlsx",
 				"dataCard");
 		return dataObj;
 	}
 	public String [][] getExcelData(String fileName, String sheetName){
+		  DataFormatter dataFormatter = new DataFormatter();
 		String [][] data = null;
 		try {
 			FileInputStream fis = new FileInputStream(fileName);
@@ -32,7 +40,12 @@ public class ExcelDP {
                 for (int j = 0; j < noOfCols; j++) {
                     row = sheet.getRow(i);
                     cell = row.getCell(j);
-                    data[i - 1][j] = cell.getStringCellValue();
+                    if (cell.getCellTypeEnum() == CellType.STRING) {
+                        data[i - 1][j] = cell.getStringCellValue();
+
+                    }else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                    	 data[i - 1][j] = NumberToTextConverter.toText(cell.getNumericCellValue());
+                    }                   
                 }
             }
 		}catch (Exception e) {
@@ -40,4 +53,6 @@ public class ExcelDP {
 		}
 		return data;
 	}
+	
+
 }

@@ -24,7 +24,7 @@ public class dP_HotelCustomerClass extends Driver {
 
 	@BeforeClass
 	public void setup() {
-		System.out.println("set up driver traavels");
+		System.out.println("set up driver travels");
 		this.driver = initFirefoxDriver();
 	}
 	//@Parameters ({"Digits_Credit_Card", "expireDate", "cvv", "name"})
