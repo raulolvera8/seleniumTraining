@@ -16,7 +16,7 @@ public class ExcelDataProvider {
 	@DataProvider (name = "ExcelData")
 	public Object [][] excelDataPovider(){
 		Object [][] dataObj = getExcelData(
-				"C:\\seleniumTraining\\excel\\CreditCard-Iris.xlsx","Hoja1");
+				"C:\\Users\\IrisRodríguez\\Downloads\\CreditCard-Iris.xlsx","Hoja1");
 		return dataObj;
 	}
 	public String [][] getExcelData(String fileName, String sheetName){
