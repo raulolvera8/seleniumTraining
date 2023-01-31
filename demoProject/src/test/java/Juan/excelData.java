@@ -15,7 +15,7 @@ public class excelData {
 	@DataProvider (name = "excelData")
 	public Object [][] excelDataPovider(){
 		Object [][] dataObj = getExcelData(
-				"C:\\Users\\JuanRamirez\\Desktop\\DataJuan.xlsx",
+				"C:\\seleniumGit\\seleniumTraining\\DataJuan.xlsx",
 				"Hoja1");
 		return dataObj;
 	}
@@ -23,6 +23,7 @@ public class excelData {
 		String [][] data = null;
 		try {
 			FileInputStream fis = new FileInputStream(fileName);
+			
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
             XSSFSheet sheet = workbook.getSheet(sheetName);
             XSSFRow row = sheet.getRow(0);
