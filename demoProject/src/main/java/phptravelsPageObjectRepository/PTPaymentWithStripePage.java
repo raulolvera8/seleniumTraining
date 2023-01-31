@@ -62,6 +62,9 @@ public class PTPaymentWithStripePage {
 				.visibilityOfElementLocated(By.xpath("//a[contains (text(), 'Pay Now') and @type='button']")));
 		getPayNowAmount().click();
 		System.out.println("Clicking Pay Now button");
+		
+		
+		
 
 	}
 	// -------------------------------------------------------------
