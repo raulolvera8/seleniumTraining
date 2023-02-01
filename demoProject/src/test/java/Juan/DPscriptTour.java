@@ -24,14 +24,9 @@ public class DPscriptTour extends Driver {
 	public void setup() {
 			this.driver=initFirefoxDriver();
 	 }
-	
-	//@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
-	
-	//@Test(dataProvider = "myInformation", dataProviderClass = dataProviderTour.class)
-	
-	@Test (dataProvider = "excelData", dataProviderClass = excelData.class )
 
 	
+	@Test (dataProvider = "excelData", dataProviderClass = excelData.class )
 	public void CustomerPage(String cardNumber, String cardExpiry, String cardCVC, String cardName) {
 
 

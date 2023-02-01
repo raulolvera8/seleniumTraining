@@ -7,7 +7,7 @@ public class dataProviderTour {
 	@DataProvider(name = "myInformation")
 	public Object[][]  cardData() {
 		return new Object[][] { 			
-			{"5555 5555 5555 4444", "1220","200","Customer January"},
+			{"5555 5555 5555 4444", "1225","200","Customer January"},
 		};
 }
 }
