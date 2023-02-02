@@ -28,11 +28,11 @@ public class PTHotelDetailsPage {
 	// ----- HOTEL DETAILS WINDOW -------
 	// ------ XPATH FOR HOTEL DETAILS WINDOW ----- DIANA
 
-	@FindBy(xpath = "//*[@class='card mb-4'][contains(.,'Child 2')]//select")
+	@FindBy(xpath = "//*[@class='card mb-4'][contains(.,'Child 1')]//select")
 	WebElement numRoomsBox;
-	@FindBy(xpath = "//*[@class='card mb-4'][contains(.,'Child 2')]//button")
+	@FindBy(xpath = "//*[@class='card mb-4'][contains(.,'Child 1')]//button")
 	WebElement bookNowBtn;
-	@FindBy(id = "availability")
+	@FindBy(xpath = "//*[@class='card mb-4'][1]")
 	WebElement availableRoomsSection;
 
 	// ---- SELECT NUMBER OF ROOMS BOX ----- DIANA
@@ -49,7 +49,7 @@ public class PTHotelDetailsPage {
 
 	public void selectNumOfRooms(int index) {
 		List<WebElement> listNumOfRooms = driver
-				.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Child 2')]//select/option"));
+				.findElements(By.xpath("//*[@class='card mb-4'][contains(.,'Child 1')]//select/option"));
 		listNumOfRooms.get(index).click();
 	}
 

@@ -22,24 +22,39 @@ public class PTPayWithCardPage {
 		PageFactory.initElements(driver, this);
 	}
 
+	// --------- CODITION IF POP UP IS DISPLAYED ------ DIANA
+	@FindBy (xpath ="//*[@class='VerificationModal-modalContent']") WebElement ModalPopUp;
+	public WebElement getModalPopUp() {
+		return ModalPopUp;
+	}
+	public void ModalPopUp() {
+		Wait<WebDriver> wait2 = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
+
+		wait2.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//*[@class='ModalContent VerificationModal-modal ModalContent--afterOpen']")));
+		if (getModalPopUp().isDisplayed()) {
+			
+			clickCancelPopUpBtn();
+		}
+	}
 	/// -------- CLICK CANCELAR BOTON POP UP SEGURIDAD METHOD -------- IRIS
 	@FindBy(xpath = "//*[@class='mt5 flex-container justify-content-center']//button")
 	WebElement cancelPopUpBtn;
-
+	
+	
 	public WebElement getCancelPopUpBtn() {
 		return cancelPopUpBtn;
 	}
+	
 
 	public void clickCancelPopUpBtn() {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(this.driver).withTimeout(Duration.ofSeconds(60))
-				.pollingEvery(Duration.ofSeconds(3)).ignoring(ElementNotInteractableException.class);
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//*[@class='ModalContent VerificationModal-modal ModalContent--afterOpen']")));
 
 		getCancelPopUpBtn().click();
 		System.out.println("Pop up was closed");
 	}
+	
 	// -------------------------------------------------------------
 
 

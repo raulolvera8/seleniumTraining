@@ -14,13 +14,19 @@ import org.testng.annotations.DataProvider;
 
 public class ExcelDP {
 	
-	private static final int NUMERIC = 0;
 
 	@DataProvider (name = "ExcelData")
-	public Object [][] excelDataPovider(){
+	public Object [][] excelDataProvider(){
 		Object [][] dataObj = getExcelData(
 				"C:\\Users\\HP\\Documents\\dataTest\\dataPayments.xlsx",
 				"dataCard");
+		return dataObj;
+	}
+	@DataProvider (name = "ExcelDataJpetstore")
+	public Object [][] excelDpJPetstore(){
+		Object [][] dataObj = getExcelData(
+				"C:\\Users\\HP\\Documents\\dataTest\\JPetstore.xlsx",
+				"dataUser");
 		return dataObj;
 	}
 	public String [][] getExcelData(String fileName, String sheetName){
@@ -40,12 +46,14 @@ public class ExcelDP {
                 for (int j = 0; j < noOfCols; j++) {
                     row = sheet.getRow(i);
                     cell = row.getCell(j);
-                    if (cell.getCellTypeEnum() == CellType.STRING) {
+                    if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                   	 data[i - 1][j] = NumberToTextConverter.toText(cell.getNumericCellValue());
+
+                    }else if (cell.getCellTypeEnum() == CellType.STRING) {
                         data[i - 1][j] = cell.getStringCellValue();
 
-                    }else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
-                    	 data[i - 1][j] = NumberToTextConverter.toText(cell.getNumericCellValue());
-                    }                   
+                    }     
+                    System.out.println("-"+data[i - 1][j]);
                 }
             }
 		}catch (Exception e) {

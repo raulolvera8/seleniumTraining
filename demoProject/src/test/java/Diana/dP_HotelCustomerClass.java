@@ -4,8 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.annotations.Listeners;
 
 import library.Driver;
 import library.utilities;
@@ -19,9 +21,12 @@ import phptravelsPageObjectRepository.PTMenuPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
+
+@Listeners(library.listenersDiana.class)
+
+
 public class dP_HotelCustomerClass extends Driver {
 	WebDriver driver;
-
 	@BeforeClass
 	public void setup() {
 		System.out.println("set up driver travels");
@@ -110,7 +115,7 @@ public class dP_HotelCustomerClass extends Driver {
 		// CLICK PAY NOW AMOUNT BUTTON
 		stripeWindow.PayNowWithAmount();
 		// ----- PAY WINDOW ----
-		payCard.clickCancelPopUpBtn();
+		payCard.ModalPopUp();
 		payCard.CardNumberInput(cardNumber);//"4242424242424242"
 		payCard.CardExpiryInput(expirationDate);//"1024;
 		payCard.CardCVCInput(cvv);

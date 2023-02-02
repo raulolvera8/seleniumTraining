@@ -24,21 +24,22 @@ public class JPetsStorePurchase extends Driver {
 		System.out.println("set up driver traavels");
 		this.Driver = initFirefoxDriverPetStore();
 	}
-	@Parameters({ "quantity" })
-	@Test(groups = { "pets" }, priority = 0)
-
-	public void JPetstore_HomeWindow(String quantities) throws InterruptedException {
+	//@Parameters({ "quantity" })
+	//@Test(groups = { "pets" }, priority = 0)
+	//@Test(groups = { "pets" }, priority = 0)
+	@Test (dataProvider = "ExcelDataJpetstore", dataProviderClass=ExcelDP.class)
+	public void JPetstore_HomeWindow( String username, String password) throws InterruptedException {
 		// CLICK SIGN IN ACCOUNT ICON
 		JP_homePage homeWindow = new JP_homePage(Driver);
 		homeWindow.clickSignInButton();
 		// SIGN IN ACCOUNT
 		JP_LoginPage login = new JP_LoginPage(Driver);
 		// WRITE USER
-		login.writeUserName("DIANA");
+		login.writeUserName(username);//DIANA
 		// CLEAR PASSWORD
 		login.ClearPassword();
 		// WRITE PASSWORD
-		login.writePassword("JPETSTORE");
+		login.writePassword(password);//JPETSTORE
 		// CLICK LOGIN BUTTON
 		login.clickLoginButton();
 		// CLICK DOGS TAB
@@ -55,7 +56,7 @@ public class JPetsStorePurchase extends Driver {
 		// ----- VALIDATION TOTAL PRICE, LIST PRICE, QUANTITY SELECTED
 		JP_shoppingCartPage shoppingCart = new JP_shoppingCartPage(Driver);
 		// QUANTITY CHANGED
-		shoppingCart.changeQuanity(quantities);
+		shoppingCart.changeQuanity("5");
 		// CLICK UPDATE BUTTON
 		shoppingCart.clickUpdateCartBtn();
 		// QUANTITY, TOTAL COST, LIST PRICE ARE SAVED

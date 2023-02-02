@@ -22,10 +22,10 @@ public class JP_shoppingCartPage {
 	public WebElement getQuantityInput() {
 		return quantityInput;
 	}
-	public void changeQuanity(String index) throws InterruptedException {
+	public void changeQuanity(String quantities) throws InterruptedException {
 		getQuantityInput().clear();
 		Thread.sleep(1000);
-		getQuantityInput().sendKeys(index);
+		getQuantityInput().sendKeys(quantities);
 	}
 	
 	//- ------ GET QUANTITY OF PRODUCT ------ DIANA
