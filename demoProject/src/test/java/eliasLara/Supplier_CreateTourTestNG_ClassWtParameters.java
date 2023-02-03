@@ -3,10 +3,19 @@ package eliasLara;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import library.*;
 import phptravelsPageObjectRepository.*;
+
+//******************************************************
+//Title: Supplier_CreateTour
+//Objective: CREATES A TOUR WITH SUPPLIER ROLE.
+//Author: Elías Lara.
+//Date of creation/adding: 01 07 23
+//*******************************************************
+@Listeners(library.ListenersTest_Elias.class)
 
 public class Supplier_CreateTourTestNG_ClassWtParameters extends Driver {
 	WebDriver driver;
