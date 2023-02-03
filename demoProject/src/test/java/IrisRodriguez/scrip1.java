@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -13,7 +14,7 @@ import phptravelsPageObjectRepository.PTHomePage;
 import phptravelsPageObjectRepository.PTLoginPage;
 import phptravelsPageObjectRepository.PTPayWithCardPage;
 import phptravelsPageObjectRepository.PTPaymentWithStripePage;
-
+@Listeners(library.ListenersIris.class)
 public class scrip1 extends Driver {
 
 	WebDriver driver;

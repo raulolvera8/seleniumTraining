@@ -1,65 +1,67 @@
 package library;
 
+import org.openqa.selenium.remote.ProtocolHandshake.Result;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
-import org.testng.ITestContext;		
-import org.testng.ITestListener;		
-import org.testng.ITestResult;	
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 
 public class ListenersIris implements ITestListener, ISuiteListener {
 
+	// WHEN TEST CASE GET STARTED, THIS METHOD IS CALLED
 	@Override
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		System.out.println(result.getName()+" test case started");
 	}
 
+	// WHEN TEST CASE GET PASSED, THIS METHOD IS CALLED
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("The name of the testcase passed is:"+result.getName());
 	}
-
+	
+	// WHEN TEST CASE GET FAILED, THIS METHOD IS CALLED 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("The name of the testcase failed is:" + result.getName());
 	}
 
+	// WHEN TEST CASE GET SKIPPED, THIS METHOD IS CALLED
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("The name of the testcase Skipped is:"+result.getName());
+
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onStart(ISuite suite) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

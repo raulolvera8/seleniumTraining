@@ -3,12 +3,13 @@ package IrisRodriguez;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.openqa.selenium.WebDriver;
 
 import JPetStorePO.JP_ResultsFromSearchPage;
 import JPetStorePO.JP_homePage;
 import library.Driver;
-
+@Listeners(library.ListenersIris.class)
 public class JPetStore_SearchFish extends Driver {
 
 	WebDriver driver;
@@ -16,7 +17,7 @@ public class JPetStore_SearchFish extends Driver {
 	@BeforeClass()
 	public void setup() {
 		// INITIALIZE WEBDRIVER
-		this.driver = initFirefoxDriver();
+		this.driver = initFirefoxDriverPetStore();
 	}
 	
 	@Test()
