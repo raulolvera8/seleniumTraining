@@ -13,7 +13,7 @@ public class ListenersIris implements ITestListener, ISuiteListener {
 	public void onTestStart(ITestResult result) {
 		//System.out.println(result.getName()+" test case started");
 		 String testMethodName = getTestMethodName(result);
-		    System.out.println("Thread: " + Thread.currentThread().getId() + " STARTING TEST - " + testMethodName);
+		    System.out.println(" STARTING TEST - " + testMethodName);
 	}
 
 	// WHEN TEST CASE GET PASSED, THIS METHOD IS CALLED
@@ -32,13 +32,11 @@ public class ListenersIris implements ITestListener, ISuiteListener {
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		System.out.println("The name of the testcase Skipped is: "+result.getName());
-
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

@@ -1,7 +1,9 @@
 package IrisRodriguez;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -9,6 +11,7 @@ import org.testng.annotations.Test;
 import JPetStorePO.JP_FishPage;
 import JPetStorePO.JP_homePage;
 import library.Driver;
+import library.ListenersIris;
 @Listeners(library.ListenersIris.class)
 public class JPetStore_Fish extends Driver {
 
@@ -46,6 +49,13 @@ public class JPetStore_Fish extends Driver {
 		//CLICK ON FIRST ELEMENT FROM TABLE
 		fishPage.clickFirstElementTable();
 	}
+	
+	@AfterMethod(alwaysRun = true)
+	public void tearDown(ITestResult testResultOfTestMethodThatWasRun) {
+		String testMethodName = ListenersIris.getTestMethodName(testResultOfTestMethodThatWasRun);
+		System.out.println(testMethodName + " is finished");
+	}
+	
 	
 
 	@AfterClass(alwaysRun=true)
