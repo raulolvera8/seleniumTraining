@@ -1,6 +1,8 @@
 package IrisRodriguez;
 
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -9,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import JPetStorePO.JP_ResultsFromSearchPage;
 import JPetStorePO.JP_homePage;
 import library.Driver;
+import library.ListenersIris;
 @Listeners(library.ListenersIris.class)
 public class JPetStore_SearchFish extends Driver {
 
@@ -39,6 +42,13 @@ public class JPetStore_SearchFish extends Driver {
 		// PRINT ALL RESULTS
 		searchPage.PrintResults();
 
+	}
+	
+	@AfterMethod(alwaysRun = true)
+	public void tearDown(ITestResult testResultOfTestMethodThatWasRun) {
+		String testMethodName = ListenersIris.getTestMethodName(testResultOfTestMethodThatWasRun);
+		System.out.println(testMethodName + "() Thread: " + Thread.currentThread().getId() + " Ending session: "
+				+ testResultOfTestMethodThatWasRun.getAttribute("session"));
 	}
 	
 	@AfterClass()

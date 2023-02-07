@@ -1,13 +1,15 @@
 package IrisRodriguez;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import library.Driver;
+import library.ListenersIris;
 import library.utilities;
 import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
@@ -21,7 +23,7 @@ import phptravelsPageObjectRepository.PTPaymentWithStripePage;
 
 @Listeners(library.ListenersIris.class)
 public class script2 extends Driver {
-	
+
 	WebDriver driver;
 
 	@BeforeClass
@@ -32,7 +34,8 @@ public class script2 extends Driver {
 
 
 	@Test(dataProvider = "myData", dataProviderClass = DataProviderClass.class)
-	public void foundBooking(String cardNumber, String cardExpiry, String cardCVC, String cardName) throws InterruptedException {
+	public void foundBooking(String cardNumber, String cardExpiry, String cardCVC, String cardName)
+			throws InterruptedException {
 
 		// ===================== DECLARAR LAS PAGINAS DE OBJETOS =====================
 		// SIGN IN PAGE
@@ -90,7 +93,7 @@ public class script2 extends Driver {
 		searchFlightPage.clickDayDepartureCalendar();
 
 		// CLICK TO SEE OPTIONS FROM PASSANGERS
-		searchFlightPage.clickPassengersBox();
+		//searchFlightPage.clickPassengersBox();
 
 		// PRINT NUMBER OF PASSENGERS
 		searchFlightPage.PrintNumberPassangers();
@@ -186,20 +189,19 @@ public class script2 extends Driver {
 
 		// ======================== WINDOW PAY WITH CARD FORM ==================
 		// ENTER NUMBER CARD
-		//cardPage.CardNumberInput("4242 4242 4242 4242");
+		// cardPage.CardNumberInput("4242 4242 4242 4242");
 		cardPage.CardNumberInput(cardNumber);
 
-
 		// ENTER CARD EXPIRY
-		//cardPage.CardExpiryInput("0630");
+		// cardPage.CardExpiryInput("0630");
 		cardPage.CardExpiryInput(cardExpiry);
 
 		// ENTER CARD CVC
-		//cardPage.CardCVCInput("123");
+		// cardPage.CardCVCInput("123");
 		cardPage.CardCVCInput(cardCVC);
 
 		// ENTER NAME
-		//cardPage.NameCardInput("Agent Selenium");
+		// cardPage.NameCardInput("Agent Selenium");
 		cardPage.NameCardInput(cardName);
 
 		// CLICK PAGAR BUTTON
@@ -217,6 +219,13 @@ public class script2 extends Driver {
 
 		// SWITCH TO THE MAIN WINDOW
 		utils.switchToMainWindow();
+	}
+
+	@AfterMethod(alwaysRun = true)
+	public void tearDown(ITestResult testResultOfTestMethodThatWasRun) {
+		String testMethodName = ListenersIris.getTestMethodName(testResultOfTestMethodThatWasRun);
+		System.out.println(testMethodName + "() Thread: " + Thread.currentThread().getId() + " Ending session: "
+				+ testResultOfTestMethodThatWasRun.getAttribute("session"));
 	}
 
 	@AfterClass

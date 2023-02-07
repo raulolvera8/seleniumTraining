@@ -11,25 +11,27 @@ public class ListenersIris implements ITestListener, ISuiteListener {
 	// WHEN TEST CASE GET STARTED, THIS METHOD IS CALLED
 	@Override
 	public void onTestStart(ITestResult result) {
-		System.out.println(result.getName()+" test case started");
+		//System.out.println(result.getName()+" test case started");
+		 String testMethodName = getTestMethodName(result);
+		    System.out.println("Thread: " + Thread.currentThread().getId() + " STARTING TEST - " + testMethodName);
 	}
 
 	// WHEN TEST CASE GET PASSED, THIS METHOD IS CALLED
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("The name of the testcase passed is:"+result.getName());
+		System.out.println("The name of the testcase passed is: "+result.getName());
 	}
 	
 	// WHEN TEST CASE GET FAILED, THIS METHOD IS CALLED 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("The name of the testcase failed is:" + result.getName());
+		System.out.println("The name of the testcase failed is: " + result.getName());
 	}
 
 	// WHEN TEST CASE GET SKIPPED, THIS METHOD IS CALLED
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		System.out.println("The name of the testcase Skipped is:"+result.getName());
+		System.out.println("The name of the testcase Skipped is: "+result.getName());
 
 	}
 
@@ -57,6 +59,10 @@ public class ListenersIris implements ITestListener, ISuiteListener {
 	@Override
 	public void onFinish(ISuite suite) {
         System.out.println("onFinish: after suite completes");
+	}
+
+	public static String getTestMethodName(ITestResult testResultOfTestMethodThatWasRun) {
+		return testResultOfTestMethodThatWasRun.getMethod().getMethodName();
 	}
 
 }
