@@ -1,6 +1,5 @@
 package library;
 
-import org.openqa.selenium.remote.ProtocolHandshake.Result;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
@@ -42,26 +41,22 @@ public class ListenersIris implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
-
+		 System.out.println("Running NG Test - " + context.getName());
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void onStart(ISuite suite) {
-		// TODO Auto-generated method stub
-
+		 System.out.println("onStart: before suite starts");
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		// TODO Auto-generated method stub
-
+        System.out.println("onFinish: after suite completes");
 	}
 
 }
