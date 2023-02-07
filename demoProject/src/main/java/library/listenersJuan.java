@@ -10,63 +10,53 @@ public class listenersJuan implements ITestListener, ISuiteListener  {
 	
 	@Override
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		System.out.println("This is the start of a test: ");		
+		System.out.println(" Test case started: " + result.getName());
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
-		System.out.println("Results of this test: ");		
-
-	}
+		System.out.println("The name of the testcase passed is:"+result.getName());	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
-
-		System.out.println("This part of the test is failing: ");		
+		System.out.println("The name of the testcase failed is:" + result.getName());
 
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
-		System.out.println("Test was skipped");		
+		System.out.println("The name of the testcase Skipped is:"+result.getName());
 
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
-		System.out.println("");		
+		//System.out.println("The test execution has been completed partly: " + result.getName());
 
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
-		System.out.println("OnStart");		
+		//System.out.println("Class starting with tests to execute: " + context.getName());
 
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		System.out.println("OnFinish");		
+		//System.out.println("Class finishing with tests to execute: " + context.getName());
 
 	}
 
 	@Override
 	public void onStart(ISuite suite) {
-		// TODO Auto-generated method stub
-		
+		//System.out.println("Suite main method started: " + suite.getName());
+
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		// TODO Auto-generated method stub
-		
+		//System.out.println("Suite main method finished: " + suite.getName());
+
 	}
 	
 

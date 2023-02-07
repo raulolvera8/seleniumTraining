@@ -1,8 +1,10 @@
 package Juan;
 
 import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import JPetStorePO.JP_BirdsDashboard;
@@ -10,13 +12,16 @@ import JPetStorePO.JP_LoginPage;
 import JPetStorePO.JP_homePage;
 import library.Driver;
 
+@Listeners(library.listenersJuan.class)
+
+
 public class scriptPurchaseBird extends Driver {
 
 	WebDriver driver;
 
 	@BeforeClass
 	public void setup() {
-		this.driver = initFirefoxDriver();
+		this.driver = initFirefoxDriverPetStore();
 	}
 	
 	@Test
