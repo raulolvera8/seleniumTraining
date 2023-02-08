@@ -8,12 +8,22 @@ import org.testng.ITestResult;
 
 public class ListenersIris implements ITestListener, ISuiteListener {
 
+	// SUITE LEVEL
+	@Override
+	public void onStart(ISuite suite) {
+		 System.out.println("onStart: before suite starts");
+	}
+
+	@Override
+	public void onFinish(ISuite suite) {
+        System.out.println("onFinish: after suite completes");
+	}
+
+	// TEST
 	// WHEN TEST CASE GET STARTED, THIS METHOD IS CALLED
 	@Override
 	public void onTestStart(ITestResult result) {
-		//System.out.println(result.getName()+" test case started");
-		 String testMethodName = getTestMethodName(result);
-		    System.out.println(" STARTING TEST - " + testMethodName);
+        System.out.println(result.getName()+" test case started");
 	}
 
 	// WHEN TEST CASE GET PASSED, THIS METHOD IS CALLED
@@ -36,31 +46,18 @@ public class ListenersIris implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
+		System.out.println("Failure of test cases and its details are : "+result.getName());  
 	}
-
+	
+	//Invoked after the test class is instantiated and before any configuration method is called.
 	@Override
 	public void onStart(ITestContext context) {
-		 System.out.println("Running NG Test - " + context.getName());
+		System.out.println("I am in onStart method " + context.getName());
 	}
 
+	//Invoked after all the tests have run and all their Configuration methods have been called.
 	@Override
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
+        System.out.println("I am in onFinish method " + context.getName());
 	}
-
-	@Override
-	public void onStart(ISuite suite) {
-		 System.out.println("onStart: before suite starts");
-	}
-
-	@Override
-	public void onFinish(ISuite suite) {
-        System.out.println("onFinish: after suite completes");
-	}
-
-	public static String getTestMethodName(ITestResult testResultOfTestMethodThatWasRun) {
-		return testResultOfTestMethodThatWasRun.getMethod().getMethodName();
-	}
-
 }

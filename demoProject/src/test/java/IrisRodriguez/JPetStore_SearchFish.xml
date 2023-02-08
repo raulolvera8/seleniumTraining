@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="library.ListenersIris"></listener>
+	</listeners>
+ <test name="Test one">
+		<classes>
+			<class name="IrisRodriguez.JPetStore_SearchFish">
+				<methods>
+					<include name="GroupHome" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test two">
+		<classes>
+			<class name="IrisRodriguez.JPetStore_SearchFish">
+				<methods>
+					<include name="GroupSearch" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> <!-- Suite -->

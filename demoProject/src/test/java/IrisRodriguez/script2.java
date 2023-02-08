@@ -1,15 +1,13 @@
 package IrisRodriguez;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestResult;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import library.Driver;
-import library.ListenersIris;
 import library.utilities;
 import phptravelsPageObjectRepository.PTBookingFormPage;
 import phptravelsPageObjectRepository.PTBookingInvoicePage;
@@ -32,23 +30,12 @@ public class script2 extends Driver {
 		this.driver = initFirefoxDriver();
 	}
 
-
-	@Test(dataProvider = "myData", dataProviderClass = DataProviderClass.class)
-	public void foundBooking(String cardNumber, String cardExpiry, String cardCVC, String cardName)
-			throws InterruptedException {
-
-		// ===================== DECLARAR LAS PAGINAS DE OBJETOS =====================
+	public void SignIn() throws InterruptedException {
 		// SIGN IN PAGE
 		PTHomePage signInPage = new PTHomePage(driver);
 		PTLoginPage loginPage = new PTLoginPage(driver);
-		PTMenuPage menuPage = new PTMenuPage(driver);
-		PTFlightsPage searchFlightPage = new PTFlightsPage(driver);
-		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
-		PTBookingFormPage travellerFormPage = new PTBookingFormPage(driver);
-		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
-		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
-		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
 		utilities utils = new utilities(driver);
+
 
 		// LLAMAR METODOS DE CADA PAGINA (EN ORDEN DE EJECUCION)
 		// ========================= SIGN IN PAGE ====================================
@@ -70,6 +57,21 @@ public class script2 extends Driver {
 
 		// CLICK LOGIN BUTTON
 		loginPage.clickLoginButtonAgent();
+	}
+
+	@Test(dataProvider = "myData", dataProviderClass = DataProviderClass.class)
+	public void foundBooking(String cardNumber, String cardExpiry, String cardCVC, String cardName) throws InterruptedException {
+
+		// ===================== DECLARAR LAS PAGINAS DE OBJETOS =====================
+
+		PTMenuPage menuPage = new PTMenuPage(driver);
+		PTFlightsPage searchFlightPage = new PTFlightsPage(driver);
+		PTFlightSearchResultsPage flightsPage = new PTFlightSearchResultsPage(driver);
+		PTBookingFormPage travellerFormPage = new PTBookingFormPage(driver);
+		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
+		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
+		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
+		utilities utils = new utilities(driver);
 
 		// ======================== FLIGHTS SEARCH WINDOW ========================
 
@@ -93,7 +95,7 @@ public class script2 extends Driver {
 		searchFlightPage.clickDayDepartureCalendar();
 
 		// CLICK TO SEE OPTIONS FROM PASSANGERS
-		//searchFlightPage.clickPassengersBox();
+		// searchFlightPage.clickPassengersBox();
 
 		// PRINT NUMBER OF PASSENGERS
 		searchFlightPage.PrintNumberPassangers();
@@ -215,17 +217,12 @@ public class script2 extends Driver {
 		bookingInvoicePage.VerifySecondDataTraveller(); // PASSPORT NO., PASSPORT EXPIRY, PASSPORT ISSUANCE
 
 		// SE CIERRA LA SEGUNDA VENTANA
-		utils.CloseCurrentWindow();
+//		utils.CloseCurrentWindow();
 
 		// SWITCH TO THE MAIN WINDOW
-		utils.switchToMainWindow();
-	}
-
-	@AfterMethod(alwaysRun = true)
-	public void tearDown(ITestResult testResultOfTestMethodThatWasRun) {
-		String testMethodName = ListenersIris.getTestMethodName(testResultOfTestMethodThatWasRun);
-		System.out.println(testMethodName + "() Thread: " + Thread.currentThread().getId() + " Ending session: "
-				+ testResultOfTestMethodThatWasRun.getAttribute("session"));
+//		utils.switchToMainWindow();
+		
+		Assert.fail();
 	}
 
 	@AfterClass

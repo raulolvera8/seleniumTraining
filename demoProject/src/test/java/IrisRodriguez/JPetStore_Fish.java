@@ -50,11 +50,11 @@ public class JPetStore_Fish extends Driver {
 		fishPage.clickFirstElementTable();
 	}
 	
-	@AfterMethod(alwaysRun = true)
-	public void tearDown(ITestResult testResultOfTestMethodThatWasRun) {
-		String testMethodName = ListenersIris.getTestMethodName(testResultOfTestMethodThatWasRun);
-		System.out.println(testMethodName + " is finished");
-	}
+//	@AfterMethod(alwaysRun = true)
+//	public void tearDown(ITestResult testResultOfTestMethodThatWasRun) {
+//		String testMethodName = ListenersIris.getTestMethodName(testResultOfTestMethodThatWasRun);
+//		System.out.println(testMethodName + " is finished");
+//	}
 	
 	
 

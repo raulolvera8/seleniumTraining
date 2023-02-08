@@ -25,7 +25,6 @@ public class scrip1 extends Driver {
 		this.driver = initFirefoxDriver();
 	}
 
-	//@Parameters ({"CardNumber", "CardExpiry", "CardCVC", "CardName"})
 	
 	@Test(dataProvider = "ExcelData", dataProviderClass = ExcelDataProvider.class)
 	public void addCredits(String cardNumber, String cardExpiry, String cardCVC, String cardName) throws InterruptedException  {
