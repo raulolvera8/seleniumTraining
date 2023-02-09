@@ -24,16 +24,22 @@ public class scriptPetStore extends Driver {
 		this.driver = initFirefoxDriverPetStore();
 	}
 	
-	@Test
+	@Test(groups = {"Home"}) 
 	public void HomeJPetStore() {
 
-		JP_homePage homePage = new JP_homePage(driver);
-		JP_BirdsDashboard birdPage = new JP_BirdsDashboard(driver);
-
-	
-	    
+		JP_homePage homePage = new JP_homePage(driver);  
+		
 		//CLICK ON BIRDS
 		homePage.clickBirdsButton();
+	
+		
+	}
+	
+	@Test(groups={"Birds"}) 
+	public void BirdsPetStore() {
+		
+		JP_BirdsDashboard birdPage = new JP_BirdsDashboard(driver);
+		
 		//CLICK THE FIRST ELEMENT
 		birdPage.clickSelectBird();
 		//VERIFY THE BIRD PAGE

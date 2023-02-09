@@ -1,7 +1,9 @@
 package Juan;
 
 import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import library.Driver;
@@ -16,6 +18,9 @@ import phptravelsPageObjectRepository.PTTourBookingPage;
 import phptravelsPageObjectRepository.PTTourDetails;
 import phptravelsPageObjectRepository.PTToursInDubai;
 import phptravelsPageObjectRepository.PTToursPage;
+
+@Listeners(library.listenersJuan.class)
+
 
 public class DPscriptTour extends Driver {
 	WebDriver driver;

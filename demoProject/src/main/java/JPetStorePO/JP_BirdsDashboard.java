@@ -20,9 +20,9 @@ public class JP_BirdsDashboard {
 		PageFactory.initElements(Driver, this);
 	}
 
+	
 
-
-	@FindBy(xpath ="//*[text()='AV-CB-01']")
+	@FindBy(xpath = "//*[text()='AV-CB-01']")
 	WebElement selectBird;
 
     public WebElement getSelectBird() {
