@@ -1,5 +1,6 @@
 package IrisRodriguez;
 
+import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -44,6 +45,13 @@ public class JPetStore_SearchFish extends Driver {
 
 		// PRINT ALL RESULTS
 		searchPage.PrintResults();
+	}
+	
+	@Test
+	public void testSkip() throws Exception {
+	    if (true) {
+	        throw new SkipException("Skipping test.");
+	    }
 	}
 
 	@AfterClass()

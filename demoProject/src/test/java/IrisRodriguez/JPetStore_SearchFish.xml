@@ -7,19 +7,8 @@
  <test name="Test one">
 		<classes>
 			<class name="IrisRodriguez.JPetStore_SearchFish">
-				<methods>
-					<include name="GroupHome" />
-				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Test two">
-		<classes>
-			<class name="IrisRodriguez.JPetStore_SearchFish">
-				<methods>
-					<include name="GroupSearch" />
-				</methods>
-			</class>
-		</classes>
-	</test>
+
 </suite> <!-- Suite -->

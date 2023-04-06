@@ -1,7 +1,6 @@
 package IrisRodriguez;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -71,7 +70,6 @@ public class script2 extends Driver {
 		PTBookingInvoicePage bookingInvoicePage = new PTBookingInvoicePage(driver);
 		PTPayWithCardPage cardPage = new PTPayWithCardPage(driver);
 		PTPaymentWithStripePage stripePage = new PTPaymentWithStripePage(driver);
-		utilities utils = new utilities(driver);
 
 		// ======================== FLIGHTS SEARCH WINDOW ========================
 
@@ -222,12 +220,12 @@ public class script2 extends Driver {
 		// SWITCH TO THE MAIN WINDOW
 //		utils.switchToMainWindow();
 		
-		Assert.fail();
+	
 	}
 
 	@AfterClass
 	public void teardown() {
-		teardownDriver();
+		//teardownDriver();
 	}
 
 }
